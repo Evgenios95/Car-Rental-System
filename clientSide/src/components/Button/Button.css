@@ -1,0 +1,13 @@
+.cr-btn {
+  border: 1px solid black;
+  border-radius: 11px;
+  box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.64);
+  width: 152px;
+  height: 35px;
+  font-family: var(--font-family-mont);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  /* line-height: 20px; */
+  text-align: center;
+}

@@ -5,11 +5,7 @@
 .nav-link {
   color: white !important;
 }
-.nav {
-  background-color: pink !important;
-  display: "justify-content-end" !important;
-}
 
-#logOut {
-  margin-right: auto;
+.nav-link:hover {
+  color: black !important; /*will change color of text within the element on hover */
 }

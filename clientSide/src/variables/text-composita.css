@@ -1,0 +1,6 @@
+/*TODO: This is how we will do the nested variables*/
+/*TODO: Let's say that we have the mont-fly. Then we should*/
+:root {
+  /** Then this is going to be called in the css as var(--mont-fly)*/
+  --mont-fly: var(--font-family-mont) var(--font-size-fly);
+}

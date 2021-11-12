@@ -1,0 +1,10 @@
+/* Defining global fonts */
+:root {
+  --font-family-mont: "Montserrat", sans-serif;
+  --font-family-open: "Open Sans", sans-serif;
+}
+
+/* Defining global fonts */
+:root {
+  --font-size-fly: 0.83rem;
+}

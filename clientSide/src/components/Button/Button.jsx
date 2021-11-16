@@ -1,4 +1,4 @@
-import '../../App.css';
+import "../../App.css";
 import "./Button.css";
 import styled from "styled-components";
 
@@ -10,18 +10,19 @@ const CrButton = (props) => {
   `;
 
   const ButtonText = styled.div`
-    color: ${() => btnColor || '#56d3d3'};
+    color: ${() => btnColor || "#56d3d3"};
   `;
 
   const buttonworks = () => {
-      console.log('Hey there, I work');
-  }
+    console.log("Hey there, I work");
+  };
 
   return (
-      <Button className="cr-btn">
-        <ButtonText onClick={buttonworks} className="btn-cr-text">{btnText}</ButtonText>
-      </Button>
-
+    <Button className="cr-btn">
+      <ButtonText onClick={buttonworks} className="btn-cr-text">
+        {btnText}
+      </ButtonText>
+    </Button>
   );
 };
 

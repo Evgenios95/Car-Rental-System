@@ -1,0 +1,11 @@
+.nav-bar {
+  background-color: #157615;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: black !important; /*will change color of text within the element on hover */
+}

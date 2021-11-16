@@ -1,0 +1,32 @@
+.login-container {
+  display: flex;
+  width: 522px;
+  height: 471px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsla(0, 0%, 83%, 1);
+  border-radius: 18px;
+}
+
+.login-container-inside {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 84px 151px 70px;
+  width: 100%;
+}
+
+.login-title {
+  margin-bottom: 20px;
+  font: var(--mont-fly);
+}
+
+div.login-input-item:first-child {
+  margin-bottom: 20px;
+}
+
+.login-container-inside button {
+  display: block;
+  margin: 40px auto;
+}

@@ -50,6 +50,7 @@ const LoginComponent = () => {
               inputPlaceholder={text.placeHText}
             ></InputComponent>
             <InputComponent
+              type = "password"
               onChange={handlePassword}
               labelText={text.pwText}
               inputPlaceholder={text.placeHText}

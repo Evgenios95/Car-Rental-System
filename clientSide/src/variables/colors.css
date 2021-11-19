@@ -2,33 +2,33 @@
 :root {
   /* Grey-scale:  */
   --global-black: hsla(0, 0%, 0%);
-  --global-gray24: hsla(0, 0%, 24);
-  --global-dimgray: hsla(0, 0%, 41);
-  --global-gray: hsla(0, 0%, 50);
-  --global-silver: hsla(0, 0%, 75);
-  --global-lightgray: hsla(0, 0%, 83);
-  --global-gray89: hsla(0, 0%, 89);
-  --global-white: hsla(0, 0%, 89);
+  --global-gray24: hsla(0, 0%, 24%);
+  --global-dimgray: hsla(0, 0%, 41%);
+  --global-gray: hsla(0, 0%, 50%);
+  --global-silver: hsla(0, 0%, 75%);
+  --global-lightgray: hsla(0, 0%, 83%);
+  --global-gray89: hsla(0, 0%, 89%);
+  --global-white: hsla(0, 0%, 89%);
   /* Use --global-black: Black button, primary font-color */
   /* Use --global-dimgray: Placeholder */
   /* Use --global-white: White buttons, inputs, dropdowns, main font-color on dark backgrounds, background body-color */
 
   /* Green scale: */
-  --global-night-vision: hsla(113, 47%, 62);
-  --global-green-19: hsla(113, 47%, 47);
-  --global-green-31: hsla(113, 47%, 31);
-  --global-green-45: hsla(113, 47%, 45);
-  --global-green-63: hsla(113, 47%, 63);
-  --global-green-75: hsla(113, 0%, 89);
+  --global-night-vision: hsla(113, 47%, 62%);
+  --global-green-19: hsla(113, 47%, 47%);
+  --global-green-31: hsla(113, 47%, 31%);
+  --global-green-45: hsla(113, 47%, 45%);
+  --global-green-63: hsla(113, 47%, 63%);
+  --global-green-75: hsla(113, 0%, 89%);
   /*Use --global-night-vision: Primary button on hover */
   /*Use -global-green-19: Links */
   /*Use --global-green-75: White button on hover */
 
   /* Red-scale: */
   --global-fire-engine-red: hsla(357, 73%, 47);
-  --global-red-35: hsla(357, 73%, 35);
-  --global-red-55: hsla(357, 73%, 73);
-  --global-red-63: hsla(357, 73%, 63);
-  --global-red-70: hsla(357, 73%, 70);
+  --global-red-35: hsla(357, 73%, 35%);
+  --global-red-55: hsla(357, 73%, 73%);
+  --global-red-63: hsla(357, 73%, 63%);
+  --global-red-70: hsla(357, 73%, 70%);
   /*Use --global-red-55: Error button on hover */
 }

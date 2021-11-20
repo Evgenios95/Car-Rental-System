@@ -1,13 +1,12 @@
 import "./input.css";
 
 const InputComponent = (props) => {
-  const { labelText, inputPlaceholder } = props;
-
+  const { labelText, type, inputPlaceholder } = props;
 
   return (
     <div className="inputContainer login-input-item">
       <label htmlFor="">{labelText}</label>
-      <input type="text" placeholder={inputPlaceholder} required />
+      <input type={type} placeholder={inputPlaceholder} required />
     </div>
   );
 };

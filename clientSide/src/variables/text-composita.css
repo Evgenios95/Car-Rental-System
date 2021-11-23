@@ -1,0 +1,16 @@
+/*TODO: This is how we will do the nested variables*/
+/*TODO: Let's say that we have the mont-fly. Then we should*/
+:root {
+  /** Then this is going to be called in the css as var(--mont-fly)*/
+  --mont-fly: var(--font-family-mont) var(--font-size-fly);
+  --mont-bee: var(--font-family-mont) var(--font-size-bee);
+  --mont-wasp: var(--font-family-mont) var(--font-size-wasp);
+  --mont-caterpillar: var(--font-family-mont) var(--font-size-caterpillar);
+  --mont-butterfly: var(--font-family-mont) var(--font-size-butterfly);
+
+  --open-fly: var(--font-family-open) var(--font-size-fly);
+  --open-bee: var(--font-family-open) var(--font-size-bee);
+  --open-wasp: var(--font-family-open) var(--font-size-wasp);
+  --open-caterpillar: var(--font-family-open) var(--font-size-caterpillar);
+  --open-butterfly: var(--font-family-open) var(--font-size-butterfly);
+}

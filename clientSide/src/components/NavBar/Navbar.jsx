@@ -34,7 +34,7 @@ const NavBar = () => {
             <Nav.Link className="text-white" as={Link} to="/request">
               <span>Request</span>
             </Nav.Link>
-            <Nav.Link className="text-white ms-auto" as={Link} to="/">
+            <Nav.Link className="text-white ms-auto" as={Link} to="/login">
               <span>
                 <i className="fas fa-sign-out-alt"></i>
               </span>

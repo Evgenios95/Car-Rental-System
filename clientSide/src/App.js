@@ -1,7 +1,8 @@
 import "./App.css";
-import  NavBar  from "./components/NavBar/Navbar";
-import LoginComponent from "./components/Login/Login"
-import {Route, Routes} from "react-router"
+import NavBar from "./components/NavBar/Navbar";
+import LoginComponent from "./components/Login/Login";
+import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
+import { Route, Routes } from "react-router";
 import Parse from "parse";
 
 Parse.initialize(
@@ -11,13 +12,13 @@ Parse.initialize(
 
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY)
+console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY);
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <Routes>
-        <Route path="/login" element= {<LoginComponent/>}/>   
+        <Route path="/" element={<StartingPageImage />} />
+        <Route path="/login" element={<LoginComponent />} />
       </Routes>
     </div>
   );

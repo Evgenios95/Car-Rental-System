@@ -1,36 +1,46 @@
-import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+/**
+ * as={Link} translates the NavLink into a Link from react-router-dom.
+ * removed the !important properties
+ * experimented and added more classes to the elements
+ */
 const NavBar = () => {
   return (
-    <Navbar className="nav-bar" expand="lg" sticky="top">
+    <Navbar className="nav-bar" expand="md" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">Scancar</Navbar.Brand>
+        <Navbar.Brand>Scancar</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link id="find" href="find">
-              Find booking
+        <Nav className="container-fluid">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="mx-auto text-center w-100"
+          >
+            <Nav.Link className="text-white" as={Link} to="/find-booking">
+              <span>Find booking</span>
             </Nav.Link>
-            <Nav.Link id="book" href="book">
-              Book
+            <Nav.Link className="text-white" as={Link} to="/book">
+              <span>Book</span>
             </Nav.Link>
-            <Nav.Link id="overview" href="overview">
-              Overview
+            <Nav.Link className="text-white" as={Link} to="/overview">
+              <span>Overview</span>
             </Nav.Link>
-            <Nav.Link id="release" href="Release">
-              Release
+            <Nav.Link className="text-white" as={Link} to="/release">
+              <span>Release</span>
             </Nav.Link>
-            <Nav.Link id="request" href="request">
-              Request
+            <Nav.Link className="text-white" as={Link} to="/request">
+              <span>Request</span>
             </Nav.Link>
-            <Nav.Link id="logOut" href="login">
-              {" "}
-              <i className="fas fa-sign-out-alt"></i>{" "}
+            <Nav.Link className="text-white ms-auto" as={Link} to="/login">
+              <span>
+                <i className="fas fa-sign-out-alt"></i>
+              </span>
             </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+          </Navbar.Collapse>
+        </Nav>
       </Container>
     </Navbar>
   );

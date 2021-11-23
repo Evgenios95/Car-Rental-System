@@ -6,5 +6,9 @@
 
 /* Defining global fonts */
 :root {
-  --font-size-fly: 0.83rem;
+  --font-size-fly: 0.69rem;
+  --font-size-bee: 0.83rem;
+  --font-size-wasp: 1rem; 
+  --font-size-caterpillar: 1.2rem;
+  --font-size-butterfly: 1.44rem;
 }

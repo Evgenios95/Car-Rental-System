@@ -5,3 +5,7 @@
 a.text-white.nav-link span:hover {
   color: black;
 }
+
+div.container {
+  max-width: 80%;
+}

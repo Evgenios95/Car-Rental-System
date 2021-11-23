@@ -15,3 +15,12 @@ export const CustomerInfoLabels = {
   driversLicensNr: "Driver's License Number*",
   phoneNumber: "Phone Number*",
 };
+
+export const NavigationLabels = {
+  brand: "Scancar",
+  find: "Find Booking",
+  book: "Book",
+  overview: "Overview",
+  release: "Release",
+  request: "Request",
+};

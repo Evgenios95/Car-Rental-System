@@ -5,9 +5,20 @@ import { DropDownList } from "../../text/text";
 const DropDown = (props) => {
 
   const { labeltext, type } = props;
-  const typeOfDropdown = props.type;
-  const itemlist = DropDownList.cargroup;
+  const typeOfDropdown = type;
 
+  switch (typeOfDropdown) {
+    case "cargroup":
+      var itemlist = DropDownList.cargroup;
+      break;
+      case "carstate":
+        var itemlist = DropDownList.carstate;
+        break;   
+    default:
+      break;
+  }
+  
+  console.log(typeOfDropdown)
 
  return(
   <div>

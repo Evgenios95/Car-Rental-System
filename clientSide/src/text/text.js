@@ -17,5 +17,6 @@ export const CustomerInfoLabels = {
 };
 
 export const DropDownList = {
-  cargroup: ["small", "medium", "large", "x-large", "family", "business", "stationcars", "Automatics", "small aut"],
+  cargroup: ["none","small", "medium", "large", "x-large", "family", "business", "stationcars", "Automatics", "small aut"],
+  carstate: ["none","ready", "rented", "returned", "transfer", "unavailable"],
 };

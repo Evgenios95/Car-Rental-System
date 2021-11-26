@@ -1,35 +1,54 @@
 import "./DropDown.css";
-import React from "react";
-import { DropDownList } from "../../text/text";
+import React, { useEffect, useState } from "react";
+import Parse from "parse";
 
 const DropDown = (props) => {
+  const [isLoading, setLoading] = useState(true);
+  const [elements, setElements] = useState(["nothing"]);
+  var { labeltext, type, attribute } = props;
 
-  const { labeltext, type } = props;
-  const typeOfDropdown = type;
+  useEffect(() => {
+    (async () => {
+      const element = Parse.Object.extend(type);
+      const query = new Parse.Query(element);
+      const elementArray = [];
+      let filteredArray = (array) =>
+        array.filter((v, i) => array.indexOf(v) === i);
+      try {
+        const results = await query.find();
+        for (const object of results) {
+          const att = object.get(attribute);
+          console.log("att: " + att);
+          elementArray.push(att);
+        }
+        if (typeof elementArray[0] == "number") {
+          elementArray.sort();
+        }
+        setElements(filteredArray(elementArray));
+      } catch (error) {
+        console.error("Error while fetching" + type, error);
+      }
+      setLoading(false);
+    })();
+  }, []);
 
-  switch (typeOfDropdown) {
-    case "cargroup":
-      var itemlist = DropDownList.cargroup;
-      break;
-      case "carstate":
-        var itemlist = DropDownList.carstate;
-        break;   
-    default:
-      break;
+  if (isLoading) {
+    return <div className="App">Loading...</div>;
   }
-  
-  console.log(typeOfDropdown)
-
- return(
-  <div>
-    <label className="label" htmlFor="dropDown"> {labeltext}  </label>
-    <select className="drop" id="dropDown">
-    {itemlist.map((item, i) => (
-        <option key={i} value={item}>{item}</option>
-      ))}
-    </select> 
-  </div>
-
-  )
-}
+  return (
+    <div>
+      <label className="label" htmlFor="dropDown">
+        {" "}
+        {labeltext}{" "}
+      </label>
+      <select className="drop" id="dropDown">
+        {elements.map((item, i) => (
+          <option key={i} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
 export default DropDown;

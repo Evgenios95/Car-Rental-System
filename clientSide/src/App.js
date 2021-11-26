@@ -1,8 +1,8 @@
 import "./App.css";
-import  NavBar  from "./components/NavBar/Navbar";
-import LoginComponent from "./components/Login/Login"
+import NavBar from "./components/NavBar/Navbar";
+import LoginComponent from "./components/Login/Login";
 import DropDown from "./components/DropDown/DropDown";
-import {Route, Routes} from "react-router"
+import { Route, Routes } from "react-router";
 import Parse from "parse";
 
 Parse.initialize(
@@ -12,14 +12,19 @@ Parse.initialize(
 
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY)
+console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY);
 function App() {
   return (
     <div className="App">
       <NavBar />
+      <DropDown type="CarGroup" labetext="Car group" attribute="name" />
+      <DropDown
+        type="CarGroup"
+        labetext="baggage"
+        attribute="baggageCapacity"
+      />
       <Routes>
-      <Route path="/" element= {<DropDown type="cargroup" labeltext = "Car groups"/>} />   
-        <Route path="/login" element= {<LoginComponent/>}/>   
+        <Route path="/login" element={<LoginComponent />} />
       </Routes>
     </div>
   );

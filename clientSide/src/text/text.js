@@ -15,3 +15,7 @@ export const CustomerInfoLabels = {
   driversLicensNr: "Driver's License Number*",
   phoneNumber: "Phone Number*",
 };
+
+export const DropDownList = {
+  cargroup: ["small", "medium", "large", "x-large", "family", "business", "stationcars", "Automatics", "small aut"],
+};

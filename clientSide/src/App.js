@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-      <Route path="/" element= {<DropDown type="CarGroup" labeltext = "Car groups" attribute="name" />}/>   
+      <Route path="/" element= {<DropDown type="cargroup" labeltext = "Car groups"/>}/>   
         <Route path="/login" element= {<LoginComponent/>}/>   
       </Routes>
     </div>

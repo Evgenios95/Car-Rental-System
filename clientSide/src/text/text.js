@@ -24,3 +24,13 @@ export const NavigationLabels = {
   release: "Release",
   request: "Request",
 };
+
+export const PageTitles = {
+  requestCar: "Request Car",
+  releaseCar: "Release Car",
+  findBooking: "Find Booking",
+  book: "Book",
+  carOverview: "Car Overview",
+  individualBookingDetailPage: "Individual Booking Detail Page",
+  returnAndPickUp: "Return and pick up",
+};

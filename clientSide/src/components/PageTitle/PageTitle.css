@@ -1,0 +1,7 @@
+.page-title {
+  font-family: var(--font-family-mont);
+  font-size: var(--font-size-butterfly);
+  position: relative;
+  top: 30px;
+  left: 20px;
+}

@@ -16,7 +16,12 @@ export const CustomerInfoLabels = {
   phoneNumber: "Phone Number*",
 };
 
-export const DropDownList = {
-  cargroup: ["none","small", "medium", "large", "x-large", "family", "business", "stationcars", "Automatics", "small aut"],
-  carstate: ["none","ready", "rented", "returned", "transfer", "unavailable"],
+
+export const NavigationLabels = {
+  brand: "Scancar",
+  find: "Find Booking",
+  book: "Book",
+  overview: "Overview",
+  release: "Release",
+  request: "Request",
 };

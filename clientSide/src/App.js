@@ -2,6 +2,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/Navbar";
 import LoginComponent from "./components/Login/Login";
 import DropDown from "./components/DropDown/DropDown";
+import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
 import { Route, Routes } from "react-router";
 import Parse from "parse";
 
@@ -17,13 +18,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <DropDown type="CarGroup" labetext="Car group" attribute="name" />
-      <DropDown
-        type="CarGroup"
-        labetext="baggage"
-        attribute="baggageCapacity"
-      />
       <Routes>
+        <Route path="/" element={<StartingPageImage />} />
         <Route path="/login" element={<LoginComponent />} />
       </Routes>
     </div>

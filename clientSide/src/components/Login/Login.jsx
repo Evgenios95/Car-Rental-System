@@ -26,7 +26,7 @@ const LoginComponent = () => {
         // Pass the username and password to logIn function
         let user = await Parse.User.logIn(username, password);
         // Do stuff after successful login
-        navigate("/");
+        navigate("/book");
         console.log("Logged in user", user);
       } catch (error) {
         console.error("Error while logging in user", error);

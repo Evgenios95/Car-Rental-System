@@ -1,0 +1,18 @@
+.drop {
+  border: hidden;
+  box-shadow: 3px 4px 7px var(--global-black);
+  width: 152px;
+  height: 35px;
+  font-family: var(--mont-bee);
+  text-align: center;
+}
+
+label,
+select {
+  display: block;
+}
+
+.label {
+  font-size: var(--font-size-bee);
+  margin-bottom: 5px;
+}

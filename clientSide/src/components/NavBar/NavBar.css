@@ -1,11 +1,11 @@
 .nav-bar {
-  background-color: #157615;
+  background-color: hsl(113, 47%, 31%);
 }
 
-.nav-link {
-  color: white !important;
+a.text-white.nav-link span:hover {
+  color: black;
 }
 
-.nav-link:hover {
-  color: black !important; /*will change color of text within the element on hover */
+div.container {
+  max-width: 80%;
 }

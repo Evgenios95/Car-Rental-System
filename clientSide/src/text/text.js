@@ -1,4 +1,4 @@
-export const text = {
+export const GeneralText = {
   login: "Log in",
   userText: "Username*",
   pwText: "Password*",
@@ -69,3 +69,22 @@ export const smallAutomaticCarType = {
   carModel : "Seat Toledo Aut",
   carInfo : "4 Passengers & 3 big suitcases and 1 small suitcase"
 }
+
+export const NavigationLabels = {
+  brand: "Scancar",
+  find: "Find Booking",
+  book: "Book",
+  overview: "Overview",
+  release: "Release",
+  request: "Request",
+};
+
+export const PageTitles = {
+  requestCar: "Request Car",
+  releaseCar: "Release Car",
+  findBooking: "Find Booking",
+  book: "Book",
+  carOverview: "Car Overview",
+  individualBookingDetailPage: "Individual Booking Detail Page",
+  returnAndPickUp: "Return and pick up",
+};

@@ -2,13 +2,12 @@
 :root {
   --font-family-mont: "Montserrat", sans-serif;
   --font-family-open: "Open Sans", sans-serif;
-}
 
-/* Defining global fonts */
-:root {
+  /* Defining global fonts */
+
   --font-size-fly: 0.69rem;
   --font-size-bee: 0.83rem;
-  --font-size-wasp: 1rem; 
+  --font-size-wasp: 1rem;
   --font-size-caterpillar: 1.2rem;
   --font-size-butterfly: 1.44rem;
 }

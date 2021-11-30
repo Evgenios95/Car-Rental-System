@@ -1,36 +1,32 @@
-
 .card {
-	background-color: lightgrey;
-	color: #272727;
-	padding: 20px;
-	border-radius: 10px;
-    width: 100%;
+  color: var(--global-lightgray);
+  color: #272727;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .card-title {
-	flex: 0.5;
-	font-size: var(--font-size-butterfly);
-	font-family: var(--font-family-mont);
-	margin-bottom: 0;
-	margin-top: 0;
-	text-align: center;
+  flex: 0.5;
+  font: var(--mont-butterfly);
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
 }
 
-.image{
-	align-items: center;
-	width: 200px;
-	margin: auto;
+.image {
+  align-items: center;
+  width: 200px;
+  margin: auto;
 }
 
 .card-text {
-	width: auto;
-	font-size: var(--font-size-caterpillar);
-	font-family: var(--font-family-open);	
-	text-align: center;
+  width: auto;
+  font: var(--open-caterpillar);
+  text-align: center;
 }
 .card-info {
-	width: auto;
-	font-size: var(--font-size-fly);
-	font-family: var(--font-family-mont);
-	text-align: center;
+  width: auto;
+  font: var(--mont-fly);
+  text-align: center;
 }

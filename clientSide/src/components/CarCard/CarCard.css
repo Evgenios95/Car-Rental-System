@@ -1,6 +1,6 @@
 .card {
-  color: var(--global-lightgray);
-  color: #272727;
+  background-color: var(--global-lightgray);
+  color: var(--global-gray24);
   padding: 20px;
   border-radius: 10px;
   width: 100%;

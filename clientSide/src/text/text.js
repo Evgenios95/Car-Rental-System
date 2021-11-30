@@ -16,7 +16,6 @@ export const CustomerInfoLabels = {
   phoneNumber: "Phone Number*",
 };
 
-
 export const NavigationLabels = {
   brand: "Scancar",
   find: "Find Booking",
@@ -34,4 +33,24 @@ export const PageTitles = {
   carOverview: "Car Overview",
   individualBookingDetailPage: "Individual Booking Detail Page",
   returnAndPickUp: "Return and pick up",
+};
+
+export const SubtitlesText = {
+  pickUpTime: "Pick up time and date",
+  pickCargroup: "Pick cargroup and rental office",
+  request: "Request",
+  availbleCars: "Available Cars",
+  availableCars1Week: "Available cars in 1 week",
+  searchBookingWithID: "Search for bookings with license number or booking ID",
+  searchWithPickUpDate: "Search with pick-up date",
+  pickUp: "Pick up",
+  return: "Return",
+  customerInfo: "Customer info",
+  carGroups: "Cargroups",
+  customerRecord: "Customer record",
+  bookingRecord: "Booking record",
+  carRecord: "Car record",
+  pickUpInfo: "Pick up info",
+  returnInfo: "Return info",
+  checkList: "Checklist",
 };

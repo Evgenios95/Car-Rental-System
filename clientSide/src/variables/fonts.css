@@ -1,9 +1,6 @@
-/* Defining global fonts */
 :root {
   --font-family-mont: "Montserrat", sans-serif;
   --font-family-open: "Open Sans", sans-serif;
-
-  /* Defining global fonts */
 
   --font-size-fly: 0.69rem;
   --font-size-bee: 0.83rem;

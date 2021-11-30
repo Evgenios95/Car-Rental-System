@@ -16,6 +16,59 @@ export const CustomerInfoLabels = {
   phoneNumber: "Phone Number*",
 };
 
+export const smallCarType = {
+  carTitle : "Car Group - Small",
+    carModel : "Fiat Punto",
+    carInfo : "3 Passengers & 2 big suitcases"
+  }
+
+export const mediumCarType = {
+  carTitle : "Car Group - Medium",
+  carModel : "VW Polo",
+  carInfo : "4 Passengers & 2 big suitcases and 1 small suitcase"
+}
+
+export const largeCarType = {
+  carTitle : "Car Group - Large",
+  carModel : "Ford Mondeo",
+  carInfo : "4 Passengers & 3 big suitcases and 1 small suitcase"
+}
+
+export const xLargeCarType = {
+  carTitle : "Car Group - X-Large",
+  carModel : "VW Passat",
+  carInfo : "4 Passengers & 3 big suitcases and 1 small suitcase"
+}
+
+export const familyCarType = {
+  carTitle : "Car Group - Family",
+  carModel : "Opel Zafira",
+  carInfo : "5 Passengers & 1 small suitcase"
+}
+
+export const businessCarType = {
+  carTitle : "Car Group - Business",
+  carModel : "Volvo S60",
+  carInfo : "4 Passengers & 3 big suitcases and 1 small suitcase"
+}
+
+export const stationCarType = {
+  carTitle : "Car Group - Station Cars",
+  carModel : "Ford Mondeo",
+  carInfo : "5 Passengers & 5 big suitcases and 1 small suitcase"
+}
+
+export const automaticCarType = {
+  carTitle : "Car Group - Automatic",
+  carModel : "Audi A6 Aut",
+  carInfo : "5 Passengers & 5 big suitcases and 1 small suitcase"
+}
+
+export const smallAutomaticCarType = {
+  carTitle : "Car Group - Small Automatic",
+  carModel : "Seat Toledo Aut",
+  carInfo : "4 Passengers & 3 big suitcases and 1 small suitcase"
+}
 export const NavigationLabels = {
   brand: "Scancar",
   find: "Find Booking",
@@ -54,3 +107,4 @@ export const SubtitlesText = {
   returnInfo: "Return info",
   checkList: "Checklist",
 };
+

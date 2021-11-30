@@ -5,6 +5,10 @@ import DropDown from "./components/DropDown/DropDown";
 import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
 import { Route, Routes } from "react-router";
 import Parse from "parse";
+import CrButton from "./components/Button/Button";
+import PageTitle from "./components/PageTitle/PageTitle";
+import { PageTitles } from "./text/text";
+import { Navbar } from "react-bootstrap";
 
 Parse.initialize(
   process.env.REACT_APP_PARSE_APPLICATION_KEY,
@@ -19,8 +23,10 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<StartingPageImage />} />
-        <Route path="/login" element={<LoginComponent />} />
+        <Route
+          path="/book"
+          element={<PageTitle ptitle={PageTitles.releaseCar} />}
+        />
       </Routes>
     </div>
   );

@@ -16,6 +16,7 @@ export const CustomerInfoLabels = {
   phoneNumber: "Phone Number*",
 };
 
+
 export const NavigationLabels = {
   brand: "Scancar",
   find: "Find Booking",

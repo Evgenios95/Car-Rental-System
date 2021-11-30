@@ -1,6 +1,7 @@
 import "./App.css";
 import NavBar from "./components/NavBar/Navbar";
 import LoginComponent from "./components/Login/Login";
+import DropDown from "./components/DropDown/DropDown";
 import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
 import { Route, Routes } from "react-router";
 import Parse from "parse";
@@ -16,6 +17,7 @@ console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY);
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element={<StartingPageImage />} />
         <Route path="/login" element={<LoginComponent />} />

@@ -7,8 +7,7 @@ import { Route, Routes } from "react-router";
 import Parse from "parse";
 import CrButton from "./components/Button/Button";
 import PageTitle from "./components/PageTitle/PageTitle";
-import { PageTitles } from "./text/text";
-import { Navbar } from "react-bootstrap";
+import { TitleLabels } from "./text-labels/text-labels";
 
 Parse.initialize(
   process.env.REACT_APP_PARSE_APPLICATION_KEY,
@@ -25,7 +24,7 @@ function App() {
       <Routes>
         <Route
           path="/book"
-          element={<PageTitle ptitle={PageTitles.releaseCar} />}
+          element={<PageTitle ptitle={TitleLabels.release} />}
         />
       </Routes>
     </div>

@@ -1,6 +1,9 @@
 import "./CustomerInfo.css";
-import { CustomerInfoLabels, GeneralText } from "../../text/text";
 import InputComponent from "../Input/input";
+import {
+  CustomerInfoLabels,
+  GeneralLabels,
+} from "../../text-labels/text-labels";
 
 const CustomerInfo = () => {
   return (
@@ -10,43 +13,43 @@ const CustomerInfo = () => {
         <InputComponent
           labelText={CustomerInfoLabels.firstName}
           type="text"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
         <InputComponent
           labelText={CustomerInfoLabels.lastName}
           type="text"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
       </div>
       <div>
         <InputComponent
           labelText={CustomerInfoLabels.age}
           type="date"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
         <InputComponent
-          labelText={CustomerInfoLabels.driversLicensNr}
+          labelText={CustomerInfoLabels.driversLicensNo}
           type="text"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
       </div>
       <div>
         <InputComponent
           labelText={CustomerInfoLabels.address}
           type="text"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
         <InputComponent
-          labelText={CustomerInfoLabels.phoneNumber}
+          labelText={CustomerInfoLabels.phoneNo}
           type="tel"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
       </div>
       <div>
         <InputComponent
           labelText={CustomerInfoLabels.email}
           type="email"
-          inputPlaceholder={GeneralText.placeHText}
+          inputPlaceholder={GeneralLabels.placeholder}
         ></InputComponent>
       </div>
     </div>

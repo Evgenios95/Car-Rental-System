@@ -1,4 +1,5 @@
 .sub-title {
   font: var(--mont-caterpillar);
   color: var(--global-black);
+  margin-bottom: 24px;
 }

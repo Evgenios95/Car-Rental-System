@@ -33,8 +33,8 @@ body {
   padding: 23px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 30px;
   border-radius: 13px;
 }
 
@@ -42,4 +42,9 @@ body {
   width: 100%;
   margin-bottom: 10px;
   background-color: #dad6d6;
+}
+
+.cr-card {
+  background-color: yellow;
+  margin: 15px;
 }

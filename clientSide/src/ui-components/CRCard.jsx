@@ -1,7 +1,7 @@
 const CRCard = (props) => {
   const { className, children } = props;
 
-  return <div className={`cr-card-${className}`}>{children}</div>;
+  return <div className={`cr-card ${className}`}>{children}</div>;
 };
 
 export default CRCard;

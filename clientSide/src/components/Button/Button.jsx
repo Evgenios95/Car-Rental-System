@@ -3,7 +3,7 @@ import "./Button.css";
 import styled from "styled-components";
 
 const CrButton = (props) => {
-  const { btnText, btnColor, btnBgColor, className, onClick } = props;
+  const { btnText, btnColor, btnBgColor, className, onClick, type } = props;
 
   const Button = styled.button`
     background-color: ${() => btnBgColor || "#3B3D3D"};
@@ -14,7 +14,7 @@ const CrButton = (props) => {
   `;
 
   return (
-    <Button className={`cr-btn ${className}`}>
+    <Button className={`cr-btn ${className}`} type={type}>
       <ButtonText className="btn-cr-text" onClick={onClick}>
         {btnText}
       </ButtonText>

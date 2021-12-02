@@ -9,6 +9,7 @@ import CrButton from "./components/Button/Button";
 import PageTitle from "./components/PageTitle/PageTitle";
 import { PageTitles } from "./text/text";
 import { Navbar } from "react-bootstrap";
+import BookingComponent from "./components/PagesComponents/BookingComponent";
 
 Parse.initialize(
   process.env.REACT_APP_PARSE_APPLICATION_KEY,
@@ -21,12 +22,10 @@ console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY);
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <Routes>
-        <Route
-          path="/book"
-          element={<PageTitle ptitle={PageTitles.releaseCar} />}
-        />
+        <Route path="/" element={<StartingPageImage />} />
+        <Route path="/login" element={<LoginComponent />} />
+        <Route path="/book" element={<BookingComponent />} />
       </Routes>
     </div>
   );

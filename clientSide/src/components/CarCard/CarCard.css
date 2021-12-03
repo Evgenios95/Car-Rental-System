@@ -1,0 +1,33 @@
+.card {
+  background-color: var(--global-lightgray);
+  color: var(--global-gray24);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.card-title {
+  flex: 0.5;
+  font: var(--mont-butterfly);
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.card-image {
+  align-items: center;
+  width: 200px;
+  margin: auto;
+}
+
+.card-model {
+  width: auto;
+  font: var(--open-caterpillar);
+  text-align: center;
+}
+
+.card-info {
+  width: auto;
+  font: var(--mont-fly);
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+:root {
+  --mont-fly: var(--font-size-fly) var(--font-family-mont);
+  --mont-bee: var(--font-size-bee) var(--font-family-mont);
+  --mont-wasp: var(--font-size-wasp) var(--font-family-mont);
+  --mont-caterpillar: var(--font-size-caterpillar) var(--font-family-mont);
+  --mont-butterfly: var(--font-size-butterfly) var(--font-family-mont);
+
+  --open-fly: var(--font-size-fly) var(--font-family-open);
+  --open-bee: var(--font-size-bee) var(--font-family-open);
+  --open-wasp: var(--font-size-wasp) var(--font-family-open);
+  --open-caterpillar: var(--font-size-caterpillar) var(--font-family-open);
+  --open-butterfly: var(--font-size-butterfly) var(--font-family-open);
+}

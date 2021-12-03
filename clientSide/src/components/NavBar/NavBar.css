@@ -1,0 +1,11 @@
+.nav-bar {
+  background-color: var(--global-green-31);
+}
+
+a.text-white.nav-link span:hover {
+  color: var(--global-black);
+}
+
+div.container {
+  max-width: 80%;
+}

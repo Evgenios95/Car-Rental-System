@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CrButton from "../Button/Button";
-import InputComponent from "../Input/input";
+import Input from "../Input/input";
 import "./Login.css";
 import Parse from "parse";
 import { GeneralLabels } from "../../text-labels/text-labels";
@@ -41,18 +41,18 @@ const LoginComponent = () => {
         <div className="login-title">{GeneralLabels.login}</div>
         <form onSubmit={submitHandler}>
           <div className="input-fields-wrapper">
-            <InputComponent
+            <Input
               onChange={handleUserName}
               labelText={GeneralLabels.username}
               type={"text"}
               inputPlaceholder={GeneralLabels.placeholder}
-            ></InputComponent>
-            <InputComponent
+            ></Input>
+            <Input
               onChange={handlePassword}
               labelText={GeneralLabels.password}
               type={"text"}
               inputPlaceholder={GeneralLabels.placeholder}
-            ></InputComponent>
+            ></Input>
             <CrButton btnText={GeneralLabels.login} />
           </div>
         </form>

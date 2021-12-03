@@ -1,0 +1,43 @@
+.overview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--global-black);
+  text-align: left;
+  padding: 8px;
+  font-size: var(--font-size-bee);
+  font-family: var(--font-family-open);
+}
+
+th {
+  background-color: var(--global-green-63);
+  font-size: var(--font-size-wasp);
+}
+
+td {
+  background-color: var(--global-lightgray);
+}
+
+form {
+  display: flex;
+  gap: 5px;
+}
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 28rem;
+}

@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Parse from "parse";
 
 const DropDown = (props) => {
+  var { labeltext, type, attribute } = props;
   const [isLoading, setLoading] = useState(true);
   const [elements, setElements] = useState(["nothing"]);
-  var { labeltext, type, attribute } = props;
 
   useEffect(() => {
     (async () => {

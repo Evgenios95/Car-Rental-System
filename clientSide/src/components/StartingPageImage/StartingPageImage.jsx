@@ -1,4 +1,4 @@
-import CrButton from "../Button/Button";
+import CrButton from "../button/Button";
 import "./StartingPageImage.css";
 import { useNavigate } from "react-router-dom";
 

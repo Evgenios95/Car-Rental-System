@@ -1,5 +1,5 @@
 import "../../App.css";
-import "./Button.css";
+import "./CrButton.css";
 import styled from "styled-components";
 
 const CrButton = (props) => {

@@ -14,17 +14,18 @@
   text-align: center;
 }
 
-.image {
+.card-image {
   align-items: center;
   width: 200px;
   margin: auto;
 }
 
-.card-text {
+.card-model {
   width: auto;
   font: var(--open-caterpillar);
   text-align: center;
 }
+
 .card-info {
   width: auto;
   font: var(--mont-fly);

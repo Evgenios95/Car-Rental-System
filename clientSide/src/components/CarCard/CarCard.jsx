@@ -1,6 +1,6 @@
 import "./CarCard.css";
-import CRColumn from "../../ui-components/CRColumn";
-import CRContainer from "../../ui-components/CRContainer";
+import CRColumn from "../ui-components/CRColumn";
+import CRContainer from "../ui-components/CRContainer";
 import ford from "../../images/a6.jpeg";
 
 export default function CarCard(props) {
@@ -13,8 +13,8 @@ export default function CarCard(props) {
               <h5 className="card-title">{props.group}</h5>
             </div>
           </div>
-          <img className="image" src={ford} alt=""></img>
-          <div className="card-text">{props.model}</div>
+          <img className="card-image" src={ford} alt=""></img>
+          <div className="card-model">{props.model}</div>
           <div className="card-info">{props.info}</div>
         </div>
       </CRColumn>

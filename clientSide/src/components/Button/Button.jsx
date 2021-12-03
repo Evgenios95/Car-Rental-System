@@ -2,7 +2,7 @@ import "../../App.css";
 import "./Button.css";
 import styled from "styled-components";
 
-const CrButton = (props) => {
+const Button = (props) => {
   const { btnText, btnColor, btnBgColor, className, onClick, type } = props;
 
   const Button = styled.button`
@@ -14,12 +14,10 @@ const CrButton = (props) => {
   `;
 
   return (
-    <Button className={`cr-btn ${className}`} type={type}>
-      <ButtonText className="btn-cr-text" onClick={onClick}>
-        {btnText}
-      </ButtonText>
+    <Button className={`btn-default ${className}`}>
+      <ButtonText onClick={onClick}>{btnText}</ButtonText>
     </Button>
   );
 };
 
-export default CrButton;
+export default Button;

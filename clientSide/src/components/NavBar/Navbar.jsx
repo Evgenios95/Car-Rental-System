@@ -2,7 +2,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { NavigationLabels } from "../../text/text";
+import { NavigationLabels } from "../../text-labels/text-labels";
 
 /**
  * as={Link} translates the NavLink into a Link from react-router-dom.

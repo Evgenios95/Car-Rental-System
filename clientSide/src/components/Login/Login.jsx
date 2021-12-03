@@ -1,10 +1,10 @@
-import { GeneralText } from "../../text/text";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import CrButton from "../Button/Button";
-import InputComponent from "../Input/input";
+import Input from "../LabeledInput/LabeledInput";
 import "./Login.css";
 import Parse from "parse";
+import { GeneralLabels } from "../../text-labels/text-labels";
+import Button from "../Button/Button";
 
 const LoginComponent = () => {
   // btw useHistory is recently replaced by useNavigate <3
@@ -37,23 +37,25 @@ const LoginComponent = () => {
 
   return (
     <div className="login-container">
-      <div className="login-container-inside">
-        <div className="login-title">{GeneralText.login}</div>
+      <div className="login-inner-container">
+        <div className="login-title">{GeneralLabels.login}</div>
         <form onSubmit={submitHandler}>
           <div className="input-fields-wrapper">
-            <InputComponent
+            <Input
               onChange={handleUserName}
-              labelText={GeneralText.userText}
+              labelText={GeneralLabels.username}
               type={"text"}
-              inputPlaceholder={GeneralText.placeHText}
-            ></InputComponent>
-            <InputComponent
+              inputPlaceholder={GeneralLabels.placeholder}
+              className="login-input-item"
+            ></Input>
+            <Input
               onChange={handlePassword}
-              labelText={GeneralText.pwText}
+              labelText={GeneralLabels.password}
               type={"text"}
-              inputPlaceholder={GeneralText.placeHText}
-            ></InputComponent>
-            <CrButton btnText={GeneralText.login} />
+              inputPlaceholder={GeneralLabels.placeholder}
+              className="login-input-item"
+            ></Input>
+            <Button btnText={GeneralLabels.login} />
           </div>
         </form>
       </div>

@@ -1,9 +1,9 @@
 .nav-bar {
-  background-color: hsl(113, 47%, 31%);
+  background-color: var(--global-green-31);
 }
 
 a.text-white.nav-link span:hover {
-  color: black;
+  color: var(--global-black);
 }
 
 div.container {

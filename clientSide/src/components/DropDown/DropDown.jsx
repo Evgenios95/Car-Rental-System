@@ -4,7 +4,6 @@ import Parse from "parse";
 
 const DropDown = (props) => {
   var { labeltext, type, attribute } = props;
-
   const [isLoading, setLoading] = useState(true);
   const [elements, setElements] = useState(["nothing"]);
 
@@ -34,7 +33,7 @@ const DropDown = (props) => {
   }, []);
 
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="dropdown-loading">Loading...</div>;
   }
   return (
     <div>

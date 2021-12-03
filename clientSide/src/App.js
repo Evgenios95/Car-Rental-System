@@ -1,15 +1,9 @@
 import "./App.css";
-import NavBar from "./components/NavBar/Navbar";
-import LoginComponent from "./components/Login/Login";
-import DropDown from "./components/DropDown/DropDown";
-import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
-import { Route, Routes } from "react-router";
 import Parse from "parse";
-import CrButton from "./components/Button/Button";
-import PageTitle from "./components/PageTitle/PageTitle";
-import { PageTitles } from "./text/text";
-import { Navbar } from "react-bootstrap";
-import BookingComponent from "./components/PagesComponents/BookingComponent";
+import { Route, Routes } from "react-router";
+import LoginComponent from "./components/Login/Login";
+import CustomerInfo from "./components/CustomerInfo/CustomerInfo";
+import StartingPage from "./components/StartingPage/StartingPage";
 
 Parse.initialize(
   process.env.REACT_APP_PARSE_APPLICATION_KEY,
@@ -18,14 +12,18 @@ Parse.initialize(
 
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-console.log(process.env.REACT_APP_PARSE_APPLICATION_KEY);
 function App() {
   return (
     <div className="App">
+      {/* Don't touch the Routes, if we won't to render something to see it we can do 
+        it on the /dummy route that I define and then in the element field place your component
+        Whenever we add a complete component a new route will be created. Type the /dummy endpoint <3 */}
       <Routes>
-        <Route path="/" element={<StartingPageImage />} />
+        <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
-        <Route path="/book" element={<BookingComponent />} />
+        <Route path="/book" element={<CustomerInfo />} />
+        {/* Render your component below  */}
+        <Route path="/dummy" element={"here"} />
       </Routes>
     </div>
   );

@@ -1,8 +1,8 @@
-import CrButton from "../button/Button";
-import "./StartingPageImage.css";
+import Button from "../Button/Button";
+import "./StartingPage.css";
 import { useNavigate } from "react-router-dom";
 
-const StartingPageImage = () => {
+const StartingPage = () => {
   const navigate = useNavigate();
 
   const navigateToPath = () => {
@@ -13,7 +13,7 @@ const StartingPageImage = () => {
     <div className="starting-page-image">
       <img src="./images/itu-cars1.jpg" alt=""></img>
       <div className="button-holder">
-        <CrButton
+        <Button
           className="login-button"
           btnText="Login"
           btnColor="black"
@@ -25,4 +25,4 @@ const StartingPageImage = () => {
   );
 };
 
-export default StartingPageImage;
+export default StartingPage;

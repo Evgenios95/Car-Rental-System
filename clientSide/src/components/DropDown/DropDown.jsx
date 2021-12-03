@@ -33,7 +33,7 @@ const DropDown = (props) => {
   }, []);
 
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="dropdown-loading">Loading...</div>;
   }
   return (
     <div>

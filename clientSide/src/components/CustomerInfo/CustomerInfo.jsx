@@ -1,5 +1,5 @@
 import "./CustomerInfo.css";
-import InputComponent from "../Input/input";
+import LabeledInput from "../LabeledInput/LabeledInput";
 import {
   CustomerInfoLabels,
   GeneralLabels,
@@ -10,47 +10,47 @@ const CustomerInfo = () => {
     <div className="customer-info-container">
       {/* <p>{CustomerInfoLabels.title}</p> */}
       <div>
-        <InputComponent
+        <LabeledInput
           labelText={CustomerInfoLabels.firstName}
           type="text"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
-        <InputComponent
+        ></LabeledInput>
+        <LabeledInput
           labelText={CustomerInfoLabels.lastName}
           type="text"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
+        ></LabeledInput>
       </div>
       <div>
-        <InputComponent
+        <LabeledInput
           labelText={CustomerInfoLabels.age}
           type="date"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
-        <InputComponent
+        ></LabeledInput>
+        <LabeledInput
           labelText={CustomerInfoLabels.driversLicensNo}
           type="text"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
+        ></LabeledInput>
       </div>
       <div>
-        <InputComponent
+        <LabeledInput
           labelText={CustomerInfoLabels.address}
           type="text"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
-        <InputComponent
+        ></LabeledInput>
+        <LabeledInput
           labelText={CustomerInfoLabels.phoneNo}
           type="tel"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
+        ></LabeledInput>
       </div>
       <div>
-        <InputComponent
+        <LabeledInput
           labelText={CustomerInfoLabels.email}
           type="email"
           inputPlaceholder={GeneralLabels.placeholder}
-        ></InputComponent>
+        ></LabeledInput>
       </div>
     </div>
   );

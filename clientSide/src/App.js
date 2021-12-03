@@ -1,10 +1,9 @@
 import "./App.css";
 import Parse from "parse";
 import { Route, Routes } from "react-router";
-
-import CustomerInfo from "./components/Big components/CustomerInfo";
 import LoginComponent from "./components/Login/Login";
-import StartingPageImage from "./components/StartingPageImage/StartingPageImage";
+import CustomerInfo from "./components/CustomerInfo/CustomerInfo";
+import StartingPage from "./components/StartingPage/StartingPage";
 
 Parse.initialize(
   process.env.REACT_APP_PARSE_APPLICATION_KEY,
@@ -20,7 +19,7 @@ function App() {
         it on the /dummy route that I define and then in the element field place your component
         Whenever we add a complete component a new route will be created. Type the /dummy endpoint <3 */}
       <Routes>
-        <Route path="/" element={<StartingPageImage />} />
+        <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/book" element={<CustomerInfo />} />
         {/* Render your component below  */}

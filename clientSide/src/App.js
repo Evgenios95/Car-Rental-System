@@ -2,6 +2,7 @@ import "./App.css";
 import Parse from "parse";
 import { Route, Routes } from "react-router";
 import LoginComponent from "./components/Login/Login";
+import CarTable from "./components/CarTable/CarTable";
 import CustomerInfo from "./components/CustomerInfo/CustomerInfo";
 import StartingPage from "./components/StartingPage/StartingPage";
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/book" element={<CustomerInfo />} />
         {/* Render your component below  */}
-        <Route path="/dummy" element={"here"} />
+        <Route path="/dummy" element={<CarTable />} />
       </Routes>
     </div>
   );

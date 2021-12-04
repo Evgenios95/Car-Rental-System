@@ -3,7 +3,7 @@ import "./Button.css";
 import styled from "styled-components";
 
 const Button = (props) => {
-  const { btnText, btnColor, btnBgColor, className, onClick } = props;
+  const { btnText, btnColor, btnBgColor, className, onClick, type } = props;
 
   const Button = styled.button`
     background-color: ${() => btnBgColor || "#3B3D3D"};

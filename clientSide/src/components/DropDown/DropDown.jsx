@@ -38,8 +38,7 @@ const DropDown = (props) => {
   return (
     <div>
       <label className="label" htmlFor="dropDown">
-        {" "}
-        {labeltext}{" "}
+        {labeltext}
       </label>
       <select className="drop" id="dropDown">
         {elements.map((item, i) => (

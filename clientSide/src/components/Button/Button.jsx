@@ -11,6 +11,7 @@ const Button = (props) => {
         backgroundColor: btnBgColor || "#3B3D3D",
       }}
       onClick={onClick}
+      type={type}
     >
       <div style={{ color: btnColor || "#56d3d3" }}>{btnText}</div>
     </button>

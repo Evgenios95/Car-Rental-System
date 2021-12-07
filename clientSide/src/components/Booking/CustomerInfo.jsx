@@ -11,6 +11,7 @@ const CustomerInfo = ({ setFormData }) => {
   return (
     <>
       <Subtitle stitle={SubtitleLabels.customerInfo} />
+
       <div className="customer-info-container">
         <div>
           <LabeledInput
@@ -24,6 +25,7 @@ const CustomerInfo = ({ setFormData }) => {
               }))
             }
           ></LabeledInput>
+
           <LabeledInput
             labelText={CustomerInfoLabels.lastName}
             type="text"
@@ -36,6 +38,7 @@ const CustomerInfo = ({ setFormData }) => {
             }
           ></LabeledInput>
         </div>
+
         <div>
           <LabeledInput
             labelText={CustomerInfoLabels.age}
@@ -48,18 +51,7 @@ const CustomerInfo = ({ setFormData }) => {
               }));
             }}
           ></LabeledInput>
-          {/* <div>
-          <LabeledInput
-            labelText={CustomerInfoLabels.age}
-            type="date"
-            inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                date: new Date(target.value).toISOString(),
-              }))
-            }
-          ></LabeledInput> */}
+
           <LabeledInput
             labelText={CustomerInfoLabels.driversLicensNo}
             type="text"
@@ -72,6 +64,7 @@ const CustomerInfo = ({ setFormData }) => {
             }
           ></LabeledInput>
         </div>
+
         <div>
           <LabeledInput
             labelText={CustomerInfoLabels.address}
@@ -84,6 +77,7 @@ const CustomerInfo = ({ setFormData }) => {
               }))
             }
           ></LabeledInput>
+
           <LabeledInput
             labelText={CustomerInfoLabels.phoneNo}
             type="tel"
@@ -96,6 +90,7 @@ const CustomerInfo = ({ setFormData }) => {
             }
           ></LabeledInput>
         </div>
+
         <div>
           <LabeledInput
             labelText={CustomerInfoLabels.email}

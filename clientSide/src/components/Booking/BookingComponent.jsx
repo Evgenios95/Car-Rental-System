@@ -2,9 +2,9 @@ import "./BookingComponent.css";
 import GrayColumn from "../UiComponents/GrayColumn";
 import GrayContainer from "../UiComponents/GrayContainer";
 import Button from "../Button/Button";
-import PickUpCarComponent from "./PickUpCar";
+import PickUpCar from "./PickUpCar";
 import CustomerInfo from "./CustomerInfo";
-import ReturnCarComponent from "./ReturnCar";
+import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/parseFunctions";
@@ -20,13 +20,13 @@ const BookingComponent = () => {
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
-              <PickUpCarComponent setFormData={setFormData} />
+              <PickUpCar setFormData={setFormData} />
             </GrayColumn>
           </div>
 
           <div className="booking-second-column">
             <GrayColumn>
-              <ReturnCarComponent setFormData={setFormData} />
+              <ReturnCar setFormData={setFormData} />
             </GrayColumn>
           </div>
 

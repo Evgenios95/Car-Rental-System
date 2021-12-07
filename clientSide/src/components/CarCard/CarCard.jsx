@@ -1,12 +1,12 @@
 import "./CarCard.css";
-import CRColumn from "../ui-components/CRColumn";
-import CRContainer from "../ui-components/CRContainer";
+import GrayColumn from "../ui-components/GrayColumn";
+import GrayContainer from "../ui-components/GrayContainer";
 import ford from "../../images/a6.jpeg";
 
 export default function CarCard(props) {
   return (
-    <CRContainer>
-      <CRColumn>
+    <GrayContainer>
+      <GrayColumn>
         <div className="card">
           <div className="card-header">
             <div className="card-title-group">
@@ -17,7 +17,7 @@ export default function CarCard(props) {
           <div className="card-model">{props.model}</div>
           <div className="card-info">{props.info}</div>
         </div>
-      </CRColumn>
-    </CRContainer>
+      </GrayColumn>
+    </GrayContainer>
   );
 }

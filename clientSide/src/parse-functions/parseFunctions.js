@@ -1,5 +1,28 @@
 import Parse from "parse";
 
+//This is for the dropdown component
+export const setDropdownElements = async (type, attribute, setElements) => {
+  const element = Parse.Object.extend(type);
+  const query = new Parse.Query(element);
+  //default value for dropdowns
+  const elementArray = [];
+  let filteredArray = (array) => array.filter((v, i) => array.indexOf(v) === i);
+  try {
+    const results = await query.find();
+    for (const object of results) {
+      const att = object.get(attribute);
+      elementArray.push(att);
+    }
+    if (typeof elementArray[0] == "number") {
+      elementArray.sort();
+    }
+    setElements(filteredArray(elementArray));
+  } catch (error) {
+    console.error("Error while fetching" + type, error);
+  }
+};
+
+//The below are for the booking component
 export const getOfficePointer = async (officeInput) => {
   const RentalOffice = Parse.Object.extend("RentalOffice");
   const query = new Parse.Query(RentalOffice);
@@ -22,6 +45,18 @@ export const getBookingStatePointer = async () => {
     return currentBookingState[0].toPointer();
   } catch (error) {
     console.error("Error while fetching bookingState", error);
+  }
+};
+
+export const getCarGroupPointer = async (carGroupName) => {
+  const CarGroup = Parse.Object.extend("CarGroup");
+  const query = new Parse.Query(CarGroup);
+  query.equalTo("name", carGroupName);
+  try {
+    const carGroupResult = await query.find();
+    return carGroupResult[0].toPointer();
+  } catch (error) {
+    console.error("Error while fetching CarGroup", error);
   }
 };
 
@@ -48,6 +83,7 @@ export const createBooking = async (e, formData) => {
   const customerPointer = await createCustomer(formData);
   const pickupOfficePointer = await getOfficePointer(formData.pickUpOffice);
   const returnOfficePointer = await getOfficePointer(formData.returnOffice);
+  const carGroupPointer = await getCarGroupPointer(formData.carGroup);
   const bookingStatePointer = await getBookingStatePointer();
 
   const myNewObject = new Parse.Object("Booking");
@@ -56,6 +92,7 @@ export const createBooking = async (e, formData) => {
   myNewObject.set("customerId", customerPointer);
   myNewObject.set("pickUpOffice", pickupOfficePointer);
   myNewObject.set("returnOffice", returnOfficePointer);
+  myNewObject.set("carGroup", carGroupPointer);
   myNewObject.set("bookingState", bookingStatePointer);
   try {
     const result = await myNewObject.save();

@@ -17,3 +17,7 @@
   margin-top: 20px;
   font-size: var(--font-size-fly);
 }
+
+option[value=""][disabled] {
+  display: none;
+}

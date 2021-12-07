@@ -23,28 +23,3 @@ body {
   font-weight: normal;
   line-height: 1.6;
 }
-
-/* Decided to put these here to have them accessible more easily */
-.cr-container {
-  background-color: hsl(0, 0%, 89%);
-  max-width: 1250px;
-  margin: auto;
-  margin-top: 35px;
-  padding: 23px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 30px;
-  border-radius: 13px;
-}
-
-.cr-column {
-  width: 100%;
-  margin-bottom: 10px;
-  background-color: #dad6d6;
-}
-
-.cr-card {
-  background-color: yellow;
-  margin: 15px;
-}

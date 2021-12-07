@@ -24,8 +24,9 @@ function App() {
         <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/book" element={<CustomerInfo />} />
+        <Route path="/overview" element={<BookingTable />} />
         {/* Render your component below  */}
-        <Route path="/dummy" element={<BookingTable />} />
+        <Route path="/dummy" element={'hey'} />
       </Routes>
     </div>
   );

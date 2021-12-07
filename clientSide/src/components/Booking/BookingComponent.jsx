@@ -1,43 +1,48 @@
 import "./BookingComponent.css";
-import CRColumn from "../UiComponents/CRColumn";
-import CRContainer from "../UiComponents/CRContainer";
+import GrayColumn from "../UiComponents/GrayColumn";
+import GrayContainer from "../UiComponents/GrayContainer";
 import Button from "../Button/Button";
 import PickUpCarComponent from "./PickUpCar";
 import CustomerInfo from "./CustomerInfo";
 import ReturnCarComponent from "./ReturnCar";
-import React, { useState } from "react";
 import NavBar from "../NavBar/Navbar";
+import { useState } from "react";
 import { createBooking } from "../../parse-functions/parseFunctions";
 
 const BookingComponent = () => {
   const [formData, setFormData] = useState([]);
+
   return (
-    <div>
+    <>
       <NavBar />
+
       <form onSubmit={(e) => createBooking(e, formData)}>
-        <CRContainer>
-          <div style={{ flex: "1 1 auto" }}>
-            <CRColumn>
+        <GrayContainer>
+          <div className="booking-first-column">
+            <GrayColumn>
               <PickUpCarComponent setFormData={setFormData} />
-            </CRColumn>
+            </GrayColumn>
           </div>
-          <div style={{ flex: "1 1 auto" }}>
-            <CRColumn>
+
+          <div className="booking-second-column">
+            <GrayColumn>
               <ReturnCarComponent setFormData={setFormData} />
-            </CRColumn>
+            </GrayColumn>
           </div>
-          <div style={{ flex: "2 1 auto" }}>
-            <CRColumn>
+
+          <div className="booking-third-column">
+            <GrayColumn>
               <CustomerInfo setFormData={setFormData} />
-            </CRColumn>
+            </GrayColumn>
           </div>
-        </CRContainer>
-        <CRContainer myId="id1">
-          <Button type="submit" btnText="hello there" />
-          <Button type="submit" btnText="Cancel" />
-        </CRContainer>
+        </GrayContainer>
+
+        <GrayContainer className="booking-second-container">
+          <Button type="submit" btnText="Submit" />
+          {/* <Button type="submit" btnText="Cancel" /> */}
+        </GrayContainer>
       </form>
-    </div>
+    </>
   );
 };
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./BookingTable.css";
 import Parse from "parse";
-import CRContainer from "../UiComponents/CRContainer";
-import CRColumn from "../UiComponents/CRColumn";
+import GrayContainer from "../UiComponents/GrayContainer";
+import GrayColumn from "../UiComponents/GrayColumn";
 
 const BookingTable = () => {
   const [loading, setLoading] = useState(true);
@@ -55,8 +55,8 @@ const BookingTable = () => {
     return <p>There was an error loading your data!</p>;
   }
   return (
-    <CRContainer>
-      <CRColumn>
+    <GrayContainer>
+      <GrayColumn>
         <div className="overview-container">
           <table>
             <thead>
@@ -112,8 +112,8 @@ const BookingTable = () => {
             </tbody>
           </table>
         </div>
-      </CRColumn>
-    </CRContainer>
+      </GrayColumn>
+    </GrayContainer>
   );
 };
 export default BookingTable;

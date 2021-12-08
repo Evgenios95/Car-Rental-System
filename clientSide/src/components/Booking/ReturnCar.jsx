@@ -3,6 +3,7 @@ import "./BookingComponent.css";
 import DropDown from "../DropDown/DropDown";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import Subtitle from "../Subtitle/Subtitle";
+import { onChangeHandler } from "../../parse-functions/onChangeHandlers";
 
 const ReturnCar = ({ setFormData }) => {
   return (
@@ -13,34 +14,19 @@ const ReturnCar = ({ setFormData }) => {
         <LabeledInput
           labelText={"Return date*"}
           type="date"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              returnDate: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "returnDate", setFormData)}
         ></LabeledInput>
 
         <LabeledInput
           labelText={"Return time*"}
           type="time"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              returnTime: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "returnTime", setFormData)}
         ></LabeledInput>
 
         <DropDown
           type="RentalOffice"
           labeltext="Rental office*"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              returnOffice: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "returnOffice", setFormData)}
           attribute="officeNumber"
         />
       </div>

@@ -1,46 +1,35 @@
 import "./DropDown.css";
 import React, { useEffect, useState } from "react";
-import Parse from "parse";
+import { setDropdownElements } from "../../parse-functions/parseFunctions";
+import { DropdownLabels } from "../../text-labels/text-labels";
 
-const DropDown = (props) => {
-  var { labeltext, type, attribute } = props;
+const DropDown = ({ labeltext, type, attribute, onChange }) => {
   const [isLoading, setLoading] = useState(true);
-  const [elements, setElements] = useState(["nothing"]);
+  const [elements, setElements] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      const element = Parse.Object.extend(type);
-      const query = new Parse.Query(element);
-      const elementArray = [];
-      let filteredArray = (array) =>
-        array.filter((v, i) => array.indexOf(v) === i);
-      try {
-        const results = await query.find();
-        for (const object of results) {
-          const att = object.get(attribute);
-          console.log("att: " + att);
-          elementArray.push(att);
-        }
-        if (typeof elementArray[0] == "number") {
-          elementArray.sort();
-        }
-        setElements(filteredArray(elementArray));
-      } catch (error) {
-        console.error("Error while fetching" + type, error);
-      }
-      setLoading(false);
-    })();
+  useEffect(async () => {
+    await setDropdownElements(type, attribute, setElements);
+    setLoading(false);
   }, []);
 
   if (isLoading) {
-    return <div className="dropdown-loading">Loading...</div>;
+    return <div className="dropdown-loading">{DropdownLabels.loading}</div>;
   }
+
   return (
     <div>
       <label className="label" htmlFor="dropDown">
         {labeltext}
       </label>
-      <select className="drop" id="dropDown">
+      <select
+        className="drop"
+        id="dropDown"
+        defaultValue=""
+        onChange={onChange}
+      >
+        <option disabled value="">
+          {DropdownLabels.defaultOption}
+        </option>
         {elements.map((item, i) => (
           <option key={i} value={item}>
             {item}

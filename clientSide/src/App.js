@@ -6,13 +6,6 @@ import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
 
-Parse.initialize(
-  process.env.REACT_APP_PARSE_APPLICATION_KEY,
-  process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
-);
-
-Parse.serverURL = "https://parseapi.back4app.com/";
-
 function App() {
   return (
     <div className="App">
@@ -22,10 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
+        <Route path="/find-booking" element={<BookingTable />} />
         <Route path="/book" element={<BookingComponent />} />
-        <Route path="/overview" element={<BookingTable />} />
         {/* Render your component below  */}
-        <Route path="/dummy" element={'hey'} />
+        <Route path="/dummy" element={"hey"} />
       </Routes>
     </div>
   );

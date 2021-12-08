@@ -3,6 +3,7 @@ import { SubtitleLabels } from "../../text-labels/text-labels";
 import DropDown from "../DropDown/DropDown";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import Subtitle from "../Subtitle/Subtitle";
+import { onChangeHandler } from "../../parse-functions/onChangeHandlers";
 
 const PickUpCar = ({ setFormData }) => {
   return (
@@ -13,47 +14,27 @@ const PickUpCar = ({ setFormData }) => {
         <LabeledInput
           labelText={"Pick-up date*"}
           type="date"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              pickupDate: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "pikcupDate", setFormData)}
         ></LabeledInput>
 
         <LabeledInput
           labelText={"Pick-up time*"}
           type="time"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              pickupTime: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "pikcupTime", setFormData)}
         ></LabeledInput>
 
         <DropDown
           type="CarGroup"
           labeltext="Car Group*"
           attribute="name"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              carGroup: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "carGroup", setFormData)}
         />
 
         <DropDown
           type="RentalOffice"
           labeltext="Rental office*"
           attribute="officeNumber"
-          onChange={({ target }) =>
-            setFormData((c) => ({
-              ...c,
-              pickUpOffice: target.value,
-            }))
-          }
+          onChange={(e) => onChangeHandler(e, "pikcUpOffice", setFormData)}
         />
       </div>
     </div>

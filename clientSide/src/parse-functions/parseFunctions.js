@@ -1,5 +1,51 @@
 import Parse from "parse";
 
+//parse initializing function
+export const initializeParse = async () => {
+  Parse.initialize(
+    process.env.REACT_APP_PARSE_APPLICATION_KEY,
+    process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
+  );
+
+  Parse.serverURL = "https://parseapi.back4app.com/";
+};
+
+//Booking table helper function, find-booking page
+export const setBookingOverviewElements = async (setError, setBookings) => {
+  const Booking = Parse.Object.extend("Booking");
+  const query = new Parse.Query(Booking);
+  query.include("customerId");
+  query.include("bookingState");
+  query.include("carGroup");
+  query.include("pickUpOffice");
+  query.include("returnOffice");
+  const bookingArray = [];
+
+  try {
+    const results = await query.find();
+    console.log("result", results);
+    for (const object of results) {
+      const bookingObject = {
+        customerFirstName: object.get("customerId").get("firstName"),
+        customerLastName: object.get("customerId").get("lastName"),
+        customerDriversLicense: object
+          .get("customerId")
+          .get("driversLicenseID"),
+        carGroup: object.get("carGroup").get("name"),
+        pickUpOffice: object.get("pickUpOffice").get("officeNumber"),
+        pickUpTime: object.get("pickUpTime"),
+        returnTime: object.get("returnTime"),
+        bookingState: object.get("bookingState").get("bookingState"),
+      };
+      bookingArray.push(bookingObject);
+    }
+    setBookings(bookingArray);
+  } catch (error) {
+    console.error("Error while fetching bookings", error);
+    setError(error);
+  }
+};
+
 //This is for the dropdown component
 export const setDropdownElements = async (type, attribute, setElements) => {
   const element = Parse.Object.extend(type);

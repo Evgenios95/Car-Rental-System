@@ -6,6 +6,10 @@ import {
 } from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
 import LabeledInput from "../LabeledInput/LabeledInput";
+import {
+  onChangeHandler,
+  onChangeIntHandler,
+} from "../../parse-functions/onChangeHandlers";
 
 const CustomerInfo = ({ setFormData }) => {
   return (
@@ -18,24 +22,14 @@ const CustomerInfo = ({ setFormData }) => {
             labelText={CustomerInfoLabels.firstName}
             type="text"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                firstName: target.value,
-              }))
-            }
+            onChange={(e) => onChangeHandler(e, "firstName", setFormData)}
           ></LabeledInput>
 
           <LabeledInput
             labelText={CustomerInfoLabels.lastName}
             type="text"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                lastName: target.value,
-              }))
-            }
+            onChange={(e) => onChangeHandler(e, "lastName", setFormData)}
           ></LabeledInput>
         </div>
 
@@ -44,23 +38,15 @@ const CustomerInfo = ({ setFormData }) => {
             labelText={CustomerInfoLabels.age}
             type="number"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) => {
-              setFormData((c) => ({
-                ...c,
-                age: parseInt(target.value),
-              }));
-            }}
+            onChange={(e) => onChangeIntHandler(e, "age", setFormData)}
           ></LabeledInput>
 
           <LabeledInput
             labelText={CustomerInfoLabels.driversLicensNo}
             type="text"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                driversLicenseNo: parseInt(target.value),
-              }))
+            onChange={(e) =>
+              onChangeIntHandler(e, "driversLicenseNo", setFormData)
             }
           ></LabeledInput>
         </div>
@@ -70,24 +56,14 @@ const CustomerInfo = ({ setFormData }) => {
             labelText={CustomerInfoLabels.address}
             type="text"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                address: target.value,
-              }))
-            }
+            onChange={(e) => onChangeHandler(e, "address", setFormData)}
           ></LabeledInput>
 
           <LabeledInput
             labelText={CustomerInfoLabels.phoneNo}
             type="tel"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                phoneNo: parseInt(target.value),
-              }))
-            }
+            onChange={(e) => onChangeIntHandler(e, "phoneNo", setFormData)}
           ></LabeledInput>
         </div>
 
@@ -96,12 +72,7 @@ const CustomerInfo = ({ setFormData }) => {
             labelText={CustomerInfoLabels.email}
             type="email"
             inputPlaceholder={GeneralLabels.placeholder}
-            onChange={({ target }) =>
-              setFormData((c) => ({
-                ...c,
-                email: target.value,
-              }))
-            }
+            onChange={(e) => onChangeHandler(e, "email", setFormData)}
           ></LabeledInput>
         </div>
       </div>

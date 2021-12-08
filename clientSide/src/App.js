@@ -2,6 +2,7 @@ import "./App.css";
 import Parse from "parse";
 import { Route, Routes } from "react-router";
 import LoginComponent from "./components/Login/Login";
+import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
 
@@ -22,8 +23,9 @@ function App() {
         <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/book" element={<BookingComponent />} />
+        <Route path="/overview" element={<BookingTable />} />
         {/* Render your component below  */}
-        <Route path="/dummy" element={"here"} />
+        <Route path="/dummy" element={'hey'} />
       </Routes>
     </div>
   );

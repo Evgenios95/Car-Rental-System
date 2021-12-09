@@ -7,9 +7,9 @@ import {
 import Subtitle from "../Subtitle/Subtitle";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import {
-  onChangeHandler,
   onChangeIntHandler,
-} from "../../parse-functions/onChangeHandlers";
+  onChangeHandler,
+} from "../../functions/onChangeHandlers";
 
 const CustomerInfo = ({ setFormData }) => {
   return (

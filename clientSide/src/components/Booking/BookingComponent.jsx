@@ -7,7 +7,7 @@ import CustomerInfo from "./CustomerInfo";
 import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
-import { createBooking } from "../../parse-functions/parseFunctions";
+import { createBooking } from "../../parse-functions/bookingComponentFunctions";
 
 const BookingComponent = () => {
   const [formData, setFormData] = useState([]);

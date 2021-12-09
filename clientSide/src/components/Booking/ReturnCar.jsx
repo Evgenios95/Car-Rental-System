@@ -3,7 +3,7 @@ import "./BookingComponent.css";
 import DropDown from "../DropDown/DropDown";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import Subtitle from "../Subtitle/Subtitle";
-import { onChangeHandler } from "../../parse-functions/onChangeHandlers";
+import { onChangeHandler } from "../../functions/onChangeHandlers";
 
 const ReturnCar = ({ setFormData }) => {
   return (

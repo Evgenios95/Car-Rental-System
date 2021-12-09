@@ -5,12 +5,15 @@ import GrayColumn from "../UiComponents/GrayColumn";
 import TableTHead from "./TableTHead";
 import TableTBody from "./TableTBody";
 import BookingOverviewTable from "./BookingOverviewTable";
-import { setBookingOverviewElements } from "../../parse-functions/parseFunctions";
 import NavBar from "../NavBar/Navbar";
+import LabeledInput from "../LabeledInput/LabeledInput";
+import { handleFilteredBookings } from "../../functions/handleFilteredBookings";
+import { setBookingOverviewElements } from "../../parse-functions/bookingTableFunctions";
 
 const BookingTable = () => {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
+  const [filteredBookings, setfilteredBookings] = useState([]);
   const [error, setError] = useState();
 
   useEffect(async () => {
@@ -21,17 +24,30 @@ const BookingTable = () => {
   if (loading) {
     return <p>Data is loading...</p>;
   }
+
   if (error || !Array.isArray(bookings)) {
     return <p>There was an error loading your data!</p>;
   }
+
   return (
     <>
       <NavBar />
       <GrayContainer>
+        <LabeledInput
+          type="text"
+          inputPlaceholder="Please search me"
+          onChange={({ target }) =>
+            handleFilteredBookings({ target }, setfilteredBookings, bookings)
+          }
+          labelText="Search bar"
+        />
         <GrayColumn>
           <BookingOverviewTable>
             <TableTHead />
-            <TableTBody bookings={bookings} />
+            <TableTBody
+              filteredBookings={filteredBookings}
+              bookings={bookings}
+            />
           </BookingOverviewTable>
         </GrayColumn>
       </GrayContainer>

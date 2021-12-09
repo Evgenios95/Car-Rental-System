@@ -27,17 +27,3 @@ th {
 td {
   background-color: var(--global-lightgray);
 }
-
-/* form {
-  display: flex;
-  gap: 5px;
-}
-
-form td:last-child {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-form * {
-  font-size: 28rem;
-} */

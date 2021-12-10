@@ -51,7 +51,7 @@ const LoginComponent = () => {
             <LabeledInput
               onChange={handlePassword}
               labelText={GeneralLabels.password}
-              type={"text"}
+              type={"password"}
               inputPlaceholder={GeneralLabels.placeholder}
               className="login-input-item"
             ></LabeledInput>

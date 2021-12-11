@@ -6,8 +6,9 @@
 }
 
 table {
+  border-radius: var(--border-radius-cat);
+
   overflow: hidden;
-  border-radius: 10px;
   width: 100%;
   min-width: 850px;
 }

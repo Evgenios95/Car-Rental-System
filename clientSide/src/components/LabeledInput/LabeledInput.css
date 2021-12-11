@@ -10,3 +10,17 @@ input:focus {
   border: none;
   outline: none;
 }
+
+.input-container label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: var(--font-size-fly);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}

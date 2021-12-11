@@ -20,11 +20,11 @@ const NavBar = () => {
             id="basic-navbar-nav"
             className="mx-auto text-center w-100"
           >
-            <Nav.Link className="text-white" as={Link} to="/find-booking">
-              <span>{NavigationLabels.find}</span>
-            </Nav.Link>
             <Nav.Link className="text-white" as={Link} to="/book">
               <span>{NavigationLabels.book}</span>
+            </Nav.Link>
+            <Nav.Link className="text-white" as={Link} to="/find-booking">
+              <span>{NavigationLabels.find}</span>
             </Nav.Link>
             <Nav.Link className="text-white" as={Link} to="/overview">
               <span>{NavigationLabels.overview}</span>

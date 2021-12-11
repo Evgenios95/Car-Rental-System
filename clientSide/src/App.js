@@ -2,15 +2,9 @@ import "./App.css";
 import Parse from "parse";
 import { Route, Routes } from "react-router";
 import LoginComponent from "./components/Login/Login";
-import CustomerInfo from "./components/CustomerInfo/CustomerInfo";
+import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
-
-Parse.initialize(
-  process.env.REACT_APP_PARSE_APPLICATION_KEY,
-  process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
-);
-
-Parse.serverURL = "https://parseapi.back4app.com/";
+import BookingComponent from "./components/Booking/BookingComponent";
 
 function App() {
   return (
@@ -21,9 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
-        <Route path="/book" element={<CustomerInfo />} />
+        <Route path="/find-booking" element={<BookingTable />} />
+        <Route path="/book" element={<BookingComponent />} />
         {/* Render your component below  */}
-        <Route path="/dummy" element={"here"} />
+        <Route path="/dummy" element={"hey"} />
       </Routes>
     </div>
   );

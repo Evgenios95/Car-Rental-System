@@ -115,3 +115,8 @@ export const PickUpCarLabels = {
   rentalOffice: "Region*",
   carGroup: "Car Group*",
 };
+
+export const DropdownLabels = {
+  loading: "Loading...",
+  defaultOption: "Select an option",
+};

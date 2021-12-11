@@ -1,22 +1,25 @@
 import "../../App.css";
 import "./Button.css";
-import styled from "styled-components";
 
 const Button = (props) => {
-  const { btnText, btnColor, btnBgColor, className, onClick } = props;
+  const { btnText, btnColor, btnBgColor, className, onClick, type } = props;
 
-  const Button = styled.button`
-    background-color: ${() => btnBgColor || "#3B3D3D"};
-  `;
-
-  const ButtonText = styled.div`
-    color: ${() => btnColor || "#56d3d3"};
-  `;
+  const defaultColors = {
+    background: "#3B3D3D",
+    color: "#56d3d3",
+  };
 
   return (
-    <Button className={`btn-default ${className}`}>
-      <ButtonText onClick={onClick}>{btnText}</ButtonText>
-    </Button>
+    <button
+      className={`btn-default ${className}`}
+      style={{
+        backgroundColor: btnBgColor || defaultColors.background,
+      }}
+      onClick={onClick}
+      type={type}
+    >
+      <div style={{ color: btnColor || defaultColors.color }}>{btnText}</div>
+    </button>
   );
 };
 

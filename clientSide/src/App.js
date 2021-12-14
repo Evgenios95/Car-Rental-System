@@ -1,5 +1,4 @@
 import "./App.css";
-import Parse from "parse";
 import { Route, Routes } from "react-router";
 import LoginComponent from "./components/Login/Login";
 import BookingTable from "./components/BookingTable/BookingTable";
@@ -17,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/find-booking" element={<BookingTable />} />
         <Route path="/book" element={<BookingComponent />} />
+        <Route path="/walkin-book" element={<BookingComponent />} />
         {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />
       </Routes>

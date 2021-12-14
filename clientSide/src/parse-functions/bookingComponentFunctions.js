@@ -64,14 +64,21 @@ export const createBooking = async (e, formData) => {
   const carGroupPointer = await getCarGroupPointer(formData.carGroup);
   const bookingStatePointer = await getBookingStatePointer();
 
-  const myNewObject = new Parse.Object("Booking");
-  myNewObject.set("pickUpTime", new Date(formData.pickupDate));
-  myNewObject.set("returnTime", new Date(formData.returnDate));
-  myNewObject.set("customerId", customerPointer);
-  myNewObject.set("pickUpOffice", pickupOfficePointer);
-  myNewObject.set("returnOffice", returnOfficePointer);
-  myNewObject.set("carGroup", carGroupPointer);
-  myNewObject.set("bookingState", bookingStatePointer);
+  const myNewObject = new Parse.Object(ClassnameLabels.booking);
+  myNewObject.set(
+    ColumnLabels.booking.pickUpTime,
+    new Date(formData.pickupDate)
+  );
+  myNewObject.set(
+    ColumnLabels.booking.returnTime,
+    new Date(formData.returnDate)
+  );
+  myNewObject.set(ColumnLabels.booking.customerId, customerPointer);
+  myNewObject.set(ColumnLabels.booking.pickUpOffice, pickupOfficePointer);
+  myNewObject.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
+  myNewObject.set(ColumnLabels.booking.carGroup, carGroupPointer);
+  myNewObject.set(ColumnLabels.booking.bookingState, bookingStatePointer);
+  myNewObject.set(ColumnLabels.booking.car, formData.car);
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method

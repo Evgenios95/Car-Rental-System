@@ -8,8 +8,11 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BookingComponent = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState([]);
 
   return (
@@ -38,8 +41,21 @@ const BookingComponent = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button type="submit" btnText="Submit" />
-          {/* <Button type="submit" btnText="Cancel" /> */}
+          <Button type="submit" btnText="Create booking" />
+
+          {location.pathname === "/book" ? (
+            <Button
+              type="button"
+              btnText="Walk in"
+              onClick={() => navigate("/walkin-book")}
+            />
+          ) : (
+            <Button
+              type="button"
+              btnText="Phone booking"
+              onClick={() => navigate("/book")}
+            />
+          )}
         </GrayContainer>
       </form>
     </>

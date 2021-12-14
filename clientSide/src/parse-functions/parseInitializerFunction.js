@@ -1,4 +1,5 @@
 import Parse from "parse";
+import { APILabels } from "../text-labels/parse-labels";
 
 export const initializeParse = async () => {
   Parse.initialize(
@@ -6,5 +7,5 @@ export const initializeParse = async () => {
     process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
   );
 
-  Parse.serverURL = "https://parseapi.back4app.com/";
+  Parse.serverURL = APILabels.url;
 };

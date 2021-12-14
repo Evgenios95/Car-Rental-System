@@ -1,4 +1,5 @@
 import Parse from "parse";
+import { ErrorLabels } from "../text-labels/parse-labels";
 
 export const setDropdownElements = async (type, attribute, setElements) => {
   const element = Parse.Object.extend(type);
@@ -17,6 +18,6 @@ export const setDropdownElements = async (type, attribute, setElements) => {
     }
     setElements(filteredArray(elementArray));
   } catch (error) {
-    console.error("Error while fetching" + type, error);
+    console.error(ErrorLabels.dropdown + type, error);
   }
 };

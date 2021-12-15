@@ -5,6 +5,7 @@ import {
   ErrorLabels,
   ResultLabels,
 } from "../text-labels/parse-labels";
+import { useNavigate } from "react-router-dom";
 
 export const getOfficePointer = async (officeInput) => {
   const RentalOffice = Parse.Object.extend(ClassnameLabels.rentalOffice);
@@ -65,7 +66,7 @@ export const createCustomer = async (formData) => {
   }
 };
 
-export const createBooking = async (e, formData) => {
+export const createBooking = async (e, formData, navigate) => {
   e.preventDefault();
   const customerPointer = await createCustomer(formData);
   const pickupOfficePointer = await getOfficePointer(formData.pickUpOffice);
@@ -90,7 +91,8 @@ export const createBooking = async (e, formData) => {
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
-    console.log(ResultLabels.booking, result);
+    console.log("Booking created", result);
+    navigate("/find-booking");
   } catch (error) {
     console.error(ErrorLabels.booking, error);
   }

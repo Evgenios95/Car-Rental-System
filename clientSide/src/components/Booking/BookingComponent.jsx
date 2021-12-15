@@ -8,15 +8,18 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
+import PopUpButton from "../PopUpButton";
+import { useNavigate } from "react-router-dom";
 
 const BookingComponent = () => {
   const [formData, setFormData] = useState([]);
+  const navigate = useNavigate();
 
   return (
     <>
       <NavBar />
 
-      <form onSubmit={(e) => createBooking(e, formData)}>
+      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
@@ -38,8 +41,12 @@ const BookingComponent = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
+          <PopUpButton
+            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
+            confirmChoiceButtonText="Yes"
+            rejectChoiceButtonText="No"
+          />
           <Button type="submit" btnText="Submit" />
-          {/* <Button type="submit" btnText="Cancel" /> */}
         </GrayContainer>
       </form>
     </>

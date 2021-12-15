@@ -1,4 +1,5 @@
 import Parse from "parse";
+import { useNavigate } from "react-router-dom";
 
 export const getOfficePointer = async (officeInput) => {
   const RentalOffice = Parse.Object.extend("RentalOffice");
@@ -56,7 +57,7 @@ export const createCustomer = async (formData) => {
   }
 };
 
-export const createBooking = async (e, formData) => {
+export const createBooking = async (e, formData, navigate) => {
   e.preventDefault();
   const customerPointer = await createCustomer(formData);
   const pickupOfficePointer = await getOfficePointer(formData.pickUpOffice);
@@ -76,6 +77,7 @@ export const createBooking = async (e, formData) => {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
     console.log("Booking created", result);
+    navigate("/find-booking");
   } catch (error) {
     console.error("Error while creating Booking: ", error);
   }

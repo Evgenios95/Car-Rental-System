@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CarTable.css";
-import Parse from "parse";
 import { setCarElements } from "../../parse-functions/carTableFunctions";
 
 const CarTable = () => {
@@ -19,6 +18,7 @@ const CarTable = () => {
   if (error || !Array.isArray(cars)) {
     return <p>There was an error loading your data!</p>;
   }
+  
   return (
     <div className="overview-container">
       <table>

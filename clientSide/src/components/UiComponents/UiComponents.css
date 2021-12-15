@@ -1,7 +1,7 @@
 /* Decided to put these here to have them accessible more easily */
 .gray-container {
   border-radius: var(--border-radius-cat);
-  background-color: var(--global-gray93);
+  background-color: var(--global-gray89);
 
   max-width: 1250px;
   width: 100%;
@@ -19,7 +19,7 @@
 
 .gray-column {
   border-radius: var(--border-radius-mouse);
-  background-color: var(--global-gray89);
+  background-color: var(--global-lightgray);
 
   width: 100%;
   height: 100%;

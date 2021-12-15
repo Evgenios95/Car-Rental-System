@@ -4,6 +4,8 @@ import LoginComponent from "./components/Login/Login";
 import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
+import CarTable from "./components/CarTable/CarTable";
+import CarCard from "./components/CarCard/CarCard";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/walkin-book" element={<BookingComponent />} />
         {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />
+        <Route path="/car-table" element={<CarTable />} />
+        <Route path="/cars/:id" element={<CarCard />} />
       </Routes>
     </div>
   );

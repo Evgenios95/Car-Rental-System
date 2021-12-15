@@ -1,4 +1,4 @@
-.overview-container {
+/* .overview-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -26,4 +26,14 @@ th {
 
 td {
   background-color: var(--global-lightgray);
+} */
+
+.heythere {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.fa-arrow-alt-circle-right {
+  cursor: pointer;
+  color: var(--global-green-63);
 }

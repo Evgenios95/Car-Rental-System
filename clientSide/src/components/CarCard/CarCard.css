@@ -2,7 +2,7 @@
   background-color: var(--global-lightgray);
   color: var(--global-gray24);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius-cat);
   width: 100%;
 }
 

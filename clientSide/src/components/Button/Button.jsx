@@ -5,8 +5,8 @@ const Button = (props) => {
   const { btnText, btnColor, btnBgColor, className, onClick, type } = props;
 
   const defaultColors = {
-    background: "#3B3D3D",
-    color: "#56d3d3",
+    background: "var(--global-gray24)",
+    color: "var(--global-gray89)",
   };
 
   return (

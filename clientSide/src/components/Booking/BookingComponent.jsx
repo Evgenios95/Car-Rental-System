@@ -9,17 +9,19 @@ import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
 import { useLocation, useNavigate } from "react-router-dom";
+import PopUpButton from "../PopUpButton";
 
 const BookingComponent = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [formData, setFormData] = useState([]);
+  const navigate = useNavigate();
 
   return (
     <>
       <NavBar />
 
-      <form onSubmit={(e) => createBooking(e, formData)}>
+      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
@@ -56,6 +58,11 @@ const BookingComponent = () => {
               onClick={() => navigate("/book")}
             />
           )}
+          <PopUpButton
+            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
+            confirmChoiceButtonText="Yes"
+            rejectChoiceButtonText="No"
+          />
         </GrayContainer>
       </form>
     </>

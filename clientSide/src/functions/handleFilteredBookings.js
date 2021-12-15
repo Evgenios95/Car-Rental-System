@@ -1,14 +1,18 @@
-export const handleFilteredBookings = (
+export const handleFilteredBookings = async (
   { target },
   setfilteredBookings,
-  bookings
+  bookings,
+  setSearchTerm
 ) => {
   //this example is about searching for the first name
-  const searchTerm = target.value;
+  const searchValue = target.value;
+
   const filtered = bookings.filter((booking) => {
     return booking.customerFirstName
       .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+      .includes(searchValue.toLowerCase());
   });
-  setfilteredBookings(filtered);
+
+  setSearchTerm(searchValue);
+  await setfilteredBookings(filtered);
 };

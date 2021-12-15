@@ -8,10 +8,12 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
+import { useLocation, useNavigate } from "react-router-dom";
 import PopUpButton from "../PopUpButton";
-import { useNavigate } from "react-router-dom";
 
 const BookingComponent = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState([]);
   const navigate = useNavigate();
 
@@ -41,12 +43,26 @@ const BookingComponent = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
+          <Button type="submit" btnText="Create booking" />
+
+          {location.pathname === "/book" ? (
+            <Button
+              type="button"
+              btnText="Walk in"
+              onClick={() => navigate("/walkin-book")}
+            />
+          ) : (
+            <Button
+              type="button"
+              btnText="Phone booking"
+              onClick={() => navigate("/book")}
+            />
+          )}
           <PopUpButton
             popupQuestionText="Are you sure you wouldn like to cancel your changes?"
             confirmChoiceButtonText="Yes"
             rejectChoiceButtonText="No"
           />
-          <Button type="submit" btnText="Submit" />
         </GrayContainer>
       </form>
     </>

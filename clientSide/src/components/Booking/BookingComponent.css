@@ -12,6 +12,8 @@
 
 .booking-second-container {
   justify-content: flex-end;
+  margin-top: 8px;
+  padding: 10px;
 }
 
 .customer-info-container {

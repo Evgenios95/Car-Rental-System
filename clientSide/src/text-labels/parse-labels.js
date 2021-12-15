@@ -47,6 +47,7 @@ export const ColumnLabels = {
     licenseNo: "licenseNumber",
     color: "color",
     fuel: "fuelType",
+    parkingSlot: "parkingSlot",
   },
   carState: "state",
 };

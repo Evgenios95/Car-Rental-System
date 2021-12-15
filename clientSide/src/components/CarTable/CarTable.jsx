@@ -26,13 +26,12 @@ const CarTable = () => {
   }
 
   return (
-    <GrayContainer className="heythere">
+    <GrayContainer>
       <GrayColumn>
         <div className="overview-container">
           <table>
             <thead>
               <tr>
-                <th>id</th>
                 <th>License number</th>
                 <th>Model</th>
                 <th>Car group</th>
@@ -45,8 +44,7 @@ const CarTable = () => {
             </thead>
             <tbody>
               {cars.map((car) => (
-                <tr key={car.licenseNumber}>
-                  <td>{car.id}</td>
+                <tr key={car.id}>
                   <td>{car.licenseNumber}</td>
                   <td>{car.model}</td>
                   <td>{car.carGroup}</td>

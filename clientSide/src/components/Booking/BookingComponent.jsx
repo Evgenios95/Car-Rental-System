@@ -15,7 +15,6 @@ const BookingComponent = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [formData, setFormData] = useState([]);
-  const navigate = useNavigate();
 
   return (
     <>

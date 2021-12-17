@@ -8,6 +8,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
   query.include("carGroup");
   query.include("pickUpOffice");
   query.include("returnOffice");
+  query.include("carId");
   const bookingArray = [];
 
   try {
@@ -25,6 +26,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
         pickUpTime: object.get("pickUpTime"),
         returnTime: object.get("returnTime"),
         bookingState: object.get("bookingState").get("bookingState"),
+        carLicenseNumber: object.get("carId").get("licenseNumber"),
       };
       console.log(bookingObject);
       bookingArray.push(bookingObject);

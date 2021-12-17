@@ -1,7 +1,7 @@
 import TimeTableData from "./TimeTableData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Bookings = ({ bookings }) => {
   return bookings.map((b, i) => (
@@ -13,6 +13,7 @@ const Bookings = ({ bookings }) => {
       <TimeTableData bookingTime={b.pickUpTime} />
       <TimeTableData bookingTime={b.returnTime} />
       <td>{b.carGroup}</td>
+      <td>{b.carLicenseNumber}</td>
       <td>{b.bookingState}</td>
       <td>
         <Link to={`/individualBooking/${b.bookingId}`}>

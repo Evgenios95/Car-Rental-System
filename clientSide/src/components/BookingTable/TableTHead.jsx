@@ -9,6 +9,7 @@ const TableTHead = () => {
         <th>Pick up time</th>
         <th>Return time</th>
         <th>Car group</th>
+        <th>Car license</th>
         <th>Booking state</th>
         <th></th>
       </tr>

@@ -14,6 +14,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
     const results = await query.find();
     for (const object of results) {
       const bookingObject = {
+        bookingId: object.id,
         customerFirstName: object.get("customerId").get("firstName"),
         customerLastName: object.get("customerId").get("lastName"),
         customerDriversLicense: object
@@ -25,6 +26,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
         returnTime: object.get("returnTime"),
         bookingState: object.get("bookingState").get("bookingState"),
       };
+      console.log(bookingObject);
       bookingArray.push(bookingObject);
     }
     setBookings(bookingArray);

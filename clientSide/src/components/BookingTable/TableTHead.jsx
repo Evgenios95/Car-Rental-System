@@ -10,6 +10,7 @@ const TableTHead = () => {
         <th>Return time</th>
         <th>Car group</th>
         <th>Booking state</th>
+        <th></th>
       </tr>
     </thead>
   );

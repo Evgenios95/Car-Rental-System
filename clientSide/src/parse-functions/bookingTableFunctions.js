@@ -25,10 +25,10 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
         pickUpOffice: object.get("pickUpOffice").get("officeNumber"),
         pickUpTime: object.get("pickUpTime"),
         returnTime: object.get("returnTime"),
-        bookingState: object.get("bookingState").get("bookingState"),
+        bookingState: object.get("bookingState").get("state"),
         carLicenseNumber: object.get("carId").get("licenseNumber"),
       };
-      console.log(bookingObject);
+
       bookingArray.push(bookingObject);
     }
     setBookings(bookingArray);

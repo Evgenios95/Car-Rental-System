@@ -18,7 +18,10 @@ function App() {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/find-booking" element={<BookingTable />} />
         <Route path="/book" element={<BookingComponent />} />
-        <Route path="/individualBooking" element={<IndividualBooking />} />
+        <Route
+          path="/individualBooking/:bookingId"
+          element={<IndividualBooking />}
+        />
         {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />
       </Routes>

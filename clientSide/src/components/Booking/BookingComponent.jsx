@@ -8,15 +8,19 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
+import { useLocation, useNavigate } from "react-router-dom";
+import PopUpButton from "../PopUpButton";
 
 const BookingComponent = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState([]);
 
   return (
     <>
       <NavBar />
 
-      <form onSubmit={(e) => createBooking(e, formData)}>
+      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
@@ -38,8 +42,26 @@ const BookingComponent = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button type="submit" btnText="Submit" />
-          {/* <Button type="submit" btnText="Cancel" /> */}
+          <Button type="submit" btnText="Create booking" />
+
+          {location.pathname === "/book" ? (
+            <Button
+              type="button"
+              btnText="Walk in"
+              onClick={() => navigate("/walkin-book")}
+            />
+          ) : (
+            <Button
+              type="button"
+              btnText="Phone booking"
+              onClick={() => navigate("/book")}
+            />
+          )}
+          <PopUpButton
+            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
+            confirmChoiceButtonText="Yes"
+            rejectChoiceButtonText="No"
+          />
         </GrayContainer>
       </form>
     </>

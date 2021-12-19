@@ -2,8 +2,13 @@ input {
   padding: 12px 0 12px 15px;
   height: 45px;
   border: 0.7px var(--global-dimgray);
-  border-radius: 10px;
+  border-radius: var(--border-radius-cat);
   width: 100%;
+}
+
+input::placeholder {
+  font: var(--open-bee);
+  color: var(--global-dimgray);
 }
 
 input:focus {
@@ -12,9 +17,11 @@ input:focus {
 }
 
 .input-container label {
+  color: var(--global-green-19);
+  font: var(--mont-bee);
+
   display: block;
   margin-bottom: 7px;
-  font-size: var(--font-size-fly);
 }
 
 .input-container {

@@ -1,30 +1,40 @@
+import {
+  ClassnameLabels,
+  ColumnLabels,
+  ErrorLabels,
+} from "../text-labels/parse-labels";
+
 export const setCarElements = async ({ setCars, setError }) => {
-  const Car = Parse.Object.extend("Car");
+  const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);
-  query.include("carGroup");
-  query.include("rentalOffice");
-  query.include("carState");
-  query.include("objectId");
+  query.include(ColumnLabels.car.group);
+  query.include(ColumnLabels.car.rentalOffice);
+  query.include(ColumnLabels.car.state);
+  query.include(ColumnLabels.car.id);
   const carArray = [];
 
   try {
     const results = await query.find();
     for (const object of results) {
       const carObject = {
-        carGroup: object.get("carGroup").get("name"),
-        model: object.get("model"),
-        licenseNumber: object.get("licenseNumber"),
-        color: object.get("color"),
-        fuelType: object.get("fuelType"),
-        carState: object.get("carState").get("state"),
-        rentalOffice: object.get("rentalOffice").get("officeNumber"),
+        carGroup: object
+          .get(ColumnLabels.booking.carGroup)
+          .get(ColumnLabels.carGroup.name),
+        model: object.get(ColumnLabels.car.model),
+        licenseNumber: object.get(ColumnLabels.car.licenseNo),
+        color: object.get(ColumnLabels.car.color),
+        fuelType: object.get(ColumnLabels.car.fuel),
+        carState: object.get(ColumnLabels.car.state).get(ColumnLabels.carState),
+        rentalOffice: object
+          .get(ColumnLabels.car.rentalOffice)
+          .get(ColumnLabels.rentalOffice.officeNo),
       };
       console.log(carObject.licenseNumber);
       carArray.push(carObject);
     }
     setCars(carArray);
   } catch (error) {
-    console.error("Error while fetching Car", error);
+    console.error(ErrorLabels.fetchCar, error);
     setError(error);
   }
 };

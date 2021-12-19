@@ -1,12 +1,12 @@
 import Bookings from "./Bookings";
 
-const TableTBody = ({ bookings, filteredBookings }) => {
+const TableTBody = ({ bookings, filteredBookings, searchTerm }) => {
   return (
     <tbody>
-      {filteredBookings != 0 ? (
-        <Bookings bookings={filteredBookings} />
-      ) : (
+      {searchTerm == "" ? (
         <Bookings bookings={bookings} />
+      ) : (
+        <Bookings bookings={filteredBookings} />
       )}
     </tbody>
   );

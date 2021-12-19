@@ -1,7 +1,12 @@
 import Parse from "parse";
+import {
+  ClassnameLabels,
+  ColumnLabels,
+  ErrorLabels,
+} from "../text-labels/parse-labels";
 
 export const setBookingOverviewElements = async (setError, setBookings) => {
-  const Booking = Parse.Object.extend("Booking");
+  const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);
   query.include("customerId");
   query.include("bookingState");
@@ -10,7 +15,6 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
   query.include("returnOffice");
   query.include("carId");
   const bookingArray = [];
-
   try {
     const results = await query.find();
     for (const object of results) {
@@ -33,7 +37,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
     }
     setBookings(bookingArray);
   } catch (error) {
-    console.error("Error while fetching bookings", error);
+    console.error(ErrorLabels.fetchBookings, error);
     setError(error);
   }
 };

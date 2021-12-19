@@ -14,6 +14,7 @@ const BookingTable = () => {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [filteredBookings, setfilteredBookings] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState();
 
   useEffect(async () => {
@@ -37,7 +38,12 @@ const BookingTable = () => {
           type="text"
           inputPlaceholder="Please search me"
           onChange={({ target }) =>
-            handleFilteredBookings({ target }, setfilteredBookings, bookings)
+            handleFilteredBookings(
+              { target },
+              setfilteredBookings,
+              bookings,
+              setSearchTerm
+            )
           }
           labelText="Search bar"
         />
@@ -47,6 +53,7 @@ const BookingTable = () => {
             <TableTBody
               filteredBookings={filteredBookings}
               bookings={bookings}
+              searchTerm={searchTerm}
             />
           </BookingOverviewTable>
         </GrayColumn>

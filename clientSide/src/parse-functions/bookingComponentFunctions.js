@@ -1,62 +1,72 @@
 import Parse from "parse";
+import {
+  ClassnameLabels,
+  ColumnLabels,
+  ErrorLabels,
+  ResultLabels,
+} from "../text-labels/parse-labels";
+import { useNavigate } from "react-router-dom";
 
 export const getOfficePointer = async (officeInput) => {
-  const RentalOffice = Parse.Object.extend("RentalOffice");
+  const RentalOffice = Parse.Object.extend(ClassnameLabels.rentalOffice);
   const query = new Parse.Query(RentalOffice);
-  query.equalTo("officeNumber", parseInt(officeInput));
+  query.equalTo(ColumnLabels.rentalOffice.officeNo, parseInt(officeInput));
   console.log(officeInput);
   try {
     const officeResult = await query.find();
     // console.log(officeResult[0]);
     return officeResult[0].toPointer();
   } catch (error) {
-    console.error("Error while fetching RentalOffice", error);
+    console.error(ErrorLabels.rentalOffice, error);
   }
 };
 
 export const getBookingStatePointer = async () => {
-  const bookingStateInDB = Parse.Object.extend("Bookingstate");
+  const bookingStateInDB = Parse.Object.extend(ClassnameLabels.bookingState);
   const query = new Parse.Query(bookingStateInDB);
   query.equalTo("state", "waiting");
   try {
     const currentBookingState = await query.find();
     return currentBookingState[0].toPointer();
   } catch (error) {
-    console.error("Error while fetching bookingState", error);
+    console.error(ErrorLabels.bookingState, error);
   }
 };
 
 export const getCarGroupPointer = async (carGroupName) => {
-  const CarGroup = Parse.Object.extend("CarGroup");
+  const CarGroup = Parse.Object.extend(ClassnameLabels.carGroup);
   const query = new Parse.Query(CarGroup);
-  query.equalTo("name", carGroupName);
+  query.equalTo(ColumnLabels.carGroup.name, carGroupName);
   try {
     const carGroupResult = await query.find();
     return carGroupResult[0].toPointer();
   } catch (error) {
-    console.error("Error while fetching CarGroup", error);
+    console.error(ErrorLabels.carGroup, error);
   }
 };
 
 export const createCustomer = async (formData) => {
-  const myNewObject = new Parse.Object("Customer");
-  myNewObject.set("firstName", formData.firstName);
-  myNewObject.set("lastName", formData.lastName);
-  myNewObject.set("address", formData.address);
-  myNewObject.set("email", formData.email);
-  myNewObject.set("age", formData.age);
-  myNewObject.set("phoneNumber", formData.phoneNo);
-  myNewObject.set("driversLicenseID", formData.driversLicenseNo);
+  const myNewObject = new Parse.Object(ClassnameLabels.customer);
+  myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);
+  myNewObject.set(ColumnLabels.customer.lastName, formData.lastName);
+  myNewObject.set(ColumnLabels.customer.address, formData.address);
+  myNewObject.set(ColumnLabels.customer.email, formData.email);
+  myNewObject.set(ColumnLabels.customer.age, formData.age);
+  myNewObject.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
+  myNewObject.set(
+    ColumnLabels.customer.driversLicenseNo,
+    formData.driversLicenseNo
+  );
   try {
     const customer = await myNewObject.save();
     return customer.toPointer();
     // Access the Parse Object attributes using the .GET method
   } catch (error) {
-    console.error("Error while creating Customer: ", error);
+    console.error(ErrorLabels.customer, error);
   }
 };
 
-export const createBooking = async (e, formData) => {
+export const createBooking = async (e, formData, navigate) => {
   e.preventDefault();
   const customerPointer = await createCustomer(formData);
   const pickupOfficePointer = await getOfficePointer(formData.pickUpOffice);
@@ -64,19 +74,27 @@ export const createBooking = async (e, formData) => {
   const carGroupPointer = await getCarGroupPointer(formData.carGroup);
   const bookingStatePointer = await getBookingStatePointer();
 
-  const myNewObject = new Parse.Object("Booking");
-  myNewObject.set("pickUpTime", new Date(formData.pickupDate));
-  myNewObject.set("returnTime", new Date(formData.returnDate));
-  myNewObject.set("customerId", customerPointer);
-  myNewObject.set("pickUpOffice", pickupOfficePointer);
-  myNewObject.set("returnOffice", returnOfficePointer);
-  myNewObject.set("carGroup", carGroupPointer);
-  myNewObject.set("bookingState", bookingStatePointer);
+  const myNewObject = new Parse.Object(ClassnameLabels.booking);
+  myNewObject.set(
+    ColumnLabels.booking.pickUpTime,
+    new Date(formData.pickupDate)
+  );
+  myNewObject.set(
+    ColumnLabels.booking.returnTime,
+    new Date(formData.returnDate)
+  );
+  myNewObject.set(ColumnLabels.booking.customerId, customerPointer);
+  myNewObject.set(ColumnLabels.booking.pickUpOffice, pickupOfficePointer);
+  myNewObject.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
+  myNewObject.set(ColumnLabels.booking.carGroup, carGroupPointer);
+  myNewObject.set(ColumnLabels.booking.bookingState, bookingStatePointer);
+  myNewObject.set(ColumnLabels.booking.car, formData.car);
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
     console.log("Booking created", result);
+    navigate("/find-booking");
   } catch (error) {
-    console.error("Error while creating Booking: ", error);
+    console.error(ErrorLabels.booking, error);
   }
 };

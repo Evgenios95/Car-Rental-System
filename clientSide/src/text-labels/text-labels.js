@@ -2,7 +2,7 @@ export const GeneralLabels = {
   login: "Log in",
   username: "Username*",
   password: "Password*",
-  placeholder: "Type here",
+  placeholder: "Type here..",
 };
 
 export const NavigationLabels = {

@@ -4,6 +4,7 @@ import LoginComponent from "./components/Login/Login";
 import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
+import IndividualBooking from "./components/IndividualBooking/IndividualBooking";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/find-booking" element={<BookingTable />} />
         <Route path="/book" element={<BookingComponent />} />
+        <Route
+          path="/individualBooking/:bookingId"
+          element={<IndividualBooking />}
+        />
         <Route path="/walkin-book" element={<BookingComponent />} />
         {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />

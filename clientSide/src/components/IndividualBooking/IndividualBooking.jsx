@@ -5,87 +5,37 @@ import GrayColumn from "../UiComponents/GrayColumn";
 import { useState } from "react";
 import Parse from "parse";
 import { useEffect } from "react";
-import "./IndividualBooking.css";
-import TimeTableData from "../BookingTable/TimeTableData";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import PageTitle from "../PageTitle/PageTitle";
-import { TitleLabels, SubtitleLabels } from "../../text-labels/text-labels";
+import {
+  TitleLabels,
+  SubtitleLabels,
+  NavigationLabels,
+} from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
+
+import {
+  getBookingById,
+  getCarById,
+} from "../../parse-functions/individualBookingFunctions";
+import Button from "../Button/Button";
 
 const IndividualBooking = () => {
   const { bookingId } = useParams();
+  const navigate = useNavigate();
 
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
   console.log(bookingId);
 
-  const getBookingById = async (bookingId) => {
-    const Booking = Parse.Object.extend("Booking");
-    const query = new Parse.Query(Booking);
-
-    query.equalTo("objectId", bookingId);
-    query.include("carGroup");
-    query.include("customerId");
-    query.include("carId");
-    query.include("pickUpOffice");
-    query.include("returnOffice");
-    query.include("bookingState");
-
-    try {
-      const result = await query.find();
-      const bookingObject = {
-        pickUpTime: result[0].get("pickUpTime").toString(),
-        returnTime: result[0].get("returnTime").toString(),
-        pickUpOffice: result[0].get("pickUpOffice").get("officeNumber"),
-        returnOffice: result[0].get("returnOffice").get("officeNumber"),
-        bookingState: result[0].get("bookingState").get("state"),
-        carGroup: result[0].get("carGroup").get("name"),
-        carId: result[0].get("carId").id,
-      };
-      const customerObject = {
-        firstName: result[0].get("customerId").get("firstName"),
-        lastName: result[0].get("customerId").get("lastName"),
-        age: result[0].get("customerId").get("age"),
-        address: result[0].get("customerId").get("address"),
-        driversLicenseId: result[0].get("customerId").get("driversLicenseID"),
-        eMail: result[0].get("customerId").get("email"),
-        phoneNumber: result[0].get("customerId").get("phoneNumber"),
-      };
-      setBooking(bookingObject);
-      setCustomer(customerObject);
-    } catch (error) {
-      console.error("Error while fetching Booking", error);
-    }
-  };
-
-  const getCarById = async (carId) => {
-    const Car = Parse.Object.extend("Car");
-    const query = new Parse.Query(Car);
-    query.equalTo("objectId", carId);
-    query.include("carGroup");
-    query.include("carState");
-    try {
-      const result = await query.find();
-      const carObject = {
-        fuelType: result[0].get("fuelType"),
-        model: result[0].get("model"),
-        licensNumber: result[0].get("licenseNumber"),
-        color: result[0].get("color"),
-        carState: result[0].get("carState").get("state"),
-        carGroup: result[0].get("carGroup").get("name"),
-        parkingSlot: result[0].get("parkingSlot"),
-      };
-      setCar(carObject);
-    } catch (error) {
-      console.error("Error while fetching car", error);
-    }
-  };
-
   useEffect(async () => {
-    await getBookingById(bookingId);
+    await getBookingById(bookingId, setBooking, setCustomer);
   }, []);
   useEffect(async () => {
-    await getCarById(booking.carId);
+    await getCarById(booking.carId, setCar);
   }, [booking]);
 
   return (
@@ -184,6 +134,42 @@ const IndividualBooking = () => {
             </table>
           </div>
         </GrayColumn>
+      </GrayContainer>
+
+      <GrayContainer>
+        <Link to={`/editIndividualBooking/${bookingId}`}>
+          <Button type="button" btnText="Edit booking" />
+        </Link>
+
+        <Button
+          type="button"
+          btnText="Delete booking"
+          btnBgColor="var(--global-red-55)"
+          onClick={() =>
+            navigate("/editIndividualBooking", {
+              bookingId: bookingId,
+            })
+          }
+        />
+
+        <Button
+          type="button"
+          btnText="Pick up car"
+          onClick={() =>
+            navigate("/editIndividualBooking", {
+              bookingId: bookingId,
+            })
+          }
+        />
+        <Button
+          type="button"
+          btnText="Return car"
+          onClick={() =>
+            navigate("/returnCar", {
+              bookingId: bookingId,
+            })
+          }
+        />
       </GrayContainer>
     </>
   );

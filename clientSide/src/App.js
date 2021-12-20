@@ -5,6 +5,7 @@ import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
 import IndividualBooking from "./components/IndividualBooking/IndividualBooking";
+import EditIndividualBooking from "./components/EditIndividualBooking/EditIndividualBooking";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <Route
           path="/individualBooking/:bookingId"
           element={<IndividualBooking />}
+        />
+        <Route
+          path="/editIndividualBooking/:bookingId"
+          element={<EditIndividualBooking />}
         />
         <Route path="/walkin-book" element={<BookingComponent />} />
         {/* Render your component below  */}

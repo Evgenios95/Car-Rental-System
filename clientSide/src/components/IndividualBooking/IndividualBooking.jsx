@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
 import {
   TitleLabels,
@@ -19,8 +20,8 @@ import Subtitle from "../Subtitle/Subtitle";
 import {
   getBookingById,
   getCarById,
+  deleteBookingById,
 } from "../../parse-functions/individualBookingFunctions";
-import Button from "../Button/Button";
 
 const IndividualBooking = () => {
   const { bookingId } = useParams();
@@ -29,14 +30,11 @@ const IndividualBooking = () => {
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
-  console.log(bookingId);
 
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer);
-  }, []);
-  useEffect(async () => {
     await getCarById(booking.carId, setCar);
-  }, [booking]);
+  }, []);
 
   return (
     <>
@@ -145,11 +143,7 @@ const IndividualBooking = () => {
           type="button"
           btnText="Delete booking"
           btnBgColor="var(--global-red-55)"
-          onClick={() =>
-            navigate("/editIndividualBooking", {
-              bookingId: bookingId,
-            })
-          }
+          onClick={() => deleteBookingById(bookingId)}
         />
 
         <Button

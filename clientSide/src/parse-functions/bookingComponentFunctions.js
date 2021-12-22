@@ -44,7 +44,28 @@ export const getCarGroupPointer = async (carGroupName) => {
     console.error(ErrorLabels.carGroup, error);
   }
 };
-
+export const getCarPointer = async (carId) => {
+  const Car = Parse.Object.extend(ClassnameLabels.car);
+  const query = new Parse.Query(Car);
+  query.equalTo("objectId", carId);
+  try {
+    const carResult = await query.find();
+    return carResult[0].toPointer();
+  } catch (error) {
+    console.error(ErrorLabels.fetchCar, error);
+  }
+};
+export const getCustomerPointer = async (customerId) => {
+  const Customer = Parse.Object.extend(ClassnameLabels.customer);
+  const query = new Parse.Query(Customer);
+  query.equalTo("objectId", customerId);
+  try {
+    const customerResult = await query.find();
+    return customerResult[0].toPointer();
+  } catch (error) {
+    console.error(ErrorLabels.customer, error);
+  }
+};
 export const createCustomer = async (formData) => {
   const myNewObject = new Parse.Object(ClassnameLabels.customer);
   myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);

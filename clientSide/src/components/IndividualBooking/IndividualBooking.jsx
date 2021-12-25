@@ -7,7 +7,9 @@ import Parse from "parse";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import "./IndividualBooking.css";
 import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
 import {
@@ -53,6 +55,7 @@ const IndividualBooking = () => {
                   <th>Return time</th>
                   <th>Car group</th>
                   <th>Booking state</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -63,6 +66,12 @@ const IndividualBooking = () => {
                   <td>{booking.returnTime}</td>
                   <td>{booking.carGroup}</td>
                   <td>{booking.bookingState}</td>
+                  <td>
+                    {" "}
+                    <Link to={`/editBooking/${bookingId}`}>
+                      <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+                    </Link>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -135,10 +144,6 @@ const IndividualBooking = () => {
       </GrayContainer>
 
       <GrayContainer>
-        <Link to={`/editIndividualBooking/${bookingId}`}>
-          <Button type="button" btnText="Edit booking" />
-        </Link>
-
         <Button
           type="button"
           btnText="Delete booking"

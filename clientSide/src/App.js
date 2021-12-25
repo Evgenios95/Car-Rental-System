@@ -5,7 +5,8 @@ import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
 import IndividualBooking from "./components/IndividualBooking/IndividualBooking";
-import EditIndividualBooking from "./components/EditIndividualBooking/EditIndividualBooking";
+
+import EditBooking from "./components/EditBooking/EditBooking";
 
 function App() {
   return (
@@ -22,10 +23,7 @@ function App() {
           path="/individualBooking/:bookingId"
           element={<IndividualBooking />}
         />
-        <Route
-          path="/editIndividualBooking/:bookingId"
-          element={<EditIndividualBooking />}
-        />
+        <Route path="/editBooking/:bookingId" element={<EditBooking />} />
         <Route path="/walkin-book" element={<BookingComponent />} />
         {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />

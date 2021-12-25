@@ -32,10 +32,11 @@ const IndividualBooking = () => {
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
-
+  console.log(booking.carId);
   useEffect(async () => {
-    await getBookingById(bookingId, setBooking, setCustomer);
-    await getCarById(booking.carId, setCar);
+    await getBookingById(bookingId, setBooking, setCustomer, setCar);
+
+    //await getCarById(booking.carId, setCar);
   }, []);
 
   return (
@@ -92,6 +93,7 @@ const IndividualBooking = () => {
                   <th>Driver license</th>
                   <th>Phone number</th>
                   <th>E-mail</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -103,6 +105,14 @@ const IndividualBooking = () => {
                   <td>{customer.driversLicenseId}</td>
                   <td>{customer.phoneNumber}</td>
                   <td>{customer.eMail}</td>
+                  <td>
+                    {" "}
+                    <Link
+                      to={`/editCustomer/${bookingId}/${booking.customerId}`}
+                    >
+                      <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+                    </Link>
+                  </td>
                 </tr>
               </tbody>
             </table>

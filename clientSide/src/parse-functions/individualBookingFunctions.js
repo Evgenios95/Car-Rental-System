@@ -1,17 +1,27 @@
 import Parse from "parse";
 
-export const getBookingById = async (bookingId, setBooking, setCustomer) => {
+export const getBookingById = async (
+  bookingId,
+  setBooking,
+  setCustomer,
+  setCar
+) => {
   const Booking = Parse.Object.extend("Booking");
   const query = new Parse.Query(Booking);
+
   query.equalTo("objectId", bookingId);
   query.include("carGroup");
   query.include("customerId");
   query.include("carId");
+  query.include("carId.carState");
+  query.include("carId.carGroup");
   query.include("pickUpOffice");
   query.include("returnOffice");
   query.include("bookingState");
+
   try {
     const result = await query.find();
+
     const bookingObject = {
       pickUpTime: result[0].get("pickUpTime").toString(),
       returnTime: result[0].get("returnTime").toString(),
@@ -32,9 +42,19 @@ export const getBookingById = async (bookingId, setBooking, setCustomer) => {
       phoneNumber: result[0].get("customerId").get("phoneNumber"),
       customerId: result[0].get("customerId").id,
     };
+    const carObject = {
+      fuelType: result[0].get("carId").get("fuelType"),
+      model: result[0].get("carId").get("model"),
+      licensNumber: result[0].get("carId").get("licenseNumber"),
+      color: result[0].get("carId").get("color"),
+      carState: result[0].get("carId").get("carState").get("state"),
+      carGroup: result[0].get("carId").get("carGroup").get("name"),
+      parkingSlot: result[0].get("carId").get("parkingSlot"),
+    };
 
     setBooking(bookingObject);
     setCustomer(customerObject);
+    setCar(carObject);
   } catch (error) {
     console.error("Error while fetching Booking", error);
   }

@@ -70,3 +70,34 @@ export const updateBooking = async (e, bookingId, formData, navigate) => {
     console.error("Error while retrieving object Booking", error);
   }
 };
+
+export const updateCustomer = async (
+  e,
+  customerId,
+  bookingId,
+  formData,
+  navigate
+) => {
+  e.preventDefault();
+  const Customer = Parse.Object.extend("Customer");
+  const query = new Parse.Query(Customer);
+  try {
+    const object = await query.get(customerId);
+    object.set("lastName", formData.lastName);
+    object.set("driversLicenseID", formData.driversLicenseNo);
+    object.set("phoneNumber", formData.phoneNo);
+    object.set("firstName", formData.firstName);
+    object.set("email", formData.email);
+    object.set("age", formData.age);
+    object.set("address", formData.address);
+    try {
+      const response = await object.save();
+      console.log("Customer updated", response);
+      navigate(`/individual-booking/${bookingId}`);
+    } catch (error) {
+      console.error("Error while updating Customer", error);
+    }
+  } catch (error) {
+    console.error("Error while retrieving object Customer", error);
+  }
+};

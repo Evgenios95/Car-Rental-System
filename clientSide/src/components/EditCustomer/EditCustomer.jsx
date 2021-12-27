@@ -14,6 +14,7 @@ import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
 import { onChangeHandler } from "../../functions/onChangeHandlers";
 import Parse from "parse";
+import "./EditCustomer.css";
 
 const EditCustomer = () => {
   const { bookingId, customerId } = useParams();
@@ -45,14 +46,11 @@ const EditCustomer = () => {
   return (
     <>
       <NavBar />
-      <div>Her er customer {customerId}</div>
-      <PageTitle ptitle="Edit customer"></PageTitle>
 
-      <GrayContainer>
-        <GrayColumn>
-          <form
-            onSubmit={(e) => updateCustomer(e, customerId, formData, navigate)}
-          >
+      <PageTitle ptitle="Edit customer"></PageTitle>
+      <form onSubmit={(e) => updateCustomer(e, customerId, formData, navigate)}>
+        <GrayContainer>
+          <GrayColumn>
             <LabeledInput
               labelText={CustomerInfoLabels.firstName}
               type="text"
@@ -98,17 +96,16 @@ const EditCustomer = () => {
               inputPlaceholder={GeneralLabels.placeholder}
               onChange={(e) => onChangeHandler(e, "email", setFormData)}
             ></LabeledInput>
-            <GrayContainer>
-              <Button type="submit" btnText="Finish editing" />
-
-              <Button
-                btnText="Go back"
-                onClick={() => navigate(`/individualBooking/${bookingId}`)}
-              />
-            </GrayContainer>
-          </form>
-        </GrayColumn>
-      </GrayContainer>
+          </GrayColumn>
+        </GrayContainer>
+        <GrayContainer className="edit-customer-second-container">
+          <Button
+            btnText="Go back"
+            onClick={() => navigate(`/individualBooking/${bookingId}`)}
+          />
+          <Button type="submit" btnText="Finish editing" />
+        </GrayContainer>
+      </form>
     </>
   );
 };

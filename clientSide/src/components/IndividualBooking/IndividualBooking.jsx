@@ -24,6 +24,9 @@ import {
   getCarById,
   deleteBookingById,
 } from "../../parse-functions/individualBookingFunctions";
+import IndividualBookingRecord from "./IndividualBookingRecord";
+import CustomerRecord from "./CustomerRecord";
+import CarRecord from "./CarRecord";
 
 const IndividualBooking = () => {
   const { bookingId } = useParams();
@@ -32,11 +35,9 @@ const IndividualBooking = () => {
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
-  console.log(booking.carId);
+
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer, setCar);
-
-    //await getCarById(booking.carId, setCar);
   }, []);
 
   return (
@@ -45,115 +46,24 @@ const IndividualBooking = () => {
       <PageTitle ptitle={TitleLabels.individualBooking} />
       <GrayContainer>
         <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.bookingRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>Pick up office</th>
-                  <th>Return office</th>
-                  <th>Pick up time</th>
-                  <th>Return time</th>
-                  <th>Car group</th>
-                  <th>Booking state</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{booking.pickUpOffice}</td>
-                  <td>{booking.returnOffice}</td>
-                  <td>{booking.pickUpTime}</td>
-                  <td>{booking.returnTime}</td>
-                  <td>{booking.carGroup}</td>
-                  <td>{booking.bookingState}</td>
-                  <td>
-                    {" "}
-                    <Link to={`/editBooking/${bookingId}`}>
-                      <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Subtitle stitle={SubtitleLabels.bookingRecord} />
+          <IndividualBookingRecord booking={booking} bookingId={bookingId} />
         </GrayColumn>
-      </GrayContainer>
-      <GrayContainer>
         <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.customerRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Age</th>
-                  <th>Address</th>
-                  <th>Driver license</th>
-                  <th>Phone number</th>
-                  <th>E-mail</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{customer.firstName}</td>
-                  <td>{customer.lastName}</td>
-                  <td>{customer.age}</td>
-                  <td>{customer.address}</td>
-                  <td>{customer.driversLicenseId}</td>
-                  <td>{customer.phoneNumber}</td>
-                  <td>{customer.eMail}</td>
-                  <td>
-                    {" "}
-                    <Link
-                      to={`/editCustomer/${bookingId}/${booking.customerId}`}
-                    >
-                      <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Subtitle stitle={SubtitleLabels.customerRecord} />
+          <CustomerRecord
+            booking={booking}
+            bookingId={bookingId}
+            customer={customer}
+          />
         </GrayColumn>
-      </GrayContainer>
-
-      <GrayContainer>
         <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.carRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>Model </th>
-                  <th>Color</th>
-                  <th>Fuel type</th>
-                  <th>License number</th>
-                  <th>Group</th>
-
-                  <th>Parking slot</th>
-                  <th>State</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{car.model}</td>
-                  <td>{car.color}</td>
-                  <td>{car.fuelType}</td>
-                  <td>{car.licensNumber}</td>
-                  <td>{car.carGroup}</td>
-                  <td>{car.parkingSlot}</td>
-                  <td>{car.carState}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Subtitle stitle={SubtitleLabels.carRecord} />
+          <CarRecord booking={booking} bookingId={bookingId} car={car} />
         </GrayColumn>
       </GrayContainer>
 
-      <GrayContainer>
+      <GrayContainer className="individual-booking-second-container">
         <Button
           type="button"
           btnText="Delete booking"

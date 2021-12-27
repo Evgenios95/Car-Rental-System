@@ -20,7 +20,7 @@ export const TitleLabels = {
   find: "Find Booking",
   book: "Book",
   carOverview: "Car Overview",
-  individualBookingDetailPage: "Individual Booking Detail Page",
+  individualBooking: "Individual Booking",
   returnAndPickUp: "Return and pick up",
 };
 

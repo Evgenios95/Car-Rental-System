@@ -24,7 +24,7 @@ export const getOfficePointer = async (officeInput) => {
 export const getBookingStatePointer = async () => {
   const bookingStateInDB = Parse.Object.extend(ClassnameLabels.bookingState);
   const query = new Parse.Query(bookingStateInDB);
-  query.equalTo(ColumnLabels.bookingState, "waiting");
+  query.equalTo("state", "waiting");
   try {
     const currentBookingState = await query.find();
     return currentBookingState[0].toPointer();

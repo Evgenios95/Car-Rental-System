@@ -1,3 +1,7 @@
 .page-title {
-  font: var(--open-butterfly);
+  font: var(--mont-butterfly);
+  position: relative;
+  top: 30px;
+  left: 20px;
+  margin-left: 75px;
 }

@@ -3,8 +3,9 @@ import {
   ColumnLabels,
   ErrorLabels,
 } from "../text-labels/parse-labels";
+import Parse from "parse";
 
-export const setCarElements = async ({ setCars, setError }) => {
+export const setCarElements = async (setCars, setError) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);
   query.include(ColumnLabels.car.group);
@@ -28,6 +29,7 @@ export const setCarElements = async ({ setCars, setError }) => {
         rentalOffice: object
           .get(ColumnLabels.car.rentalOffice)
           .get(ColumnLabels.rentalOffice.officeNo),
+        carId: object.id,
       };
       console.log(carObject.licenseNumber);
       carArray.push(carObject);

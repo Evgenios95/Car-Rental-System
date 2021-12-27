@@ -16,7 +16,7 @@ const Bookings = ({ bookings }) => {
       <td>{b.carLicenseNumber}</td>
       <td>{b.bookingState}</td>
       <td>
-        <Link to={`/individualBooking/${b.bookingId}`}>
+        <Link to={`/individual-booking/${b.bookingId}`}>
           <FontAwesomeIcon icon={faArrowAltCircleRight}></FontAwesomeIcon>
         </Link>
       </td>

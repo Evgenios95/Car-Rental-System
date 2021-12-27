@@ -50,6 +50,7 @@ export const getBookingById = async (
       carState: result[0].get("carId").get("carState").get("state"),
       carGroup: result[0].get("carId").get("carGroup").get("name"),
       parkingSlot: result[0].get("carId").get("parkingSlot"),
+      carId: result[0].get("carId"),
     };
 
     setBooking(bookingObject);
@@ -77,6 +78,7 @@ export const getCarById = async (carId, setCar) => {
       carState: result[0].get("carState").get("state"),
       carGroup: result[0].get("carGroup").get("name"),
       parkingSlot: result[0].get("parkingSlot"),
+      carId: result[0].id,
     };
     setCar(carObject);
   } catch (error) {
@@ -84,7 +86,7 @@ export const getCarById = async (carId, setCar) => {
   }
 };
 
-export const deleteBookingById = async (bookingId) => {
+export const deleteBookingById = async (bookingId, navigate) => {
   const Booking = Parse.Object.extend("Booking");
   const query = new Parse.Query(Booking);
   try {
@@ -92,6 +94,7 @@ export const deleteBookingById = async (bookingId) => {
     try {
       const response = await object.destroy();
       console.log("Deleted ParseObject", response);
+      navigate("/find-booking");
     } catch (error) {
       console.error("Error while deleting ParseObject", error);
     }

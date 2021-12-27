@@ -101,7 +101,7 @@ const EditCustomer = () => {
         <GrayContainer className="edit-customer-second-container">
           <Button
             btnText="Go back"
-            onClick={() => navigate(`/individualBooking/${bookingId}`)}
+            onClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
           <Button type="submit" btnText="Finish editing" />
         </GrayContainer>

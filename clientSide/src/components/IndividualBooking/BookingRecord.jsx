@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-const IndividualBookingRecord = ({ booking, bookingId }) => {
+const BookingRecord = ({ booking, bookingId }) => {
   return (
     <table>
       <thead>
@@ -25,7 +25,7 @@ const IndividualBookingRecord = ({ booking, bookingId }) => {
           <td>{booking.bookingState}</td>
           <td>
             {" "}
-            <Link to={`/editBooking/${bookingId}`}>
+            <Link to={`/edit-booking/${bookingId}`}>
               <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
             </Link>
           </td>
@@ -34,4 +34,4 @@ const IndividualBookingRecord = ({ booking, bookingId }) => {
     </table>
   );
 };
-export default IndividualBookingRecord;
+export default BookingRecord;

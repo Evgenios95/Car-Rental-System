@@ -17,7 +17,7 @@ td {
   border: hidden;
   text-align: center;
   padding: 8px;
-
+  border-collapse: collapse;
   font: var(--open-bee);
 }
 

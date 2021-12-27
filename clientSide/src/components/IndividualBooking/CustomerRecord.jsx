@@ -27,7 +27,7 @@ const CustomerRecord = ({ booking, bookingId, customer }) => {
           <td>{customer.eMail}</td>
           <td>
             {" "}
-            <Link to={`/editCustomer/${bookingId}/${booking.customerId}`}>
+            <Link to={`/edit-customer/${bookingId}/${booking.customerId}`}>
               <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
             </Link>
           </td>

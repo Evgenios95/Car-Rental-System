@@ -24,7 +24,7 @@ import {
   getCarById,
   deleteBookingById,
 } from "../../parse-functions/individualBookingFunctions";
-import IndividualBookingRecord from "./IndividualBookingRecord";
+import BookingRecord from "./BookingRecord";
 import CustomerRecord from "./CustomerRecord";
 import CarRecord from "./CarRecord";
 
@@ -47,7 +47,7 @@ const IndividualBooking = () => {
       <GrayContainer>
         <GrayColumn>
           <Subtitle stitle={SubtitleLabels.bookingRecord} />
-          <IndividualBookingRecord booking={booking} bookingId={bookingId} />
+          <BookingRecord booking={booking} bookingId={bookingId} />
         </GrayColumn>
         <GrayColumn>
           <Subtitle stitle={SubtitleLabels.customerRecord} />
@@ -75,7 +75,7 @@ const IndividualBooking = () => {
           type="button"
           btnText="Pick up car"
           onClick={() =>
-            navigate("/editIndividualBooking", {
+            navigate("/pick-up-car/:bookingId/:carId", {
               bookingId: bookingId,
             })
           }

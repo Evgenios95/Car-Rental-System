@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./CarTable.css";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { chooseCar } from "../../parse-functions/updateFunctions";
 import { setCarElements } from "../../parse-functions/carTableFunctions";
-import Parse from "parse";
 
-const CarTable = () => {
+const EditCarTable = ({ setChosenCar }) => {
   const [loading, setLoading] = useState(true);
   const [cars, setCars] = useState([]);
   const [error, setError] = useState();
@@ -32,6 +33,7 @@ const CarTable = () => {
             <th>Fueltype</th>
             <th>Rental office</th>
             <th>State</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -44,6 +46,14 @@ const CarTable = () => {
               <td>{car.fuelType}</td>
               <td>{car.rentalOffice}</td>
               <td>{car.carState}</td>
+              <td>
+                <FontAwesomeIcon
+                  icon={faPlus}
+                  onClick={() => {
+                    chooseCar(car.carId, setChosenCar);
+                  }}
+                ></FontAwesomeIcon>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -51,4 +61,4 @@ const CarTable = () => {
     </div>
   );
 };
-export default CarTable;
+export default EditCarTable;

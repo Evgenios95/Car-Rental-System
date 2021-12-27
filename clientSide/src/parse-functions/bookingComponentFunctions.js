@@ -32,6 +32,17 @@ export const getBookingStatePointer = async () => {
     console.error(ErrorLabels.bookingState, error);
   }
 };
+export const getBookingStatePointerForEdit = async (bookingState) => {
+  const bookingStateInDB = Parse.Object.extend(ClassnameLabels.bookingState);
+  const query = new Parse.Query(bookingStateInDB);
+  query.equalTo("state", bookingState);
+  try {
+    const currentBookingState = await query.find();
+    return currentBookingState[0].toPointer();
+  } catch (error) {
+    console.error(ErrorLabels.bookingState, error);
+  }
+};
 
 export const getCarGroupPointer = async (carGroupName) => {
   const CarGroup = Parse.Object.extend(ClassnameLabels.carGroup);

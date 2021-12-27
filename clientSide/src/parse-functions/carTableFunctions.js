@@ -3,9 +3,11 @@ import {
   ColumnLabels,
   ErrorLabels,
 } from "../text-labels/parse-labels";
+import Parse from "parse";
 
-export const setCarElements = async ({ setCars, setError }) => {
+export const setCarElements = async (setCars, setError) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
+
   const query = new Parse.Query(Car);
   query.include(ColumnLabels.car.group);
   query.include(ColumnLabels.car.rentalOffice);
@@ -16,7 +18,9 @@ export const setCarElements = async ({ setCars, setError }) => {
   try {
     const results = await query.find();
     for (const object of results) {
+      console.log(object);
       const carObject = {
+        id: object.id,
         carGroup: object
           .get(ColumnLabels.booking.carGroup)
           .get(ColumnLabels.carGroup.name),
@@ -29,7 +33,6 @@ export const setCarElements = async ({ setCars, setError }) => {
           .get(ColumnLabels.car.rentalOffice)
           .get(ColumnLabels.rentalOffice.officeNo),
       };
-      console.log(carObject.licenseNumber);
       carArray.push(carObject);
     }
     setCars(carArray);

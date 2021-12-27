@@ -12,6 +12,7 @@ export const setCarElements = async (setCars, setError) => {
   query.include(ColumnLabels.car.rentalOffice);
   query.include(ColumnLabels.car.state);
   query.include(ColumnLabels.car.id);
+  query.notEqualTo(ColumnLabels.car.licenseNo, "no car assigned");
   const carArray = [];
 
   try {

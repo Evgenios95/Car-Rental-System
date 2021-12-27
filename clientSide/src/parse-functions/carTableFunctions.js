@@ -31,7 +31,7 @@ export const setCarElements = async (setCars, setError) => {
           .get(ColumnLabels.rentalOffice.officeNo),
         carId: object.id,
       };
-      console.log(carObject.licenseNumber);
+
       carArray.push(carObject);
     }
     setCars(carArray);

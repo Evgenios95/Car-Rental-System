@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-
+import "./EditBooking.css";
 import GrayContainer from "../UiComponents/GrayContainer";
 import GrayColumn from "../UiComponents/GrayColumn";
 import LabeledInput from "../LabeledInput/LabeledInput";
@@ -62,12 +62,9 @@ const EditBooking = () => {
     <>
       <NavBar />
       <PageTitle ptitle="Edit booking"></PageTitle>
-      <GrayContainer>
-        <GrayColumn>
-          <p>here is params {bookingId}</p>
-          <form
-            onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}
-          >
+      <form onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}>
+        <GrayContainer>
+          <GrayColumn>
             <LabeledInput
               labelText={"Pick-up date*"}
               type="date"
@@ -112,15 +109,15 @@ const EditBooking = () => {
               onChange={(e) => onChangeHandler(e, "bookingState", setFormData)}
               attribute="state"
             />
-            <GrayContainer>
-              <Button type="submit" btnText="Finish editing" />
-              <Link to={`/individualBooking/${bookingId}`}>
-                <Button type="submit" btnText="Go back" />
-              </Link>
-            </GrayContainer>
-          </form>
-        </GrayColumn>
-      </GrayContainer>
+          </GrayColumn>
+        </GrayContainer>
+        <GrayContainer className="edit-booking-second-container">
+          <Link to={`/individualBooking/${bookingId}`}>
+            <Button type="submit" btnText="Go back" />
+          </Link>
+          <Button type="submit" btnText="Finish editing" />
+        </GrayContainer>
+      </form>
     </>
   );
 };

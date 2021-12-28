@@ -2,7 +2,7 @@ import * as React from "react";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 
 export function PopUpButton({
   popupQuestionText,

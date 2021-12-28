@@ -2,6 +2,7 @@ import {
   ClassnameLabels,
   ColumnLabels,
   ErrorLabels,
+  HardcodedFieldLabels,
 } from "../text-labels/parse-labels";
 import Parse from "parse";
 
@@ -12,7 +13,7 @@ export const setCarElements = async (setCars, setError) => {
   query.include(ColumnLabels.car.rentalOffice);
   query.include(ColumnLabels.car.state);
   query.include(ColumnLabels.car.id);
-  query.notEqualTo(ColumnLabels.car.licenseNo, "no car assigned");
+  query.notEqualTo(ColumnLabels.car.licenseNo, HardcodedFieldLabels.car);
   const carArray = [];
 
   try {

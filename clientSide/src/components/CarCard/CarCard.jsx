@@ -1,22 +1,25 @@
 import "./CarCard.css";
-import GrayColumn from "../ui-components/GrayColumn";
-import GrayContainer from "../ui-components/GrayContainer";
 import ford from "../../images/a6.jpeg";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getCarById } from "../../parse-functions/getCarByIdFunction";
+import GrayContainer from "../UiComponents/GrayContainer";
+import GrayColumn from "../UiComponents/GrayColumn";
 
-export default function CarCard(props) {
+export default function CarCard() {
+  const { id } = useParams();
+  const [car, setCar] = useState({});
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    getCarById(id, setCar, setError);
+  }, []);
+
   return (
     <GrayContainer>
       <GrayColumn>
-        <div className="card">
-          <div className="card-header">
-            <div className="card-title-group">
-              <h5 className="card-title">{props.group}</h5>
-            </div>
-          </div>
-          <img className="card-image" src={ford} alt=""></img>
-          <div className="card-model">{props.model}</div>
-          <div className="card-info">{props.info}</div>
-        </div>
+        <div>It works: here is its model = {car.model}</div>
       </GrayColumn>
     </GrayContainer>
   );

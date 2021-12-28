@@ -22,6 +22,7 @@ export const TitleLabels = {
   carOverview: "Car Overview",
   individualBooking: "Individual Booking",
   returnAndPickUp: "Return and pick up",
+  editBooking: "Edit booking",
 };
 
 export const SubtitleLabels = {

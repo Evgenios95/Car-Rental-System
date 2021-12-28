@@ -2,21 +2,27 @@ import {
   ClassnameLabels,
   ColumnLabels,
   ErrorLabels,
+  HardcodedFieldLabels,
 } from "../text-labels/parse-labels";
+import Parse from "parse";
 
-export const setCarElements = async ({ setCars, setError }) => {
+export const setCarElements = async (setCars, setError) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
+
   const query = new Parse.Query(Car);
   query.include(ColumnLabels.car.group);
   query.include(ColumnLabels.car.rentalOffice);
   query.include(ColumnLabels.car.state);
   query.include(ColumnLabels.car.id);
+  query.notEqualTo(ColumnLabels.car.licenseNo, HardcodedFieldLabels.car);
   const carArray = [];
 
   try {
     const results = await query.find();
     for (const object of results) {
+      console.log(object);
       const carObject = {
+        id: object.id,
         carGroup: object
           .get(ColumnLabels.booking.carGroup)
           .get(ColumnLabels.carGroup.name),
@@ -28,8 +34,8 @@ export const setCarElements = async ({ setCars, setError }) => {
         rentalOffice: object
           .get(ColumnLabels.car.rentalOffice)
           .get(ColumnLabels.rentalOffice.officeNo),
+        carId: object.id,
       };
-      console.log(carObject.licenseNumber);
       carArray.push(carObject);
     }
     setCars(carArray);

@@ -30,6 +30,8 @@ export const ColumnLabels = {
     carGroup: "carGroup",
     bookingState: "bookingState",
     car: "car",
+    carId: "carId",
+    id: "objectId",
   },
   carGroup: {
     name: "name",
@@ -47,12 +49,21 @@ export const ColumnLabels = {
     licenseNo: "licenseNumber",
     color: "color",
     fuel: "fuelType",
+    parkingSlot: "parkingSlot",
   },
   carState: "state",
+  bookingState: "state",
+  nestedPointers: {
+    carIdAndState: "carId.carState",
+    carIdAndGroup: "carId.carGroup",
+  },
 };
 
 export const ResultLabels = {
   booking: "Booking created",
+  deleteBooking: "Deleted Booking",
+  updateBooking: "Booking updated",
+  updateCustomer: "Customer updated",
 };
 
 export const ErrorLabels = {
@@ -66,4 +77,14 @@ export const ErrorLabels = {
   dropdown: "Error while fetching",
   login: "Error while logging in user",
   loginAlert: "Not a valid user",
+  deleteBooking: "Error while deleting Booking",
+  getObjectById: "Error while retrieving the object by id",
+  getCustomerObjectById: "Error while retrieving object Customer",
+  updateBooking: "Error while updating Booking",
+  updateCustomer: "Error while updating Customer",
+};
+
+export const HardcodedFieldLabels = {
+  car: "no car assigned",
+  waiting: "waiting",
 };

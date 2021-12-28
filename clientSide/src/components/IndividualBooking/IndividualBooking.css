@@ -2,6 +2,11 @@
   cursor: pointer;
   color: var(--global-green-63);
 }
+
+.individual-booking-table {
+  margin-bottom: 25px;
+}
+
 .individual-booking-second-container {
   justify-content: flex-end;
   margin-top: 8px;

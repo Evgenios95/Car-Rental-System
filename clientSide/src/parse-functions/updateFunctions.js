@@ -1,28 +1,34 @@
 import Parse from "parse";
-import { getCarPointer } from "./bookingComponentFunctions";
 import { getCarById } from "./individualBookingFunctions";
 import {
-  getOfficePointer,
   getBookingStatePointerForEdit,
+  getCarPointer,
+  getOfficePointer,
   getCarGroupPointer,
-} from "./bookingComponentFunctions";
+} from "./pointerFunctions";
+import {
+  ClassnameLabels,
+  ColumnLabels,
+  ErrorLabels,
+  ResultLabels,
+} from "../text-labels/parse-labels";
 
 export const updateCarInBooking = async (bookingId, id, navigate) => {
-  const Booking = Parse.Object.extend("Booking");
+  const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);
   const carPointer = await getCarPointer(id);
   try {
     const object = await query.get(bookingId);
-    object.set("carId", carPointer);
+    object.set(ColumnLabels.booking.carId, carPointer);
     try {
       const response = await object.save();
-      console.log("Booking updated", response);
+      console.log(ResultLabels.updateBooking, response);
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
-      console.error("Error while updating Booking", error);
+      console.error(ErrorLabels.updateBooking, error);
     }
   } catch (error) {
-    console.error("Error while retrieving object Booking", error);
+    console.error(ErrorLabels.getObjectById, error);
   }
 };
 
@@ -38,36 +44,31 @@ export const updateBooking = async (e, bookingId, formData, navigate) => {
   const bookingStatePointer = await getBookingStatePointerForEdit(
     formData.bookingState
   );
-  console.log("pickuppointer", pickupOfficePointer);
-  console.log("returnPointer", returnOfficePointer);
-  console.log("bookingStatePointer", bookingStatePointer);
-  console.log("carGroupPointer", carGroupPointer);
-  const Booking = Parse.Object.extend("Booking");
+  const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);
   try {
     const object = await query.get(bookingId);
     object.set(
-      "pickUpTime",
+      ColumnLabels.booking.pickUpTime,
       new Date(formData.pickUpDate + " " + formData.pickUpTime)
     );
-    object.set("carGroup", carGroupPointer);
-    object.set("returnOffice", returnOfficePointer);
-    object.set("pickUpOffice", pickupOfficePointer);
-    object.set("bookingState", bookingStatePointer);
+    object.set(ColumnLabels.booking.carGroup, carGroupPointer);
+    object.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
+    object.set(ColumnLabels.booking.pickUpOffice, pickupOfficePointer);
+    object.set(ColumnLabels.booking.bookingState, bookingStatePointer);
     object.set(
-      "returnTime",
+      ColumnLabels.booking.returnTime,
       new Date(formData.returnDate + " " + formData.returnTime)
     );
-    console.log("bookingObject", object);
     try {
       const response = await object.save();
-      console.log("Booking updated", response);
+      console.log(ResultLabels.updateBooking, response);
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
-      console.error("Error while updating Booking", error);
+      console.error(ErrorLabels.updateBooking, error);
     }
   } catch (error) {
-    console.error("Error while retrieving object Booking", error);
+    console.error(ErrorLabels.getObjectById, error);
   }
 };
 
@@ -79,25 +80,28 @@ export const updateCustomer = async (
   navigate
 ) => {
   e.preventDefault();
-  const Customer = Parse.Object.extend("Customer");
+  const Customer = Parse.Object.extend(ClassnameLabels.customer);
   const query = new Parse.Query(Customer);
   try {
     const object = await query.get(customerId);
-    object.set("lastName", formData.lastName);
-    object.set("driversLicenseID", formData.driversLicenseNo);
-    object.set("phoneNumber", formData.phoneNo);
-    object.set("firstName", formData.firstName);
-    object.set("email", formData.email);
-    object.set("age", formData.age);
-    object.set("address", formData.address);
+    myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);
+    myNewObject.set(ColumnLabels.customer.lastName, formData.lastName);
+    myNewObject.set(ColumnLabels.customer.address, formData.address);
+    myNewObject.set(ColumnLabels.customer.email, formData.email);
+    myNewObject.set(ColumnLabels.customer.age, formData.age);
+    myNewObject.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
+    myNewObject.set(
+      ColumnLabels.customer.driversLicenseNo,
+      formData.driversLicenseNo
+    );
     try {
       const response = await object.save();
-      console.log("Customer updated", response);
+      console.log(ResultLabels.updateCustomer, response);
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
-      console.error("Error while updating Customer", error);
+      console.error(ErrorLabels.updateCustomer, error);
     }
   } catch (error) {
-    console.error("Error while retrieving object Customer", error);
+    console.error(ErrorLabels.getCustomerObjectById, error);
   }
 };

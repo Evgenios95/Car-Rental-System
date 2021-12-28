@@ -1,17 +1,19 @@
 import { useParams, useNavigate } from "react-router-dom";
-import NavBar from "../NavBar/Navbar";
-import GrayContainer from "../UiComponents/GrayContainer";
-import GrayColumn from "../UiComponents/GrayColumn";
+import NavBar from "../../NavBar/Navbar";
+import GrayContainer from "../../UiComponents/GrayContainer";
+import GrayColumn from "../../UiComponents/GrayColumn";
 import { useState, useEffect } from "react";
-import { getCarById } from "../../parse-functions/individualBookingFunctions";
-import Subtitle from "../Subtitle/Subtitle";
-import PageTitle from "../PageTitle/PageTitle";
-import Button from "../Button/Button";
+import Subtitle from "../../Subtitle/Subtitle";
+import PageTitle from "../../PageTitle/PageTitle";
 import EditCarTable from "./EditCarTable";
 import ChosenCarTable from "./ChosenCarTable";
-import { updateCarInBooking } from "../../parse-functions/updateFunctions";
-import { chooseCar } from "../../parse-functions/updateFunctions";
 import "./EditCar.css";
+import { getCarById } from "../../../parse-functions/individualBookingFunctions";
+import {
+  chooseCar,
+  updateCarInBooking,
+} from "../../../parse-functions/updateFunctions";
+import Button from "../../Button/Button";
 
 const EditCar = () => {
   const { bookingId, carId } = useParams();

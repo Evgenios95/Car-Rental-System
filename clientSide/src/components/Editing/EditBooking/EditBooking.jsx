@@ -1,15 +1,16 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./EditBooking.css";
-import GrayContainer from "../UiComponents/GrayContainer";
-import GrayColumn from "../UiComponents/GrayColumn";
-import LabeledInput from "../LabeledInput/LabeledInput";
+import GrayContainer from "../../UiComponents/GrayContainer";
+import GrayColumn from "../../UiComponents/GrayColumn";
+import LabeledInput from "../../LabeledInput/LabeledInput";
 import { useState } from "react";
-import { onChangeHandler } from "../../functions/onChangeHandlers";
-import DropDown from "../DropDown/DropDown";
-import Button from "../Button/Button";
-import NavBar from "../NavBar/Navbar";
-import PageTitle from "../PageTitle/PageTitle";
-import { updateBooking } from "../../parse-functions/updateFunctions";
+import { onChangeHandler } from "../../../functions/onChangeHandlers";
+import DropDown from "../../DropDown/DropDown";
+import Button from "../../Button/Button";
+import NavBar from "../../NavBar/Navbar";
+import PageTitle from "../../PageTitle/PageTitle";
+import { updateBooking } from "../../../parse-functions/updateFunctions";
+import { TitleLabels } from "../../../text-labels/text-labels";
 
 const EditBooking = () => {
   const { bookingId } = useParams();
@@ -19,7 +20,7 @@ const EditBooking = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Edit booking"></PageTitle>
+      <PageTitle ptitle={TitleLabels.editBooking}></PageTitle>
       <form onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}>
         <GrayContainer>
           <GrayColumn>

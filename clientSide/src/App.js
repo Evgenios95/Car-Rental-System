@@ -5,9 +5,9 @@ import BookingTable from "./components/BookingTable/BookingTable";
 import StartingPage from "./components/StartingPage/StartingPage";
 import BookingComponent from "./components/Booking/BookingComponent";
 import IndividualBooking from "./components/IndividualBooking/IndividualBooking";
-import EditCustomer from "./components/EditCustomer/EditCustomer";
-import EditBooking from "./components/EditBooking/EditBooking";
-import EditCar from "./components/EditCar/EditCar";
+import EditBooking from "./components/Editing/EditBooking/EditBooking";
+import EditCustomer from "./components/Editing/EditCustomer/EditCustomer";
+import EditCar from "./components/Editing/EditCar/EditCar";
 
 function App() {
   return (

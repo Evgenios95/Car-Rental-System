@@ -30,7 +30,7 @@ export const getBookingById = async (
 
     const bookingObject = {
       pickUpTime: result[0].get(ColumnLabels.booking.pickUpTime).toString(),
-      returnTime: result[0].get(ColumnLabels.booking.returnOffice).toString(),
+      returnTime: result[0].get(ColumnLabels.booking.returnTime).toString(),
       pickUpOffice: result[0]
         .get(ColumnLabels.booking.pickUpOffice)
         .get(ColumnLabels.rentalOffice.officeNo),

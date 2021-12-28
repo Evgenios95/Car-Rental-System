@@ -10,6 +10,7 @@ import IndividualBooking from "./components/IndividualBooking/IndividualBooking"
 import EditBooking from "./components/Editing/EditBooking/EditBooking";
 import EditCustomer from "./components/Editing/EditCustomer/EditCustomer";
 import EditCar from "./components/Editing/EditCar/EditCar";
+import ReturnCar from "./components/ReturnCar/ReturnCar";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/dummy" element={"hey"} />
         <Route path="/car-table" element={<CarTable />} />
         <Route path="/cars/:id" element={<CarCard />} />
+        <Route path="/return-car" element={<ReturnCar />} />
       </Routes>
     </div>
   );

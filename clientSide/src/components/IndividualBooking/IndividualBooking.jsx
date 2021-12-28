@@ -5,88 +5,40 @@ import GrayColumn from "../UiComponents/GrayColumn";
 import { useState } from "react";
 import Parse from "parse";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "./IndividualBooking.css";
-import TimeTableData from "../BookingTable/TimeTableData";
+import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
-import { TitleLabels, SubtitleLabels } from "../../text-labels/text-labels";
+import {
+  TitleLabels,
+  SubtitleLabels,
+  NavigationLabels,
+} from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
+
+import {
+  getBookingById,
+  getCarById,
+  deleteBookingById,
+} from "../../parse-functions/individualBookingFunctions";
+import BookingRecord from "./BookingRecord";
+import CustomerRecord from "./CustomerRecord";
+import CarRecord from "./CarRecord";
 
 const IndividualBooking = () => {
   const { bookingId } = useParams();
+  const navigate = useNavigate();
 
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
-  console.log(bookingId);
-
-  const getBookingById = async (bookingId) => {
-    const Booking = Parse.Object.extend("Booking");
-    const query = new Parse.Query(Booking);
-
-    query.equalTo("objectId", bookingId);
-    query.include("carGroup");
-    query.include("customerId");
-    query.include("carId");
-    query.include("pickUpOffice");
-    query.include("returnOffice");
-    query.include("bookingState");
-
-    try {
-      const result = await query.find();
-      const bookingObject = {
-        pickUpTime: result[0].get("pickUpTime").toString(),
-        returnTime: result[0].get("returnTime").toString(),
-        pickUpOffice: result[0].get("pickUpOffice").get("officeNumber"),
-        returnOffice: result[0].get("returnOffice").get("officeNumber"),
-        bookingState: result[0].get("bookingState").get("state"),
-        carGroup: result[0].get("carGroup").get("name"),
-        carId: result[0].get("carId").id,
-      };
-      const customerObject = {
-        firstName: result[0].get("customerId").get("firstName"),
-        lastName: result[0].get("customerId").get("lastName"),
-        age: result[0].get("customerId").get("age"),
-        address: result[0].get("customerId").get("address"),
-        driversLicenseId: result[0].get("customerId").get("driversLicenseID"),
-        eMail: result[0].get("customerId").get("email"),
-        phoneNumber: result[0].get("customerId").get("phoneNumber"),
-      };
-      setBooking(bookingObject);
-      setCustomer(customerObject);
-    } catch (error) {
-      console.error("Error while fetching Booking", error);
-    }
-  };
-
-  const getCarById = async (carId) => {
-    const Car = Parse.Object.extend("Car");
-    const query = new Parse.Query(Car);
-    query.equalTo("objectId", carId);
-    query.include("carGroup");
-    query.include("carState");
-    try {
-      const result = await query.find();
-      const carObject = {
-        fuelType: result[0].get("fuelType"),
-        model: result[0].get("model"),
-        licensNumber: result[0].get("licenseNumber"),
-        color: result[0].get("color"),
-        carState: result[0].get("carState").get("state"),
-        carGroup: result[0].get("carGroup").get("name"),
-        parkingSlot: result[0].get("parkingSlot"),
-      };
-      setCar(carObject);
-    } catch (error) {
-      console.error("Error while fetching car", error);
-    }
-  };
 
   useEffect(async () => {
-    await getBookingById(bookingId);
+    await getBookingById(bookingId, setBooking, setCustomer, setCar);
   }, []);
-  useEffect(async () => {
-    await getCarById(booking.carId);
-  }, [booking]);
 
   return (
     <>
@@ -94,96 +46,49 @@ const IndividualBooking = () => {
       <PageTitle ptitle={TitleLabels.individualBooking} />
       <GrayContainer>
         <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.bookingRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>Pick up office</th>
-                  <th>Return office</th>
-                  <th>Pick up time</th>
-                  <th>Return time</th>
-                  <th>Car group</th>
-                  <th>Booking state</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{booking.pickUpOffice}</td>
-                  <td>{booking.returnOffice}</td>
-                  <td>{booking.pickUpTime}</td>
-                  <td>{booking.returnTime}</td>
-                  <td>{booking.carGroup}</td>
-                  <td>{booking.bookingState}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Subtitle stitle={SubtitleLabels.bookingRecord} />
+          <BookingRecord booking={booking} bookingId={bookingId} />
         </GrayColumn>
-      </GrayContainer>
-      <GrayContainer>
         <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.customerRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Age</th>
-                  <th>Address</th>
-                  <th>Driver license</th>
-                  <th>Phone number</th>
-                  <th>E-mail</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{customer.firstName}</td>
-                  <td>{customer.lastName}</td>
-                  <td>{customer.age}</td>
-                  <td>{customer.address}</td>
-                  <td>{customer.driversLicenseId}</td>
-                  <td>{customer.phoneNumber}</td>
-                  <td>{customer.eMail}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Subtitle stitle={SubtitleLabels.customerRecord} />
+          <CustomerRecord
+            booking={booking}
+            bookingId={bookingId}
+            customer={customer}
+          />
+        </GrayColumn>
+        <GrayColumn>
+          <Subtitle stitle={SubtitleLabels.carRecord} />
+          <CarRecord booking={booking} bookingId={bookingId} car={car} />
         </GrayColumn>
       </GrayContainer>
 
-      <GrayContainer>
-        <GrayColumn>
-          <div>
-            <Subtitle stitle={SubtitleLabels.carRecord} />
-            <table>
-              <thead>
-                <tr>
-                  <th>Model </th>
-                  <th>Color</th>
-                  <th>Fuel type</th>
-                  <th>License number</th>
-                  <th>Group</th>
+      <GrayContainer className="individual-booking-second-container">
+        <Button
+          type="button"
+          btnText="Delete booking"
+          btnBgColor="var(--global-red-55)"
+          onClick={() => deleteBookingById(bookingId)}
+        />
 
-                  <th>Parking slot</th>
-                  <th>State</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{car.model}</td>
-                  <td>{car.color}</td>
-                  <td>{car.fuelType}</td>
-                  <td>{car.licensNumber}</td>
-                  <td>{car.carGroup}</td>
-                  <td>{car.parkingSlot}</td>
-                  <td>{car.carState}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </GrayColumn>
+        <Button
+          type="button"
+          btnText="Pick up car"
+          onClick={() =>
+            navigate("/pick-up-car/:bookingId/:carId", {
+              bookingId: bookingId,
+            })
+          }
+        />
+        <Button
+          type="button"
+          btnText="Return car"
+          onClick={() =>
+            navigate("/returnCar", {
+              bookingId: bookingId,
+            })
+          }
+        />
       </GrayContainer>
     </>
   );

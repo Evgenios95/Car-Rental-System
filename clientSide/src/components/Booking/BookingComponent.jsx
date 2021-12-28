@@ -9,7 +9,7 @@ import NavBar from "../NavBar/Navbar";
 import { useState } from "react";
 import { createBooking } from "../../parse-functions/bookingComponentFunctions";
 import { useLocation, useNavigate } from "react-router-dom";
-import PopUpButton from "../PopUpButton";
+import PopUpButton from "../PopUpButton/PopUpButton";
 
 const BookingComponent = () => {
   const navigate = useNavigate();

@@ -14,7 +14,7 @@ const CarTable = () => {
   const navigate = useNavigate();
 
   useEffect(async () => {
-    setCarElements(setCars, setError);
+    await setCarElements(setCars, setError);
     setLoading(false);
   }, []);
 

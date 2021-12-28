@@ -1,8 +1,12 @@
-.fa-edit {
+.fa-plus {
   cursor: pointer;
   color: var(--global-green-63);
 }
-.individual-booking-second-container {
+.fa-minus {
+  cursor: pointer;
+  color: var(--global-red-63);
+}
+.edit-car-second-container {
   justify-content: flex-end;
   margin-top: 8px;
   padding: 10px;

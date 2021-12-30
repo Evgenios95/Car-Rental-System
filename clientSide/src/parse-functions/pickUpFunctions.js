@@ -3,12 +3,19 @@ import { useNavigate } from "react-router-dom";
 import {
   getOfficePointer,
   getCarStatePointer,
-  getBookingStatePointer,
+  getBookingStatePointerForEdit,
 } from "./pointerFunctions";
 
-export const pickUpcar = async (carId, parkingSlot, officeNumber, navigate) => {
+export const pickUpcar = async (
+  carId,
+  parkingSlot,
+  officeNumber,
+  bookingId,
+  navigate
+) => {
   await updateCarParkingSlot(carId);
-  changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
+  await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
+  await updateBookingForPickUp(bookingId);
   navigate("/find-booking");
 };
 
@@ -32,10 +39,10 @@ export const updateCarParkingSlot = async (carId) => {
     console.error("Error while retrieving object Car", error);
   }
 };
-export const updateBookingForPickUp = async (bookingId, bookingState) => {
+export const updateBookingForPickUp = async (bookingId) => {
   const Booking = Parse.Object.extend("Booking");
   const query = new Parse.Query(Booking);
-  const bookingStatePointer = await getBookingStatePointer(bookingState);
+  const bookingStatePointer = await getBookingStatePointerForEdit("active");
 
   try {
     const object = await query.get(bookingId);
@@ -45,10 +52,10 @@ export const updateBookingForPickUp = async (bookingId, bookingState) => {
       const response = await object.save();
       console.log("Booking updated when picked up", response);
     } catch (error) {
-      console.error("Error while updating Car for pick up", error);
+      console.error("Error while updating Booking for pick up", error);
     }
   } catch (error) {
-    console.error("Error while retrieving object Car", error);
+    console.error("Error while retrieving object Booking when pick up", error);
   }
 };
 

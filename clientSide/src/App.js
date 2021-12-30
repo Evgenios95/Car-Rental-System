@@ -10,7 +10,7 @@ import IndividualBooking from "./components/IndividualBooking/IndividualBooking"
 import EditBooking from "./components/Editing/EditBooking/EditBooking";
 import EditCustomer from "./components/Editing/EditCustomer/EditCustomer";
 import EditCar from "./components/Editing/EditCar/EditCar";
-import ReturnCar from "./components/ReturnCar/ReturnCar";
+import ReturnCarPage from "./components/ReturnCarPage/ReturnCarPage";
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
         <Route path="/cars/:id" element={<CarCard />} />
         <Route
           path="/return-car/:bookingId/:customerId/:carId"
-          element={<ReturnCar />}
+          element={<ReturnCarPage />}
         />
       </Routes>
     </div>

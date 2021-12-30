@@ -10,10 +10,9 @@ export const getOfficePointer = async (officeInput) => {
   const RentalOffice = Parse.Object.extend(ClassnameLabels.rentalOffice);
   const query = new Parse.Query(RentalOffice);
   query.equalTo(ColumnLabels.rentalOffice.officeNo, parseInt(officeInput));
-  console.log(officeInput);
+
   try {
     const officeResult = await query.find();
-    // console.log(officeResult[0]);
     return officeResult[0].toPointer();
   } catch (error) {
     console.error(ErrorLabels.rentalOffice, error);
@@ -23,7 +22,18 @@ export const getOfficePointer = async (officeInput) => {
 export const getBookingStatePointer = async () => {
   const bookingStateInDB = Parse.Object.extend(ClassnameLabels.bookingState);
   const query = new Parse.Query(bookingStateInDB);
-  query.equalTo(ColumnLabels.bookingState, HardcodedFieldLabels.waiting);
+  query.equalTo(ColumnLabels.bookingState.state, HardcodedFieldLabels.waiting);
+  try {
+    const currentBookingState = await query.find();
+    return currentBookingState[0].toPointer();
+  } catch (error) {
+    console.error(ErrorLabels.bookingState, error);
+  }
+};
+export const getBookingStatePointerFinish = async () => {
+  const bookingStateInDB = Parse.Object.extend(ClassnameLabels.bookingState);
+  const query = new Parse.Query(bookingStateInDB);
+  query.equalTo(ColumnLabels.bookingState.state, HardcodedFieldLabels.finish);
   try {
     const currentBookingState = await query.find();
     return currentBookingState[0].toPointer();
@@ -55,7 +65,17 @@ export const getCarGroupPointer = async (carGroupName) => {
     console.error(ErrorLabels.carGroup, error);
   }
 };
-
+export const getCarStatePointer = async (carState) => {
+  const CarState = Parse.Object.extend(ClassnameLabels.carState);
+  const query = new Parse.Query(CarState);
+  query.equalTo(ColumnLabels.carState, carState);
+  try {
+    const carStateResult = await query.find();
+    return carStateResult[0].toPointer();
+  } catch (error) {
+    console.error(ErrorLabels.carState, error);
+  }
+};
 export const getCarPointer = async (carId) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);

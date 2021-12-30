@@ -65,7 +65,7 @@ export const changeParkingSlotWhenReturn = async (
   const ParkingSlot = Parse.Object.extend("ParkingSlot");
   const query = new Parse.Query(ParkingSlot);
 
-  query.equalTo("officeNumber", parseInt(officeNumber));
+  query.equalTo("officeNumber", officeNumber);
   try {
     const results = await query.find();
     for (const object of results) {
@@ -78,7 +78,7 @@ export const changeParkingSlotWhenReturn = async (
         indexOfSlotAvailableSlot,
         indexOfSlotAvailableSlot
       );
-      object.set("availabeParkingSlots", availableParkingSlots);
+      object.set("availableParkingSlots", availableParkingSlots);
       occupiedParkingSlots.push(parkingSlot);
       object.set("occupiedParkingSlots", occupiedParkingSlots);
       try {

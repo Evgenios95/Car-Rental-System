@@ -10,37 +10,29 @@ const DropDownParkingSlots = ({
   type,
   attribute,
   onChange,
-  formData,
+  returnData,
 }) => {
   const [isLoading, setLoading] = useState(true);
   const [elements, setElements] = useState([]);
 
   useEffect(async () => {
-    await retrieveElements(type, attribute, setElements, formData);
+    await retrieveElements(type, attribute, setElements, returnData);
     setLoading(false);
-  }, [formData]);
+  }, [returnData]);
 
-  const retrieveElements = async (type, attribute, setElements, formData) => {
+  const retrieveElements = async (type, attribute, setElements, returnData) => {
     const ParkingSlot = Parse.Object.extend("ParkingSlot");
     const query = new Parse.Query(ParkingSlot);
-    //default value for dropdowns
     const elementArray = [];
-    //let filteredArray = (array) => array.filter((v, i) => array.indexOf(v) === i);
-    //query.include("parkingSlots");
-    query.equalTo("officeNumber", parseInt(formData.officeNumber));
+    query.equalTo("officeNumber", returnData.officeNumber);
 
     try {
       const result = await query.find();
-      console.log("result", result);
-
       const att = result[0].get(attribute);
-      console.log("att", att);
       for (const number of att) {
         elementArray.push(number);
       }
-
       elementArray.sort((a, b) => a - b);
-
       setElements(elementArray);
     } catch (error) {
       console.error(ErrorLabels.dropdown + type, error);

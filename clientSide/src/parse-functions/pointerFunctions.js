@@ -9,10 +9,11 @@ import {
 export const getOfficePointer = async (officeInput) => {
   const RentalOffice = Parse.Object.extend(ClassnameLabels.rentalOffice);
   const query = new Parse.Query(RentalOffice);
-  query.equalTo(ColumnLabels.rentalOffice.officeNo, parseInt(officeInput));
+  query.equalTo(ColumnLabels.rentalOffice.officeNo, officeInput);
 
   try {
     const officeResult = await query.find();
+    console.log("officeReult in pointer", officeResult);
     return officeResult[0].toPointer();
   } catch (error) {
     console.error(ErrorLabels.rentalOffice, error);

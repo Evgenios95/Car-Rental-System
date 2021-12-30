@@ -23,11 +23,10 @@ import { returnCar } from "../../parse-functions/returnFunctions";
 const ReturnCar = () => {
   const { bookingId, customerId, carId } = useParams();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState([]);
+  const [returnData, setReturnData] = useState([]);
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
-  console.log(formData);
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer, setCar);
   }, []);
@@ -64,20 +63,22 @@ const ReturnCar = () => {
             type="CarState"
             labeltext="Car state*"
             attribute="state"
-            onChange={(e) => onChangeHandler(e, "carState", setFormData)}
+            onChange={(e) => onChangeHandler(e, "carState", setReturnData)}
           />
           <DropDown
             type="RentalOffice"
             labeltext="Return office*"
             attribute="officeNumber"
-            onChange={(e) => onChangeIntHandler(e, "officeNumber", setFormData)}
+            onChange={(e) => onChangeHandler(e, "officeNumber", setReturnData)}
           />
           <DropDownParkingSlots
             type="ParkingSlot"
             labeltext="Available parking slots*"
             attribute="availableParkingSlots"
-            onChange={(e) => onChangeIntHandler(e, "parkingSlot", setFormData)}
-            formData={formData}
+            onChange={(e) =>
+              onChangeIntHandler(e, "parkingSlot", setReturnData)
+            }
+            returnData={returnData}
           />
         </GrayColumn>
       </GrayContainer>
@@ -89,9 +90,9 @@ const ReturnCar = () => {
             await returnCar(
               bookingId,
               booking.carId,
-              formData.carState,
-              parseInt(formData.parkingSlot),
-              parseInt(formData.rentalOffice),
+              returnData.carState,
+              parseInt(returnData.parkingSlot),
+              returnData.officeNumber,
               navigate
             )
           }

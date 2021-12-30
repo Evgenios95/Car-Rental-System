@@ -15,7 +15,7 @@ export const pickUpcar = async (carId, parkingSlot, officeNumber, navigate) => {
 export const updateCarParkingSlot = async (carId) => {
   const Car = Parse.Object.extend("Car");
   const query = new Parse.Query(Car);
-  const officePointer = await getOfficePointer(0);
+  const officePointer = await getOfficePointer("0");
   const carStatePointer = await getCarStatePointer("rented");
   try {
     const object = await query.get(carId);
@@ -70,7 +70,7 @@ export const changeParkingSlotWhenPickUp = async (
       );
       occupiedParkingSlots.splice(indexOfSlotsOccupied, indexOfSlotsOccupied);
       object.set("occupiedParkingSlots", occupiedParkingSlots);
-      availableParkingSlots.push(parkingSlot);
+      availableParkingSlots.push(parseInt(parkingSlot));
       object.set("availableParkingSlots", availableParkingSlots);
       try {
         const response = await object.save();

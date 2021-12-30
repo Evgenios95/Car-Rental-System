@@ -97,6 +97,11 @@ const ReturnCar = () => {
             )
           }
         />
+
+        <Button
+          btnText="Go back"
+          onClick={() => navigate(`/individual-booking/${bookingId}`)}
+        />
       </GrayContainer>
     </>
   );

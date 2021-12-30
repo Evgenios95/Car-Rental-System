@@ -5,16 +5,18 @@ import {
   getBookingStatePointerFinish,
   getCarStatePointer,
   getOfficePointer,
+  getCarPointer,
 } from "../parse-functions/pointerFunctions";
 
-export const setBookingStateToFinish = async (bookingId) => {
+export const setBookingStateToFinishAndAssignNoCar = async (bookingId) => {
   const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);
   const bookingStatePointer = await getBookingStatePointerFinish();
-
+  const carPointer = await getCarPointer("JDJAjsjElj");
   try {
     const object = await query.get(bookingId);
     object.set(ColumnLabels.booking.bookingState, bookingStatePointer);
+    object.set("carId", carPointer);
     try {
       const response = await object.save();
       console.log("Booking state updated", response);
@@ -101,7 +103,7 @@ export const returnCar = async (
   rentalOffice,
   navigate
 ) => {
-  await setBookingStateToFinish(bookingId);
+  await setBookingStateToFinishAndAssignNoCar(bookingId);
   await setParkingSlotAndRentalOfficeAndCarStateForCar(
     carId,
     parkingSlot,

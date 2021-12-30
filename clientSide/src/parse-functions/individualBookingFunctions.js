@@ -95,6 +95,24 @@ export const getBookingById = async (
         .get(ColumnLabels.booking.carId)
         .get(ColumnLabels.car.parkingSlot),
       carId: result[0].get(ColumnLabels.booking.carId),
+      tankFull: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.tankFull),
+      mileage: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.mileage),
+      personCapacity: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.personCapacity),
+      smallLuggage: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.smallLuggage),
+      bigLuggage: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.bigLuggage),
     };
 
     setBooking(bookingObject);
@@ -126,6 +144,17 @@ export const getCarById = async (carId, setCar) => {
         .get(ColumnLabels.booking.carGroup)
         .get(ColumnLabels.carGroup.name),
       parkingSlot: result[0].get(ColumnLabels.car.parkingSlot),
+      tankFull: result[0].get(ColumnLabels.car.tankFull),
+      mileage: result[0].get(ColumnLabels.car.mileage),
+      personCapacity: result[0]
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.personCapacity),
+      smallLuggage: result[0]
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.smallLuggage),
+      bigLuggage: result[0]
+        .get(ColumnLabels.car.group)
+        .get(ColumnLabels.carGroup.bigLuggage),
       carId: result[0].id,
     };
     setCar(carObject);

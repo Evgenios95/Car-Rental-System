@@ -35,6 +35,9 @@ export const ColumnLabels = {
   },
   carGroup: {
     name: "name",
+    personCapacity: "personCapacity",
+    smallLuggage: "smallLuggage",
+    bigLuggage: "bigLuggage",
   },
   bookingState: "bookingState",
   rentalOffice: {
@@ -50,6 +53,8 @@ export const ColumnLabels = {
     color: "color",
     fuel: "fuelType",
     parkingSlot: "parkingSlot",
+    tankFull: "tankFull",
+    mileage: "mileage",
   },
   carState: "state",
   bookingState: "state",

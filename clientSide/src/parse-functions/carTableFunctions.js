@@ -34,6 +34,17 @@ export const setCarElements = async (setCars, setError) => {
         rentalOffice: object
           .get(ColumnLabels.car.rentalOffice)
           .get(ColumnLabels.rentalOffice.officeNo),
+        tankFull: object.get(ColumnLabels.car.tankFull),
+        mileage: object.get(ColumnLabels.car.mileage),
+        personCapacity: object
+          .get(ColumnLabels.car.group)
+          .get(ColumnLabels.carGroup.personCapacity),
+        smallLuggage: object
+          .get(ColumnLabels.car.group)
+          .get(ColumnLabels.carGroup.smallLuggage),
+        bigLuggage: object
+          .get(ColumnLabels.car.group)
+          .get(ColumnLabels.carGroup.bigLuggage),
         carId: object.id,
       };
       carArray.push(carObject);

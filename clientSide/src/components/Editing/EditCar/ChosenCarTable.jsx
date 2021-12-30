@@ -13,6 +13,11 @@ const ChosenCarTable = ({ chosenCar, chooseCar, setChosenCar }) => {
           <th>Group</th>
           <th>Parking slot</th>
           <th>State</th>
+          <th>Mileage</th>
+          <th>Tank full</th>
+          <th>Person capacity</th>
+          <th>Small luggage</th>
+          <th>Big luggage</th>
           <th></th>
         </tr>
       </thead>
@@ -25,6 +30,11 @@ const ChosenCarTable = ({ chosenCar, chooseCar, setChosenCar }) => {
           <td>{chosenCar.carGroup}</td>
           <td>{chosenCar.parkingSlot}</td>
           <td>{chosenCar.carState}</td>
+          <td>{chosenCar.mileage}</td>
+          <td>{chosenCar.tankFull}</td>
+          <td>{chosenCar.personCapacity}</td>
+          <td>{chosenCar.smallLuggage}</td>
+          <td>{chosenCar.bigLuggage}</td>
           <td>
             {" "}
             <FontAwesomeIcon

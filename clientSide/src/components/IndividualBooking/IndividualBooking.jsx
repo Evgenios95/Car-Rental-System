@@ -88,6 +88,7 @@ const IndividualBooking = () => {
             )
           }
         />
+        <Button btnText="Go back" onClick={() => navigate(`/find-booking/`)} />
       </GrayContainer>
     </>
   );

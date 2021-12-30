@@ -46,20 +46,22 @@ const IndividualBooking = () => {
       <PageTitle ptitle={TitleLabels.individualBooking} />
       <GrayContainer>
         <GrayColumn>
-          <Subtitle stitle={SubtitleLabels.bookingRecord} />
-          <BookingRecord booking={booking} bookingId={bookingId} />
-        </GrayColumn>
-        <GrayColumn>
-          <Subtitle stitle={SubtitleLabels.customerRecord} />
-          <CustomerRecord
-            booking={booking}
-            bookingId={bookingId}
-            customer={customer}
-          />
-        </GrayColumn>
-        <GrayColumn>
-          <Subtitle stitle={SubtitleLabels.carRecord} />
-          <CarRecord booking={booking} bookingId={bookingId} car={car} />
+          <div className="individual-booking-table">
+            <Subtitle stitle={SubtitleLabels.bookingRecord} />
+            <BookingRecord booking={booking} bookingId={bookingId} />
+          </div>
+          <div className="individual-booking-table">
+            <Subtitle stitle={SubtitleLabels.customerRecord} />
+            <CustomerRecord
+              booking={booking}
+              bookingId={bookingId}
+              customer={customer}
+            />
+          </div>
+          <div className="individual-booking-table">
+            <Subtitle stitle={SubtitleLabels.carRecord} />
+            <CarRecord booking={booking} bookingId={bookingId} car={car} />
+          </div>
         </GrayColumn>
       </GrayContainer>
 

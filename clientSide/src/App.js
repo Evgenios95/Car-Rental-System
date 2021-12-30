@@ -38,7 +38,10 @@ function App() {
         <Route path="/dummy" element={"hey"} />
         <Route path="/car-table" element={<CarTable />} />
         <Route path="/cars/:id" element={<CarCard />} />
-        <Route path="/return-car" element={<ReturnCar />} />
+        <Route
+          path="/return-car/:bookingId/:customerId/:carId"
+          element={<ReturnCar />}
+        />
       </Routes>
     </div>
   );

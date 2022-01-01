@@ -36,7 +36,6 @@ export const setParkingSlotAndRentalOfficeAndCarStateForCar = async (
   rentalOffice,
   carState
 ) => {
-  console.log("rentalOffice in lang method", typeof rentalOffice);
   const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);
   const officePointer = await getOfficePointer(rentalOffice);
@@ -64,15 +63,19 @@ export const changeParkingSlotWhenReturn = async (
   parkingSlot,
   officeNumber
 ) => {
-  const ParkingSlot = Parse.Object.extend("ParkingSlot");
+  const ParkingSlot = Parse.Object.extend(ClassnameLabels, parkingSlot);
   const query = new Parse.Query(ParkingSlot);
 
-  query.equalTo("officeNumber", officeNumber);
+  query.equalTo(ColumnLabels.parkingSlot.officeNumber, officeNumber);
   try {
     const results = await query.find();
     for (const object of results) {
-      const availableParkingSlots = object.get("availableParkingSlots");
-      const occupiedParkingSlots = object.get("occupiedParkingSlots");
+      const availableParkingSlots = object.get(
+        ColumnLabels.parkingSlot.availableParkingSlots
+      );
+      const occupiedParkingSlots = object.get(
+        ColumnLabels.parkingSlot.occupiedParkingSlots
+      );
       const indexOfSlotAvailableSlot = availableParkingSlots.indexOf(
         parseInt(parkingSlot)
       );
@@ -80,9 +83,15 @@ export const changeParkingSlotWhenReturn = async (
         indexOfSlotAvailableSlot,
         indexOfSlotAvailableSlot
       );
-      object.set("availableParkingSlots", availableParkingSlots);
+      object.set(
+        ColumnLabels.parkingSlot.availableParkingSlots,
+        availableParkingSlots
+      );
       occupiedParkingSlots.push(parkingSlot);
-      object.set("occupiedParkingSlots", occupiedParkingSlots);
+      object.set(
+        ColumnLabels.parkingSlot.occupiedParkingSlots,
+        occupiedParkingSlots
+      );
       try {
         const response = await object.save();
         console.log("parking slots updated", response);

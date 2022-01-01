@@ -20,7 +20,7 @@ const EditCarTable = ({ setChosenCar }) => {
   if (error || !Array.isArray(cars)) {
     return <p>There was an error loading your data!</p>;
   }
-  console.log("car", cars);
+
   return (
     <div className="overview-container">
       <table>

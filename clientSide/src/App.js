@@ -34,14 +34,10 @@ function App() {
         />
         <Route path="/edit-car/:bookingId/:carId" element={<EditCar />} />
         <Route path="/walkin-book" element={<BookingComponent />} />
-        {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />
         <Route path="/car-table" element={<CarTable />} />
         <Route path="/cars/:id" element={<CarCard />} />
-        <Route
-          path="/return-car/:bookingId/:customerId/:carId"
-          element={<ReturnCarPage />}
-        />
+        <Route path="/return-car/:bookingId/" element={<ReturnCarPage />} />
       </Routes>
     </div>
   );

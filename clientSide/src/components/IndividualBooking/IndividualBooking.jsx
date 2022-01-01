@@ -82,11 +82,7 @@ const IndividualBooking = () => {
         <Button
           type="button"
           btnText="Return car"
-          onClick={() =>
-            navigate(
-              `/return-car/${bookingId}/${customer.customerId}/${car.carId.id}`
-            )
-          }
+          onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
         <Button btnText="Go back" onClick={() => navigate(`/find-booking/`)} />
       </GrayContainer>

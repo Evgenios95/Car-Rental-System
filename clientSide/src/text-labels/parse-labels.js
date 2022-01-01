@@ -10,6 +10,7 @@ export const ClassnameLabels = {
   rentalOffice: "RentalOffice",
   car: "Car",
   carState: "CarState",
+  parkingSlot: "ParkingSlot",
 };
 
 export const ColumnLabels = {
@@ -55,6 +56,11 @@ export const ColumnLabels = {
   carState: "state",
   bookingState: {
     state: "state",
+  },
+  parkingSlot: {
+    officeNumber: "officeNumber",
+    availableParkingSlots: "availableParkingSlots",
+    occupiedParkingSlots: "occupiedParkingSlots",
   },
 
   nestedPointers: {

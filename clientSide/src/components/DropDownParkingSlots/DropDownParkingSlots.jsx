@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../text-labels/text-labels";
 
 import Parse from "parse";
-import { ErrorLabels } from "../../text-labels/parse-labels";
+import {
+  ErrorLabels,
+  ClassnameLabels,
+  ColumnLabels,
+} from "../../text-labels/parse-labels";
 
 const DropDownParkingSlots = ({
   labeltext,
@@ -13,27 +17,35 @@ const DropDownParkingSlots = ({
   returnData,
 }) => {
   const [isLoading, setLoading] = useState(true);
-  const [elements, setElements] = useState([]);
+  const [parkingSlots, setParkingSlots] = useState([]);
 
   useEffect(async () => {
-    await retrieveElements(type, attribute, setElements, returnData);
+    await fetchParkingSlots(type, attribute, setParkingSlots, returnData);
     setLoading(false);
   }, [returnData]);
 
-  const retrieveElements = async (type, attribute, setElements, returnData) => {
-    const ParkingSlot = Parse.Object.extend("ParkingSlot");
+  const fetchParkingSlots = async (
+    type,
+    attribute,
+    setParkingSlots,
+    returnData
+  ) => {
+    const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
     const query = new Parse.Query(ParkingSlot);
-    const elementArray = [];
-    query.equalTo("officeNumber", returnData.officeNumber);
+    const parkingSlotArray = [];
+    query.equalTo(
+      ColumnLabels.parkingSlot.officeNumber,
+      returnData.officeNumber
+    );
 
     try {
       const result = await query.find();
-      const att = result[0].get(attribute);
-      for (const number of att) {
-        elementArray.push(number);
+      const parkingSlotDatabase = result[0].get(attribute);
+      for (const number of parkingSlotDatabase) {
+        parkingSlotArray.push(number);
       }
-      elementArray.sort((a, b) => a - b);
-      setElements(elementArray);
+      parkingSlotArray.sort((a, b) => a - b);
+      setParkingSlots(parkingSlotArray);
     } catch (error) {
       console.error(ErrorLabels.dropdown + type, error);
     }
@@ -48,16 +60,11 @@ const DropDownParkingSlots = ({
       <label className="label" htmlFor="dropDown">
         {labeltext}
       </label>
-      <select
-        className="drop"
-        id="dropDown"
-        defaultValue=""
-        onChange={onChange}
-      >
+      <select className="drop" defaultValue="" onChange={onChange}>
         <option disabled value="">
           {DropdownLabels.defaultOption}
         </option>
-        {elements.map((item, i) => (
+        {parkingSlots.map((item, i) => (
           <option key={i} value={item}>
             {item}
           </option>

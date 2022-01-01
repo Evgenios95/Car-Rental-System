@@ -21,7 +21,7 @@ import Button from "../Button/Button";
 import { returnCar } from "../../parse-functions/returnFunctions";
 
 const ReturnCarPage = () => {
-  const { bookingId, customerId, carId } = useParams();
+  const { bookingId } = useParams();
   const navigate = useNavigate();
   const [returnData, setReturnData] = useState([]);
   const [booking, setBooking] = useState({});

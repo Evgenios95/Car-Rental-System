@@ -4,7 +4,6 @@ import { ErrorLabels } from "../text-labels/parse-labels";
 export const setDropdownElements = async (type, attribute, setElements) => {
   const element = Parse.Object.extend(type);
   const query = new Parse.Query(element);
-  //default value for dropdowns
 
   const elementArray = [];
   let filteredArray = (array) => array.filter((v, i) => array.indexOf(v) === i);

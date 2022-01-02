@@ -75,9 +75,10 @@ const IndividualBooking = () => {
         <Button
           type="button"
           btnText="Pick up car"
-          onClick={async () =>
-            await pickUpcar(car.carId.id, 0, "0", bookingId, navigate)
-          }
+          onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
+          // onClick={async () =>
+          // await pickUpcar(car.carId.id, 0, "0", bookingId, navigate)
+          // }
         />
         <Button
           type="button"

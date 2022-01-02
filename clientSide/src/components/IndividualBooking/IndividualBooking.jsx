@@ -40,7 +40,7 @@ const IndividualBooking = () => {
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer, setCar);
   }, []);
-
+  console.log("new car", car);
   return (
     <>
       <NavBar />

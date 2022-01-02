@@ -14,6 +14,11 @@ const CarRecord = ({ booking, bookingId, car }) => {
           <th>Group</th>
           <th>Parking slot</th>
           <th>State</th>
+          <th>Mileage</th>
+          <th>Tank full</th>
+          <th>Person capacity</th>
+          <th>Small luggage</th>
+          <th>Big luggage</th>
           <th></th>
         </tr>
       </thead>
@@ -26,6 +31,11 @@ const CarRecord = ({ booking, bookingId, car }) => {
           <td>{car.carGroup}</td>
           <td>{car.parkingSlot}</td>
           <td>{car.carState}</td>
+          <td>{car.mileage}</td>
+          <td>{car.tankFull}</td>
+          <td>{car.personCapacity}</td>
+          <td>{car.smallLuggage}</td>
+          <td>{car.bigLuggage}</td>
           <td>
             {" "}
             <Link to={`/edit-car/${bookingId}/${booking.carId}`}>

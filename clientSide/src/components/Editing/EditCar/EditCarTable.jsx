@@ -33,6 +33,11 @@ const EditCarTable = ({ setChosenCar }) => {
             <th>Fueltype</th>
             <th>Rental office</th>
             <th>State</th>
+            <th>Mileage</th>
+            <th>Tank full</th>
+            <th>Person capacity</th>
+            <th>Small luggage</th>
+            <th>Big luggage</th>
             <th></th>
           </tr>
         </thead>
@@ -46,6 +51,11 @@ const EditCarTable = ({ setChosenCar }) => {
               <td>{car.fuelType}</td>
               <td>{car.rentalOffice}</td>
               <td>{car.carState}</td>
+              <td>{car.mileage}</td>
+              <td>{car.tankFull}</td>
+              <td>{car.personCapacity}</td>
+              <td>{car.smallLuggage}</td>
+              <td>{car.bigLuggage}</td>
               <td>
                 <FontAwesomeIcon
                   icon={faPlus}

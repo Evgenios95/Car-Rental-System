@@ -30,11 +30,13 @@ export const setBookingStateToFinishAndAssignNoCar = async (bookingId) => {
   }
 };
 
-export const setParkingSlotAndRentalOfficeAndCarStateForCar = async (
+export const setNewPropertiesForCar = async (
   carId,
   parkingSlot,
+  mileage,
   rentalOffice,
-  carState
+  carState,
+  tankFull
 ) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);
@@ -43,8 +45,10 @@ export const setParkingSlotAndRentalOfficeAndCarStateForCar = async (
   try {
     const object = await query.get(carId);
     object.set(ColumnLabels.car.parkingSlot, parkingSlot);
+    object.set(ColumnLabels.car.mileage, mileage);
     object.set(ColumnLabels.car.rentalOffice, officePointer);
     object.set(ColumnLabels.car.state, carStatePointer);
+    object.set(ColumnLabels.car.tankFull, tankFull);
     try {
       const response = await object.save();
       console.log(
@@ -63,7 +67,7 @@ export const changeParkingSlotWhenReturn = async (
   parkingSlot,
   officeNumber
 ) => {
-  const ParkingSlot = Parse.Object.extend(ClassnameLabels, parkingSlot);
+  const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
   const query = new Parse.Query(ParkingSlot);
 
   query.equalTo(ColumnLabels.parkingSlot.officeNumber, officeNumber);
@@ -110,14 +114,18 @@ export const returnCar = async (
   carState,
   parkingSlot,
   rentalOffice,
+  mileage,
+  tankFull,
   navigate
 ) => {
   await setBookingStateToFinishAndAssignNoCar(bookingId);
-  await setParkingSlotAndRentalOfficeAndCarStateForCar(
+  await setNewPropertiesForCar(
     carId,
     parkingSlot,
+    mileage,
     rentalOffice,
-    carState
+    carState,
+    tankFull
   );
   await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
   navigate("/find-booking");

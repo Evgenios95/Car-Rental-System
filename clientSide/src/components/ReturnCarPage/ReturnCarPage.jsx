@@ -9,6 +9,7 @@ import GrayContainer from "../UiComponents/GrayContainer";
 import {
   onChangeHandler,
   onChangeIntHandler,
+  onChangeCheckBoxHandler,
 } from "../../functions/onChangeHandlers";
 import DropDownParkingSlots from "../DropDownParkingSlots/DropDownParkingSlots";
 import { useNavigate, useParams } from "react-router-dom";
@@ -19,18 +20,20 @@ import CustomerRecord from "../IndividualBooking/CustomerRecord";
 import CarRecord from "../IndividualBooking/CarRecord";
 import Button from "../Button/Button";
 import { returnCar } from "../../parse-functions/returnFunctions";
+import LabeledInput from "../LabeledInput/LabeledInput";
+import "./ReturnCarPage.css";
 
 const ReturnCarPage = () => {
   const { bookingId } = useParams();
   const navigate = useNavigate();
-  const [returnData, setReturnData] = useState([]);
+  const [returnData, setReturnData] = useState({ tankFull: "no" });
   const [booking, setBooking] = useState({});
   const [customer, setCustomer] = useState({});
   const [car, setCar] = useState({});
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer, setCar);
   }, []);
-
+  console.log(returnData);
   return (
     <>
       <NavBar></NavBar>
@@ -56,31 +59,54 @@ const ReturnCarPage = () => {
           <CarRecord booking={booking} bookingId={bookingId} car={car} />
         </GrayColumn>
       </GrayContainer>
-      <GrayContainer>
+      <GrayContainer className="return-car-second-container">
         <Subtitle stitle="Return settings"></Subtitle>
-        <GrayColumn>
-          <DropDown
-            type="CarState"
-            labeltext="Car state*"
-            attribute="state"
-            onChange={(e) => onChangeHandler(e, "carState", setReturnData)}
-          />
-          <DropDown
-            type="RentalOffice"
-            labeltext="Return office*"
-            attribute="officeNumber"
-            onChange={(e) => onChangeHandler(e, "officeNumber", setReturnData)}
-          />
-          <DropDownParkingSlots
-            type="ParkingSlot"
-            labeltext="Available parking slots*"
-            attribute="availableParkingSlots"
-            onChange={(e) =>
-              onChangeIntHandler(e, "parkingSlot", setReturnData)
-            }
-            returnData={returnData}
-          />
-        </GrayColumn>
+
+        <div className="return-settings-first-column">
+          <GrayColumn>
+            <DropDown
+              type="CarState"
+              labeltext="Car state*"
+              attribute="state"
+              onChange={(e) => onChangeHandler(e, "carState", setReturnData)}
+            />
+            <DropDown
+              type="RentalOffice"
+              labeltext="Return office*"
+              attribute="officeNumber"
+              onChange={(e) =>
+                onChangeHandler(e, "officeNumber", setReturnData)
+              }
+            />
+            <DropDownParkingSlots
+              type="ParkingSlot"
+              labeltext="Available parking slots*"
+              attribute="availableParkingSlots"
+              onChange={(e) =>
+                onChangeIntHandler(e, "parkingSlot", setReturnData)
+              }
+              returnData={returnData}
+            />
+          </GrayColumn>
+        </div>
+
+        <div className="return-settings-second-culumn">
+          <GrayColumn>
+            <LabeledInput
+              labelText="Tank full?"
+              type="checkbox"
+              onChange={(e) =>
+                onChangeCheckBoxHandler(e, "tankFull", setReturnData)
+              }
+            ></LabeledInput>
+
+            <LabeledInput
+              labelText="Mileage"
+              type="number"
+              onChange={(e) => onChangeIntHandler(e, "mileage", setReturnData)}
+            ></LabeledInput>
+          </GrayColumn>
+        </div>
       </GrayContainer>
       <GrayContainer className="individual-booking-second-container">
         <Button
@@ -93,6 +119,8 @@ const ReturnCarPage = () => {
               returnData.carState,
               parseInt(returnData.parkingSlot),
               returnData.officeNumber,
+              parseInt(returnData.mileage),
+              returnData.tankFull,
               navigate
             )
           }

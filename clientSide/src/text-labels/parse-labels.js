@@ -52,6 +52,8 @@ export const ColumnLabels = {
     color: "color",
     fuel: "fuelType",
     parkingSlot: "parkingSlot",
+    mileage: "mileage",
+    tankFull: "tankFull",
   },
   carState: "state",
   bookingState: {

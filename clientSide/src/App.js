@@ -10,6 +10,8 @@ import IndividualBooking from "./components/IndividualBooking/IndividualBooking"
 import EditBooking from "./components/Editing/EditBooking/EditBooking";
 import EditCustomer from "./components/Editing/EditCustomer/EditCustomer";
 import EditCar from "./components/Editing/EditCar/EditCar";
+import ReturnCarPage from "./components/ReturnCarPage/ReturnCarPage";
+import PickUpCarPage from "./components/PickUpCarPage/PickUpCarPage";
 
 function App() {
   return (
@@ -33,10 +35,11 @@ function App() {
         />
         <Route path="/edit-car/:bookingId/:carId" element={<EditCar />} />
         <Route path="/walkin-book" element={<BookingComponent />} />
-        {/* Render your component below  */}
         <Route path="/dummy" element={"hey"} />
         <Route path="/car-table" element={<CarTable />} />
         <Route path="/cars/:id" element={<CarCard />} />
+        <Route path="/return-car/:bookingId/" element={<ReturnCarPage />} />
+        <Route path="/pick-up-car/:bookingId/" element={<PickUpCarPage />} />
       </Routes>
     </div>
   );

@@ -9,6 +9,8 @@ export const ClassnameLabels = {
   bookingState: "Bookingstate",
   rentalOffice: "RentalOffice",
   car: "Car",
+  carState: "CarState",
+  parkingSlot: "ParkingSlot",
 };
 
 export const ColumnLabels = {
@@ -36,7 +38,7 @@ export const ColumnLabels = {
   carGroup: {
     name: "name",
   },
-  bookingState: "bookingState",
+
   rentalOffice: {
     officeNo: "officeNumber",
   },
@@ -50,9 +52,19 @@ export const ColumnLabels = {
     color: "color",
     fuel: "fuelType",
     parkingSlot: "parkingSlot",
+    mileage: "mileage",
+    tankFull: "tankFull",
   },
   carState: "state",
-  bookingState: "state",
+  bookingState: {
+    state: "state",
+  },
+  parkingSlot: {
+    officeNumber: "officeNumber",
+    availableParkingSlots: "availableParkingSlots",
+    occupiedParkingSlots: "occupiedParkingSlots",
+  },
+
   nestedPointers: {
     carIdAndState: "carId.carState",
     carIdAndGroup: "carId.carGroup",
@@ -87,4 +99,6 @@ export const ErrorLabels = {
 export const HardcodedFieldLabels = {
   car: "no car assigned",
   waiting: "waiting",
+  finish: "finish",
+  active: "active",
 };

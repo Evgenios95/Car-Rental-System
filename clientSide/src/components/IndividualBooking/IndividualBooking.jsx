@@ -18,6 +18,7 @@ import {
   NavigationLabels,
 } from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
+import { pickUpcar } from "../../parse-functions/pickUpFunctions";
 
 import {
   getBookingById,
@@ -76,21 +77,17 @@ const IndividualBooking = () => {
         <Button
           type="button"
           btnText="Pick up car"
-          onClick={() =>
-            navigate("/pick-up-car/:bookingId/:carId", {
-              bookingId: bookingId,
-            })
-          }
+          onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
+          // onClick={async () =>
+          // await pickUpcar(car.carId.id, 0, "0", bookingId, navigate)
+          // }
         />
         <Button
           type="button"
           btnText="Return car"
-          onClick={() =>
-            navigate("/returnCar", {
-              bookingId: bookingId,
-            })
-          }
+          onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
+        <Button btnText="Go back" onClick={() => navigate(`/find-booking/`)} />
       </GrayContainer>
     </>
   );

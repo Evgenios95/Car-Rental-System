@@ -71,9 +71,11 @@ const EditBooking = () => {
           </GrayColumn>
         </GrayContainer>
         <GrayContainer className="edit-booking-second-container">
-          <Link to={`/individual-booking/${bookingId}`}>
-            <Button type="submit" btnText="Go back" />
-          </Link>
+          <Button
+            btnText="Go back"
+            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+          />
+
           <Button type="submit" btnText="Finish editing" />
         </GrayContainer>
       </form>

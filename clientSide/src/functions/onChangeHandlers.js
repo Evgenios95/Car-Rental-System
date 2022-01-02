@@ -12,3 +12,17 @@ export const onChangeIntHandler = (e, inputValue, setFormData) => {
     [inputValue]: parseInt(e.target.value),
   }));
 };
+
+export const onChangeCheckBoxHandler = (e, inputValue, setFormData) => {
+  if (e.target.checked) {
+    setFormData((c) => ({
+      ...c,
+      [inputValue]: "yes",
+    }));
+  } else {
+    setFormData((c) => ({
+      ...c,
+      [inputValue]: "no",
+    }));
+  }
+};

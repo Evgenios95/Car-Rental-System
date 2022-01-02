@@ -39,7 +39,7 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
         returnTime: object.get(ColumnLabels.booking.returnTime),
         bookingState: object
           .get(ColumnLabels.booking.bookingState)
-          .get(ColumnLabels.bookingState),
+          .get(ColumnLabels.bookingState.state),
         carLicenseNumber: object
           .get(ColumnLabels.booking.carId)
           .get(ColumnLabels.car.licenseNo),

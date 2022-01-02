@@ -39,7 +39,7 @@ export const getBookingById = async (
         .get(ColumnLabels.rentalOffice.officeNo),
       bookingState: result[0]
         .get(ColumnLabels.booking.bookingState)
-        .get(ColumnLabels.bookingState),
+        .get(ColumnLabels.bookingState.state),
       carGroup: result[0]
         .get(ColumnLabels.booking.carGroup)
         .get(ColumnLabels.carGroup.name),

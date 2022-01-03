@@ -14,29 +14,26 @@ const DropDownParkingSlots = ({
   type,
   attribute,
   onChange,
-  returnData,
+  formData,
 }) => {
   const [isLoading, setLoading] = useState(true);
   const [parkingSlots, setParkingSlots] = useState([]);
 
   useEffect(async () => {
-    await fetchParkingSlots(type, attribute, setParkingSlots, returnData);
+    await fetchParkingSlots(type, attribute, setParkingSlots, formData);
     setLoading(false);
-  }, [returnData]);
+  }, [formData]);
 
   const fetchParkingSlots = async (
     type,
     attribute,
     setParkingSlots,
-    returnData
+    formData
   ) => {
     const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
     const query = new Parse.Query(ParkingSlot);
     const parkingSlotArray = [];
-    query.equalTo(
-      ColumnLabels.parkingSlot.officeNumber,
-      returnData.officeNumber
-    );
+    query.equalTo(ColumnLabels.parkingSlot.officeNumber, formData.officeNumber);
 
     try {
       const result = await query.find();
@@ -60,7 +57,7 @@ const DropDownParkingSlots = ({
       <label className="label" htmlFor="dropDown">
         {labeltext}
       </label>
-      <select className="drop" defaultValue="" onChange={onChange}>
+      <select className="drop" defaultValue="" onChange={onChange} required>
         <option disabled value="">
           {DropdownLabels.defaultOption}
         </option>

@@ -21,6 +21,7 @@ export const getBookingById = async (
   query.include(ColumnLabels.booking.carId);
   query.include(ColumnLabels.nestedPointers.carIdAndState);
   query.include(ColumnLabels.nestedPointers.carIdAndGroup);
+  query.include(ColumnLabels.nestedPointers.carIdAndRentalOffice);
   query.include(ColumnLabels.booking.pickUpOffice);
   query.include(ColumnLabels.booking.returnOffice);
   query.include(ColumnLabels.booking.bookingState);
@@ -113,6 +114,10 @@ export const getBookingById = async (
         .get(ColumnLabels.booking.carId)
         .get(ColumnLabels.car.group)
         .get(ColumnLabels.carGroup.bigLuggage),
+      rentalOffice: result[0]
+        .get(ColumnLabels.booking.carId)
+        .get(ColumnLabels.car.rentalOffice)
+        .get(ColumnLabels.rentalOffice.officeNo),
     };
 
     setBooking(bookingObject);
@@ -129,6 +134,7 @@ export const getCarById = async (carId, setCar) => {
   query.equalTo(ColumnLabels.car.id, carId);
   query.include(ColumnLabels.car.group);
   query.include(ColumnLabels.car.state);
+  query.include(ColumnLabels.car.rentalOffice);
 
   try {
     const result = await query.find();
@@ -156,6 +162,9 @@ export const getCarById = async (carId, setCar) => {
         .get(ColumnLabels.car.group)
         .get(ColumnLabels.carGroup.bigLuggage),
       carId: result[0].id,
+      rentalOffice: result[0]
+        .get(ColumnLabels.car.rentalOffice)
+        .get(ColumnLabels.rentalOffice.officeNo),
     };
     setCar(carObject);
   } catch (error) {

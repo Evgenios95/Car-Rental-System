@@ -109,6 +109,7 @@ export const changeParkingSlotWhenReturn = async (
 };
 
 export const returnCar = async (
+  e,
   bookingId,
   carId,
   carState,
@@ -118,6 +119,7 @@ export const returnCar = async (
   tankFull,
   navigate
 ) => {
+  e.preventDefault();
   await setBookingStateToFinishAndAssignNoCar(bookingId);
   await setNewPropertiesForCar(
     carId,
@@ -128,5 +130,6 @@ export const returnCar = async (
     tankFull
   );
   await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
+
   navigate("/find-booking");
 };

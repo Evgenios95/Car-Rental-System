@@ -22,6 +22,7 @@ import Button from "../Button/Button";
 import { returnCar } from "../../parse-functions/returnFunctions";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import "./ReturnCarPage.css";
+import Checkbox from "../CheckBox/CheckBox";
 
 const ReturnCarPage = () => {
   const { bookingId } = useParams();
@@ -33,7 +34,7 @@ const ReturnCarPage = () => {
   useEffect(async () => {
     await getBookingById(bookingId, setBooking, setCustomer, setCar);
   }, []);
-  console.log(returnData);
+
   return (
     <>
       <NavBar></NavBar>
@@ -59,10 +60,24 @@ const ReturnCarPage = () => {
           <CarRecord booking={booking} bookingId={bookingId} car={car} />
         </GrayColumn>
       </GrayContainer>
-      <GrayContainer className="return-car-second-container">
-        <Subtitle stitle="Return settings"></Subtitle>
+      <form
+        onSubmit={(e) =>
+          returnCar(
+            e,
+            bookingId,
+            booking.carId,
+            returnData.carState,
+            parseInt(returnData.parkingSlot),
+            returnData.officeNumber,
+            parseInt(returnData.mileage),
+            returnData.tankFull,
+            navigate
+          )
+        }
+      >
+        <GrayContainer>
+          <Subtitle stitle="Return settings"></Subtitle>
 
-        <div className="return-settings-first-column">
           <GrayColumn>
             <DropDown
               type="CarState"
@@ -85,20 +100,17 @@ const ReturnCarPage = () => {
               onChange={(e) =>
                 onChangeIntHandler(e, "parkingSlot", setReturnData)
               }
-              returnData={returnData}
+              formData={returnData}
             />
           </GrayColumn>
-        </div>
 
-        <div className="return-settings-second-culumn">
           <GrayColumn>
-            <LabeledInput
-              labelText="Tank full?"
-              type="checkbox"
-              onChange={(e) =>
+            <Checkbox
+              label="Tank full?"
+              onCheckboxChange={(e) =>
                 onChangeCheckBoxHandler(e, "tankFull", setReturnData)
               }
-            ></LabeledInput>
+            ></Checkbox>
 
             <LabeledInput
               labelText="Mileage"
@@ -106,31 +118,16 @@ const ReturnCarPage = () => {
               onChange={(e) => onChangeIntHandler(e, "mileage", setReturnData)}
             ></LabeledInput>
           </GrayColumn>
-        </div>
-      </GrayContainer>
-      <GrayContainer className="individual-booking-second-container">
-        <Button
-          type="button"
-          btnText="Return car"
-          onClick={async () =>
-            await returnCar(
-              bookingId,
-              booking.carId,
-              returnData.carState,
-              parseInt(returnData.parkingSlot),
-              returnData.officeNumber,
-              parseInt(returnData.mileage),
-              returnData.tankFull,
-              navigate
-            )
-          }
-        />
+        </GrayContainer>
+        <GrayContainer className="return-car-third-container">
+          <Button type="submit" btnText="Return car" />
 
-        <Button
-          btnText="Go back"
-          onClick={() => navigate(`/individual-booking/${bookingId}`)}
-        />
-      </GrayContainer>
+          <Button
+            btnText="Go back"
+            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+          />
+        </GrayContainer>
+      </form>
     </>
   );
 };

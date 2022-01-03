@@ -12,6 +12,7 @@ const ChosenCarTable = ({ chosenCar, chooseCar, setChosenCar }) => {
           <th>License number</th>
           <th>Group</th>
           <th>Parking slot</th>
+          <th>Rental office</th>
           <th>State</th>
           <th>Mileage</th>
           <th>Tank full</th>
@@ -29,6 +30,7 @@ const ChosenCarTable = ({ chosenCar, chooseCar, setChosenCar }) => {
           <td>{chosenCar.licensNumber}</td>
           <td>{chosenCar.carGroup}</td>
           <td>{chosenCar.parkingSlot}</td>
+          <td>{chosenCar.rentalOffice}</td>
           <td>{chosenCar.carState}</td>
           <td>{chosenCar.mileage}</td>
           <td>{chosenCar.tankFull}</td>

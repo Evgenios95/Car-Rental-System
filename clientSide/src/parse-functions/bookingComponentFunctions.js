@@ -58,7 +58,7 @@ export const createBooking = async (e, formData, navigate) => {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
     console.log("Booking created", result);
-    navigate("/find-booking");
+    navigate("/booking-overview");
   } catch (error) {
     console.error(ErrorLabels.booking, error);
   }

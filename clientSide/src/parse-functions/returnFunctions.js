@@ -139,5 +139,5 @@ export const returnCar = async (
   );
   await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
 
-  navigate("/find-booking");
+  navigate("/booking-overview");
 };

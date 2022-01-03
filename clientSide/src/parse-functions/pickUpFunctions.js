@@ -21,7 +21,7 @@ export const pickUpcar = async (
   await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
   await updateCarWhenPickUp(carId, mileage, tankFull);
   await updateBookingForPickUp(bookingId);
-  navigate("/find-booking");
+  navigate("/booking-overview");
 };
 
 export const updateCarWhenPickUp = async (carId, mileage, tankFull) => {

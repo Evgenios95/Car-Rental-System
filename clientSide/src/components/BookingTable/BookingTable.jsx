@@ -33,7 +33,7 @@ const BookingTable = () => {
   return (
     <>
       <NavBar />
-      <GrayContainer>
+      <GrayContainer id="booking-container">
         <LabeledInput
           type="text"
           inputPlaceholder="Please search me"

@@ -180,7 +180,7 @@ export const deleteBookingById = async (bookingId, navigate) => {
     try {
       const response = await object.destroy();
       console.log(ResultLabels.deleteBooking, response);
-      navigate("/find-booking");
+      navigate("/booking-overview");
     } catch (error) {
       console.error(ErrorLabels.deleteBooking, error);
     }

@@ -20,10 +20,15 @@ function App() {
         it on the /dummy route that I define and then in the element field place your component
         Whenever we add a complete component a new route will be created. Type the /dummy endpoint <3 */}
       <Routes>
+        {/* Paths included in the navigation bar */}
         <Route path="/" element={<StartingPage />} />
         <Route path="/login" element={<LoginComponent />} />
-        <Route path="/find-booking" element={<BookingTable />} />
+        <Route path="/booking-overview" element={<BookingTable />} />
         <Route path="/book" element={<BookingComponent />} />
+        <Route path="/car-overview" element={<CarTable />} />
+        {/* Conditional secondary paths */}
+        <Route path="/walkin-book" element={<BookingComponent />} />
+        {/* Dynamic paths */}
         <Route
           path="/individual-booking/:bookingId"
           element={<IndividualBooking />}
@@ -34,9 +39,6 @@ function App() {
           element={<EditCustomer />}
         />
         <Route path="/edit-car/:bookingId/:carId" element={<EditCar />} />
-        <Route path="/walkin-book" element={<BookingComponent />} />
-        <Route path="/dummy" element={"hey"} />
-        <Route path="/car-table" element={<CarTable />} />
         <Route path="/cars/:id" element={<CarCard />} />
         <Route path="/return-car/:bookingId/" element={<ReturnCarPage />} />
         <Route path="/pick-up-car/:bookingId/" element={<PickUpCarPage />} />

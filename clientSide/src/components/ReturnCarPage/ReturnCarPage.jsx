@@ -100,7 +100,7 @@ const ReturnCarPage = () => {
               onChange={(e) =>
                 onChangeIntHandler(e, "parkingSlot", setReturnData)
               }
-              formData={returnData}
+              returnData={returnData}
             />
           </GrayColumn>
 

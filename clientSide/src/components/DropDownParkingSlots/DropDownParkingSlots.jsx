@@ -14,26 +14,29 @@ const DropDownParkingSlots = ({
   type,
   attribute,
   onChange,
-  formData,
+  returnData,
 }) => {
   const [isLoading, setLoading] = useState(true);
   const [parkingSlots, setParkingSlots] = useState([]);
 
   useEffect(async () => {
-    await fetchParkingSlots(type, attribute, setParkingSlots, formData);
+    await fetchParkingSlots(type, attribute, setParkingSlots, returnData);
     setLoading(false);
-  }, [formData]);
+  }, [returnData]);
 
   const fetchParkingSlots = async (
     type,
     attribute,
     setParkingSlots,
-    formData
+    returnData
   ) => {
     const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
     const query = new Parse.Query(ParkingSlot);
     const parkingSlotArray = [];
-    query.equalTo(ColumnLabels.parkingSlot.officeNumber, formData.officeNumber);
+    query.equalTo(
+      ColumnLabels.parkingSlot.officeNumber,
+      returnData.officeNumber
+    );
 
     try {
       const result = await query.find();

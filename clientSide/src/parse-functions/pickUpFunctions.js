@@ -8,28 +8,35 @@ import {
 import { ClassnameLabels, ColumnLabels } from "../text-labels/parse-labels";
 
 export const pickUpcar = async (
+  e,
   carId,
   parkingSlot,
   officeNumber,
+  mileage,
+  tankFull,
   bookingId,
   navigate
 ) => {
-  await updateCarParkingSlot(carId);
+  e.preventDefault();
   await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
+  await updateCarWhenPickUp(carId, mileage, tankFull);
   await updateBookingForPickUp(bookingId);
   navigate("/find-booking");
 };
 
-export const updateCarParkingSlot = async (carId) => {
+export const updateCarWhenPickUp = async (carId, mileage, tankFull) => {
   const Car = Parse.Object.extend(ClassnameLabels.car);
   const query = new Parse.Query(Car);
   const officePointer = await getOfficePointer("0");
   const carStatePointer = await getCarStatePointer("rented");
+
   try {
     const object = await query.get(carId);
     object.set(ColumnLabels.car.rentalOffice, officePointer);
     object.set(ColumnLabels.car.parkingSlot, 0);
     object.set(ColumnLabels.car.state, carStatePointer);
+    object.set(ColumnLabels.car.mileage, mileage);
+    object.set(ColumnLabels.car.tankFull, tankFull);
     try {
       const response = await object.save();
       console.log("Car updated when picked up", response);
@@ -80,7 +87,10 @@ export const changeParkingSlotWhenPickUp = async (
       const indexOfSlotsOccupied = occupiedParkingSlots.indexOf(
         parseInt(parkingSlot)
       );
-      occupiedParkingSlots.splice(indexOfSlotsOccupied, indexOfSlotsOccupied);
+      occupiedParkingSlots.splice(
+        indexOfSlotsOccupied,
+        indexOfSlotsOccupied + 1
+      );
       object.set(
         ColumnLabels.parkingSlot.occupiedParkingSlots,
         occupiedParkingSlots

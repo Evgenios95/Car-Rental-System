@@ -26,11 +26,12 @@ const EditCarTable = ({ setChosenCar }) => {
       <table>
         <thead>
           <tr>
-            <th>License number</th>
             <th>Model</th>
-            <th>Car group</th>
             <th>Color</th>
-            <th>Fueltype</th>
+            <th>Fuel type</th>
+            <th>License number</th>
+            <th>Group</th>
+            <th>Parking slot</th>
             <th>Rental office</th>
             <th>State</th>
             <th>Mileage</th>
@@ -44,11 +45,12 @@ const EditCarTable = ({ setChosenCar }) => {
         <tbody>
           {cars.map((car) => (
             <tr key={car.licenseNumber}>
-              <td>{car.licenseNumber}</td>
               <td>{car.model}</td>
-              <td>{car.carGroup}</td>
               <td>{car.color}</td>
               <td>{car.fuelType}</td>
+              <td>{car.licenseNumber}</td>
+              <td>{car.carGroup}</td>
+              <td>{car.parkingSlot}</td>
               <td>{car.rentalOffice}</td>
               <td>{car.carState}</td>
               <td>{car.mileage}</td>
@@ -56,6 +58,7 @@ const EditCarTable = ({ setChosenCar }) => {
               <td>{car.personCapacity}</td>
               <td>{car.smallLuggage}</td>
               <td>{car.bigLuggage}</td>
+
               <td>
                 <FontAwesomeIcon
                   icon={faPlus}

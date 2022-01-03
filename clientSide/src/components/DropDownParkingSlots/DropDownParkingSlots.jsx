@@ -60,7 +60,7 @@ const DropDownParkingSlots = ({
       <label className="label" htmlFor="dropDown">
         {labeltext}
       </label>
-      <select className="drop" defaultValue="" onChange={onChange}>
+      <select className="drop" defaultValue="" onChange={onChange} required>
         <option disabled value="">
           {DropdownLabels.defaultOption}
         </option>

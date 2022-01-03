@@ -14,13 +14,13 @@ export const setCarElements = async (setCars, setError) => {
   query.include(ColumnLabels.car.rentalOffice);
   query.include(ColumnLabels.car.state);
   query.include(ColumnLabels.car.id);
+  query.include(ColumnLabels.nestedPointers.carIdAndRentalOffice);
   query.notEqualTo(ColumnLabels.car.licenseNo, HardcodedFieldLabels.car);
   const carArray = [];
 
   try {
     const results = await query.find();
     for (const object of results) {
-      console.log(object);
       const carObject = {
         id: object.id,
         carGroup: object
@@ -46,6 +46,10 @@ export const setCarElements = async (setCars, setError) => {
           .get(ColumnLabels.car.group)
           .get(ColumnLabels.carGroup.bigLuggage),
         carId: object.id,
+        rentalOffice: object
+          .get(ColumnLabels.car.rentalOffice)
+          .get(ColumnLabels.rentalOffice.officeNo),
+        parkingSlot: object.get(ColumnLabels.car.parkingSlot),
       };
       carArray.push(carObject);
     }

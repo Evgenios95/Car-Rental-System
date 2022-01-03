@@ -13,6 +13,7 @@ const CarRecord = ({ booking, bookingId, car }) => {
           <th>License number</th>
           <th>Group</th>
           <th>Parking slot</th>
+          <th>Rental office</th>
           <th>State</th>
           <th>Mileage</th>
           <th>Tank full</th>
@@ -30,6 +31,7 @@ const CarRecord = ({ booking, bookingId, car }) => {
           <td>{car.licensNumber}</td>
           <td>{car.carGroup}</td>
           <td>{car.parkingSlot}</td>
+          <td>{car.rentalOffice}</td>
           <td>{car.carState}</td>
           <td>{car.mileage}</td>
           <td>{car.tankFull}</td>

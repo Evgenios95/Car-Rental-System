@@ -71,6 +71,7 @@ export const ColumnLabels = {
   nestedPointers: {
     carIdAndState: "carId.carState",
     carIdAndGroup: "carId.carGroup",
+    carIdAndRentalOffice: "carId.rentalOffice",
   },
 };
 

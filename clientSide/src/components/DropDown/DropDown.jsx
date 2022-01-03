@@ -26,6 +26,7 @@ const DropDown = ({ labeltext, type, attribute, onChange }) => {
         id="dropDown"
         defaultValue=""
         onChange={onChange}
+        required
       >
         <option disabled value="">
           {DropdownLabels.defaultOption}

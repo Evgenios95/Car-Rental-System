@@ -1,8 +1,4 @@
-.return-settings-first-column,
-.return-settings-second-column {
-  flex: 1 1 auto;
-}
-.return-car-second-container {
+.return-car-third-container {
   justify-content: flex-end;
   margin-top: 8px;
   padding: 10px;

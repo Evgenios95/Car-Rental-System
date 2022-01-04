@@ -3,22 +3,13 @@ import NavBar from "../NavBar/Navbar";
 import GrayContainer from "../UiComponents/GrayContainer";
 import GrayColumn from "../UiComponents/GrayColumn";
 import { useState } from "react";
-import Parse from "parse";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "./IndividualBooking.css";
 import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
-import {
-  TitleLabels,
-  SubtitleLabels,
-  NavigationLabels,
-} from "../../text-labels/text-labels";
+import { TitleLabels, SubtitleLabels } from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
-import { pickUpcar } from "../../parse-functions/pickUpFunctions";
 
 import {
   getBookingById,

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import "./Login.css";
 import { GeneralLabels } from "../../text-labels/text-labels";

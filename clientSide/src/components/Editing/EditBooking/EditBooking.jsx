@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./EditBooking.css";
 import GrayContainer from "../../UiComponents/GrayContainer";
 import GrayColumn from "../../UiComponents/GrayColumn";

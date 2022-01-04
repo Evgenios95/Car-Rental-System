@@ -9,7 +9,8 @@ export const NavigationLabels = {
   brand: "Scancar",
   find: "Find Booking",
   book: "Book",
-  overview: "Overview",
+  carOverview: "Cars Overview",
+  bookingOverview: "Booking Overview",
   release: "Release",
   request: "Request",
 };

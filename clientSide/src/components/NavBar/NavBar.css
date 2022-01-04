@@ -9,3 +9,15 @@ a.text-white.nav-link span:hover {
 div.container {
   max-width: 80%;
 }
+
+#nav-dropdown {
+  color: white;
+}
+
+#nav-dropdown:hover {
+  color: var(--global-black);
+}
+
+div.dropdown-menu.show {
+  background-color: var(--global-green-31);
+}

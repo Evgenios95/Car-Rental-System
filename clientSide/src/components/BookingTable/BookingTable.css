@@ -12,6 +12,7 @@ table {
   width: 100%;
   min-width: 850px;
 }
+
 th,
 td {
   border: hidden;
@@ -33,7 +34,12 @@ td {
 tbody tr:nth-child(even) td {
   background-color: var(--global-gray89);
 }
+
 .fa-arrow-alt-circle-right {
   cursor: pointer;
   color: var(--global-green-63);
+}
+
+#booking-container {
+  row-gap: 0px;
 }

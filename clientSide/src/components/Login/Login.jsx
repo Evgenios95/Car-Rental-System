@@ -31,7 +31,11 @@ const LoginComponent = () => {
               inputPlaceholder={GeneralLabels.placeholder}
               className="login-input-item"
             ></LabeledInput>
-            <Button btnText={GeneralLabels.login} />
+            <Button
+              className="btn--primary"
+              btnText={GeneralLabels.login}
+              type="submit"
+            />
           </div>
         </form>
       </div>

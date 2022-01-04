@@ -13,26 +13,12 @@ div img {
   opacity: 100%;
 }
 
-.login-button {
-  position: absolute;
-  right: 75px;
-  bottom: 20px;
-  width: 250px;
-  height: 100px;
-  font-size: 60px;
-  border: 4px var(--global-gray89);
-}
-
-.login-button:active {
-  transform: translateY(5px);
-}
-
 @media screen and (max-width: 1000px) {
   .starting-page-image {
     width: 100%;
     padding: 0px 30px;
   }
-  .login-button {
+  .btn--starting-page {
     position: unset;
   }
 }
@@ -41,7 +27,7 @@ div img {
     width: 100%;
     padding: 0;
   }
-  .login-button {
+  .btn--starting-page {
     width: 187.5px;
     height: 75px;
     font-size: 45px;

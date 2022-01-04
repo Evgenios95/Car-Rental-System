@@ -42,18 +42,22 @@ const BookingComponent = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button type="submit" btnText="Create booking" />
+          <Button
+            type="submit"
+            className="btn--primary"
+            btnText="Create booking"
+          />
 
           {location.pathname === "/book" ? (
             <Button
-              type="button"
               btnText="Walk in"
+              className="btn--primary"
               onClick={() => navigate("/walkin-book")}
             />
           ) : (
             <Button
-              type="button"
               btnText="Phone booking"
+              className="btn--primary"
               onClick={() => navigate("/book")}
             />
           )}

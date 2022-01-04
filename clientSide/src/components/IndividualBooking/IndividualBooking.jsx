@@ -68,27 +68,28 @@ const IndividualBooking = () => {
 
       <GrayContainer className="individual-booking-second-container">
         <Button
-          type="button"
+          className="btn--red"
           btnText="Delete booking"
-          btnBgColor="var(--global-red-55)"
           onClick={() => deleteBookingById(bookingId)}
         />
 
         <Button
           type="button"
           btnText="Pick up car"
+          className="btn--primary"
           onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
           // onClick={async () =>
           // await pickUpcar(car.carId.id, 0, "0", bookingId, navigate)
           // }
         />
         <Button
-          type="button"
           btnText="Return car"
+          className="btn--primary"
           onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
         <Button
           btnText="Go back"
+          className="btn--white"
           onClick={() => navigate(`/booking-overview/`)}
         />
       </GrayContainer>

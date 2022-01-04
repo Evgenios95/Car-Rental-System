@@ -14,10 +14,8 @@ const StartingPage = () => {
       <img src="./images/itu-cars1.jpg" alt=""></img>
       <div className="button-holder">
         <Button
-          className="login-button"
+          className="btn--starting-page"
           btnText="Login"
-          btnColor="black"
-          btnBgColor="lightgray"
           onClick={navigateToPath}
         />
       </div>

@@ -94,7 +94,11 @@ const EditCustomer = () => {
             btnText="Go back"
             onClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
-          <Button type="submit" btnText="Finish editing" />
+          <Button
+            type="submit"
+            className="btn--primary"
+            btnText="Finish editing"
+          />
         </GrayContainer>
       </form>
     </>

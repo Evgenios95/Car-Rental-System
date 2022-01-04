@@ -73,6 +73,7 @@ const EditBooking = () => {
         <GrayContainer className="edit-booking-second-container">
           <Button
             btnText="Go back"
+            className="btn--white"
             onClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
 

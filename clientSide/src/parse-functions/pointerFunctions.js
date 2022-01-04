@@ -13,7 +13,6 @@ export const getOfficePointer = async (officeInput) => {
 
   try {
     const officeResult = await query.find();
-    console.log("officeReult in pointer", officeResult);
     return officeResult[0].toPointer();
   } catch (error) {
     console.error(ErrorLabels.rentalOffice, error);

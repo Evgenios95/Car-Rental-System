@@ -42,11 +42,11 @@ export const createBooking = async (e, formData, navigate) => {
   const myNewObject = new Parse.Object(ClassnameLabels.booking);
   myNewObject.set(
     ColumnLabels.booking.pickUpTime,
-    new Date(formData.pickupDate)
+    new Date(formData.pickupDate + " " + formData.pickUpTime)
   );
   myNewObject.set(
     ColumnLabels.booking.returnTime,
-    new Date(formData.returnDate)
+    new Date(formData.returnDate + " " + formData.returnTime)
   );
   myNewObject.set(ColumnLabels.booking.customerId, customerPointer);
   myNewObject.set(ColumnLabels.booking.pickUpOffice, pickupOfficePointer);
@@ -57,6 +57,7 @@ export const createBooking = async (e, formData, navigate) => {
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
+
     console.log("Booking created", result);
     navigate("/booking-overview");
   } catch (error) {

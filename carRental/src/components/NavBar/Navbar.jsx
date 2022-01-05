@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { NavigationLabels } from "../../text-labels/text-labels";
+import { NavigationLabels } from "../../utils/constants/general-labels";
 
 const NavBar = () => {
   return (

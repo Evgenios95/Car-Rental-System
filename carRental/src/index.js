@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import { initializeParse } from "./parse-functions/parseInitializerFunction";
+import { initializeParse } from "./utils/parse-functions/parseInitializerFunction";
 
 initializeParse();
 

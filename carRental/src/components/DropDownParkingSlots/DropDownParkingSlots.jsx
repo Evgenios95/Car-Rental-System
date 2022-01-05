@@ -1,13 +1,14 @@
 import "../DropDown/DropDown.css";
 import React, { useEffect, useState } from "react";
-import { DropdownLabels } from "../../text-labels/text-labels";
+import { DropdownLabels } from "../../utils/constants/general-labels";
 
 import Parse from "parse";
 import {
   ErrorLabels,
   ClassnameLabels,
   ColumnLabels,
-} from "../../text-labels/parse-labels";
+} from "../../utils/constants/parse-labels";
+ColumnLabels;
 
 const DropDownParkingSlots = ({
   labeltext,

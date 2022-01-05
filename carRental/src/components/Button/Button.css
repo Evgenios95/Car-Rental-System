@@ -42,7 +42,7 @@
   background-color: var(--global-red-63);
 }
 
-.btn--starting-page {
+.btn--home-page {
   background-color: var(--global-lightgray);
   color: var(--global-black);
   border: 2px solid var(--global-gray89);
@@ -55,6 +55,6 @@
   font-size: 60px;
 }
 
-.btn--starting-page:active {
+.btn--home-page:active {
   transform: translateY(5px);
 }

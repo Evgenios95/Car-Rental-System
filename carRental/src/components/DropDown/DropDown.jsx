@@ -1,7 +1,7 @@
 import "./DropDown.css";
 import React, { useEffect, useState } from "react";
-import { DropdownLabels } from "../../text-labels/text-labels";
-import { setDropdownElements } from "../../parse-functions/dropdownFunctions";
+import { DropdownLabels } from "../../utils/constants/general-labels";
+import { setDropdownElements } from "../../utils/parse-functions/dropdownFunctions";
 
 const DropDown = ({ labeltext, type, attribute, onChange }) => {
   const [isLoading, setLoading] = useState(true);

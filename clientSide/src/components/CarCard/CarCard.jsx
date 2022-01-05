@@ -1,5 +1,4 @@
 import "./CarCard.css";
-import ford from "../../images/a6.jpeg";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";

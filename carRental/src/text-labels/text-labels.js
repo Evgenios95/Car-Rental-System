@@ -46,54 +46,6 @@ export const SubtitleLabels = {
   checkList: "Checklist",
 };
 
-export const CarGroupLabels = {
-  small: {
-    group: "Car Group - Small",
-    model: "Fiat Punto",
-    info: "3 Passengers & 2 big suitcases",
-  },
-  medium: {
-    group: "Car Group - Medium",
-    model: "VW Polo",
-    info: "4 Passengers & 2 big suitcases and 1 small suitcase",
-  },
-  large: {
-    group: "Car Group - Large",
-    model: "Ford Mondeo",
-    info: "4 Passengers & 3 big suitcases and 1 small suitcase",
-  },
-  xLarge: {
-    group: "Car Group - X-Large",
-    model: "VW Passat",
-    info: "4 Passengers & 3 big suitcases and 1 small suitcase",
-  },
-  family: {
-    group: "Car Group - Family",
-    model: "Opel Zafira",
-    info: "5 Passengers & 1 small suitcase",
-  },
-  business: {
-    group: "Car Group - Business",
-    model: "Volvo S60",
-    info: "4 Passengers & 3 big suitcases and 1 small suitcase",
-  },
-  station: {
-    group: "Car Group - Station Cars",
-    model: "Ford Mondeo",
-    info: "5 Passengers & 5 big suitcases and 1 small suitcase",
-  },
-  automatic: {
-    group: "Car Group - Automatic",
-    model: "Audi A6 Aut",
-    info: "5 Passengers & 5 big suitcases and 1 small suitcase",
-  },
-  smallAutomatic: {
-    group: "Car Group - Small Automatic",
-    model: "Seat Toledo Aut",
-    info: "4 Passengers & 3 big suitcases and 1 small suitcase",
-  },
-};
-
 export const CustomerInfoLabels = {
   title: "Customer info",
   firstName: "First Name*",

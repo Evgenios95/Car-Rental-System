@@ -25,9 +25,7 @@ export function PopUpButton({
       <Button
         onClick={handleClick("top")}
         btnText="Cancel"
-        btnBgColor={"var(--global-93)"}
-        btnColor={"var(--global-gray24"}
-        type="button"
+        className="btn--white"
       />
 
       <Popper
@@ -56,7 +54,7 @@ export function PopUpButton({
                 <div style={{ padding: "10px" }}>
                   <Button
                     btnText={confirmChoiceButtonText}
-                    btnBgColor="red"
+                    className="btn--red"
                     onClick={() => window.location.reload(false)}
                   />
                 </div>
@@ -64,7 +62,7 @@ export function PopUpButton({
                   <Button
                     onClick={clickAwayHandler}
                     btnText={rejectChoiceButtonText}
-                    type="button"
+                    className="btn--primary"
                   />
                 </div>
               </div>

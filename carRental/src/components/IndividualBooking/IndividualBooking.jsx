@@ -3,22 +3,13 @@ import NavBar from "../NavBar/Navbar";
 import GrayContainer from "../UiComponents/GrayContainer";
 import GrayColumn from "../UiComponents/GrayColumn";
 import { useState } from "react";
-import Parse from "parse";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "./IndividualBooking.css";
 import Button from "../Button/Button";
 import PageTitle from "../PageTitle/PageTitle";
-import {
-  TitleLabels,
-  SubtitleLabels,
-  NavigationLabels,
-} from "../../text-labels/text-labels";
+import { TitleLabels, SubtitleLabels } from "../../text-labels/text-labels";
 import Subtitle from "../Subtitle/Subtitle";
-import { pickUpcar } from "../../parse-functions/pickUpFunctions";
 
 import {
   getBookingById,
@@ -68,27 +59,28 @@ const IndividualBooking = () => {
 
       <GrayContainer className="individual-booking-second-container">
         <Button
-          type="button"
+          className="btn--red"
           btnText="Delete booking"
-          btnBgColor="var(--global-red-55)"
           onClick={() => deleteBookingById(bookingId)}
         />
 
         <Button
           type="button"
           btnText="Pick up car"
+          className="btn--primary"
           onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
           // onClick={async () =>
           // await pickUpcar(car.carId.id, 0, "0", bookingId, navigate)
           // }
         />
         <Button
-          type="button"
           btnText="Return car"
+          className="btn--primary"
           onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
         <Button
           btnText="Go back"
+          className="btn--white"
           onClick={() => navigate(`/booking-overview/`)}
         />
       </GrayContainer>

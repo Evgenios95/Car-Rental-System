@@ -4,11 +4,6 @@ import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { NavigationLabels } from "../../text-labels/text-labels";
 
-/**
- * as={Link} translates the NavLink into a Link from react-router-dom.
- * removed the !important properties
- * experimented and added more classes to the elements
- */
 const NavBar = () => {
   return (
     <Navbar className="nav-bar" expand="md" sticky="top">
@@ -25,9 +20,6 @@ const NavBar = () => {
             <Nav.Link className="text-white" as={Link} to="/book">
               <span>{NavigationLabels.book}</span>
             </Nav.Link>
-            {/* <Nav.Link className="text-white" as={Link} to="/booking-overview">
-              <span>{NavigationLabels.find}</span>
-            </Nav.Link> */}
             <NavDropdown title="Overviews" id="nav-dropdown">
               <Nav.Link className="text-white" as={Link} to="/booking-overview">
                 <span>{NavigationLabels.bookingOverview}</span>

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./EditBooking.css";
 import GrayContainer from "../../UiComponents/GrayContainer";
 import GrayColumn from "../../UiComponents/GrayColumn";
@@ -73,6 +73,7 @@ const EditBooking = () => {
         <GrayContainer className="edit-booking-second-container">
           <Button
             btnText="Go back"
+            className="btn--white"
             onClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
 

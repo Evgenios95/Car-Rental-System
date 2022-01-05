@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LabeledInput from "../LabeledInput/LabeledInput";
 import "./Login.css";
 import { GeneralLabels } from "../../text-labels/text-labels";
@@ -31,7 +31,11 @@ const LoginComponent = () => {
               inputPlaceholder={GeneralLabels.placeholder}
               className="login-input-item"
             ></LabeledInput>
-            <Button btnText={GeneralLabels.login} />
+            <Button
+              className="btn--primary"
+              btnText={GeneralLabels.login}
+              type="submit"
+            />
           </div>
         </form>
       </div>

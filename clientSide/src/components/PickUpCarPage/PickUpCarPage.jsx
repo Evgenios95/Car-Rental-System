@@ -90,10 +90,15 @@ const PickUpCarPage = () => {
         </GrayContainer>
 
         <GrayContainer className="pick-up-car-third-container">
-          <Button type="submit" btnText="Pick up car" />
+          <Button
+            type="submit"
+            className="btn--primary"
+            btnText="Pick up car"
+          />
 
           <Button
             btnText="Go back"
+            className="btn--white"
             onClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
         </GrayContainer>

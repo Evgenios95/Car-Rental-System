@@ -1,0 +1,7 @@
+:root {
+  --border-radius-mouse: 5px;
+  --border-radius-cat: 10px;
+  --border-radius-dog: 18px;
+
+  --global-default-shadow: 3px 4px 7px rgba(0, 0, 0, 0.64);
+}

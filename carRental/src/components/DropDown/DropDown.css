@@ -1,0 +1,28 @@
+.drop {
+  font: var(--open-bee);
+  color: var(--global-dimgray);
+
+  border: 0.7px solid var(--global-gray24);
+  border-radius: var(--border-radius-cat);
+
+  width: 100%;
+  height: 45px;
+  text-align: center;
+}
+
+.drop:focus {
+  outline: none;
+}
+
+.label {
+  font: var(--mont-bee);
+  color: var(--global-green-19);
+
+  display: block;
+  margin-bottom: 7px;
+  margin-top: 20px;
+}
+
+option[value=""][disabled] {
+  display: none;
+}

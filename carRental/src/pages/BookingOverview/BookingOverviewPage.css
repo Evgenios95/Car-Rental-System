@@ -1,0 +1,45 @@
+.overview-container {
+  padding: 10px;
+  height: 400px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+table {
+  border-radius: var(--border-radius-cat);
+
+  overflow: hidden;
+  width: 100%;
+  min-width: 850px;
+}
+
+th,
+td {
+  border: hidden;
+  text-align: center;
+  padding: 8px;
+  border-collapse: collapse;
+  font: var(--open-bee);
+}
+
+th {
+  background-color: var(--global-green-63);
+  font-size: var(--font-size-wasp);
+}
+
+td {
+  background-color: var(--global-white);
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(--global-gray89);
+}
+
+.fa-arrow-alt-circle-right {
+  cursor: pointer;
+  color: var(--global-green-63);
+}
+
+#booking-container {
+  row-gap: 0px;
+}

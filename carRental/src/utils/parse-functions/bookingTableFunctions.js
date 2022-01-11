@@ -35,8 +35,8 @@ export const setBookingOverviewElements = async (setError, setBookings) => {
         pickUpOffice: object
           .get(ColumnLabels.booking.pickUpOffice)
           .get(ColumnLabels.rentalOffice.officeNo),
-        pickUpTime: object.get(ColumnLabels.booking.pickUpTime),
-        returnTime: object.get(ColumnLabels.booking.returnTime),
+        pickUpTime: object.get(ColumnLabels.booking.pickUpTime).toString(),
+        returnTime: object.get(ColumnLabels.booking.returnTime).toString(),
         bookingState: object
           .get(ColumnLabels.booking.bookingState)
           .get(ColumnLabels.bookingState.state),

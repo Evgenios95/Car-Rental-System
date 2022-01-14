@@ -53,7 +53,7 @@ export const createBooking = async (e, formData, navigate) => {
   myNewObject.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
   myNewObject.set(ColumnLabels.booking.carGroup, carGroupPointer);
   myNewObject.set(ColumnLabels.booking.bookingState, bookingStatePointer);
-  myNewObject.set(ColumnLabels.booking.car, formData.car);
+  myNewObject.set(ColumnLabels.booking.carId, formData.car);
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method

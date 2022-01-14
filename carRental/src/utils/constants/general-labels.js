@@ -13,6 +13,7 @@ export const NavigationLabels = {
   bookingOverview: "Booking Overview",
   release: "Release",
   request: "Request",
+  statistics: "Statistics",
 };
 
 export const TitleLabels = {

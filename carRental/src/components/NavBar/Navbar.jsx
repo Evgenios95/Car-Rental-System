@@ -34,6 +34,9 @@ const NavBar = () => {
             <Nav.Link className="text-white" as={Link} to="/request">
               <span>{NavigationLabels.request}</span>
             </Nav.Link>
+            <Nav.Link className="text-white" as={Link} to="/statistics">
+              <span>{NavigationLabels.statistics}</span>
+            </Nav.Link>
             <Nav.Link className="text-white ms-auto" as={Link} to="/">
               <span>
                 <i className="fas fa-sign-out-alt"></i>

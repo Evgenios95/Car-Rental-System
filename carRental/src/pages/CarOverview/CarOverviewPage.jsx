@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/Navbar";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const CarOverviewPage = () => {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ const CarOverviewPage = () => {
   return (
     <>
       <NavBar />
+      <PageTitle ptitle="Car Overview"></PageTitle>
       <GrayContainer>
         <GrayColumn>
           <div className="overview-container">

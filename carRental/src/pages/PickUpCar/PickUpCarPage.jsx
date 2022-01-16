@@ -42,6 +42,7 @@ const PickUpCarPage = () => {
       <NavBar />
       <PageTitle ptitle="Pick up car"></PageTitle>
       <form
+        id="pickup-car-form"
         onSubmit={(e) =>
           pickUpcar(
             e,
@@ -54,7 +55,6 @@ const PickUpCarPage = () => {
             navigate
           )
         }
-        id="pickup-car"
       >
         <GrayContainer>
           <GrayColumn>
@@ -102,8 +102,8 @@ const PickUpCarPage = () => {
             popupBtnText="Pick up"
             confirmBtnText="Yes"
             rejectBtnText="No"
-            form="pickup-car"
-            popupBtnType="submit"
+            form="pickup-car-form"
+            confirmBtnType="submit"
             btnClassName="btn--primary"
           />
 

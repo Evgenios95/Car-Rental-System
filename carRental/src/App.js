@@ -12,7 +12,6 @@ import IndividualBookingPage from "./pages/IndividualBooking/IndividualBookingPa
 import LoginPage from "./pages/Login/LoginPage";
 import PickUpCarPage from "./pages/PickUpCar/PickUpCarPage";
 import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
-import Statistics from "./pages/Statistics/Statistics";
 
 function App() {
   return (
@@ -43,7 +42,6 @@ function App() {
         <Route path="/cars/:id" element={<IndividualCarPage />} />
         <Route path="/return-car/:bookingId/" element={<ReturnCarPage />} />
         <Route path="/pick-up-car/:bookingId/" element={<PickUpCarPage />} />
-        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </div>
   );

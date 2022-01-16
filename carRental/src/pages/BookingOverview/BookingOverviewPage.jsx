@@ -15,6 +15,7 @@ import {
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { TitleLabels } from "../../utils/constants/general-labels";
 
 const BookingOverviewPage = () => {
   const [loading, setLoading] = useState(true);
@@ -40,9 +41,7 @@ const BookingOverviewPage = () => {
   return (
     <>
       <NavBar />
-      <GrayContainer className="title-container">
-        <PageTitle ptitle="Booking Overview" />
-      </GrayContainer>
+      <PageTitle title={TitleLabels.bookingOverview} />
       <GrayContainer className="booking-overview-gray-container">
         <LabeledInput
           type="text"

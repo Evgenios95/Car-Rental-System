@@ -14,6 +14,7 @@ import {
   updateCarInBooking,
 } from "../../../utils/parse-functions/updateFunctions";
 import PopUpButton from "../../../components/PopUpButton/PopUpButton";
+import { TitleLabels } from "../../../utils/constants/general-labels";
 
 const EditCarPage = () => {
   const { bookingId, carId } = useParams();
@@ -33,7 +34,7 @@ const EditCarPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Choose car for booking"></PageTitle>
+      <PageTitle title={TitleLabels.editBookingCar} />
       <GrayContainer>
         <GrayColumn>
           <Subtitle stitle="Chosen car"></Subtitle>

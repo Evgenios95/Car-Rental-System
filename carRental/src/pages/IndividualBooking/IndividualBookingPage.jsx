@@ -37,7 +37,7 @@ const IndividualBookingPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle={TitleLabels.individualBooking} />
+      <PageTitle title={TitleLabels.individualBooking} />
       <GrayContainer>
         <GrayColumn>
           <div className="individual-booking-table">

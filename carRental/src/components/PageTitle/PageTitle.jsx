@@ -1,10 +1,10 @@
 import GrayContainer from "../Layout/GrayContainer";
 import "./PageTitle.css";
 
-const PageTitle = (props) => {
+const PageTitle = ({ title }) => {
   return (
     <GrayContainer className="title-container">
-      <div className="page-title">{props.ptitle}</div>
+      <div className="page-title">{title}</div>
     </GrayContainer>
   );
 };

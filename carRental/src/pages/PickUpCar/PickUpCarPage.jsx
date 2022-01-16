@@ -7,10 +7,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getBookingById } from "../../utils/parse-functions/individualBookingFunctions";
 IndividualCarRecord;
-import { SubtitleLabels } from "../../utils/constants/general-labels";
+import {
+  SubtitleLabels,
+  TitleLabels,
+} from "../../utils/constants/general-labels";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import Checkbox from "../../components/CheckBox/CheckBox";
-import Button from "../../components/Button/Button";
 import "./PickUpCarPage.css";
 import { pickUpcar } from "../../utils/parse-functions/pickUpFunctions";
 import {
@@ -40,7 +42,7 @@ const PickUpCarPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Pick up car"></PageTitle>
+      <PageTitle title={TitleLabels.pickUpCar} />
       <form
         id="pickup-car-form"
         onSubmit={(e) =>

@@ -20,7 +20,7 @@ const EditBookingPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle={TitleLabels.editBooking}></PageTitle>
+      <PageTitle title={TitleLabels.editBooking} />
       <form
         onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}
         id="edit-booking"

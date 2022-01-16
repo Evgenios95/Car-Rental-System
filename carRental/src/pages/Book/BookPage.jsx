@@ -10,6 +10,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import { TitleLabels } from "../../utils/constants/general-labels";
 
 const BookPage = () => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const BookPage = () => {
   return (
     <>
       <NavBar />
-
+      <PageTitle title={TitleLabels.book} />
       <form
         onSubmit={(e) => createBooking(e, formData, navigate)}
         id="booking_form"

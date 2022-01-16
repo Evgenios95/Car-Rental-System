@@ -7,6 +7,7 @@ import { useState } from "react";
 import {
   CustomerInfoLabels,
   GeneralLabels,
+  TitleLabels,
 } from "../../../utils/constants/general-labels";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import "./EditCustomerPage.css";
@@ -25,7 +26,7 @@ const EditCustomerPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Edit customer"></PageTitle>
+      <PageTitle title={TitleLabels.editCustomer} />
       <form
         onSubmit={(e) =>
           updateCustomer(e, customerId, bookingId, formData, navigate)

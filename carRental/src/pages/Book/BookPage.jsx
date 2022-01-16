@@ -7,8 +7,10 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { reloadWindow } from "../../functions/popupFunctions";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
+import { reloadWindow } from "../../utils/functions/popupFunctions";
+import GrayColumn from "../../components/Layout/GrayColumn";
+import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
 
 const BookPage = () => {
   const navigate = useNavigate();
@@ -44,13 +46,14 @@ const BookPage = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          {/* <Button type="submit" btnText="Create booking" onClick={}/> */}
+          <Button type="submit" btnText="Create booking" />
           <PopUpButton
             popupQuestionText="Are the information correct? Continue with creation of the booking?"
             popupButtonText="Book"
             confirmChoiceButtonText="Yes"
             rejectChoiceButtonText="No"
             popupButtonType="submit"
+            form="booking_form"
           />
           {location.pathname === "/book" ? (
             <Button

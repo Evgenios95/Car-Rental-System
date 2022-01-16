@@ -9,6 +9,8 @@ import NavBar from "../../components/NavBar/Navbar";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import { setBookingOverviewElements } from "../../utils/parse-functions/bookingTableFunctions";
 import { handleFilteredBookings } from "../../utils/functions/handleFilteredBookings";
+import BookingStatistics from "../../components/Statistics/BookingStatistics";
+import PageTitle from "../../components/PageTitle/PageTitle";
 const BookingOverviewPage = () => {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
@@ -32,6 +34,7 @@ const BookingOverviewPage = () => {
   return (
     <>
       <NavBar />
+      <PageTitle ptitle="Booking Overview" />
       <GrayContainer id="booking-container">
         <LabeledInput
           type="text"
@@ -57,6 +60,7 @@ const BookingOverviewPage = () => {
           </BookingTable>
         </GrayColumn>
       </GrayContainer>
+      <BookingStatistics></BookingStatistics>
     </>
   );
 };

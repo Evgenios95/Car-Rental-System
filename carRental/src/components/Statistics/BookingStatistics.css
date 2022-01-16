@@ -1,0 +1,11 @@
+.back-button-statistics {
+  align-items: flex-end;
+}
+#numberOfBookings {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+p {
+  font-family: var(--font-family-open);
+  font-size: var(--font-size-catepillar);
+}

@@ -31,7 +31,6 @@ export const ColumnLabels = {
     returnOffice: "returnOffice",
     carGroup: "carGroup",
     bookingState: "bookingState",
-    car: "car",
     carId: "carId",
     id: "objectId",
   },

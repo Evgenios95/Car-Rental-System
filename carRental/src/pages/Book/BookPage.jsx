@@ -8,7 +8,6 @@ import NavBar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
-import { reloadWindow } from "../../utils/functions/popupFunctions";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
 

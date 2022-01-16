@@ -40,7 +40,9 @@ const BookingOverviewPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Booking Overview" />
+      <GrayContainer className="title-container">
+        <PageTitle ptitle="Booking Overview" />
+      </GrayContainer>
       <GrayContainer className="booking-overview-gray-container">
         <LabeledInput
           type="text"

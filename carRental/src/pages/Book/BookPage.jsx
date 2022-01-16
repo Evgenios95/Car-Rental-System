@@ -7,9 +7,8 @@ import ReturnCar from "./ReturnCar";
 import NavBar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { reloadWindow } from "../../functions/popupFunctions";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
-import GrayColumn from "../../components/Layout/GrayColumn";
-import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
 
 const BookPage = () => {
   const navigate = useNavigate();
@@ -20,7 +19,10 @@ const BookPage = () => {
     <>
       <NavBar />
 
-      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
+      <form
+        onSubmit={(e) => createBooking(e, formData, navigate)}
+        id="booking_form"
+      >
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
@@ -42,12 +44,14 @@ const BookPage = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Create booking"
+          {/* <Button type="submit" btnText="Create booking" onClick={}/> */}
+          <PopUpButton
+            popupQuestionText="Are the information correct? Continue with creation of the booking?"
+            popupButtonText="Book"
+            confirmChoiceButtonText="Yes"
+            rejectChoiceButtonText="No"
+            popupButtonType="submit"
           />
-
           {location.pathname === "/book" ? (
             <Button
               btnText="Walk in"
@@ -62,9 +66,11 @@ const BookPage = () => {
             />
           )}
           <PopUpButton
-            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
+            popupQuestionText="Are you sure you would like to cancel your changes?"
+            popupButtonText="Cancel"
             confirmChoiceButtonText="Yes"
             rejectChoiceButtonText="No"
+            onConfirmClick={reloadWindow}
           />
         </GrayContainer>
       </form>

@@ -4,15 +4,20 @@ import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
 import Button from "../Button/Button";
 
-export function PopUpButton({
-  popupQuestionText,
-  confirmChoiceButtonText,
-  rejectChoiceButtonText,
-}) {
+const PopUpButton = (props) => {
+  const {
+    popupButtonText,
+    popupButtonType,
+    popupQuestionText,
+    confirmChoiceButtonText,
+    rejectChoiceButtonText,
+    onConfirmClick,
+    form,
+  } = props;
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
-  const clickAwayHandler = () => setOpen(false);
 
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,12 +25,15 @@ export function PopUpButton({
     setPlacement(newPlacement);
   };
 
+  const clickAwayHandler = () => setOpen(false);
+
   return (
     <div style={{ textAlign: "center" }}>
       <Button
         onClick={handleClick("top")}
         btnText="Cancel"
         className="btn--white"
+        btnText={popupButtonText}
       />
 
       <Popper
@@ -55,14 +63,17 @@ export function PopUpButton({
                   <Button
                     btnText={confirmChoiceButtonText}
                     className="btn--red"
-                    onClick={() => window.location.reload(false)}
+                    onClick={onConfirmClick}
+                    form={form}
+                    type={popupButtonType || "button"}
                   />
                 </div>
                 <div>
                   <Button
-                    onClick={clickAwayHandler}
                     btnText={rejectChoiceButtonText}
                     className="btn--primary"
+                    type="button"
+                    onClick={clickAwayHandler}
                   />
                 </div>
               </div>
@@ -72,6 +83,6 @@ export function PopUpButton({
       </Popper>
     </div>
   );
-}
+};
 
 export default PopUpButton;

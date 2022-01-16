@@ -8,7 +8,7 @@ export const handleFilteredBookings = async (
   const searchValue = target.value;
 
   const filtered = bookings.filter((booking) => {
-    return booking.customerFirstName
+    return booking.customerLastName
       .toLowerCase()
       .includes(searchValue.toLowerCase());
   });

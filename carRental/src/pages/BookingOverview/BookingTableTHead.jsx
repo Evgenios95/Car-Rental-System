@@ -7,6 +7,7 @@ const BookingTableTHead = () => {
         <th>Drivers license</th>
         <th>Pick up office</th>
         <th>Pick up time</th>
+        <th>Return Office</th>
         <th>Return time</th>
         <th>Car group</th>
         <th>Car license</th>

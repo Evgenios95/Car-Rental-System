@@ -66,6 +66,7 @@ const ReturnCarPage = () => {
         </GrayColumn>
       </GrayContainer>
       <form
+        id="return-car-form"
         onSubmit={(e) =>
           returnCar(
             e,
@@ -79,7 +80,6 @@ const ReturnCarPage = () => {
             navigate
           )
         }
-        id="return-car"
       >
         <GrayContainer>
           <Subtitle stitle="Return settings"></Subtitle>
@@ -131,9 +131,9 @@ const ReturnCarPage = () => {
             popupBtnText="Return"
             confirmBtnText="Yes"
             rejectBtnText="No"
-            popupBtnType="submit"
+            confirmBtnType="submit"
             btnClassName="btn--primary"
-            form="return-car"
+            form="return-car-form"
           />
 
           <PopUpButton

@@ -62,14 +62,9 @@ export const setNewPropertiesForCar = async (
   }
 };
 
-//This functions takes two parameters: the "officeNumber" the car is returned at and the "parkingSlot" the employee
-//choose from the dropdown. The employee can choose parkingslots from an array in the database called
-//"availableParkingSlots", that is set for the rentalOffice that is chosen.
-// The function then takes the chosen parkingslot out of the array "availableParkingSlots",
-//and put this parkingSlotNumber into the other array called "occupiedParkingSlots". It is done by
-// initialising the arrays from the database, find the index for the chosen parkingSlot in "availableParkingSlots",
-// remove this index and afterwards push the specific parkingSlot to "oocupiedParkingSlots"
-
+/**
+ * This functions takes two parameters: the "officeNumber" the car is returned at and the "parkingSlot" the employee choose from the dropdown. The employee can choose parkingslots from an array in the database called "availableParkingSlots", that is set for the rentalOffice that is chosen. The function then takes the chosen parkingslot out of the array "availableParkingSlots", and put this parkingSlotNumber into the other array called "occupiedParkingSlots". It is done by initialising the arrays from the database, find the index for the chosen parkingSlot in "availableParkingSlots", remove this index and afterwards push the specific parkingSlot to "oocupiedParkingSlots"
+ */
 export const changeParkingSlotWhenReturn = async (
   parkingSlot,
   officeNumber

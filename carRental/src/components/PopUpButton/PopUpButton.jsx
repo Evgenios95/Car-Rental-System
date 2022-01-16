@@ -6,13 +6,14 @@ import Button from "../Button/Button";
 
 const PopUpButton = (props) => {
   const {
-    popupButtonText,
-    popupButtonType,
-    popupQuestionText,
-    confirmChoiceButtonText,
-    rejectChoiceButtonText,
+    popupBtnText,
+    popupQuestion,
+    confirmBtnText,
+    confirmBtnType,
+    rejectBtnText,
     onConfirmClick,
     form,
+    btnClassName,
   } = props;
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -32,8 +33,8 @@ const PopUpButton = (props) => {
       <Button
         onClick={handleClick("top")}
         btnText="Cancel"
-        className="btn--white"
-        btnText={popupButtonText}
+        className={btnClassName}
+        btnText={popupBtnText}
       />
 
       <Popper
@@ -57,20 +58,20 @@ const PopUpButton = (props) => {
                 border: "1px solid var(--global-gray24)",
               }}
             >
-              <p>{popupQuestionText}</p>
+              <p>{popupQuestion}</p>
               <div>
                 <div style={{ padding: "10px" }}>
                   <Button
-                    btnText={confirmChoiceButtonText}
+                    btnText={confirmBtnText}
                     className="btn--red"
                     onClick={onConfirmClick}
                     form={form}
-                    type={popupButtonType || "button"}
+                    type={confirmBtnType || "button"}
                   />
                 </div>
                 <div>
                   <Button
-                    btnText={rejectChoiceButtonText}
+                    btnText={rejectBtnText}
                     className="btn--primary"
                     type="button"
                     onClick={clickAwayHandler}

@@ -11,6 +11,7 @@ const BookingTableData = ({ bookings }) => {
       <td>{b.customerDriversLicense}</td>
       <td>{b.pickUpOffice}</td>
       <BookingTimeTableData bookingTime={b.pickUpTime} />
+      <td>{b.returnOffice}</td>
       <BookingTimeTableData bookingTime={b.returnTime} />
       <td>{b.carGroup}</td>
       <td>{b.carLicenseNumber}</td>

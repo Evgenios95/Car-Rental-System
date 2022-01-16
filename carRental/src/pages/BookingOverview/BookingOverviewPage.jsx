@@ -9,14 +9,17 @@ import NavBar from "../../components/NavBar/Navbar";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import { setBookingOverviewElements } from "../../utils/parse-functions/bookingTableFunctions";
 import { handleFilteredBookings } from "../../utils/functions/handleFilteredBookings";
-import BookingStatistics from "../../components/Statistics/BookingStatistics";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
+
 const BookingOverviewPage = () => {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [filteredBookings, setfilteredBookings] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState();
+  const navigate = useNavigate();
 
   useEffect(async () => {
     await setBookingOverviewElements(setError, setBookings);
@@ -38,7 +41,9 @@ const BookingOverviewPage = () => {
       <GrayContainer id="booking-container">
         <LabeledInput
           type="text"
+          className="booking-search-bar"
           inputPlaceholder="Please search me"
+          labelText="Search last name"
           onChange={({ target }) =>
             handleFilteredBookings(
               { target },
@@ -47,7 +52,11 @@ const BookingOverviewPage = () => {
               setSearchTerm
             )
           }
-          labelText="Search bar"
+        />
+        <Button
+          btnText="Show Cloud Statistics"
+          className="btn--primary show-statistics-btn"
+          onClick={() => navigate("/bookings-per-rental-office")}
         />
         <GrayColumn>
           <BookingTable>
@@ -60,7 +69,6 @@ const BookingOverviewPage = () => {
           </BookingTable>
         </GrayColumn>
       </GrayContainer>
-      <BookingStatistics></BookingStatistics>
     </>
   );
 };

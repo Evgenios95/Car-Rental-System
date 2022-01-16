@@ -12,36 +12,104 @@ import IndividualBookingPage from "./pages/IndividualBooking/IndividualBookingPa
 import LoginPage from "./pages/Login/LoginPage";
 import PickUpCarPage from "./pages/PickUpCar/PickUpCarPage";
 import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
+import AuthWrapper from "./utils/auth/AuthWrapper";
 
 function App() {
   return (
     <div className="App">
-      {/* Don't touch the Routes, if we won't to render something to see it we can do 
-        it on the /dummy route that I define and then in the element field place your component
-        Whenever we add a complete component a new route will be created. Type the /dummy endpoint <3 */}
       <Routes>
-        {/* Paths included in the navigation bar */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/booking-overview" element={<BookingOverviewPage />} />
-        <Route path="/book" element={<BookPage />} />
-        <Route path="/car-overview" element={<CarOverviewPage />} />
-        {/* Conditional secondary paths */}
-        <Route path="/walkin-book" element={<BookPage />} />
+        {/* Protected Routes */}
+        <Route
+          path="/book"
+          element={
+            <AuthWrapper>
+              <BookPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/booking-overview"
+          element={
+            <AuthWrapper>
+              <BookingOverviewPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/car-overview"
+          element={
+            <AuthWrapper>
+              <CarOverviewPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/walkin-book"
+          element={
+            <AuthWrapper>
+              <BookPage />
+            </AuthWrapper>
+          }
+        />{" "}
         {/* Dynamic paths */}
         <Route
           path="/individual-booking/:bookingId"
-          element={<IndividualBookingPage />}
+          element={
+            <AuthWrapper>
+              <IndividualBookingPage />
+            </AuthWrapper>
+          }
         />
-        <Route path="/edit-booking/:bookingId" element={<EditBookingPage />} />
+        <Route
+          path="/edit-booking/:bookingId"
+          element={
+            <AuthWrapper>
+              <EditBookingPage />
+            </AuthWrapper>
+          }
+        />
         <Route
           path="/edit-customer/:bookingId/:customerId"
-          element={<EditCustomerPage />}
+          element={
+            <AuthWrapper>
+              <EditCustomerPage />
+            </AuthWrapper>
+          }
         />
-        <Route path="/edit-car/:bookingId/:carId" element={<EditCarPage />} />
-        <Route path="/cars/:id" element={<IndividualCarPage />} />
-        <Route path="/return-car/:bookingId/" element={<ReturnCarPage />} />
-        <Route path="/pick-up-car/:bookingId/" element={<PickUpCarPage />} />
+        <Route
+          path="/edit-car/:bookingId/:carId"
+          element={
+            <AuthWrapper>
+              <EditCarPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/cars/:id"
+          element={
+            <AuthWrapper>
+              <IndividualCarPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/return-car/:bookingId/"
+          element={
+            <AuthWrapper>
+              <ReturnCarPage />
+            </AuthWrapper>
+          }
+        />
+        <Route
+          path="/pick-up-car/:bookingId/"
+          element={
+            <AuthWrapper>
+              <PickUpCarPage />
+            </AuthWrapper>
+          }
+        />
       </Routes>
     </div>
   );

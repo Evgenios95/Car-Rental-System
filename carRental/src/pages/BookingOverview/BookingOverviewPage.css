@@ -43,3 +43,14 @@ tbody tr:nth-child(even) td {
 #booking-container {
   row-gap: 0px;
 }
+
+.booking-search-bar {
+  max-width: 250px;
+}
+
+.show-statistics-btn {
+  margin-top: auto;
+  margin-bottom: 25px;
+  height: 40px;
+  width: 210px;
+}

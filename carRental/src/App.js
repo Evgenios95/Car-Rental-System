@@ -13,6 +13,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import PickUpCarPage from "./pages/PickUpCar/PickUpCarPage";
 import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
 import AuthWrapper from "./utils/auth/AuthWrapper";
+import BookingStatistics from "./pages/BookingStatistics/BookingStatisticsPage";
 
 function App() {
   return (
@@ -52,7 +53,15 @@ function App() {
               <BookPage />
             </AuthWrapper>
           }
-        />{" "}
+        />
+        <Route
+          path="/bookings-per-rental-office"
+          element={
+            <AuthWrapper>
+              <BookingStatistics />
+            </AuthWrapper>
+          }
+        />
         {/* Dynamic paths */}
         <Route
           path="/individual-booking/:bookingId"

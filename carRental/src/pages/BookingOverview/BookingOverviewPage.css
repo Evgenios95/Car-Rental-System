@@ -40,8 +40,9 @@ tbody tr:nth-child(even) td {
   color: var(--global-green-63);
 }
 
-#booking-container {
-  row-gap: 0px;
+.booking-overview-gray-container {
+  row-gap: unset;
+  column-gap: 10px;
 }
 
 .booking-search-bar {
@@ -53,4 +54,9 @@ tbody tr:nth-child(even) td {
   margin-bottom: 25px;
   height: 40px;
   width: 210px;
+  margin-left: auto;
+}
+
+.search-or-text {
+  margin: auto 0;
 }

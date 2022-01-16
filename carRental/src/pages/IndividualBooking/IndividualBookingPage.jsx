@@ -20,6 +20,7 @@ import {
   TitleLabels,
   SubtitleLabels,
 } from "../../utils/constants/general-labels";
+import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const IndividualBookingPage = () => {
   const { bookingId } = useParams();
@@ -63,10 +64,13 @@ const IndividualBookingPage = () => {
       </GrayContainer>
 
       <GrayContainer className="individual-booking-second-container">
-        <Button
-          className="btn--red"
-          btnText="Delete booking"
-          onClick={() => deleteBookingById(bookingId)}
+        <PopUpButton
+          popupQuestion="Delete this booking?"
+          popupBtnText="Delete"
+          confirmBtnText="Yes"
+          rejectBtnText="No"
+          btnClassName="btn--red"
+          onConfirmClick={() => deleteBookingById(bookingId)}
         />
 
         <Button
@@ -75,11 +79,13 @@ const IndividualBookingPage = () => {
           className="btn--primary"
           onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
         />
+
         <Button
           btnText="Return car"
           className="btn--primary"
           onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
+
         <Button
           btnText="Go back"
           className="btn--white"

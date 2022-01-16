@@ -20,7 +20,10 @@ const BookPage = () => {
     <>
       <NavBar />
 
-      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
+      <form
+        onSubmit={(e) => createBooking(e, formData, navigate)}
+        id="booking_form"
+      >
         <GrayContainer>
           <div className="booking-first-column">
             <GrayColumn>
@@ -42,10 +45,13 @@ const BookPage = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Create booking"
+          <PopUpButton
+            popupQuestion="Is the information correct? Create booking?"
+            popupBtnText="Book"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            confirmBtnType="submit"
+            form="booking_form"
           />
 
           {location.pathname === "/book" ? (
@@ -61,10 +67,13 @@ const BookPage = () => {
               onClick={() => navigate("/book")}
             />
           )}
+
           <PopUpButton
-            popupQuestionText="Are you sure you would like to cancel your changes?"
-            confirmChoiceButtonText="Yes"
-            rejectChoiceButtonText="No"
+            popupQuestion="Are you sure you would like to cancel your changes?"
+            popupBtnText="Cancel"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => window.location.reload(false)}
           />
         </GrayContainer>
       </form>

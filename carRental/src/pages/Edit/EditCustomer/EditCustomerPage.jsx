@@ -8,7 +8,6 @@ import {
   CustomerInfoLabels,
   GeneralLabels,
 } from "../../../utils/constants/general-labels";
-import Button from "../../../components/Button/Button";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import "./EditCustomerPage.css";
 import { updateCustomer } from "../../../utils/parse-functions/updateFunctions";
@@ -16,6 +15,7 @@ import {
   onChangeIntHandler,
   onChangeHandler,
 } from "../../../utils/functions/onChangeHandlers";
+import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
 const EditCustomerPage = () => {
   const { bookingId, customerId } = useParams();
@@ -30,6 +30,7 @@ const EditCustomerPage = () => {
         onSubmit={(e) =>
           updateCustomer(e, customerId, bookingId, formData, navigate)
         }
+        id="edit-customer"
       >
         <GrayContainer>
           <GrayColumn>
@@ -92,14 +93,23 @@ const EditCustomerPage = () => {
           </GrayColumn>
         </GrayContainer>
         <GrayContainer className="edit-customer-second-container">
-          <Button
-            btnText="Go back"
-            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+          <PopUpButton
+            popupQuestion="Is the information correct? Finish editing?"
+            popupBtnText="Finish Editing"
+            btnClassName="btn--primary"
+            form="edit-customer"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            confirmBtnType="submit"
           />
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Finish editing"
+
+          <PopUpButton
+            popupQuestion="Your current changes will be lost."
+            popupBtnText="Go back"
+            className="btn--white"
+            confirmBtnText="Go back"
+            rejectBtnText="Keep editing"
+            onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
         </GrayContainer>
       </form>

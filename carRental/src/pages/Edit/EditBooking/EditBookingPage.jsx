@@ -5,12 +5,12 @@ import GrayColumn from "../../../components/Layout/GrayColumn";
 import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import { useState } from "react";
 import DropDown from "../../../components/DropDown/DropDown";
-import Button from "../../../components/Button/Button";
 import NavBar from "../../../components/NavBar/Navbar";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { updateBooking } from "../../../utils/parse-functions/updateFunctions";
 import { TitleLabels } from "../../../utils/constants/general-labels";
 import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
+import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
 const EditBookingPage = () => {
   const { bookingId } = useParams();
@@ -21,7 +21,10 @@ const EditBookingPage = () => {
     <>
       <NavBar />
       <PageTitle ptitle={TitleLabels.editBooking}></PageTitle>
-      <form onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}>
+      <form
+        onSubmit={(e) => updateBooking(e, bookingId, formData, navigate)}
+        id="edit-booking"
+      >
         <GrayContainer>
           <GrayColumn>
             <LabeledInput
@@ -71,13 +74,24 @@ const EditBookingPage = () => {
           </GrayColumn>
         </GrayContainer>
         <GrayContainer className="edit-booking-second-container">
-          <Button
-            btnText="Go back"
-            className="btn--white"
-            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+          <PopUpButton
+            popupQuestion="Is the information correct? Finish editing?"
+            popupBtnText="Finish Editing"
+            btnClassName="btn--primary"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            confirmBtnType="submit"
+            form="edit-booking"
           />
 
-          <Button type="submit" btnText="Finish editing" />
+          <PopUpButton
+            popupQuestion="Your current changes will be lost."
+            popupBtnText="Go back"
+            className="btn--white"
+            confirmBtnText="Go back"
+            rejectBtnText="Keep editing"
+            onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
+          />
         </GrayContainer>
       </form>
     </>

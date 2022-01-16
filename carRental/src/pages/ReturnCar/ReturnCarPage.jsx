@@ -23,6 +23,7 @@ import {
 } from "../../utils/functions/onChangeHandlers";
 import IndividualBookingRecord from "../IndividualBooking/IndividualBookingRecord";
 import IndividualCarRecord from "../IndividualBooking/IndividualCarRecord";
+import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const ReturnCarPage = () => {
   const { bookingId } = useParams();
@@ -78,6 +79,7 @@ const ReturnCarPage = () => {
             navigate
           )
         }
+        id="return-car"
       >
         <GrayContainer>
           <Subtitle stitle="Return settings"></Subtitle>
@@ -124,11 +126,23 @@ const ReturnCarPage = () => {
           </GrayColumn>
         </GrayContainer>
         <GrayContainer className="return-car-third-container">
-          <Button type="submit" btnText="Return car" />
+          <PopUpButton
+            popupQuestion="Return the car?"
+            popupBtnText="Return"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            popupBtnType="submit"
+            btnClassName="btn--primary"
+            form="return-car"
+          />
 
-          <Button
-            btnText="Go back"
-            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+          <PopUpButton
+            popupQuestion="Your current changes will be lost. Go back anyway?"
+            popupBtnText="Go back"
+            className="btn--white"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
         </GrayContainer>
       </form>

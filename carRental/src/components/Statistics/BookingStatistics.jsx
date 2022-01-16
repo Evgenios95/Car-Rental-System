@@ -38,6 +38,7 @@ const BookingStatistics = () => {
             onChange={(e) => onChangeHandler(e, "bookingState", setFormData)}
           ></DropDown>
           <p id="numberOfBookings">Number of bookings: {numberOfBookings}</p>
+          
           <Button
             btnText="Get bookings"
             className="btn--primary"

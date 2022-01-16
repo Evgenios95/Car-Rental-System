@@ -41,7 +41,6 @@ tbody tr:nth-child(even) td {
 }
 
 .booking-overview-gray-container {
-  margin-top: 15px;
   row-gap: unset;
   column-gap: 10px;
 }

@@ -5,12 +5,6 @@
   overflow-y: auto;
 }
 
-.title-container {
-  background-color: unset;
-  padding: 0;
-  margin-top: 10px;
-}
-
 table {
   border-radius: var(--border-radius-cat);
 

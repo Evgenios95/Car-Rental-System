@@ -20,6 +20,7 @@ import {
 import IndividualBookingRecord from "../IndividualBooking/IndividualBookingRecord";
 import IndividualCarRecord from "../IndividualBooking/IndividualCarRecord";
 import IndividualCustomerRecord from "../IndividualBooking/IndividualCustomerRecord";
+import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const PickUpCarPage = () => {
   const { bookingId } = useParams();
@@ -53,6 +54,7 @@ const PickUpCarPage = () => {
             navigate
           )
         }
+        id="pickup-car"
       >
         <GrayContainer>
           <GrayColumn>
@@ -95,16 +97,23 @@ const PickUpCarPage = () => {
         </GrayContainer>
 
         <GrayContainer className="pick-up-car-third-container">
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Pick up car"
+          <PopUpButton
+            popupQuestion="Pick up the car?"
+            popupBtnText="Pick up"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            form="pickup-car"
+            popupBtnType="submit"
+            btnClassName="btn--primary"
           />
 
-          <Button
-            btnText="Go back"
+          <PopUpButton
+            popupQuestion="Your current changes will be lost. Go back anyway?"
+            popupBtnText="Go back"
             className="btn--white"
-            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
         </GrayContainer>
       </form>

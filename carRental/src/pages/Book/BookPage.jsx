@@ -46,15 +46,15 @@ const BookPage = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button type="submit" btnText="Create booking" />
           <PopUpButton
-            popupQuestionText="Are the information correct? Continue with creation of the booking?"
-            popupButtonText="Book"
-            confirmChoiceButtonText="Yes"
-            rejectChoiceButtonText="No"
-            popupButtonType="submit"
+            popupQuestion="Is the information correct? Create booking?"
+            popupBtnText="Book"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            confirmBtnType="submit"
             form="booking_form"
           />
+
           {location.pathname === "/book" ? (
             <Button
               btnText="Walk in"
@@ -68,12 +68,13 @@ const BookPage = () => {
               onClick={() => navigate("/book")}
             />
           )}
+
           <PopUpButton
-            popupQuestionText="Are you sure you would like to cancel your changes?"
-            popupButtonText="Cancel"
-            confirmChoiceButtonText="Yes"
-            rejectChoiceButtonText="No"
-            onConfirmClick={reloadWindow}
+            popupQuestion="Are you sure you would like to cancel your changes?"
+            popupBtnText="Cancel"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => window.location.reload(false)}
           />
         </GrayContainer>
       </form>

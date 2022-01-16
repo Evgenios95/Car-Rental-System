@@ -13,7 +13,7 @@ import {
   chooseCar,
   updateCarInBooking,
 } from "../../../utils/parse-functions/updateFunctions";
-import Button from "../../../components/Button/Button";
+import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
 const EditCarPage = () => {
   const { bookingId, carId } = useParams();
@@ -50,17 +50,24 @@ const EditCarPage = () => {
       </GrayContainer>
 
       <GrayContainer className="edit-car-second-container">
-        <Button
-          btnText="Finish editing"
-          className="btn--primary"
-          onClick={() =>
+        <PopUpButton
+          popupQuestion="Is the information correct? Finish editing?"
+          popupBtnText="Finish Editing"
+          btnClassName="btn--primary"
+          confirmBtnText="Yes"
+          rejectBtnText="No"
+          onConfirmClick={() =>
             updateCarInBooking(bookingId, chosenCar.carId, navigate)
           }
         />
 
-        <Button
-          btnText="Go back"
-          onClick={() => navigate(`/individual-booking/${bookingId}`)}
+        <PopUpButton
+          popupQuestion="Your current changes will be lost."
+          popupBtnText="Go back"
+          className="btn--white"
+          confirmBtnText="Go back"
+          rejectBtnText="Keep editing"
+          onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
         />
       </GrayContainer>
     </>

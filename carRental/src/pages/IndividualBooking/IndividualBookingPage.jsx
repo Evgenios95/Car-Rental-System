@@ -65,7 +65,7 @@ const IndividualBookingPage = () => {
 
       <GrayContainer className="individual-booking-second-container">
         <PopUpButton
-          popupQuestionText="Delete this booking?"
+          popupQuestion="Delete this booking?"
           popupBtnText="Delete"
           confirmBtnText="Yes"
           rejectBtnText="No"

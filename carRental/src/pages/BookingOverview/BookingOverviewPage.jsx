@@ -8,7 +8,10 @@ import BookingTable from "./BookingTable";
 import NavBar from "../../components/NavBar/Navbar";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import { setBookingOverviewElements } from "../../utils/parse-functions/bookingTableFunctions";
-import { handleFilteredBookings } from "../../utils/functions/handleFilteredBookings";
+import {
+  filterBookingsByDriversLicense,
+  filterBookingsByLastName,
+} from "../../utils/functions/handleFilteredBookings";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
@@ -38,14 +41,29 @@ const BookingOverviewPage = () => {
     <>
       <NavBar />
       <PageTitle ptitle="Booking Overview" />
-      <GrayContainer id="booking-container">
+      <GrayContainer className="booking-overview-gray-container">
         <LabeledInput
           type="text"
           className="booking-search-bar"
-          inputPlaceholder="Please search me"
-          labelText="Search last name"
+          inputPlaceholder="Last name..."
+          labelText="Search by last name"
           onChange={({ target }) =>
-            handleFilteredBookings(
+            filterBookingsByLastName(
+              { target },
+              setfilteredBookings,
+              bookings,
+              setSearchTerm
+            )
+          }
+        />
+        <p className="search-or-text">or</p>
+        <LabeledInput
+          type="text"
+          className="booking-search-bar"
+          inputPlaceholder="Driver's license..."
+          labelText="Search by license"
+          onChange={({ target }) =>
+            filterBookingsByDriversLicense(
               { target },
               setfilteredBookings,
               bookings,

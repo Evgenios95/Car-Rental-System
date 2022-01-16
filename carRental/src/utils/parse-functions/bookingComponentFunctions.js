@@ -53,13 +53,17 @@ export const createBooking = async (e, formData, navigate) => {
   myNewObject.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
   myNewObject.set(ColumnLabels.booking.carGroup, carGroupPointer);
   myNewObject.set(ColumnLabels.booking.bookingState, bookingStatePointer);
-  myNewObject.set(ColumnLabels.booking.carId, formData.car);
+
   try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
 
     console.log("Booking created", result);
-    navigate("/booking-overview");
+    if (formData.specificCar == "Now") {
+      navigate(`/individual-booking/${result.id}`);
+    } else {
+      navigate("/booking-overview");
+    }
   } catch (error) {
     console.error(ErrorLabels.booking, error);
   }

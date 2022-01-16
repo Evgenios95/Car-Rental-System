@@ -62,7 +62,7 @@ const BookPage = () => {
             />
           )}
           <PopUpButton
-            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
+            popupQuestionText="Are you sure you would like to cancel your changes?"
             confirmChoiceButtonText="Yes"
             rejectChoiceButtonText="No"
           />

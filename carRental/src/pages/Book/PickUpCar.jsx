@@ -5,6 +5,7 @@ import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
 import DropDown from "../../components/DropDown/DropDown";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import Subtitle from "../../components/Subtitle/Subtitle";
+import DropDownWalkIn from "../../components/DropdownWalkIn/DropDownWalkIn";
 
 const PickUpCar = ({ setFormData }) => {
   const location = useLocation();
@@ -41,12 +42,10 @@ const PickUpCar = ({ setFormData }) => {
         />
 
         {location.pathname === "/walkin-book" && (
-          <DropDown
-            type="Car"
-            labeltext="Car *"
-            attribute="model"
-            onChange={(e) => onChangeHandler(e, "car", setFormData)}
-          />
+          <DropDownWalkIn
+            labeltext="Choose specific car"
+            onChange={(e) => onChangeHandler(e, "specificCar", setFormData)}
+          ></DropDownWalkIn>
         )}
       </div>
     </div>

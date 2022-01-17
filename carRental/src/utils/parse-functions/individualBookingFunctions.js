@@ -134,7 +134,11 @@ export const getBookingById = async (
   }
 };
 
-export const getBookingDetailsById = async (bookingId, setBooking) => {
+export const getBookingDetailsById = async (
+  bookingId,
+  setBooking,
+  setFormData
+) => {
   const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);
   query.equalTo(ColumnLabels.booking.id, bookingId);
@@ -192,6 +196,7 @@ export const getBookingDetailsById = async (bookingId, setBooking) => {
     };
 
     setBooking(bookingObject);
+    setFormData(bookingObject);
   } catch (error) {
     console.error(ErrorLabels.fetchBookings, error);
   }

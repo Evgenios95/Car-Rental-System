@@ -21,8 +21,7 @@ const EditBookingPage = () => {
   const [booking, setBooking] = useState([]);
 
   useEffect(async () => {
-    await getBookingDetailsById(bookingId, setBooking);
-    setFormData(booking);
+    await getBookingDetailsById(bookingId, setBooking, setFormData);
   }, []);
 
   return (

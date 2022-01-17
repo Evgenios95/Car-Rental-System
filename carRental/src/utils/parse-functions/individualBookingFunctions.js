@@ -30,8 +30,14 @@ export const getBookingById = async (
     const result = await query.find();
 
     const bookingObject = {
-      pickUpTime: result[0].get(ColumnLabels.booking.pickUpTime).toString(),
-      returnTime: result[0].get(ColumnLabels.booking.returnTime).toString(),
+      pickUpTime: result[0]
+        .get(ColumnLabels.booking.pickUpTime)
+        .toString()
+        .substring(0, 21),
+      returnTime: result[0]
+        .get(ColumnLabels.booking.returnTime)
+        .toString()
+        .substring(0, 21),
       pickUpOffice: result[0]
         .get(ColumnLabels.booking.pickUpOffice)
         .get(ColumnLabels.rentalOffice.officeNo),

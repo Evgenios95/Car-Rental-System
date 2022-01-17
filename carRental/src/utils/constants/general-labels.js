@@ -19,12 +19,18 @@ export const NavigationLabels = {
 export const TitleLabels = {
   request: "Request Car",
   release: "Release Car",
-  find: "Find Booking",
-  book: "Book",
+  bookingOverview: "Booking Overview",
+  book: "Create Booking",
   carOverview: "Car Overview",
   individualBooking: "Individual Booking",
+  individualCar: "Individual Car",
   returnAndPickUp: "Return and pick up",
   editBooking: "Edit booking",
+  editBookingCar: "Edit car for booking",
+  editCustomer: "Edit customer",
+  bookingStats: "Booking Statistics",
+  pickUpCar: "Pick Up Car",
+  returnCar: "Return Car",
 };
 
 export const SubtitleLabels = {

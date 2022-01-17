@@ -2,7 +2,10 @@ import { useState } from "react";
 import DropDown from "../../components/DropDown/DropDown";
 import NavBar from "../../components/NavBar/Navbar";
 import Subtitle from "../../components/Subtitle/Subtitle";
-import { SubtitleLabels } from "../../utils/constants/general-labels";
+import {
+  SubtitleLabels,
+  TitleLabels,
+} from "../../utils/constants/general-labels";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import GrayContainer from "../../components/Layout/GrayContainer";
@@ -39,7 +42,7 @@ const ReturnCarPage = () => {
   return (
     <>
       <NavBar></NavBar>
-      <PageTitle ptitle="Return car"></PageTitle>
+      <PageTitle title={TitleLabels.returnCar} />
       <GrayContainer>
         <GrayColumn>
           {" "}

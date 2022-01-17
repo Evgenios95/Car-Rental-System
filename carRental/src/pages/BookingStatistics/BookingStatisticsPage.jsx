@@ -14,6 +14,7 @@ import "./BookingStatisticsPage.css";
 
 import Subtitle from "../../components/Subtitle/Subtitle";
 import NavBar from "../../components/NavBar/Navbar";
+import { TitleLabels } from "../../utils/constants/general-labels";
 
 const BookingStatistics = () => {
   const [formData, setFormData] = useState([]);
@@ -22,7 +23,7 @@ const BookingStatistics = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Booking Statistics"></PageTitle>
+      <PageTitle title={TitleLabels.bookingStats} />
       <GrayContainer>
         <Subtitle stitle="Get number of bookings in different booking states" />
         <GrayColumn>

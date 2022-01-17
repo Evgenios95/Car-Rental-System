@@ -30,7 +30,6 @@ const EditCustomerPage = () => {
   useEffect(async () => {
     await getCustomerById(customerId, setCustomer);
   }, []);
-  console.log(customer);
 
   return (
     <>

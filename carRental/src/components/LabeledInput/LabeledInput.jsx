@@ -8,6 +8,7 @@ const LabeledInput = (props) => {
     onChange,
     className,
     defaultValue,
+    valueAsDate,
   } = props;
 
   return (

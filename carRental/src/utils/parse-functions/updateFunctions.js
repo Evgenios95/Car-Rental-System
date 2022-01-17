@@ -84,13 +84,13 @@ export const updateCustomer = async (
   const query = new Parse.Query(Customer);
   try {
     const object = await query.get(customerId);
-    myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);
-    myNewObject.set(ColumnLabels.customer.lastName, formData.lastName);
-    myNewObject.set(ColumnLabels.customer.address, formData.address);
-    myNewObject.set(ColumnLabels.customer.email, formData.email);
-    myNewObject.set(ColumnLabels.customer.age, formData.age);
-    myNewObject.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
-    myNewObject.set(
+    object.set(ColumnLabels.customer.firstName, formData.firstName);
+    object.set(ColumnLabels.customer.lastName, formData.lastName);
+    object.set(ColumnLabels.customer.address, formData.address);
+    object.set(ColumnLabels.customer.email, formData.email);
+    object.set(ColumnLabels.customer.age, formData.age);
+    object.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
+    object.set(
       ColumnLabels.customer.driversLicenseNo,
       formData.driversLicenseNo
     );

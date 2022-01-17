@@ -105,3 +105,26 @@ export const updateCustomer = async (
     console.error(ErrorLabels.getCustomerObjectById, error);
   }
 };
+
+export const getCustomerById = async (customerId, setCustomer) => {
+  const Customer = Parse.Object.extend("Customer");
+  const query = new Parse.Query(Customer);
+  query.equalTo("objectId", customerId);
+  try {
+    const results = await query.find();
+    for (const object of results) {
+      const customerObject = {
+        lastName: object.get("lastName"),
+        driversLicenseID: object.get("driversLicenseID"),
+        phoneNumber: object.get("phoneNumber"),
+        firstName: object.get("firstName"),
+        email: object.get("email"),
+        age: object.get("age"),
+        address: object.get("address"),
+      };
+      setCustomer(customerObject);
+    }
+  } catch (error) {
+    console.error("Error while fetching Customer", error);
+  }
+};

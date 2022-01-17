@@ -36,33 +36,37 @@ const CarOverviewPage = () => {
             <table>
               <thead>
                 <tr>
-                  <th>License number</th>
-                  <th>Model</th>
-                  <th>Car group</th>
+                  <th>Model </th>
                   <th>Color</th>
-                  <th>Fueltype</th>
+                  <th>Fuel type</th>
+                  <th>License number</th>
+                  <th>Group</th>
+                  <th>Parking spot</th>
                   <th>Rental office</th>
+                  <th>Mileage</th>
+                  <th>Tank full</th>
+                  <th>Person capacity</th>
+                  <th>Small luggage</th>
+                  <th>Big luggage</th>
                   <th>State</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {cars.map((car) => (
                   <tr key={car.id}>
-                    <td>{car.licenseNumber}</td>
                     <td>{car.model}</td>
-                    <td>{car.carGroup}</td>
                     <td>{car.color}</td>
                     <td>{car.fuelType}</td>
+                    <td>{car.licenseNumber}</td>
+                    <td>{car.carGroup}</td>
+                    <td>{car.parkingSlot}</td>
                     <td>{car.rentalOffice}</td>
+                    <td>{car.mileage}</td>
+                    <td>{car.tankFull}</td>
+                    <td>{car.personCapacity}</td>
+                    <td>{car.smallLuggage}</td>
+                    <td>{car.bigLuggage}</td>
                     <td>{car.carState}</td>
-                    <td>
-                      <Link to={`/cars/${car.id}`}>
-                        <FontAwesomeIcon
-                          icon={faArrowAltCircleRight}
-                        ></FontAwesomeIcon>
-                      </Link>
-                    </td>
                   </tr>
                 ))}
               </tbody>

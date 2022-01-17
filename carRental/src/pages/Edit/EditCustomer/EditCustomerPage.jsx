@@ -3,7 +3,7 @@ import NavBar from "../../../components/NavBar/Navbar";
 import GrayColumn from "../../../components/Layout/GrayColumn";
 import GrayContainer from "../../../components/Layout/GrayContainer";
 import LabeledInput from "../../../components/LabeledInput/LabeledInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CustomerInfoLabels,
   GeneralLabels,
@@ -17,11 +17,41 @@ import {
   onChangeHandler,
 } from "../../../utils/functions/onChangeHandlers";
 import PopUpButton from "../../../components/PopUpButton/PopUpButton";
+import Parse from "parse";
 
 const EditCustomerPage = () => {
   const { bookingId, customerId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState();
+  const [customer, setCustomer] = useState([]);
+
+  const getCustomerById = async () => {
+    const Customer = Parse.Object.extend("Customer");
+    const query = new Parse.Query(Customer);
+    query.equalTo("objectId", customerId);
+    try {
+      const results = await query.find();
+      for (const object of results) {
+        const customerObject = {
+          lastName: object.get("lastName"),
+          driversLicenseID: object.get("driversLicenseID"),
+          phoneNumber: object.get("phoneNumber"),
+          firstName: object.get("firstName"),
+          email: object.get("email"),
+          age: object.get("age"),
+          address: object.get("address"),
+        };
+        setCustomer(customerObject);
+      }
+    } catch (error) {
+      console.error("Error while fetching Customer", error);
+    }
+  };
+
+  useEffect(async () => {
+    await getCustomerById();
+  }, []);
+  console.log(customer);
 
   return (
     <>
@@ -40,13 +70,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.firstName}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.firstName}
                   onChange={(e) => onChangeHandler(e, "firstName", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.lastName}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.lastName}
                   onChange={(e) => onChangeHandler(e, "lastName", setFormData)}
                 ></LabeledInput>
               </div>
@@ -54,13 +84,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.age}
                   type="number"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.age}
                   onChange={(e) => onChangeIntHandler(e, "age", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.driversLicensNo}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.driversLicenseID}
                   onChange={(e) =>
                     onChangeIntHandler(e, "driversLicenseNo", setFormData)
                   }
@@ -70,13 +100,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.address}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.address}
                   onChange={(e) => onChangeHandler(e, "address", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.phoneNo}
                   type="tel"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.phoneNumber}
                   onChange={(e) =>
                     onChangeIntHandler(e, "phoneNo", setFormData)
                   }
@@ -86,7 +116,7 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.email}
                   type="email"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.email}
                   onChange={(e) => onChangeHandler(e, "email", setFormData)}
                 ></LabeledInput>
               </div>

@@ -1,7 +1,14 @@
 import "./LabeledInput.css";
 
 const LabeledInput = (props) => {
-  const { labelText, type, inputPlaceholder, onChange, className } = props;
+  const {
+    labelText,
+    type,
+    inputPlaceholder,
+    onChange,
+    className,
+    defaultValue,
+  } = props;
 
   return (
     <div className={`input-container ${className}`}>
@@ -10,6 +17,7 @@ const LabeledInput = (props) => {
         type={type}
         placeholder={inputPlaceholder}
         onChange={onChange}
+        defaultValue={defaultValue}
         required
       />
     </div>

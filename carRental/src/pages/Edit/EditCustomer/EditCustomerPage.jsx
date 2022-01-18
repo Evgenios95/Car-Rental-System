@@ -3,7 +3,7 @@ import NavBar from "../../../components/NavBar/Navbar";
 import GrayColumn from "../../../components/Layout/GrayColumn";
 import GrayContainer from "../../../components/Layout/GrayContainer";
 import LabeledInput from "../../../components/LabeledInput/LabeledInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CustomerInfoLabels,
   GeneralLabels,
@@ -11,7 +11,10 @@ import {
 } from "../../../utils/constants/general-labels";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import "./EditCustomerPage.css";
-import { updateCustomer } from "../../../utils/parse-functions/updateFunctions";
+import {
+  updateCustomer,
+  getCustomerById,
+} from "../../../utils/parse-functions/updateFunctions";
 import {
   onChangeIntHandler,
   onChangeHandler,
@@ -22,6 +25,11 @@ const EditCustomerPage = () => {
   const { bookingId, customerId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState();
+  const [customer, setCustomer] = useState([]);
+
+  useEffect(async () => {
+    await getCustomerById(customerId, setCustomer);
+  }, []);
 
   return (
     <>
@@ -40,13 +48,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.firstName}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.firstName}
                   onChange={(e) => onChangeHandler(e, "firstName", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.lastName}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.lastName}
                   onChange={(e) => onChangeHandler(e, "lastName", setFormData)}
                 ></LabeledInput>
               </div>
@@ -54,13 +62,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.age}
                   type="number"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.age}
                   onChange={(e) => onChangeIntHandler(e, "age", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.driversLicensNo}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.driversLicenseID}
                   onChange={(e) =>
                     onChangeIntHandler(e, "driversLicenseNo", setFormData)
                   }
@@ -70,13 +78,13 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.address}
                   type="text"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.address}
                   onChange={(e) => onChangeHandler(e, "address", setFormData)}
                 ></LabeledInput>
                 <LabeledInput
                   labelText={CustomerInfoLabels.phoneNo}
                   type="tel"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.phoneNumber}
                   onChange={(e) =>
                     onChangeIntHandler(e, "phoneNo", setFormData)
                   }
@@ -86,7 +94,7 @@ const EditCustomerPage = () => {
                 <LabeledInput
                   labelText={CustomerInfoLabels.email}
                   type="email"
-                  inputPlaceholder={GeneralLabels.placeholder}
+                  defaultValue={customer.email}
                   onChange={(e) => onChangeHandler(e, "email", setFormData)}
                 ></LabeledInput>
               </div>

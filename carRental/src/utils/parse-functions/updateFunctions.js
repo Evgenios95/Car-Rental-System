@@ -84,13 +84,13 @@ export const updateCustomer = async (
   const query = new Parse.Query(Customer);
   try {
     const object = await query.get(customerId);
-    myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);
-    myNewObject.set(ColumnLabels.customer.lastName, formData.lastName);
-    myNewObject.set(ColumnLabels.customer.address, formData.address);
-    myNewObject.set(ColumnLabels.customer.email, formData.email);
-    myNewObject.set(ColumnLabels.customer.age, formData.age);
-    myNewObject.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
-    myNewObject.set(
+    object.set(ColumnLabels.customer.firstName, formData.firstName);
+    object.set(ColumnLabels.customer.lastName, formData.lastName);
+    object.set(ColumnLabels.customer.address, formData.address);
+    object.set(ColumnLabels.customer.email, formData.email);
+    object.set(ColumnLabels.customer.age, formData.age);
+    object.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
+    object.set(
       ColumnLabels.customer.driversLicenseNo,
       formData.driversLicenseNo
     );
@@ -103,5 +103,28 @@ export const updateCustomer = async (
     }
   } catch (error) {
     console.error(ErrorLabels.getCustomerObjectById, error);
+  }
+};
+
+export const getCustomerById = async (customerId, setCustomer) => {
+  const Customer = Parse.Object.extend("Customer");
+  const query = new Parse.Query(Customer);
+  query.equalTo("objectId", customerId);
+  try {
+    const results = await query.find();
+    for (const object of results) {
+      const customerObject = {
+        lastName: object.get("lastName"),
+        driversLicenseID: object.get("driversLicenseID"),
+        phoneNumber: object.get("phoneNumber"),
+        firstName: object.get("firstName"),
+        email: object.get("email"),
+        age: object.get("age"),
+        address: object.get("address"),
+      };
+      setCustomer(customerObject);
+    }
+  } catch (error) {
+    console.error("Error while fetching Customer", error);
   }
 };

@@ -5,7 +5,7 @@ import GrayContainer from "../../components/Layout/GrayContainer";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/Navbar";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TitleLabels } from "../../utils/constants/general-labels";

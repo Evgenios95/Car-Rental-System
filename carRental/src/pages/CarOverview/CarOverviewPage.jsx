@@ -45,6 +45,8 @@ const CarOverviewPage = () => {
           type={ClassnameLabels.rentalOffice}
           attribute={ColumnLabels.rentalOffice.officeNo}
           labeltext={"Search by rental office"}
+          className="car-search-dropdown"
+          labelClassname="car-dropdown-select-label"
           onChange={({ target }) =>
             filterCarsByRentalOffice(
               { target },
@@ -55,8 +57,8 @@ const CarOverviewPage = () => {
           }
         />
         <Button
-          btnText="Get all cars"
-          className="btn--primary"
+          btnText="Reset Table"
+          className="btn--primary reset-table-btn"
           onClick={() => setSearchTerm("")}
         ></Button>
 
@@ -78,8 +80,6 @@ const CarOverviewPage = () => {
                   <th>Small luggage</th>
                   <th>Big luggage</th>
                   <th>State</th>
-
-                  <th></th>
                 </tr>
               </thead>
               <tbody>

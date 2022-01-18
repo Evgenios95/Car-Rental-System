@@ -1,4 +1,4 @@
-.drop {
+.dropdown-select {
   font: var(--open-bee);
   color: var(--global-dimgray);
 
@@ -10,11 +10,11 @@
   text-align: center;
 }
 
-.drop:focus {
+.dropdown-select:focus {
   outline: none;
 }
 
-.label {
+.dropdown-label {
   font: var(--mont-bee);
   color: var(--global-green-19);
 

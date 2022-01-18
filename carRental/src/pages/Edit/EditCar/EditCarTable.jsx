@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { chooseCar } from "../../../utils/parse-functions/updateFunctions";
-import { setCarElements } from "../../../utils/parse-functions/carTableFunctions";
+import { setCarElementsWhenEdit } from "../../../utils/parse-functions/carTableFunctions";
 
-const EditCarTable = ({ setChosenCar }) => {
+const EditCarTable = ({ setChosenCar, rentalOffice }) => {
   const [loading, setLoading] = useState(true);
   const [cars, setCars] = useState([]);
   const [error, setError] = useState();
 
   useEffect(async () => {
-    await setCarElements(setCars, setError);
+    await setCarElementsWhenEdit(setCars, setError, rentalOffice);
     setLoading(false);
   }, []);
 

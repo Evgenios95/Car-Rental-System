@@ -17,7 +17,7 @@ import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 import { TitleLabels } from "../../../utils/constants/general-labels";
 
 const EditCarPage = () => {
-  const { bookingId, carId } = useParams();
+  const { bookingId, carId, rentalOffice } = useParams();
   const [chosenCar, setChosenCar] = useState();
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -46,7 +46,10 @@ const EditCarPage = () => {
         </GrayColumn>
         <GrayColumn>
           <Subtitle stitle="Available cars"></Subtitle>
-          <EditCarTable setChosenCar={setChosenCar}></EditCarTable>
+          <EditCarTable
+            setChosenCar={setChosenCar}
+            rentalOffice={rentalOffice}
+          ></EditCarTable>
         </GrayColumn>
       </GrayContainer>
 

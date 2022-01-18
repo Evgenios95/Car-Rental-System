@@ -40,7 +40,9 @@ const IndividualCarRecord = ({ booking, bookingId, car }) => {
           <td>{car.bigLuggage}</td>
           <td>
             {" "}
-            <Link to={`/edit-car/${bookingId}/${booking.carId}`}>
+            <Link
+              to={`/edit-car/${bookingId}/${booking.carId}/${booking.pickUpOffice}`}
+            >
               <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
             </Link>
           </td>

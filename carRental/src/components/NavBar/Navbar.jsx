@@ -1,10 +1,13 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { NavigationLabels } from "../../utils/constants/general-labels";
+import { logout } from "../../utils/parse-functions/logoutFunction";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   return (
     <Navbar className="nav-bar" expand="md" sticky="top">
       <Container>
@@ -35,8 +38,8 @@ const NavBar = () => {
               <span>{NavigationLabels.request}</span>
             </Nav.Link>
 
-            <Nav.Link className="text-white ms-auto" as={Link} to="/">
-              <span>
+            <Nav.Link className="text-white ms-auto">
+              <span onClick={() => logout(navigate)}>
                 <i className="fas fa-sign-out-alt"></i>
               </span>
             </Nav.Link>

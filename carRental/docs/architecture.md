@@ -1,8 +1,10 @@
 # Folder structure
 
 -As stated in our report, the file structure of our project could be found under this file. \
--This file was initially badly written on a word document, but decided to write it in MarkDown instead.
+-This file was initially written on a word document, but decided to write it in MarkDown instead, in order to make it more accessible and store it in our project.
 
+**_docs_**: Necessary Rules that were followed throughout the project about architecture, naming etc. \
+\
 **_components_**: The components folder includes the files that are reused throughout the application. \
 \
 **_pages_**: Under the pages folder are the components that are complete pages. These complete page files have a Page suffix. Every folder that includes a page also contains the components that are used only in this page and nowhere else. Splitting big components to smaller ones, helps the code to be cleaner, and more mainainable.
@@ -15,6 +17,11 @@
  **_css-variables_**: CSS variables that are used for our application are included here. Using CSS-Variables gives reusability and consistency. Most of them are the ones that can be seen in our Design System on Figma. Also same names.
 
 ```
+📦docs
+┣ 📜architecture.md
+┣ 📜collaboration.md
+📦public
+┣ 📂images
 📦src
 ┣ 📂components
 ┃ ┣ 📂Button

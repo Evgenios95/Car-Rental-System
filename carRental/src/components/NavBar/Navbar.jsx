@@ -4,6 +4,8 @@ import "./NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { NavigationLabels } from "../../utils/constants/general-labels";
 import { logout } from "../../utils/parse-functions/logoutFunction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -40,7 +42,8 @@ const NavBar = () => {
 
             <Nav.Link className="text-white ms-auto">
               <span onClick={() => logout(navigate)}>
-                <i className="fas fa-sign-out-alt"></i>
+                <span className="navbar-logout-text">Logout</span>
+                <FontAwesomeIcon icon={faSignOutAlt} />
               </span>
             </Nav.Link>
           </Navbar.Collapse>

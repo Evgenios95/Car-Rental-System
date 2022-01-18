@@ -5,8 +5,8 @@ import GrayColumn from "../../../components/Layout/GrayColumn";
 import { useState, useEffect } from "react";
 import Subtitle from "../../../components/Subtitle/Subtitle";
 import PageTitle from "../../../components/PageTitle/PageTitle";
-import EditCarTable from "./EditCarTable";
-import ChosenCarTable from "./ChosenCarTable";
+import EditCarTable from "./private/EditCarTable";
+import ChosenCarTable from "./private/ChosenCarTable";
 import "./EditCarPage.css";
 import { getCarById } from "../../../utils/parse-functions/individualBookingFunctions";
 import {

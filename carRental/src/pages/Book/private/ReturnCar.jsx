@@ -1,9 +1,9 @@
-import { SubtitleLabels } from "../../utils/constants/general-labels";
-import "./BookPage.css";
-import LabeledInput from "../../components/LabeledInput/LabeledInput";
-import Subtitle from "../../components/Subtitle/Subtitle";
-import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
-import DropDown from "../../components/DropDown/DropDown";
+import { SubtitleLabels } from "../../../utils/constants/general-labels";
+import "../BookPage.css";
+import LabeledInput from "../../../components/LabeledInput/LabeledInput";
+import Subtitle from "../../../components/Subtitle/Subtitle";
+import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
+import DropDown from "../../../components/DropDowns/DropDown";
 
 const ReturnCar = ({ setFormData }) => {
   return (

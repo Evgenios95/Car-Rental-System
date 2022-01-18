@@ -19,9 +19,9 @@ import {
   onChangeCheckBoxHandler,
   onChangeIntHandler,
 } from "../../utils/functions/onChangeHandlers";
-import IndividualBookingRecord from "../IndividualBooking/IndividualBookingRecord";
-import IndividualCarRecord from "../IndividualBooking/IndividualCarRecord";
-import IndividualCustomerRecord from "../IndividualBooking/IndividualCustomerRecord";
+import IndividualCarRecord from "../../components/IndividualRecords/IndividualCarRecord";
+import IndividualCustomerRecord from "../../components/IndividualRecords/IndividualCustomerRecord";
+import IndividualBookingRecord from "../../components/IndividualRecords/IndividualBookingRecord";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const PickUpCarPage = () => {

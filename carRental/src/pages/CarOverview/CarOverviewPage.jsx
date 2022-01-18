@@ -3,13 +3,10 @@ import "./CarOverviewPage.css";
 import { setCarElements } from "../../utils/parse-functions/carTableFunctions";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import GrayColumn from "../../components/Layout/GrayColumn";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/Navbar";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TitleLabels } from "../../utils/constants/general-labels";
-import DropDown from "../../components/DropDown/DropDown";
+import DropDown from "../../components/DropDowns/DropDown";
 import {
   ColumnLabels,
   ClassnameLabels,

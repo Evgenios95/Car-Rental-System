@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DropDown from "../../components/DropDown/DropDown";
+import DropDown from "../../components/DropDowns/DropDown";
 import NavBar from "../../components/NavBar/Navbar";
 import Subtitle from "../../components/Subtitle/Subtitle";
 import {
@@ -9,12 +9,11 @@ import {
 import PageTitle from "../../components/PageTitle/PageTitle";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import GrayContainer from "../../components/Layout/GrayContainer";
-import DropDownParkingSlots from "../../components/DropDownParkingSlots/DropDownParkingSlots";
+import DropDownParkingSlots from "../../components/DropDowns/DropDownParkingSlots";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getBookingById } from "../../utils/parse-functions/individualBookingFunctions";
-import IndividualCustomerRecord from "../IndividualBooking/IndividualCustomerRecord";
-import Button from "../../components/Button/Button";
+import IndividualCustomerRecord from "../../components/IndividualRecords/IndividualCustomerRecord";
 import { returnCar } from "../../utils/parse-functions/returnFunctions";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import "./ReturnCarPage.css";
@@ -24,8 +23,8 @@ import {
   onChangeHandler,
   onChangeIntHandler,
 } from "../../utils/functions/onChangeHandlers";
-import IndividualBookingRecord from "../IndividualBooking/IndividualBookingRecord";
-import IndividualCarRecord from "../IndividualBooking/IndividualCarRecord";
+import IndividualBookingRecord from "../../components/IndividualRecords/IndividualBookingRecord";
+import IndividualCarRecord from "../../components/IndividualRecords/IndividualCarRecord";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const ReturnCarPage = () => {

@@ -1,4 +1,4 @@
-const CarGroupTable = (numberOfCarGroups) => {
+const CarGroupTable = ({ numberOfCarGroups }) => {
   return (
     <>
       <table>
@@ -19,15 +19,15 @@ const CarGroupTable = (numberOfCarGroups) => {
         <tbody>
           <tr>
             <td>Needed</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{numberOfCarGroups.small}</td>
+            <td>{numberOfCarGroups.medium}</td>
+            <td>{numberOfCarGroups.large}</td>
+            <td>{numberOfCarGroups.xLarge}</td>
+            <td>{numberOfCarGroups.family}</td>
+            <td>{numberOfCarGroups.business}</td>
+            <td>{numberOfCarGroups.stationCar}</td>
+            <td>{numberOfCarGroups.automatic}</td>
+            <td>{numberOfCarGroups.smallAut}</td>
           </tr>
           <tr>
             <td>In parkinglot</td>

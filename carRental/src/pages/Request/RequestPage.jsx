@@ -15,8 +15,15 @@ import {
 import RequestTable from "./RequestTable";
 import Button from "../../components/Button/Button";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
+import { useState } from "react";
+import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
+import { getCarGroupsBooked } from "../../utils/parse-functions/cloudFunctions";
 
 const RequestPage = () => {
+  const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
+  const [formData, setFormdata] = useState([]);
+  console.log("formdata", formData);
+  console.log("numberOfCarGroups", numberOfCarGroups);
   return (
     <>
       <NavBar />
@@ -35,16 +42,19 @@ const RequestPage = () => {
             attribute={ColumnLabels.rentalOffice.officeNo}
             labeltext={"Rental office*"}
             className="request-drop-down-input"
+            onChange={(e) => {
+              onChangeHandler(e, "rentalOffice", setFormdata);
+            }}
           ></DropDown>
           <Button
             btnText="Get info"
             className="btn--primary"
-            onClick={() => {
-              console.log("Get info is clicked");
+            onClick={async () => {
+              await getCarGroupsBooked(formData, setNumberOfCarGroups);
             }}
           ></Button>
 
-          <CarGroupTable></CarGroupTable>
+          <CarGroupTable numberOfCarGroups={numberOfCarGroups}></CarGroupTable>
         </GrayColumn>
         <GrayColumn>
           <Subtitle stitle="Request cars"></Subtitle>

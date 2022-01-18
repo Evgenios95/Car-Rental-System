@@ -11,7 +11,7 @@ import { setBookingOverviewElements } from "../../utils/parse-functions/bookingT
 import {
   filterBookingsByDriversLicense,
   filterBookingsByLastName,
-} from "../../utils/functions/handleFilteredBookings";
+} from "../../utils/functions/filteringFunctions";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";

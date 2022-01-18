@@ -14,7 +14,7 @@ import {
   ColumnLabels,
   ClassnameLabels,
 } from "../../utils/constants/parse-labels";
-import { filterCarsByRentalOffice } from "../../utils/functions/handleFilteredCars";
+import { filterCarsByRentalOffice } from "../../utils/functions/filteringFunctions";
 import Button from "../../components/Button/Button";
 
 const CarOverviewPage = () => {

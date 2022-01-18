@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../utils/constants/general-labels";
 import { setDropdownElements } from "../../utils/parse-functions/dropdownFunctions";
 
-const DropDown = ({ labeltext, type, attribute, onChange }) => {
+const DropDown = ({ labeltext, type, attribute, onChange, className }) => {
   const [isLoading, setLoading] = useState(true);
   const [elements, setElements] = useState([]);
 
@@ -17,7 +17,7 @@ const DropDown = ({ labeltext, type, attribute, onChange }) => {
   }
 
   return (
-    <div>
+    <div className={className}>
       <label className="label" htmlFor="dropDown">
         {labeltext}
       </label>

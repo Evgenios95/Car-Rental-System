@@ -1,0 +1,9 @@
+.request-input {
+  max-width: 175px;
+}
+.request-drop-down-input {
+  max-width: 175px;
+}
+.request-second-container {
+  justify-content: flex-end;
+}

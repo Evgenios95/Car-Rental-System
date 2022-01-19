@@ -1,4 +1,5 @@
 import Parse from "parse";
+import axios from "axios";
 import { getCarById } from "./individualBookingFunctions";
 import {
   getBookingStatePointerForEdit,
@@ -106,25 +107,23 @@ export const updateCustomer = async (
   }
 };
 
-export const getCustomerById = async (customerId, setCustomer) => {
-  const Customer = Parse.Object.extend("Customer");
-  const query = new Parse.Query(Customer);
-  query.equalTo("objectId", customerId);
+export const getCustomerByIdRest = async (customerId, setCustomer) => {
+  const headers = {
+    "X-Parse-Application-Id": process.env.REACT_APP_PARSE_APPLICATION_KEY,
+    "X-Parse-REST-API-Key": process.env.REACT_APP_PARSE_REST_KEY,
+    "Content-Type": "application/json",
+  };
+
   try {
-    const results = await query.find();
-    for (const object of results) {
-      const customerObject = {
-        lastName: object.get("lastName"),
-        driversLicenseID: object.get("driversLicenseID"),
-        phoneNumber: object.get("phoneNumber"),
-        firstName: object.get("firstName"),
-        email: object.get("email"),
-        age: object.get("age"),
-        address: object.get("address"),
-      };
-      setCustomer(customerObject);
-    }
+    axios
+      .get(`https://parseapi.back4app.com/classes/Customer/${customerId}`, {
+        headers: headers,
+      })
+      .then((res) => {
+        setCustomer(res.data);
+      })
+      .catch((err) => console.log(err));
   } catch (error) {
-    console.error("Error while fetching Customer", error);
+    console.log(error);
   }
 };

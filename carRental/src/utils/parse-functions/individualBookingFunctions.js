@@ -259,8 +259,9 @@ export const deleteBookingByIdRest = async (bookingId, navigate) => {
       .delete(`https://parseapi.back4app.com/classes/Booking/${bookingId}`, {
         headers: headers,
       })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        console.log("Booking successfully deleted");
+        alert(`Booking with id ${bookingId} successfully deleted 💀`);
         navigate("/booking-overview");
       })
       .catch((err) => console.log(err));

@@ -14,6 +14,7 @@ import "./EditCustomerPage.css";
 import {
   updateCustomer,
   getCustomerById,
+  getCustomerByIdRest,
 } from "../../../utils/parse-functions/updateFunctions";
 import {
   onChangeIntHandler,
@@ -28,7 +29,7 @@ const EditCustomerPage = () => {
   const [customer, setCustomer] = useState([]);
 
   useEffect(async () => {
-    await getCustomerById(customerId, setCustomer);
+    await getCustomerByIdRest(customerId, setCustomer);
   }, []);
 
   return (

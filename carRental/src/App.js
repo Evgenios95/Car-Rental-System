@@ -14,6 +14,7 @@ import PickUpCarPage from "./pages/PickUpCar/PickUpCarPage";
 import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
 import AuthWrapper from "./utils/auth/AuthWrapper";
 import BookingStatistics from "./pages/BookingStatistics/BookingStatisticsPage";
+import RequestPage from "./pages/Request/RequestPage";
 
 function App() {
   return (
@@ -116,6 +117,15 @@ function App() {
           element={
             <AuthWrapper>
               <PickUpCarPage />
+            </AuthWrapper>
+          }
+        />
+
+        <Route
+          path="/request"
+          element={
+            <AuthWrapper>
+              <RequestPage />
             </AuthWrapper>
           }
         />

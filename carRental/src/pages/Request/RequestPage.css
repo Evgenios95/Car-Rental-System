@@ -1,0 +1,27 @@
+.request-input {
+  max-width: 250px;
+  width: 320px;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+.office-search-dropdown {
+  max-width: 250px;
+  width: 320px;
+}
+.request-btn {
+  margin-top: auto;
+  margin-bottom: 4px;
+  height: 40px;
+  width: 210px;
+}
+.request-second-container {
+  justify-content: flex-end;
+}
+
+.request-car-groups {
+  display: flex;
+
+  flex-direction: row;
+  column-gap: 15px;
+  margin-bottom: 20px;
+}

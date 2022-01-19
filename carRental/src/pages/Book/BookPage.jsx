@@ -54,6 +54,7 @@ const BookPage = () => {
             rejectBtnText="No"
             confirmBtnType="submit"
             form="booking_form"
+            btnClassName="btn--primary"
           />
 
           {location.pathname === "/book" ? (

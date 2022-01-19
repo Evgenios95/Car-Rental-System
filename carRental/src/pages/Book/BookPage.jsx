@@ -1,9 +1,8 @@
 import "./BookPage.css";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import Button from "../../components/Button/Button";
-import PickUpCar from "./PickUpCar";
-import CustomerInfo from "./CustomerInfo";
-import ReturnCar from "./ReturnCar";
+import PickUpCar from "./private/PickUpCar";
+import ReturnCar from "./private/ReturnCar";
 import NavBar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import GrayColumn from "../../components/Layout/GrayColumn";
 import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TitleLabels } from "../../utils/constants/general-labels";
+import CustomerInfo from "./private/CustomerInfo";
 
 const BookPage = () => {
   const navigate = useNavigate();

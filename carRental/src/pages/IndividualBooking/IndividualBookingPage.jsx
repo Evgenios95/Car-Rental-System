@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../../components/NavBar/Navbar";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import GrayColumn from "../../components/Layout/GrayColumn";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./IndividualBookingPage.css";
 import Button from "../../components/Button/Button";
@@ -11,11 +10,11 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import Subtitle from "../../components/Subtitle/Subtitle";
 import {
   getBookingById,
-  deleteBookingById,
+  deleteBookingByIdRest,
 } from "../../utils/parse-functions/individualBookingFunctions";
-import IndividualBookingRecord from "./IndividualBookingRecord";
-import IndividualCustomerRecord from "./IndividualCustomerRecord";
-import IndividualCarRecord from "./IndividualCarRecord";
+import IndividualBookingRecord from "../../components/IndividualRecords/IndividualBookingRecord";
+import IndividualCustomerRecord from "../../components/IndividualRecords/IndividualCustomerRecord";
+import IndividualCarRecord from "../../components/IndividualRecords/IndividualCarRecord";
 import {
   TitleLabels,
   SubtitleLabels,
@@ -70,7 +69,7 @@ const IndividualBookingPage = () => {
           confirmBtnText="Yes"
           rejectBtnText="No"
           btnClassName="btn--red"
-          onConfirmClick={() => deleteBookingById(bookingId)}
+          onConfirmClick={() => deleteBookingByIdRest(bookingId, navigate)}
         />
 
         <Button

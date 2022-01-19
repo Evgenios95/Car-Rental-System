@@ -25,7 +25,6 @@ const IndividualBookingRecord = ({ booking, bookingId }) => {
           <td>{booking.carGroup}</td>
           <td>{booking.bookingState}</td>
           <td>
-            {" "}
             <Link to={`/edit-booking/${bookingId}`}>
               <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
             </Link>

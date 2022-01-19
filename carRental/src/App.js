@@ -89,7 +89,7 @@ function App() {
           }
         />
         <Route
-          path="/edit-car/:bookingId/:carId"
+          path="/edit-car/:bookingId/:carId/:rentalOffice"
           element={
             <AuthWrapper>
               <EditCarPage />

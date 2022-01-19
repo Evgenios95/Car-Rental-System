@@ -1,4 +1,5 @@
 import Parse from "parse";
+import axios from "axios";
 import { getCarById } from "./individualBookingFunctions";
 import {
   getBookingStatePointerForEdit,
@@ -84,13 +85,13 @@ export const updateCustomer = async (
   const query = new Parse.Query(Customer);
   try {
     const object = await query.get(customerId);
-    myNewObject.set(ColumnLabels.customer.firstName, formData.firstName);
-    myNewObject.set(ColumnLabels.customer.lastName, formData.lastName);
-    myNewObject.set(ColumnLabels.customer.address, formData.address);
-    myNewObject.set(ColumnLabels.customer.email, formData.email);
-    myNewObject.set(ColumnLabels.customer.age, formData.age);
-    myNewObject.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
-    myNewObject.set(
+    object.set(ColumnLabels.customer.firstName, formData.firstName);
+    object.set(ColumnLabels.customer.lastName, formData.lastName);
+    object.set(ColumnLabels.customer.address, formData.address);
+    object.set(ColumnLabels.customer.email, formData.email);
+    object.set(ColumnLabels.customer.age, formData.age);
+    object.set(ColumnLabels.customer.phoneNumber, formData.phoneNo);
+    object.set(
       ColumnLabels.customer.driversLicenseNo,
       formData.driversLicenseNo
     );
@@ -103,5 +104,26 @@ export const updateCustomer = async (
     }
   } catch (error) {
     console.error(ErrorLabels.getCustomerObjectById, error);
+  }
+};
+
+export const getCustomerByIdRest = async (customerId, setCustomer) => {
+  const headers = {
+    "X-Parse-Application-Id": process.env.REACT_APP_PARSE_APPLICATION_KEY,
+    "X-Parse-REST-API-Key": process.env.REACT_APP_PARSE_REST_KEY,
+    "Content-Type": "application/json",
+  };
+
+  try {
+    axios
+      .get(`https://parseapi.back4app.com/classes/Customer/${customerId}`, {
+        headers: headers,
+      })
+      .then((res) => {
+        setCustomer(res.data);
+      })
+      .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
   }
 };

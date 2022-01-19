@@ -2,3 +2,19 @@
   cursor: pointer;
   color: var(--global-green-63);
 }
+
+.car-search-dropdown {
+  max-width: 250px;
+  width: 320px;
+}
+
+.car-dropdown-select-label {
+  margin-top: 0;
+}
+
+.reset-table-btn {
+  margin-top: auto;
+  margin-bottom: 4px;
+  height: 40px;
+  width: 210px;
+}

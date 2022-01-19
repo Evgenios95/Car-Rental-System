@@ -1,15 +1,15 @@
-import "./BookPage.css";
+import "../BookPage.css";
 import {
   CustomerInfoLabels,
   GeneralLabels,
   SubtitleLabels,
-} from "../../utils/constants/general-labels";
-import Subtitle from "../../components/Subtitle/Subtitle";
-import LabeledInput from "../../components/LabeledInput/LabeledInput";
+} from "../../../utils/constants/general-labels";
+import Subtitle from "../../../components/Subtitle/Subtitle";
+import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import {
   onChangeIntHandler,
   onChangeHandler,
-} from "../../utils/functions/onChangeHandlers";
+} from "../../../utils/functions/onChangeHandlers";
 
 const CustomerInfo = ({ setFormData }) => {
   return (

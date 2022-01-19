@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./BookingOverviewPage.css";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import GrayColumn from "../../components/Layout/GrayColumn";
-import BookingTableTHead from "./BookingTableTHead";
-import BookingTableTBody from "./BookingTableTBody";
-import BookingTable from "./BookingTable";
+import BookingTableTHead from "./private/BookingTableTHead";
+import BookingTableTBody from "./private/BookingTableTBody";
+import BookingTable from "./private/BookingTable";
 import NavBar from "../../components/NavBar/Navbar";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import { setBookingOverviewElements } from "../../utils/parse-functions/bookingTableFunctions";
 import {
   filterBookingsByDriversLicense,
   filterBookingsByLastName,
-} from "../../utils/functions/handleFilteredBookings";
+} from "../../utils/functions/filteringFunctions";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";

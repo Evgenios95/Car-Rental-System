@@ -11,8 +11,8 @@ import RequestCarOverview from "./private/RequestCarOverview";
 const RequestPage = () => {
   const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
   const [formData, setFormdata] = useState([]);
-  console.log("formdata", formData);
-  console.log("numberOfCarGroups", numberOfCarGroups);
+  const [carGroupsParkingSpot, setCarGroupsParkingSpot] = useState([]);
+  const [getInfo, setGetInfo] = useState(false);
 
   return (
     <>
@@ -24,6 +24,10 @@ const RequestPage = () => {
           setFormdata={setFormdata}
           numberOfCarGroups={numberOfCarGroups}
           setNumberOfCarGroups={setNumberOfCarGroups}
+          carGroupsParkingSpot={carGroupsParkingSpot}
+          setCarGroupsParkingSpot={setCarGroupsParkingSpot}
+          setGetInfo={setGetInfo}
+          getInfo={getInfo}
         />
         <RequestCarOverview />
       </GrayContainer>

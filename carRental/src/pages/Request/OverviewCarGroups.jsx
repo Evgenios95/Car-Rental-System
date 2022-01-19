@@ -1,6 +1,6 @@
 import GrayColumn from "../../components/Layout/GrayColumn";
 import Subtitle from "../../components/Subtitle/Subtitle";
-
+import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
 import {
   ColumnLabels,
   ClassnameLabels,
@@ -9,14 +9,20 @@ import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import DropDown from "../../components/DropDowns/DropDown";
 import Button from "../../components/Button/Button";
 import CarGroupTable from "./CarGroupTable";
-import { getBookedCarGroups } from "../../utils/parse-functions/cloudFunctions";
-import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
+import {
+  getBookedCarGroups,
+  getCarGroupsParkingSpot,
+} from "../../utils/parse-functions/cloudFunctions";
 
 const OverviewCarGroup = ({
   formData,
   setFormdata,
   numberOfCarGroups,
   setNumberOfCarGroups,
+  carGroupsParkingSpot,
+  setCarGroupsParkingSpot,
+  setGetInfo,
+  getInfo,
 }) => {
   return (
     <GrayColumn>
@@ -41,10 +47,16 @@ const OverviewCarGroup = ({
           className="btn--primary request-btn"
           onClick={async () => {
             await getBookedCarGroups(formData, setNumberOfCarGroups);
+            await getCarGroupsParkingSpot(formData, setCarGroupsParkingSpot);
+            setGetInfo(true);
           }}
         ></Button>
       </div>
-      <CarGroupTable numberOfCarGroups={numberOfCarGroups}></CarGroupTable>
+      <CarGroupTable
+        numberOfCarGroups={numberOfCarGroups}
+        carGroupsParkingSpot={carGroupsParkingSpot}
+        getInfo={getInfo}
+      ></CarGroupTable>
     </GrayColumn>
   );
 };

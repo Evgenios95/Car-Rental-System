@@ -7,7 +7,7 @@
 \
 **_components_**: The components folder includes the files that are reused throughout the application. \
 \
-**_pages_**: Under the pages folder are the components that are complete pages. These complete page files have a Page suffix. Every folder that includes a page also contains the components that are used only in this page and nowhere else. Splitting big components to smaller ones, helps the code to be cleaner, and more mainainable.
+**_pages_**: Under the pages folder are the components that are complete pages. These complete page files have a Page suffix. Every folder that includes a page also contains the components that are used only in this page and nowhere else. Splitting big components to smaller ones, helps the code to be cleaner, and more maintainable.
 
 - **Private** folders can be seen under pages. Private folders include components that are not reusable throughout the application, but only in this specific page. This is done so that we can keep the components small, consistent and more readable
 

@@ -11,7 +11,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import Subtitle from "../../components/Subtitle/Subtitle";
 import {
   getBookingById,
-  deleteBookingById,
+  deleteBookingByIdRest,
 } from "../../utils/parse-functions/individualBookingFunctions";
 import IndividualBookingRecord from "./IndividualBookingRecord";
 import IndividualCustomerRecord from "./IndividualCustomerRecord";
@@ -70,7 +70,7 @@ const IndividualBookingPage = () => {
           confirmBtnText="Yes"
           rejectBtnText="No"
           btnClassName="btn--red"
-          onConfirmClick={() => deleteBookingById(bookingId)}
+          onConfirmClick={() => deleteBookingByIdRest(bookingId, navigate)}
         />
 
         <Button

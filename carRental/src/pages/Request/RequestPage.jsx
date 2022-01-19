@@ -24,6 +24,7 @@ const RequestPage = () => {
   const [formData, setFormdata] = useState([]);
   console.log("formdata", formData);
   console.log("numberOfCarGroups", numberOfCarGroups);
+
   return (
     <>
       <NavBar />
@@ -31,52 +32,53 @@ const RequestPage = () => {
       <GrayContainer>
         <GrayColumn>
           <Subtitle stitle="Overview of booked car groups"></Subtitle>
-
-          <LabeledInput
-            type="date"
-            labelText="From date*"
-            className="request-input"
-          ></LabeledInput>
-          <DropDown
-            type={ClassnameLabels.rentalOffice}
-            attribute={ColumnLabels.rentalOffice.officeNo}
-            labeltext={"Rental office*"}
-            className="request-drop-down-input"
-            onChange={(e) => {
-              onChangeHandler(e, "rentalOffice", setFormdata);
-            }}
-          ></DropDown>
-          <Button
-            btnText="Get info"
-            className="btn--primary"
-            onClick={async () => {
-              await getCarGroupsBooked(formData, setNumberOfCarGroups);
-            }}
-          ></Button>
-
+          <div className="request-car-groups">
+            <LabeledInput
+              type="date"
+              labelText="From date*"
+              className="request-input-date"
+            ></LabeledInput>
+            <DropDown
+              type={ClassnameLabels.rentalOffice}
+              attribute={ColumnLabels.rentalOffice.officeNo}
+              labeltext={"Rental office*"}
+              className="office-search-dropdown"
+              onChange={(e) => {
+                onChangeHandler(e, "rentalOffice", setFormdata);
+              }}
+            ></DropDown>
+            <Button
+              btnText="Get info"
+              className="btn--primary get-info-btn"
+              onClick={async () => {
+                await getCarGroupsBooked(formData, setNumberOfCarGroups);
+              }}
+            ></Button>
+          </div>
           <CarGroupTable numberOfCarGroups={numberOfCarGroups}></CarGroupTable>
         </GrayColumn>
         <GrayColumn>
           <Subtitle stitle="Request cars"></Subtitle>
-
-          <LabeledInput
-            type="number"
-            labelText="Amount*"
-            className="request-input"
-          ></LabeledInput>
-          <DropDown
-            type={ClassnameLabels.carGroup}
-            attribute={ColumnLabels.carGroup.name}
-            labeltext={"Car group*"}
-            className="request-drop-down-input"
-          ></DropDown>
-          <Button
-            btnText="Add car"
-            className="btn--primary"
-            onClick={() => {
-              console.log("Add car is clicked");
-            }}
-          ></Button>
+          <div className="request-car-groups">
+            <LabeledInput
+              type="number"
+              labelText="Amount*"
+              className="request-input-date"
+            ></LabeledInput>
+            <DropDown
+              type={ClassnameLabels.carGroup}
+              attribute={ColumnLabels.carGroup.name}
+              labeltext={"Car group*"}
+              className="office-search-dropdown"
+            ></DropDown>
+            <Button
+              btnText="Add car"
+              className="btn--primary get-info-btn"
+              onClick={() => {
+                console.log("Add car is clicked");
+              }}
+            ></Button>
+          </div>
 
           <RequestTable></RequestTable>
         </GrayColumn>

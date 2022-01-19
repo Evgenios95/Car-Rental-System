@@ -1,4 +1,4 @@
-import "../DropDown/DropDown.css";
+import "./DropDowns.css";
 import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../utils/constants/general-labels";
 
@@ -58,10 +58,15 @@ const DropDownParkingSlots = ({
 
   return (
     <div>
-      <label className="label" htmlFor="dropDown">
+      <label className="dropdown-label" htmlFor="dropDown">
         {labeltext}
       </label>
-      <select className="drop" defaultValue="" onChange={onChange} required>
+      <select
+        className="dropdown-select"
+        defaultValue=""
+        onChange={onChange}
+        required
+      >
         <option disabled value="">
           {DropdownLabels.defaultOption}
         </option>

@@ -1,4 +1,3 @@
-import DropDown from "../../components/DropDown/DropDown";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -11,10 +10,10 @@ import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
 import { getBookingsWithState } from "../../utils/parse-functions/cloudFunctions";
 import Button from "../../components/Button/Button";
 import "./BookingStatisticsPage.css";
-
 import Subtitle from "../../components/Subtitle/Subtitle";
 import NavBar from "../../components/NavBar/Navbar";
 import { TitleLabels } from "../../utils/constants/general-labels";
+import DropDown from "../../components/DropDowns/DropDown";
 
 const BookingStatistics = () => {
   const [formData, setFormData] = useState([]);

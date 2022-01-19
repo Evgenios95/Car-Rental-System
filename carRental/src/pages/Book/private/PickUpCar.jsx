@@ -1,11 +1,11 @@
-import "./BookPage.css";
-import { SubtitleLabels } from "../../utils/constants/general-labels";
+import "../BookPage.css";
+import { SubtitleLabels } from "../../../utils/constants/general-labels";
 import { useLocation } from "react-router-dom";
-import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
-import DropDown from "../../components/DropDown/DropDown";
-import LabeledInput from "../../components/LabeledInput/LabeledInput";
-import Subtitle from "../../components/Subtitle/Subtitle";
-import DropDownWalkIn from "../../components/DropdownWalkIn/DropDownWalkIn";
+import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
+import LabeledInput from "../../../components/LabeledInput/LabeledInput";
+import Subtitle from "../../../components/Subtitle/Subtitle";
+import DropDownWalkIn from "../../../components/DropDowns/DropDownWalkIn";
+import DropDown from "../../../components/DropDowns/DropDown";
 
 const PickUpCar = ({ setFormData }) => {
   const location = useLocation();

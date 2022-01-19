@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { chooseCar } from "../../../utils/parse-functions/updateFunctions";
-import { setCarElementsWhenEdit } from "../../../utils/parse-functions/carTableFunctions";
+import { chooseCar } from "../../../../utils/parse-functions/updateFunctions";
+import { setCarElementsWhenEdit } from "../../../../utils/parse-functions/carTableFunctions";
 
 const EditCarTable = ({ setChosenCar, rentalOffice }) => {
   const [loading, setLoading] = useState(true);

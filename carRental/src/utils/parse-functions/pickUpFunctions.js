@@ -46,6 +46,7 @@ export const updateCarWhenPickUp = async (carId, mileage, tankFull) => {
     console.error("Error while retrieving object Car", error);
   }
 };
+
 export const updateBookingForPickUp = async (bookingId) => {
   const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);

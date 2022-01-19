@@ -1,4 +1,6 @@
 import Parse from "parse";
+import axios from "axios";
+
 import {
   ClassnameLabels,
   ColumnLabels,
@@ -246,19 +248,24 @@ export const getCarById = async (carId, setCar) => {
   }
 };
 
-export const deleteBookingById = async (bookingId, navigate) => {
-  const Booking = Parse.Object.extend(ClassnameLabels.booking);
-  const query = new Parse.Query(Booking);
+export const deleteBookingByIdRest = async (bookingId, navigate) => {
+  const headers = {
+    "X-Parse-Application-Id": process.env.REACT_APP_PARSE_APPLICATION_KEY,
+    "X-Parse-REST-API-Key": process.env.REACT_APP_PARSE_REST_KEY,
+  };
+
   try {
-    const object = await query.get(bookingId);
-    try {
-      const response = await object.destroy();
-      console.log(ResultLabels.deleteBooking, response);
-      navigate("/booking-overview");
-    } catch (error) {
-      console.error(ErrorLabels.deleteBooking, error);
-    }
+    axios
+      .delete(`https://parseapi.back4app.com/classes/Booking/${bookingId}`, {
+        headers: headers,
+      })
+      .then(() => {
+        console.log("Booking successfully deleted");
+        alert(`Booking with id ${bookingId} successfully deleted 💀`);
+        navigate("/booking-overview");
+      })
+      .catch((err) => console.log(err));
   } catch (error) {
-    console.error(ErrorLabels.getIdForDeletion, error);
+    console.log(error);
   }
 };

@@ -20,6 +20,7 @@ export const pickUpcar = async (
   await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
   await updateCarWhenPickUp(carId, mileage, tankFull);
   await updateBookingForPickUp(bookingId);
+  alert("Car successfully picked up!");
   navigate("/booking-overview");
 };
 

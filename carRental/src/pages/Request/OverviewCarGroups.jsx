@@ -9,7 +9,7 @@ import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import DropDown from "../../components/DropDowns/DropDown";
 import Button from "../../components/Button/Button";
 import CarGroupTable from "./CarGroupTable";
-import { getCarGroupsBooked } from "../../utils/parse-functions/cloudFunctions";
+import { getBookedCarGroups } from "../../utils/parse-functions/cloudFunctions";
 import { onChangeHandler } from "../../utils/functions/onChangeHandlers";
 
 const OverviewCarGroup = ({
@@ -40,7 +40,7 @@ const OverviewCarGroup = ({
           btnText="Get info"
           className="btn--primary request-btn"
           onClick={async () => {
-            await getCarGroupsBooked(formData, setNumberOfCarGroups);
+            await getBookedCarGroups(formData, setNumberOfCarGroups);
           }}
         ></Button>
       </div>

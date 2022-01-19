@@ -81,3 +81,8 @@ export const DropdownLabels = {
   loading: "Loading...",
   defaultOption: "Select an option",
 };
+
+export const CloudFunctionsLabels = {
+  carGroupBooked: "carGroupBooked",
+  bookings: "bookings",
+};

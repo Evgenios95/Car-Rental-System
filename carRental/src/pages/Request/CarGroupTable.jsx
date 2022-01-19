@@ -1,3 +1,5 @@
+// This is a dummy function. Therefore we did not use time to refactor it.
+
 const CarGroupTable = ({ numberOfCarGroups }) => {
   return (
     <>

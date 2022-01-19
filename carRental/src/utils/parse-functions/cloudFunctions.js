@@ -3,6 +3,7 @@ import {
   getOfficePointer,
   getBookingStatePointerForEdit,
 } from "./pointerFunctions";
+import { CloudFunctionsLabels } from "../constants/general-labels";
 
 export const getBookingsWithState = async (formData, setNumberOfBookings) => {
   const office = await getOfficePointer(formData.rentalOffice);
@@ -14,14 +15,17 @@ export const getBookingsWithState = async (formData, setNumberOfBookings) => {
     bookingState: bookingState,
   };
   try {
-    const fetchBookings = await Parse.Cloud.run("bookings", params);
+    const fetchBookings = await Parse.Cloud.run(
+      CloudFunctionsLabels.bookings,
+      params
+    );
     setNumberOfBookings(fetchBookings);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getCarGroupsBooked = async (formData, setNumberOfCarGroups) => {
+export const getBookedCarGroups = async (formData, setNumberOfCarGroups) => {
   const office = await getOfficePointer(formData.rentalOffice);
   const bookingState = await getBookingStatePointerForEdit("waiting");
   const params = {
@@ -29,7 +33,10 @@ export const getCarGroupsBooked = async (formData, setNumberOfCarGroups) => {
     bookingState: bookingState,
   };
   try {
-    const fetchCargroups = await Parse.Cloud.run("carGroupBooked", params);
+    const fetchCargroups = await Parse.Cloud.run(
+      CloudFunctionsLabels.carGroupBooked,
+      params
+    );
     setNumberOfCarGroups(fetchCargroups);
   } catch (error) {
     console.log(error);

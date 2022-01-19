@@ -56,12 +56,14 @@ export const createBooking = async (e, formData, navigate) => {
 
   try {
     const result = await myNewObject.save();
-    // Access the Parse Object attributes using the .GET method
-
     console.log("Booking created", result);
+
+    // Different navigation when assigning a car for walkins
     if (formData.specificCar == "Now") {
+      alert("Booking successfully created. \nChoose a specific car now.");
       navigate(`/individual-booking/${result.id}`);
     } else {
+      alert("Booking successfully created. \nCar to be assigned later.");
       navigate("/booking-overview");
     }
   } catch (error) {

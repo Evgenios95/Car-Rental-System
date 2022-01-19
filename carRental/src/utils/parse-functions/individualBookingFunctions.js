@@ -251,12 +251,8 @@ export const getCarById = async (carId, setCar) => {
 export const deleteBookingByIdRest = async (bookingId, navigate) => {
   const headers = {
     "X-Parse-Application-Id": process.env.REACT_APP_PARSE_APPLICATION_KEY,
-
     "X-Parse-REST-API-Key": process.env.REACT_APP_PARSE_REST_KEY,
   };
-
-  console.log(headers);
-  console.log("bid", bookingId);
 
   try {
     axios

@@ -132,6 +132,6 @@ export const returnCar = async (
     tankFull
   );
   await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
-
+  alert("Car successfully returned!");
   navigate("/booking-overview");
 };

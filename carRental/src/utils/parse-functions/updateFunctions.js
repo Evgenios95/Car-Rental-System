@@ -24,6 +24,7 @@ export const updateCarInBooking = async (bookingId, id, navigate) => {
     try {
       const response = await object.save();
       console.log(ResultLabels.updateBooking, response);
+      alert("Booking successfully updated!");
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
       console.error(ErrorLabels.updateBooking, error);
@@ -64,6 +65,7 @@ export const updateBooking = async (e, bookingId, formData, navigate) => {
     try {
       const response = await object.save();
       console.log(ResultLabels.updateBooking, response);
+      alert("Booking successfully updated!");
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
       console.error(ErrorLabels.updateBooking, error);
@@ -98,6 +100,7 @@ export const updateCustomer = async (
     try {
       const response = await object.save();
       console.log(ResultLabels.updateCustomer, response);
+      alert("Booking successfully updated!");
       navigate(`/individual-booking/${bookingId}`);
     } catch (error) {
       console.error(ErrorLabels.updateCustomer, error);

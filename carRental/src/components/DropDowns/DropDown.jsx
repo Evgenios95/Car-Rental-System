@@ -1,14 +1,15 @@
-import "../DropDown/DropDown.css";
+import "./DropDowns.css";
 import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../utils/constants/general-labels";
 import { setDropdownElements } from "../../utils/parse-functions/dropdownFunctions";
 
-const DropDownEdit = ({
+const DropDown = ({
   labeltext,
   type,
   attribute,
   onChange,
-  defaultValue,
+  className,
+  labelClassname,
 }) => {
   const [isLoading, setLoading] = useState(true);
   const [elements, setElements] = useState([]);
@@ -24,13 +25,13 @@ const DropDownEdit = ({
 
   return (
     <div>
-      <label className="label" htmlFor="dropDown">
+      <label className={`dropdown-label ${labelClassname} `} htmlFor="dropDown">
         {labeltext}
       </label>
       <select
-        className="drop"
+        className={`dropdown-select ${className}`}
         id="dropDown"
-        defaultValue={defaultValue}
+        defaultValue=""
         onChange={onChange}
         required
       >
@@ -46,4 +47,4 @@ const DropDownEdit = ({
     </div>
   );
 };
-export default DropDownEdit;
+export default DropDown;

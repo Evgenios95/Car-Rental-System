@@ -1,14 +1,14 @@
-import "../DropDown/DropDown.css";
+import "./DropDowns.css";
 import { DropdownLabels } from "../../utils/constants/general-labels";
 
 const DropDownWalkIn = ({ labeltext, onChange }) => {
   return (
     <div>
-      <label className="label" htmlFor="dropDown">
+      <label className="dropdown-label" htmlFor="dropDown">
         {labeltext}
       </label>
       <select
-        className="drop"
+        className="dropdown-select"
         id="dropDown"
         defaultValue=""
         onChange={onChange}

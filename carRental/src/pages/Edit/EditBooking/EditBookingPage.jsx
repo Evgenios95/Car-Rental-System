@@ -12,7 +12,7 @@ import { TitleLabels } from "../../../utils/constants/general-labels";
 import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
 import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 import { getBookingDetailsById } from "../../../utils/parse-functions/individualBookingFunctions";
-import DropDownEdit from "../../../components/DropDownEdit/DropDownEdit";
+import DropDownEdit from "../../../components/DropDowns/DropDownEdit";
 
 const EditBookingPage = () => {
   const { bookingId } = useParams();

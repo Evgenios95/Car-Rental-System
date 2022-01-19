@@ -17,8 +17,10 @@ export const NavigationLabels = {
 };
 
 export const TitleLabels = {
-  request: "Request Car (not functional)",
-  release: "Release Car (not functional)",
+  request:
+    "Request Cars (Not fully funtional, but possible to get info about cargroups)",
+  release:
+    "Release Cars (Not fully funtional, but possible to get info about cargroups)",
   bookingOverview: "Booking Overview",
   book: "Create Booking",
   carOverview: "Car Overview",
@@ -85,4 +87,5 @@ export const DropdownLabels = {
 export const CloudFunctionsLabels = {
   carGroupBooked: "carGroupBooked",
   bookings: "bookings",
+  carGroupInParkingSpot: "carGroupInParkingSpot",
 };

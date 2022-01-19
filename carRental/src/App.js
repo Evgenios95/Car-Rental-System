@@ -15,6 +15,7 @@ import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
 import AuthWrapper from "./utils/auth/AuthWrapper";
 import BookingStatistics from "./pages/BookingStatistics/BookingStatisticsPage";
 import RequestPage from "./pages/Request/RequestPage";
+import ReleasePage from "./pages/Release/ReleasePage";
 
 function App() {
   return (
@@ -126,6 +127,15 @@ function App() {
           element={
             <AuthWrapper>
               <RequestPage />
+            </AuthWrapper>
+          }
+        />
+
+        <Route
+          path="/release"
+          element={
+            <AuthWrapper>
+              <ReleasePage />
             </AuthWrapper>
           }
         />

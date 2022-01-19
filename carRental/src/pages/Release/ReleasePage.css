@@ -1,0 +1,10 @@
+.release-second-column {
+  display: flex;
+  flex-direction: column;
+}
+.release-second-table {
+  width: 120px;
+}
+.release-third-table {
+  width: 12px;
+}

@@ -1,4 +1,4 @@
-.request-input-date {
+.request-input {
   max-width: 250px;
   width: 320px;
   margin-top: auto;
@@ -8,7 +8,7 @@
   max-width: 250px;
   width: 320px;
 }
-.get-info-btn {
+.request-btn {
   margin-top: auto;
   margin-bottom: 4px;
   height: 40px;

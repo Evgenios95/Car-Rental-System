@@ -40,7 +40,7 @@ const ReturnCarPage = () => {
 
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar />
       <PageTitle title={TitleLabels.returnCar} />
       <GrayContainer>
         <GrayColumn>
@@ -79,52 +79,59 @@ const ReturnCarPage = () => {
             returnData.officeNumber,
             parseInt(returnData.mileage),
             returnData.tankFull,
-            navigate
+            navigate,
+            car.mileage
           )
         }
       >
         <GrayContainer>
-          <Subtitle stitle="Return settings"></Subtitle>
-
           <GrayColumn>
-            <DropDown
-              type="CarState"
-              labeltext="Car state*"
-              attribute="state"
-              onChange={(e) => onChangeHandler(e, "carState", setReturnData)}
-            />
-            <DropDown
-              type="RentalOffice"
-              labeltext="Return office*"
-              attribute="officeNumber"
-              onChange={(e) =>
-                onChangeHandler(e, "officeNumber", setReturnData)
-              }
-            />
-            <DropDownParkingSlots
-              type="ParkingSlot"
-              labeltext="Available parking slots*"
-              attribute="availableParkingSlots"
-              onChange={(e) =>
-                onChangeIntHandler(e, "parkingSlot", setReturnData)
-              }
-              returnData={returnData}
-            />
-          </GrayColumn>
+            <Subtitle stitle="Return settings"></Subtitle>
+            <div className="column-return-settings">
+              <DropDown
+                type="CarState"
+                labeltext="Car state*"
+                attribute="state"
+                onChange={(e) => onChangeHandler(e, "carState", setReturnData)}
+                className="return-drop-down"
+              />
+              <DropDown
+                type="RentalOffice"
+                labeltext="Return office*"
+                attribute="officeNumber"
+                onChange={(e) =>
+                  onChangeHandler(e, "officeNumber", setReturnData)
+                }
+                className="return-drop-down"
+              />
+              <DropDownParkingSlots
+                type="ParkingSlot"
+                labeltext="Available parking slots*"
+                attribute="availableParkingSlots"
+                onChange={(e) =>
+                  onChangeIntHandler(e, "parkingSlot", setReturnData)
+                }
+                returnData={returnData}
+                className="return-drop-down"
+              />
 
-          <GrayColumn>
-            <Checkbox
-              label="Tank full?"
-              onCheckboxChange={(e) =>
-                onChangeCheckBoxHandler(e, "tankFull", setReturnData)
-              }
-            ></Checkbox>
-
-            <LabeledInput
-              labelText="Mileage"
-              type="number"
-              onChange={(e) => onChangeIntHandler(e, "mileage", setReturnData)}
-            ></LabeledInput>
+              <LabeledInput
+                labelText="Mileage"
+                type="number"
+                onChange={(e) =>
+                  onChangeIntHandler(e, "mileage", setReturnData)
+                }
+                className="mileage-input"
+              />
+              <div className="tank-checkbox">
+                <Checkbox
+                  label="Tank full?"
+                  onCheckboxChange={(e) =>
+                    onChangeCheckBoxHandler(e, "tankFull", setReturnData)
+                  }
+                />
+              </div>
+            </div>
           </GrayColumn>
         </GrayContainer>
         <GrayContainer className="return-car-third-container">

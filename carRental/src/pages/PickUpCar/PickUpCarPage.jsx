@@ -54,7 +54,8 @@ const PickUpCarPage = () => {
             parseInt(pickUpData.mileage),
             pickUpData.tankFull,
             bookingId,
-            navigate
+            navigate,
+            car.mileage
           )
         }
       >

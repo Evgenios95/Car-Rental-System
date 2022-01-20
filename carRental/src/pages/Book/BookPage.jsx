@@ -26,7 +26,7 @@ const BookPage = () => {
         onSubmit={(e) => createBooking(e, formData, navigate)}
         id="booking_form"
       >
-        <GrayContainer>
+        <GrayContainer className="book-page-container">
           <div className="booking-first-column">
             <GrayColumn>
               <PickUpCar setFormData={setFormData} />

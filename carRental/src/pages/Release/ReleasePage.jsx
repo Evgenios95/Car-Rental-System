@@ -4,18 +4,29 @@ import { useState } from "react";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import Subtitle from "../../components/Subtitle/Subtitle";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ReleasePage.css";
 import NavBar from "../../components/NavBar/Navbar";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { TitleLabels } from "../../utils/constants/general-labels";
+import { getAllRequests } from "../../utils/parse-functions/requestFunctions";
+import { useEffect } from "react";
+import AllRequestTable from "./private/AllRequestTable";
+import ReleaseOverview from "./private/ReleaseOverview";
+import { createAllReleaseObjects } from "../../utils/parse-functions/requestFunctions";
 
 const ReleasePage = () => {
   const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
   const [formData, setFormdata] = useState([]);
   const [carGroupsParkingSpot, setCarGroupsParkingSpot] = useState([]);
   const [getInfo, setGetInfo] = useState(false);
+  const [requests, setRequests] = useState([]);
+  const [chosenRequest, setChosenRequest] = useState([]);
+  console.log("formdata state", formData);
+
+  useEffect(async () => {
+    await getAllRequests(setRequests);
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -35,54 +46,20 @@ const ReleasePage = () => {
         <GrayColumn>
           <div className="release-second-column">
             <Subtitle stitle="Request overview" />
-            <div className="release-second-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Rental office</th>
-                    <th>Car group</th>
-                    <th>Delivery date</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
+            <AllRequestTable
+              requests={requests}
+              chosenRequest={chosenRequest}
+              setChosenRequest={setChosenRequest}
+            />
             <Subtitle stitle="Chosen cars for release" />
-            <div className="release-third-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Rental office</th>
-                    <th>Car group</th>
-                    <th>Delivery date</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>Cars to be released: 0</p>
+            <ReleaseOverview
+              chosenRequest={chosenRequest}
+              setChosenRequest={setChosenRequest}
+            />
           </div>
+          <p className="release-summary">
+            Cars to be released: {chosenRequest.length}
+          </p>
         </GrayColumn>
       </GrayContainer>
       <GrayContainer className={"request-second-container"}>
@@ -99,7 +76,9 @@ const ReleasePage = () => {
           confirmBtnText="Yes"
           rejectBtnText="No"
           btnClassName="btn--primary"
-          onConfirmClick={() => window.location.reload(false)}
+          onConfirmClick={() =>
+            createAllReleaseObjects(chosenRequest, formData)
+          }
         />
       </GrayContainer>
     </>

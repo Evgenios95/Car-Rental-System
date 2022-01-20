@@ -4,8 +4,15 @@ import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import Subtitle from "../../../components/Subtitle/Subtitle";
 import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
 import DropDown from "../../../components/DropDowns/DropDown";
+import DropDownWalkIn from "../../../components/DropDowns/DropDownWalkIn";
 
 const ReturnCar = ({ setFormData }) => {
+  //Make this a reusable function
+  var date = new Date();
+  var isoDateTime = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .split("T")[0];
+
   return (
     <div>
       <Subtitle stitle={SubtitleLabels.return} />
@@ -14,14 +21,16 @@ const ReturnCar = ({ setFormData }) => {
         <LabeledInput
           labelText={"Return date*"}
           type="date"
+          min={isoDateTime}
           onChange={(e) => onChangeHandler(e, "returnDate", setFormData)}
         ></LabeledInput>
 
-        <LabeledInput
-          labelText={"Return time*"}
+        <DropDown
           type="time"
+          labeltext="Return time*"
           onChange={(e) => onChangeHandler(e, "returnTime", setFormData)}
-        ></LabeledInput>
+          isTimeDropdown
+        />
 
         <DropDown
           type="RentalOffice"

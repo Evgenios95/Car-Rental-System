@@ -4,11 +4,17 @@ import { useLocation } from "react-router-dom";
 import { onChangeHandler } from "../../../utils/functions/onChangeHandlers";
 import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import Subtitle from "../../../components/Subtitle/Subtitle";
-import DropDownWalkIn from "../../../components/DropDowns/DropDownWalkIn";
 import DropDown from "../../../components/DropDowns/DropDown";
+import DropDownWalkIn from "../../../components/DropDowns/DropDownWalkIn";
 
 const PickUpCar = ({ setFormData }) => {
   const location = useLocation();
+
+  //Make this a reusable function
+  var date = new Date();
+  var isoDateTime = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .split("T")[0];
 
   return (
     <div>
@@ -18,14 +24,16 @@ const PickUpCar = ({ setFormData }) => {
         <LabeledInput
           labelText={"Pick-up date*"}
           type="date"
+          min={isoDateTime}
           onChange={(e) => onChangeHandler(e, "pickupDate", setFormData)}
         ></LabeledInput>
 
-        <LabeledInput
-          labelText={"Pick-up time*"}
+        <DropDown
           type="time"
+          labeltext={"Pick up time*"}
           onChange={(e) => onChangeHandler(e, "pickUpTime", setFormData)}
-        ></LabeledInput>
+          isTimeDropdown
+        />
 
         <DropDown
           type="CarGroup"
@@ -45,7 +53,7 @@ const PickUpCar = ({ setFormData }) => {
           <DropDownWalkIn
             labeltext="Choose specific car"
             onChange={(e) => onChangeHandler(e, "specificCar", setFormData)}
-          ></DropDownWalkIn>
+          />
         )}
       </div>
     </div>

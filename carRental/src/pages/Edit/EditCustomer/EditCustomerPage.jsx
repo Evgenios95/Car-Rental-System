@@ -6,14 +6,12 @@ import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import { useState, useEffect } from "react";
 import {
   CustomerInfoLabels,
-  GeneralLabels,
   TitleLabels,
 } from "../../../utils/constants/general-labels";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import "./EditCustomerPage.css";
 import {
   updateCustomer,
-  getCustomerById,
   getCustomerByIdRest,
 } from "../../../utils/parse-functions/updateFunctions";
 import {
@@ -51,30 +49,37 @@ const EditCustomerPage = () => {
                   type="text"
                   defaultValue={customer.firstName}
                   onChange={(e) => onChangeHandler(e, "firstName", setFormData)}
-                ></LabeledInput>
+                />
+
                 <LabeledInput
                   labelText={CustomerInfoLabels.lastName}
                   type="text"
                   defaultValue={customer.lastName}
                   onChange={(e) => onChangeHandler(e, "lastName", setFormData)}
-                ></LabeledInput>
+                />
               </div>
+
               <div>
                 <LabeledInput
                   labelText={CustomerInfoLabels.age}
                   type="number"
+                  min="18"
                   defaultValue={customer.age}
                   onChange={(e) => onChangeIntHandler(e, "age", setFormData)}
-                ></LabeledInput>
+                />
+
                 <LabeledInput
                   labelText={CustomerInfoLabels.driversLicensNo}
                   type="text"
+                  pattern="^[0-9]{8}$"
+                  title="Insert a 8-digit driver's license!"
                   defaultValue={customer.driversLicenseID}
                   onChange={(e) =>
                     onChangeIntHandler(e, "driversLicenseNo", setFormData)
                   }
-                ></LabeledInput>
+                />
               </div>
+
               <div>
                 <LabeledInput
                   labelText={CustomerInfoLabels.address}
@@ -82,22 +87,26 @@ const EditCustomerPage = () => {
                   defaultValue={customer.address}
                   onChange={(e) => onChangeHandler(e, "address", setFormData)}
                 ></LabeledInput>
+
                 <LabeledInput
                   labelText={CustomerInfoLabels.phoneNo}
-                  type="tel"
+                  type="text"
+                  pattern="^[0-9]{8}$"
+                  title="Insert an 8-digit phone-number!"
                   defaultValue={customer.phoneNumber}
                   onChange={(e) =>
                     onChangeIntHandler(e, "phoneNo", setFormData)
                   }
-                ></LabeledInput>
+                />
               </div>
+
               <div>
                 <LabeledInput
                   labelText={CustomerInfoLabels.email}
                   type="email"
                   defaultValue={customer.email}
                   onChange={(e) => onChangeHandler(e, "email", setFormData)}
-                ></LabeledInput>
+                />
               </div>
             </div>
           </GrayColumn>

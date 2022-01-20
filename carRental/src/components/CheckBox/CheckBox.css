@@ -1,0 +1,18 @@
+.form-check {
+  display: table;
+  float: left;
+  margin-right: 100px;
+}
+
+.check-label {
+  color: var(--global-green-19);
+  font: var(--mont-wasp);
+  width: 150px;
+  display: table-row;
+}
+
+.form-check-input {
+  width: 35px;
+  height: 35px;
+  display: table-row;
+}

@@ -18,7 +18,7 @@ input:focus {
 
 .input-container label {
   color: var(--global-green-19);
-  font: var(--mont-bee);
+  font: var(--mont-wasp);
 
   display: block;
   margin-bottom: 7px;

@@ -119,19 +119,27 @@ export const returnCar = async (
   rentalOffice,
   mileage,
   tankFull,
-  navigate
+  navigate,
+  oldMileage
 ) => {
-  e.preventDefault();
-  await setBookingStateToFinishAndAssignNoCar(bookingId);
-  await setNewPropertiesForCar(
-    carId,
-    parkingSlot,
-    mileage,
-    rentalOffice,
-    carState,
-    tankFull
-  );
-  await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
-  alert("Car successfully returned!");
-  navigate("/booking-overview");
+  if (mileage >= oldMileage) {
+    e.preventDefault();
+    await setBookingStateToFinishAndAssignNoCar(bookingId);
+    await setNewPropertiesForCar(
+      carId,
+      parkingSlot,
+      mileage,
+      rentalOffice,
+      carState,
+      tankFull
+    );
+    await changeParkingSlotWhenReturn(parkingSlot, rentalOffice);
+    alert("Car successfully returned!");
+    navigate("/booking-overview");
+  } else {
+    e.preventDefault();
+    alert(
+      "Mileage has to be equal or larger, than the number already registered for the car!"
+    );
+  }
 };

@@ -1,0 +1,19 @@
+.checkbox-form {
+  display: table;
+
+  float: left;
+  margin-right: 100px;
+}
+
+.checkbox-label {
+  color: var(--global-green-19);
+  font: var(--mont-wasp);
+  width: 150px;
+  display: table-row;
+}
+
+.checkbox-input {
+  width: 35px;
+  height: 35px;
+  display: table-row;
+}

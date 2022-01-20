@@ -86,7 +86,7 @@ const ReturnCarPage = () => {
       >
         <GrayContainer>
           <GrayColumn>
-            <Subtitle stitle="Return settings"></Subtitle>
+            <Subtitle stitle="Return settings" />
             <div className="column-return-settings">
               <DropDown
                 type="CarState"

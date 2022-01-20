@@ -12,18 +12,20 @@ const CarGroupTable = ({
 }) => {
   return (
     <>
-      <table>
-        <CarGroupTableHead />
-        <tbody>
-          <NeededRow numberOfCarGroups={numberOfCarGroups} />
-          <InParkingLotRow carGroupsParkingSpot={carGroupsParkingSpot} />
-          <SurplusRow
-            numberOfCarGroups={numberOfCarGroups}
-            carGroupsParkingSpot={carGroupsParkingSpot}
-            getInfo={getInfo}
-          />
-        </tbody>
-      </table>
+      <div className="first-table-request-release">
+        <table>
+          <CarGroupTableHead />
+          <tbody>
+            <NeededRow numberOfCarGroups={numberOfCarGroups} />
+            <InParkingLotRow carGroupsParkingSpot={carGroupsParkingSpot} />
+            <SurplusRow
+              numberOfCarGroups={numberOfCarGroups}
+              carGroupsParkingSpot={carGroupsParkingSpot}
+              getInfo={getInfo}
+            />
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

@@ -25,3 +25,16 @@
   column-gap: 15px;
   margin-bottom: 20px;
 }
+.first-table-request-release {
+  padding: 10px;
+  height: 170px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.request-second-table {
+  padding: 10px;
+  height: 150px;
+  width: 100%;
+  overflow-y: auto;
+}

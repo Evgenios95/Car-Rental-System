@@ -7,13 +7,30 @@ import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import { useState } from "react";
 import OverviewCarGroup from "./OverviewCarGroups";
 import RequestCarOverview from "./private/RequestCarOverview";
+import { useEffect } from "react";
 
 const RequestPage = () => {
   const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
   const [formData, setFormdata] = useState([]);
   const [carGroupsParkingSpot, setCarGroupsParkingSpot] = useState([]);
   const [getInfo, setGetInfo] = useState(false);
+  const [alreadyRequested, setAlreadyRequested] = useState([]);
+  const [chosenNow, setChosenNow] = useState([]);
 
+  const chosenObject = {
+    small: 0,
+    medium: 0,
+    large: 0,
+    xLarge: 0,
+    family: 0,
+    business: 0,
+    stationCar: 0,
+    automatic: 0,
+    smallAut: 0,
+  };
+  useEffect(() => {
+    setChosenNow(chosenObject);
+  }, []);
   return (
     <>
       <NavBar />
@@ -28,8 +45,13 @@ const RequestPage = () => {
           setCarGroupsParkingSpot={setCarGroupsParkingSpot}
           setGetInfo={setGetInfo}
           getInfo={getInfo}
+          setAlreadyRequested={setAlreadyRequested}
         />
-        <RequestCarOverview />
+        <RequestCarOverview
+          alreadyRequested={alreadyRequested}
+          chosenNow={chosenNow}
+          setChosenNow={setChosenNow}
+        />
       </GrayContainer>
       <GrayContainer className={"request-second-container"}>
         <PopUpButton
@@ -45,7 +67,9 @@ const RequestPage = () => {
           confirmBtnText="Yes"
           rejectBtnText="No"
           btnClassName="btn--primary"
-          onConfirmClick={() => window.location.reload(false)}
+          onConfirmClick={() =>
+            alert("Sorry the button is not working at the moment :(")
+          }
         />
       </GrayContainer>
     </>

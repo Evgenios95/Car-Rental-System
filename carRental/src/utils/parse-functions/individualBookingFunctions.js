@@ -5,7 +5,6 @@ import {
   ClassnameLabels,
   ColumnLabels,
   ErrorLabels,
-  ResultLabels,
 } from "../constants/parse-labels";
 
 export const getBookingById = async (

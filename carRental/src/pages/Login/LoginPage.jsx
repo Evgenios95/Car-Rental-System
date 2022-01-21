@@ -5,6 +5,7 @@ import "./Login.css";
 import { GeneralLabels } from "../../utils/constants/general-labels";
 import Button from "../../components/Button/Button";
 import { login } from "../../utils/parse-functions/loginFunction";
+import Subtitle from "../../components/Subtitle/Subtitle";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -14,9 +15,9 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-inner-container">
-        <div className="login-title">{GeneralLabels.login}</div>
+        <Subtitle stitle={GeneralLabels.login} />
         <form onSubmit={(e) => login(e, username, password, navigate)}>
-          <div className="input-fields-wrapper">
+          <div className="login-inputs-wrapper">
             <LabeledInput
               onChange={({ target }) => setUsername(target.value)}
               labelText={GeneralLabels.username}

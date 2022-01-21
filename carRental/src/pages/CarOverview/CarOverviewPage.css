@@ -8,13 +8,17 @@
   width: 320px;
 }
 
+.car-overview-gray-container {
+  row-gap: unset;
+}
+
 .car-dropdown-select-label {
   margin-top: 0;
 }
 
 .reset-table-btn {
   margin-top: auto;
-  margin-bottom: 4px;
+  margin-bottom: 25px;
   height: 40px;
   width: 210px;
 }

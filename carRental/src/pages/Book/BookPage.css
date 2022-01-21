@@ -7,7 +7,7 @@
 }
 
 .booking-inner-container {
-  margin: 0 20px;
+  margin: 0 14px;
 }
 
 .booking-second-container {
@@ -43,5 +43,23 @@
 @media screen and (max-width: 1000px) {
   .gray-column {
     width: 100%;
+  }
+
+  .booking-second-container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .book-page-container {
+    flex-direction: column;
+  }
+
+  .customer-info-container div {
+    flex-direction: column;
+  }
+
+  .customer-info-container div:nth-child(4) {
+    width: unset;
   }
 }

@@ -3,7 +3,7 @@ import { DropdownLabels } from "../../utils/constants/general-labels";
 
 const DropDownWalkIn = ({ labeltext, onChange }) => {
   return (
-    <div>
+    <div className="dropdown-container">
       <label className="dropdown-label" htmlFor="dropDown">
         {labeltext}
       </label>

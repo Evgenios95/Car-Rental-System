@@ -18,6 +18,7 @@ const RequestPage = () => {
     <>
       <NavBar />
       <PageTitle title={TitleLabels.request} />
+
       <GrayContainer>
         <OverviewCarGroup
           formData={formData}
@@ -31,7 +32,8 @@ const RequestPage = () => {
         />
         <RequestCarOverview />
       </GrayContainer>
-      <GrayContainer className={"request-second-container"}>
+
+      <GrayContainer className="request-second-container">
         <PopUpButton
           popupQuestion="Are you sure you would like to cancel your changes?"
           popupBtnText="Cancel"
@@ -39,6 +41,7 @@ const RequestPage = () => {
           rejectBtnText="No"
           onConfirmClick={() => window.location.reload(false)}
         />
+
         <PopUpButton
           popupQuestion="Are you sure you would like to send request for chosen cars?"
           popupBtnText="Send request"
@@ -46,6 +49,15 @@ const RequestPage = () => {
           rejectBtnText="No"
           btnClassName="btn--primary"
           onConfirmClick={() => window.location.reload(false)}
+        />
+
+        <PopUpButton
+          popupQuestion="Your current changes will be lost."
+          popupBtnText="Go back"
+          className="btn--white"
+          confirmBtnText="Go back"
+          rejectBtnText="Keep editing"
+          onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
         />
       </GrayContainer>
     </>

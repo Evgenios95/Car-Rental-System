@@ -12,19 +12,21 @@ import {
 const RequestCarOverview = () => {
   return (
     <GrayColumn>
-      <Subtitle stitle="Request cars"></Subtitle>
+      <Subtitle stitle="Request cars" />
       <div className="request-car-groups">
         <LabeledInput
           type="number"
           labelText="Amount*"
           className="request-input"
         ></LabeledInput>
+
         <DropDown
           type={ClassnameLabels.carGroup}
           attribute={ColumnLabels.carGroup.name}
           labeltext={"Car group*"}
           className="office-search-dropdown"
         ></DropDown>
+
         <Button
           btnText="Add car"
           className="btn--primary request-btn"

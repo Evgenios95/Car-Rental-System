@@ -37,7 +37,7 @@ const EditCarPage = () => {
       <PageTitle title={TitleLabels.editBookingCar} />
       <GrayContainer>
         <GrayColumn>
-          <Subtitle stitle="Chosen car"></Subtitle>
+          <Subtitle stitle="Chosen car for booking"></Subtitle>
           <ChosenCarTable
             chosenCar={chosenCar}
             chooseCar={chooseCar}
@@ -45,7 +45,9 @@ const EditCarPage = () => {
           />
         </GrayColumn>
         <GrayColumn>
-          <Subtitle stitle="Available cars"></Subtitle>
+          <Subtitle
+            stitle={`Available cars in rental office ${rentalOffice}`}
+          ></Subtitle>
           <EditCarTable
             setChosenCar={setChosenCar}
             rentalOffice={rentalOffice}

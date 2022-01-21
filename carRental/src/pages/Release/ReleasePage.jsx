@@ -31,6 +31,7 @@ const ReleasePage = () => {
     <>
       <NavBar />
       <PageTitle title={TitleLabels.release} />
+
       <GrayContainer>
         <OverviewCarGroup
           formData={formData}
@@ -62,7 +63,8 @@ const ReleasePage = () => {
           </p>
         </GrayColumn>
       </GrayContainer>
-      <GrayContainer className={"request-second-container"}>
+
+      <GrayContainer className="request-second-container">
         <PopUpButton
           popupQuestion="Are you sure you would like to cancel your changes?"
           popupBtnText="Cancel"
@@ -70,6 +72,7 @@ const ReleasePage = () => {
           rejectBtnText="No"
           onConfirmClick={() => window.location.reload(false)}
         />
+
         <PopUpButton
           popupQuestion="Are you sure you would like to release the chosen cars?"
           popupBtnText="Release cars"
@@ -79,6 +82,15 @@ const ReleasePage = () => {
           onConfirmClick={() =>
             createAllReleaseObjects(chosenRequest, formData)
           }
+        />
+
+        <PopUpButton
+          popupQuestion="Your current changes will be lost."
+          popupBtnText="Go back"
+          className="btn--white"
+          confirmBtnText="Go back"
+          rejectBtnText="Keep editing"
+          onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
         />
       </GrayContainer>
     </>

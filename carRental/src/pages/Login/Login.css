@@ -21,11 +21,6 @@
   flex-direction: column;
 }
 
-.login-title {
-  margin-bottom: 20px;
-  font: var(--mont-fly);
-}
-
 div.login-input-item:first-child {
   margin-bottom: 20px;
 }
@@ -33,4 +28,8 @@ div.login-input-item:first-child {
 .login-inner-container button {
   display: block;
   margin: 40px auto;
+}
+
+.login-inputs-wrapper {
+  margin-top: 17px;
 }

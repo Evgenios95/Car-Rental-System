@@ -3,3 +3,16 @@
   margin-top: 8px;
   padding: 10px;
 }
+.column-pick-up-settings {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  margin-bottom: auto;
+}
+.mileage-input-pick-up {
+  width: 210px;
+  margin-top: 15px;
+}
+.tank-checkbox-pick-up {
+  margin-top: 23px;
+}

@@ -1,5 +1,9 @@
 import Parse from "parse";
-import { ErrorLabels } from "../constants/parse-labels";
+import {
+  ErrorLabels,
+  ClassnameLabels,
+  ColumnLabels,
+} from "../constants/parse-labels";
 
 export const setDropdownElements = async (type, attribute, setElements) => {
   const element = Parse.Object.extend(type);
@@ -20,6 +24,30 @@ export const setDropdownElements = async (type, attribute, setElements) => {
       elementArray.sort((a, b) => a - b);
     }
     setElements(filteredArray(elementArray));
+  } catch (error) {
+    console.error(ErrorLabels.dropdown + type, error);
+  }
+};
+
+export const fetchParkingSlots = async (
+  type,
+  attribute,
+  setParkingSlots,
+  returnData
+) => {
+  const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
+  const query = new Parse.Query(ParkingSlot);
+  const parkingSlotArray = [];
+  query.equalTo(ColumnLabels.parkingSlot.officeNumber, returnData.officeNumber);
+
+  try {
+    const result = await query.find();
+    const parkingSlotDatabase = result[0].get(attribute);
+    for (const number of parkingSlotDatabase) {
+      parkingSlotArray.push(number);
+    }
+    parkingSlotArray.sort((a, b) => a - b);
+    await setParkingSlots(parkingSlotArray);
   } catch (error) {
     console.error(ErrorLabels.dropdown + type, error);
   }

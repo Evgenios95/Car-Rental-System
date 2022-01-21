@@ -54,7 +54,8 @@ const PickUpCarPage = () => {
             parseInt(pickUpData.mileage),
             pickUpData.tankFull,
             bookingId,
-            navigate
+            navigate,
+            car.mileage
           )
         }
       >
@@ -82,19 +83,26 @@ const PickUpCarPage = () => {
         </GrayContainer>
 
         <GrayContainer>
-          <Subtitle stitle="Pick up settings"></Subtitle>
           <GrayColumn>
-            <Checkbox
-              label="Tank full?"
-              onCheckboxChange={(e) =>
-                onChangeCheckBoxHandler(e, "tankFull", setPickUpData)
-              }
-            ></Checkbox>
-            <LabeledInput
-              labelText="Mileage"
-              type="number"
-              onChange={(e) => onChangeIntHandler(e, "mileage", setPickUpData)}
-            ></LabeledInput>
+            <Subtitle stitle="Pick up settings"></Subtitle>
+            <div className="column-pick-up-settings">
+              <LabeledInput
+                labelText="Mileage"
+                type="number"
+                onChange={(e) =>
+                  onChangeIntHandler(e, "mileage", setPickUpData)
+                }
+                className="mileage-input-pick-up"
+              />
+              <div className="tank-checkbox-pick-up">
+                <Checkbox
+                  label="Tank full?"
+                  onCheckboxChange={(e) =>
+                    onChangeCheckBoxHandler(e, "tankFull", setPickUpData)
+                  }
+                />
+              </div>
+            </div>
           </GrayColumn>
         </GrayContainer>
 

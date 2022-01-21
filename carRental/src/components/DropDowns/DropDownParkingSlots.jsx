@@ -1,14 +1,7 @@
 import "./DropDowns.css";
 import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../utils/constants/general-labels";
-
-import Parse from "parse";
-import {
-  ErrorLabels,
-  ClassnameLabels,
-  ColumnLabels,
-} from "../../utils/constants/parse-labels";
-ColumnLabels;
+import { fetchParkingSlots } from "../../utils/parse-functions/dropdownFunctions";
 
 const DropDownParkingSlots = ({
   labeltext,
@@ -25,33 +18,6 @@ const DropDownParkingSlots = ({
     setLoading(false);
   }, [returnData]);
 
-  const fetchParkingSlots = async (
-    type,
-    attribute,
-    setParkingSlots,
-    returnData
-  ) => {
-    const ParkingSlot = Parse.Object.extend(ClassnameLabels.parkingSlot);
-    const query = new Parse.Query(ParkingSlot);
-    const parkingSlotArray = [];
-    query.equalTo(
-      ColumnLabels.parkingSlot.officeNumber,
-      returnData.officeNumber
-    );
-
-    try {
-      const result = await query.find();
-      const parkingSlotDatabase = result[0].get(attribute);
-      for (const number of parkingSlotDatabase) {
-        parkingSlotArray.push(number);
-      }
-      parkingSlotArray.sort((a, b) => a - b);
-      setParkingSlots(parkingSlotArray);
-    } catch (error) {
-      console.error(ErrorLabels.dropdown + type, error);
-    }
-  };
-
   if (isLoading) {
     return <div className="dropdown-loading">{DropdownLabels.loading}</div>;
   }
@@ -63,6 +29,8 @@ const DropDownParkingSlots = ({
       </label>
       <select
         className="dropdown-select"
+        type={type}
+        attribute={attribute}
         defaultValue=""
         onChange={onChange}
         required

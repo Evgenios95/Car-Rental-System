@@ -1,4 +1,5 @@
 .page-title {
   font: var(--mont-butterfly);
+  font-weight: 600;
   position: relative;
 }

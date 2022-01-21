@@ -27,7 +27,7 @@ const RequestCarOverview = ({ alreadyRequested, chosenNow, setChosenNow }) => {
 
   return (
     <GrayColumn>
-      <Subtitle stitle="Request cars"></Subtitle>
+      <Subtitle stitle="Request cars" />
       <div className="request-car-groups">
         <LabeledInput
           type="number"
@@ -35,6 +35,7 @@ const RequestCarOverview = ({ alreadyRequested, chosenNow, setChosenNow }) => {
           className="request-input"
           onChange={(e) => onChangeIntHandler(e, "number", setFormData)}
         ></LabeledInput>
+
         <DropDown
           type={ClassnameLabels.carGroup}
           attribute={ColumnLabels.carGroup.name}
@@ -42,6 +43,7 @@ const RequestCarOverview = ({ alreadyRequested, chosenNow, setChosenNow }) => {
           className="office-search-dropdown"
           onChange={(e) => onChangeHandler(e, "carGroup", setFormData)}
         ></DropDown>
+
         <Button
           btnText="Add car"
           className="btn--primary request-btn"

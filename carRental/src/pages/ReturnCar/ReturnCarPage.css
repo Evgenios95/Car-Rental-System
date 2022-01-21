@@ -3,3 +3,19 @@
   margin-top: 8px;
   padding: 10px;
 }
+.column-return-settings {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  margin-bottom: auto;
+}
+.mileage-input {
+  width: 210px;
+  margin-top: 15px;
+}
+.tank-checkbox {
+  margin-top: 23px;
+}
+.return-drop-down {
+  width: 210px;
+}

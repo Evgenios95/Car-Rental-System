@@ -1,15 +1,16 @@
 import "./LabeledInput.css";
 
-const LabeledInput = (props) => {
-  const {
-    labelText,
-    type,
-    inputPlaceholder,
-    onChange,
-    className,
-    defaultValue,
-  } = props;
-
+const LabeledInput = ({
+  labelText,
+  type,
+  inputPlaceholder,
+  onChange,
+  className,
+  defaultValue,
+  min,
+  title,
+  pattern,
+}) => {
   return (
     <div className={`input-container ${className}`}>
       <label htmlFor="labelText">{labelText}</label>
@@ -18,6 +19,9 @@ const LabeledInput = (props) => {
         placeholder={inputPlaceholder}
         onChange={onChange}
         defaultValue={defaultValue}
+        min={min}
+        pattern={pattern}
+        title={title}
         required
       />
     </div>

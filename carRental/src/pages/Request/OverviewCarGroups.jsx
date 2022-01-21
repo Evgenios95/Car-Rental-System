@@ -26,15 +26,24 @@ const OverviewCarGroup = ({
   getInfo,
   setAlreadyRequested,
 }) => {
+  //Make a function for this one.
+  var date = new Date();
+  var isoDateTime = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .split("T")[0];
+
   return (
     <GrayColumn>
-      <Subtitle stitle="Overview of booked car groups"></Subtitle>
+      <Subtitle stitle="Overview of booked car groups" />
+
       <div className="request-car-groups">
         <LabeledInput
           type="date"
           labelText="From date*"
+          min={isoDateTime}
           className="request-input"
-        ></LabeledInput>
+        />
+
         <DropDown
           type={ClassnameLabels.rentalOffice}
           attribute={ColumnLabels.rentalOffice.officeNo}
@@ -43,7 +52,8 @@ const OverviewCarGroup = ({
           onChange={(e) => {
             onChangeHandler(e, "rentalOffice", setFormdata);
           }}
-        ></DropDown>
+        />
+
         <Button
           btnText="Get info"
           className="btn--primary request-btn"
@@ -53,13 +63,14 @@ const OverviewCarGroup = ({
             await getAlreadyRequested(formData, setAlreadyRequested);
             setGetInfo(true);
           }}
-        ></Button>
+        />
       </div>
+
       <CarGroupTable
         numberOfCarGroups={numberOfCarGroups}
         carGroupsParkingSpot={carGroupsParkingSpot}
         getInfo={getInfo}
-      ></CarGroupTable>
+      />
     </GrayColumn>
   );
 };

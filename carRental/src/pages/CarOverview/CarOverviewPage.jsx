@@ -37,7 +37,7 @@ const CarOverviewPage = () => {
     <>
       <NavBar />
       <PageTitle title={TitleLabels.carOverview} />
-      <GrayContainer>
+      <GrayContainer className="car-overview-gray-container">
         <DropDown
           type={ClassnameLabels.rentalOffice}
           attribute={ColumnLabels.rentalOffice.officeNo}
@@ -53,6 +53,7 @@ const CarOverviewPage = () => {
             )
           }
         />
+
         <Button
           btnText="Reset Table"
           className="btn--primary reset-table-btn"

@@ -5,7 +5,7 @@ import { TitleLabels } from "../../utils/constants/general-labels";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import { useState } from "react";
-import OverviewCarGroup from "./OverviewCarGroups";
+import OverviewCarGroup from "../../components/OverviewRequestAndRelease/OverviewCarGroups";
 import RequestCarOverview from "./private/RequestCarOverview";
 import { useNavigate } from "react-router-dom";
 

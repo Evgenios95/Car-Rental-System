@@ -1,5 +1,5 @@
 import GrayContainer from "../../components/Layout/GrayContainer";
-import OverviewCarGroup from "../Request/OverviewCarGroups";
+import OverviewCarGroup from "../../components/OverviewRequestAndRelease/OverviewCarGroups";
 import { useState } from "react";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import GrayColumn from "../../components/Layout/GrayColumn";

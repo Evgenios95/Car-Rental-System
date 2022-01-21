@@ -42,6 +42,9 @@ const OverviewCarGroup = ({
           labelText="From date*"
           min={isoDateTime}
           className="request-input"
+          onChange={(e) => {
+            onChangeHandler(e, "date", setFormdata);
+          }}
         />
 
         <DropDown

@@ -1,4 +1,4 @@
-const RequestTable = ({ alreadyRequested, chosenNow }) => {
+const RequestTable = ({ alreadyRequested }) => {
   return (
     <>
       <div className="request-second-table">
@@ -29,18 +29,6 @@ const RequestTable = ({ alreadyRequested, chosenNow }) => {
               <td>{alreadyRequested.stationCar}</td>
               <td>{alreadyRequested.automatic}</td>
               <td>{alreadyRequested.smallAut}</td>
-            </tr>
-            <tr>
-              <td>Chosen now</td>
-              <td>{chosenNow.small}</td>
-              <td>{chosenNow.medium}</td>
-              <td>{chosenNow.large}</td>
-              <td>{chosenNow.xLarge}</td>
-              <td>{chosenNow.family}</td>
-              <td>{chosenNow.business}</td>
-              <td>{chosenNow.stationCar}</td>
-              <td>{chosenNow.automatic}</td>
-              <td>{chosenNow.smallAut}</td>
             </tr>
           </tbody>
         </table>

@@ -13,15 +13,16 @@ import { useEffect } from "react";
 import AllRequestTable from "./private/AllRequestTable";
 import ReleaseOverview from "./private/ReleaseOverview";
 import { createAllReleaseObjects } from "../../utils/parse-functions/requestFunctions";
+import { useNavigate } from "react-router-dom";
 
 const ReleasePage = () => {
+  const navigate = useNavigate();
   const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
   const [formData, setFormdata] = useState([]);
   const [carGroupsParkingSpot, setCarGroupsParkingSpot] = useState([]);
   const [getInfo, setGetInfo] = useState(false);
   const [requests, setRequests] = useState([]);
   const [chosenRequest, setChosenRequest] = useState([]);
-  console.log("formdata state", formData);
 
   useEffect(async () => {
     await getAllRequests(setRequests);
@@ -66,14 +67,6 @@ const ReleasePage = () => {
 
       <GrayContainer className="request-second-container">
         <PopUpButton
-          popupQuestion="Are you sure you would like to cancel your changes?"
-          popupBtnText="Cancel"
-          confirmBtnText="Yes"
-          rejectBtnText="No"
-          onConfirmClick={() => window.location.reload(false)}
-        />
-
-        <PopUpButton
           popupQuestion="Are you sure you would like to release the chosen cars?"
           popupBtnText="Release cars"
           confirmBtnText="Yes"
@@ -83,14 +76,20 @@ const ReleasePage = () => {
             createAllReleaseObjects(chosenRequest, formData)
           }
         />
-
         <PopUpButton
-          popupQuestion="Your current changes will be lost."
-          popupBtnText="Go back"
+          popupQuestion="If you go to booking overview, not confirmed releases and changes will be lost."
+          popupBtnText="Booking overview"
           className="btn--white"
-          confirmBtnText="Go back"
+          confirmBtnText="Go"
           rejectBtnText="Keep editing"
-          onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
+          onConfirmClick={() => navigate("/booking-overview")}
+        />
+        <PopUpButton
+          popupQuestion="Are you sure you would like to cancel your changes?"
+          popupBtnText="Cancel"
+          confirmBtnText="Yes"
+          rejectBtnText="No"
+          onConfirmClick={() => window.location.reload(false)}
         />
       </GrayContainer>
     </>

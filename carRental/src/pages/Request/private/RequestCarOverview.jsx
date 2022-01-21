@@ -13,17 +13,17 @@ import {
   onChangeIntHandler,
   onChangeHandler,
 } from "../../../utils/functions/onChangeHandlers";
+import { sendAllChosenRequests } from "../../../utils/parse-functions/requestFunctions";
+import { getAlreadyRequested } from "../../../utils/parse-functions/cloudFunctions";
+import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
-const RequestCarOverview = ({ alreadyRequested, chosenNow, setChosenNow }) => {
-  const [formData, setFormData] = useState([]);
-  // const addRequest = (formData, setChosenNow) => {
-  // const carGroup = formData.carGroup;
-  // setChosenNow((prevState) => {
-  // let chosenObject = Object.assign({}, prevState.chosenObject);
-  // chosenObject.carGroup += formData.number;
-  // return { chosenObject };
-  // });
-  // };
+const RequestCarOverview = ({
+  alreadyRequested,
+  setAlreadyRequested,
+  formData,
+  setFormData,
+}) => {
+  const [requestSum, setRequestSum] = useState([0]);
 
   return (
     <GrayColumn>
@@ -44,19 +44,20 @@ const RequestCarOverview = ({ alreadyRequested, chosenNow, setChosenNow }) => {
           onChange={(e) => onChangeHandler(e, "carGroup", setFormData)}
         ></DropDown>
 
-        <Button
-          btnText="Add car"
-          className="btn--primary request-btn"
-          onClick={(e) => {
-            alert("sorry the button is not working at the moment :(");
-            // addRequest(formData, setChosenNow);
+        <PopUpButton
+          popupQuestion={`Are you sure you would like to send a request for ${formData.number} ${formData.carGroup} car(s), for rental office ${formData.rentalOffice}, with this delivery date ${formData.date}?`}
+          popupBtnText="Send request"
+          confirmBtnText="Yes"
+          rejectBtnText="No"
+          btnClassName="btn--primary request-btn"
+          onConfirmClick={async () => {
+            await sendAllChosenRequests(formData);
+            await getAlreadyRequested(formData, setAlreadyRequested);
           }}
-        ></Button>
+        />
       </div>
-      <RequestTable
-        alreadyRequested={alreadyRequested}
-        chosenNow={chosenNow}
-      ></RequestTable>
+      {/* <p>Number of succesfully requested cars in this session ${requestSum}</p> */}
+      <RequestTable alreadyRequested={alreadyRequested}></RequestTable>
     </GrayColumn>
   );
 };

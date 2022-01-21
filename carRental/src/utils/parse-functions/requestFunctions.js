@@ -18,7 +18,7 @@ export const getAllRequests = async (setRequests) => {
   const requestArray = [];
   try {
     const results = await query.find();
-    console.log(results);
+
     for (const object of results) {
       const requestObject = {
         rentalOffice: object
@@ -108,5 +108,43 @@ export const updateRequestAfterRelease = async (requestId) => {
     }
   } catch (error) {
     console.error("Error while retrieving object Request", error);
+  }
+};
+
+export const createRequest = async (formData) => {
+  const object = new Parse.Object(ClassnameLabels.request);
+  const officePointer = await getOfficePointer(formData.rentalOffice);
+  const carGrouppointer = await getCarGroupPointer(formData.carGroup);
+  object.set(ColumnLabels.request.rentalOffice, officePointer);
+  object.set(ColumnLabels.request.carGroup, carGrouppointer);
+  object.set(ColumnLabels.request.deliveryDate, new Date(formData.date));
+  object.set(ColumnLabels.request.resolved, "no");
+  try {
+    const result = await object.save();
+    console.log("Request created", result);
+  } catch (error) {
+    console.error("Error while creating Request: ", error);
+  }
+};
+
+export const sendAllChosenRequests = async (formData) => {
+  if (
+    !formData.date === undefined &&
+    !formData.carGroup === undefined &&
+    !formData.rentalOffice === undefined &&
+    !formData.number === undefined
+  ) {
+    for (let i = 0; i < formData.number; ++i) {
+      try {
+        await createRequest(formData);
+      } catch (error) {
+        console.log("Error while sending all chosen requests", error);
+      }
+    }
+    alert(`You have succesfully send a request for ${formData.number} car(s)!`);
+  } else {
+    alert(
+      "You need to fill out all fields: date, rental office, amount and car group before sending the request."
+    );
   }
 };

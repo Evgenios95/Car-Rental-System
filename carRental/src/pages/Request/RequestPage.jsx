@@ -7,30 +7,16 @@ import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import { useState } from "react";
 import OverviewCarGroup from "./OverviewCarGroups";
 import RequestCarOverview from "./private/RequestCarOverview";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RequestPage = () => {
+  const navigate = useNavigate();
   const [numberOfCarGroups, setNumberOfCarGroups] = useState([]);
-  const [formData, setFormdata] = useState([]);
+  const [formData, setFormData] = useState([]);
   const [carGroupsParkingSpot, setCarGroupsParkingSpot] = useState([]);
   const [getInfo, setGetInfo] = useState(false);
   const [alreadyRequested, setAlreadyRequested] = useState([]);
-  const [chosenNow, setChosenNow] = useState([]);
 
-  const chosenObject = {
-    small: 0,
-    medium: 0,
-    large: 0,
-    xLarge: 0,
-    family: 0,
-    business: 0,
-    stationCar: 0,
-    automatic: 0,
-    smallAut: 0,
-  };
-  useEffect(() => {
-    setChosenNow(chosenObject);
-  }, []);
   return (
     <>
       <NavBar />
@@ -39,7 +25,7 @@ const RequestPage = () => {
       <GrayContainer>
         <OverviewCarGroup
           formData={formData}
-          setFormdata={setFormdata}
+          setFormdata={setFormData}
           numberOfCarGroups={numberOfCarGroups}
           setNumberOfCarGroups={setNumberOfCarGroups}
           carGroupsParkingSpot={carGroupsParkingSpot}
@@ -50,38 +36,28 @@ const RequestPage = () => {
         />
         <RequestCarOverview
           alreadyRequested={alreadyRequested}
-          chosenNow={chosenNow}
-          setChosenNow={setChosenNow}
+          setAlreadyRequested={setAlreadyRequested}
+          formData={formData}
+          setFormData={setFormData}
         />
       </GrayContainer>
 
       <GrayContainer className="request-second-container">
         <PopUpButton
-          popupQuestion="Are you sure you would like to cancel your changes?"
-          popupBtnText="Cancel"
+          popupQuestion="The page will be reset, but succesfully sended request will not be lost."
+          popupBtnText="Reset page"
           confirmBtnText="Yes"
           rejectBtnText="No"
           onConfirmClick={() => window.location.reload(false)}
         />
 
         <PopUpButton
-          popupQuestion="Are you sure you would like to send request for chosen cars?"
-          popupBtnText="Send request"
-          confirmBtnText="Yes"
-          rejectBtnText="No"
-          btnClassName="btn--primary"
-          onConfirmClick={() =>
-            alert("Sorry the button is not working at the moment :(")
-          }
-        />
-
-        <PopUpButton
-          popupQuestion="Your current changes will be lost."
-          popupBtnText="Go back"
+          popupQuestion="Your current changes will be lost, but succesfully sended request will not be lost."
+          popupBtnText="Booking overview"
           className="btn--white"
-          confirmBtnText="Go back"
+          confirmBtnText="Go"
           rejectBtnText="Keep editing"
-          onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
+          onConfirmClick={() => navigate("/booking-overview")}
         />
       </GrayContainer>
     </>

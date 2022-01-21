@@ -2,7 +2,7 @@
   max-width: 250px;
   width: 320px;
   margin-top: auto;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .office-search-dropdown {
@@ -11,8 +11,8 @@
 }
 
 .request-btn {
-  margin-top: auto;
-  margin-bottom: 4px;
+  margin-top: 30px;
+  margin-bottom: auto;
   height: 40px;
   width: 210px;
 }

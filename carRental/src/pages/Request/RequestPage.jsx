@@ -54,7 +54,7 @@ const RequestPage = () => {
         <PopUpButton
           popupQuestion="Your current changes will be lost, but succesfully sended request will not be lost."
           popupBtnText="Booking overview"
-          className="btn--white"
+          btnClassName="btn--primary"
           confirmBtnText="Go"
           rejectBtnText="Keep editing"
           onConfirmClick={() => navigate("/booking-overview")}

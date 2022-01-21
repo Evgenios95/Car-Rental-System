@@ -44,19 +44,16 @@ const RequestCarOverview = ({
           onChange={(e) => onChangeHandler(e, "carGroup", setFormData)}
         ></DropDown>
 
-        <PopUpButton
-          popupQuestion={`Are you sure you would like to send a request for ${formData.number} ${formData.carGroup} car(s), for rental office ${formData.rentalOffice}, with this delivery date ${formData.date}?`}
-          popupBtnText="Send request"
-          confirmBtnText="Yes"
-          rejectBtnText="No"
-          btnClassName="btn--primary request-btn"
-          onConfirmClick={async () => {
+        <Button
+          btnText="Send request"
+          className="btn--primary request-btn"
+          onClick={async () => {
             await sendAllChosenRequests(formData);
             await getAlreadyRequested(formData, setAlreadyRequested);
           }}
         />
       </div>
-      {/* <p>Number of succesfully requested cars in this session ${requestSum}</p> */}
+
       <RequestTable alreadyRequested={alreadyRequested}></RequestTable>
     </GrayColumn>
   );

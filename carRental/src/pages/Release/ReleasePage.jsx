@@ -79,7 +79,7 @@ const ReleasePage = () => {
         <PopUpButton
           popupQuestion="If you go to booking overview, not confirmed releases and changes will be lost."
           popupBtnText="Booking overview"
-          className="btn--white"
+          btnClassName="btn--primary"
           confirmBtnText="Go"
           rejectBtnText="Keep editing"
           onConfirmClick={() => navigate("/booking-overview")}

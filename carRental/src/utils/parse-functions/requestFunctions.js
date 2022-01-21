@@ -129,10 +129,10 @@ export const createRequest = async (formData) => {
 
 export const sendAllChosenRequests = async (formData) => {
   if (
-    !formData.date === undefined &&
-    !formData.carGroup === undefined &&
-    !formData.rentalOffice === undefined &&
-    !formData.number === undefined
+    formData.date != undefined &&
+    formData.carGroup != undefined &&
+    formData.rentalOffice != undefined &&
+    formData.number > 0
   ) {
     for (let i = 0; i < formData.number; ++i) {
       try {

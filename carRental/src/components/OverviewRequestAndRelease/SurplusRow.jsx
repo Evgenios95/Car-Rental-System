@@ -1,5 +1,4 @@
 const SurplusRow = ({ carGroupsParkingSpot, numberOfCarGroups, getInfo }) => {
-  console.log(getInfo);
   return getInfo ? (
     <tr>
       <td>Surplus</td>
@@ -15,7 +14,6 @@ const SurplusRow = ({ carGroupsParkingSpot, numberOfCarGroups, getInfo }) => {
     </tr>
   ) : (
     <tr>
-      {" "}
       <td>Surplus</td>
       <td></td>
       <td></td>

@@ -11,6 +11,8 @@ export const ClassnameLabels = {
   car: "Car",
   carState: "CarState",
   parkingSlot: "ParkingSlot",
+  request: "Request",
+  releases: "Releases",
 };
 
 export const ColumnLabels = {
@@ -67,6 +69,19 @@ export const ColumnLabels = {
     occupiedParkingSlots: "occupiedParkingSlots",
   },
 
+  request: {
+    rentalOffice: "rentalOffice",
+    deliveryDate: "deliveryDate",
+    carGroup: "carGroup",
+    resolved: "resolved",
+  },
+  releases: {
+    carGroup: "carGroup",
+    deliveryDate: "deliveryDate",
+    releasingOffice: "releasingOffice",
+    requestingOffice: "requestingOffice",
+  },
+
   nestedPointers: {
     carIdAndState: "carId.carState",
     carIdAndGroup: "carId.carGroup",
@@ -97,6 +112,7 @@ export const ErrorLabels = {
   getCustomerObjectById: "Error while retrieving object Customer",
   updateBooking: "Error while updating Booking",
   updateCustomer: "Error while updating Customer",
+  request: "Error while retrieving Requests",
 };
 
 export const HardcodedFieldLabels = {

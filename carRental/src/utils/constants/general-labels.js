@@ -17,10 +17,8 @@ export const NavigationLabels = {
 };
 
 export const TitleLabels = {
-  request:
-    "Request Cars (Not fully funtional, but possible to get info about cargroups)",
-  release:
-    "Release Cars (Not fully funtional, but possible to get info about cargroups)",
+  request: "Request Cars",
+  release: "Release Cars",
   bookingOverview: "Booking Overview",
   book: "Create Booking",
   carOverview: "Car Overview",

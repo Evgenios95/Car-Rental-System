@@ -66,3 +66,16 @@ export const getCarGroupsParkingSpot = async (
     console.log(error);
   }
 };
+
+export const getAlreadyRequested = async (formData, setAlreadyRequested) => {
+  const office = await getOfficePointer(formData.rentalOffice);
+  const params = {
+    rentalOffice: office,
+  };
+  try {
+    const fetchCargroups = await Parse.Cloud.run("getSendedRequests", params);
+    setAlreadyRequested(fetchCargroups);
+  } catch (error) {
+    console.log(error);
+  }
+};

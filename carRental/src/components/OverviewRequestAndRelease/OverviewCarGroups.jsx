@@ -10,6 +10,7 @@ import DropDown from "../../components/DropDowns/DropDown";
 import Button from "../../components/Button/Button";
 import CarGroupTable from "./CarGroupTable";
 import {
+  getAlreadyRequested,
   getBookedCarGroups,
   getCarGroupsParkingSpot,
 } from "../../utils/parse-functions/cloudFunctions";
@@ -23,6 +24,7 @@ const OverviewCarGroup = ({
   setCarGroupsParkingSpot,
   setGetInfo,
   getInfo,
+  setAlreadyRequested,
 }) => {
   //Make a function for this one.
   var date = new Date();
@@ -40,6 +42,9 @@ const OverviewCarGroup = ({
           labelText="From date*"
           min={isoDateTime}
           className="request-input"
+          onChange={(e) => {
+            onChangeHandler(e, "date", setFormdata);
+          }}
         />
 
         <DropDown
@@ -58,6 +63,7 @@ const OverviewCarGroup = ({
           onClick={async () => {
             await getBookedCarGroups(formData, setNumberOfCarGroups);
             await getCarGroupsParkingSpot(formData, setCarGroupsParkingSpot);
+            await getAlreadyRequested(formData, setAlreadyRequested);
             setGetInfo(true);
           }}
         />

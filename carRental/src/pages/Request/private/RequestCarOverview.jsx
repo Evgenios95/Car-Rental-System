@@ -8,8 +8,23 @@ import {
   ClassnameLabels,
   ColumnLabels,
 } from "../../../utils/constants/parse-labels";
+import { useState } from "react";
+import {
+  onChangeIntHandler,
+  onChangeHandler,
+} from "../../../utils/functions/onChangeHandlers";
+import { sendAllChosenRequests } from "../../../utils/parse-functions/requestFunctions";
+import { getAlreadyRequested } from "../../../utils/parse-functions/cloudFunctions";
+import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
-const RequestCarOverview = () => {
+const RequestCarOverview = ({
+  alreadyRequested,
+  setAlreadyRequested,
+  formData,
+  setFormData,
+}) => {
+  const [requestSum, setRequestSum] = useState([0]);
+
   return (
     <GrayColumn>
       <Subtitle stitle="Request cars" />
@@ -18,6 +33,7 @@ const RequestCarOverview = () => {
           type="number"
           labelText="Amount*"
           className="request-input"
+          onChange={(e) => onChangeIntHandler(e, "number", setFormData)}
         ></LabeledInput>
 
         <DropDown
@@ -25,17 +41,20 @@ const RequestCarOverview = () => {
           attribute={ColumnLabels.carGroup.name}
           labeltext={"Car group*"}
           className="office-search-dropdown"
+          onChange={(e) => onChangeHandler(e, "carGroup", setFormData)}
         ></DropDown>
 
         <Button
-          btnText="Add car"
+          btnText="Send request"
           className="btn--primary request-btn"
-          onClick={() => {
-            console.log("Add car is clicked");
+          onClick={async () => {
+            await sendAllChosenRequests(formData);
+            await getAlreadyRequested(formData, setAlreadyRequested);
           }}
-        ></Button>
+        />
       </div>
-      <RequestTable></RequestTable>
+
+      <RequestTable alreadyRequested={alreadyRequested}></RequestTable>
     </GrayColumn>
   );
 };

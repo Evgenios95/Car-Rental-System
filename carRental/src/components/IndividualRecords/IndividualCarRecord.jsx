@@ -12,7 +12,7 @@ const IndividualCarRecord = ({ booking, bookingId, car }) => {
           <th>Fuel type</th>
           <th>License number</th>
           <th>Group</th>
-          <th>Parking slot</th>
+          <th>Parking spot</th>
           <th>Rental office</th>
           <th>Mileage</th>
           <th>Tank full</th>

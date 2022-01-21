@@ -14,7 +14,6 @@ const SurplusRow = ({ carGroupsParkingSpot, numberOfCarGroups, getInfo }) => {
     </tr>
   ) : (
     <tr>
-      {" "}
       <td>Surplus</td>
       <td></td>
       <td></td>

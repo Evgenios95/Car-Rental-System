@@ -30,7 +30,7 @@ export const getAllRequests = async (setRequests) => {
         deliveryDate: object
           .get(ColumnLabels.request.deliveryDate)
           .toString()
-          .substring(0, 21),
+          .substring(0, 16),
         resolved: object.get(ColumnLabels.request.resolved),
         requestId: object.id,
       };

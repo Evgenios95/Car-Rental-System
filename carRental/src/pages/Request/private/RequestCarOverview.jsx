@@ -15,7 +15,6 @@ import {
 } from "../../../utils/functions/onChangeHandlers";
 import { sendAllChosenRequests } from "../../../utils/parse-functions/requestFunctions";
 import { getAlreadyRequested } from "../../../utils/parse-functions/cloudFunctions";
-import PopUpButton from "../../../components/PopUpButton/PopUpButton";
 
 const RequestCarOverview = ({
   alreadyRequested,

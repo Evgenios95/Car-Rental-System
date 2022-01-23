@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { chooseCar } from "../../../utils/parse-functions/updateFunctions";
-import { setCarElements } from "../../../utils/parse-functions/carTableFunctions";
+import { chooseCar } from "../../../../utils/parse-functions/updateFunctions";
+import { setCarElementsWhenEdit } from "../../../../utils/parse-functions/carTableFunctions";
 
-const EditCarTable = ({ setChosenCar }) => {
+const EditCarTable = ({ setChosenCar, rentalOffice }) => {
   const [loading, setLoading] = useState(true);
   const [cars, setCars] = useState([]);
   const [error, setError] = useState();
 
   useEffect(async () => {
-    await setCarElements(setCars, setError);
+    await setCarElementsWhenEdit(setCars, setError, rentalOffice);
     setLoading(false);
   }, []);
 
@@ -31,14 +31,14 @@ const EditCarTable = ({ setChosenCar }) => {
             <th>Fuel type</th>
             <th>License number</th>
             <th>Group</th>
-            <th>Parking slot</th>
+            <th>Parking spot</th>
             <th>Rental office</th>
-            <th>State</th>
             <th>Mileage</th>
             <th>Tank full</th>
             <th>Person capacity</th>
             <th>Small luggage</th>
             <th>Big luggage</th>
+            <th>State</th>
             <th></th>
           </tr>
         </thead>
@@ -52,12 +52,12 @@ const EditCarTable = ({ setChosenCar }) => {
               <td>{car.carGroup}</td>
               <td>{car.parkingSlot}</td>
               <td>{car.rentalOffice}</td>
-              <td>{car.carState}</td>
               <td>{car.mileage}</td>
               <td>{car.tankFull}</td>
               <td>{car.personCapacity}</td>
               <td>{car.smallLuggage}</td>
               <td>{car.bigLuggage}</td>
+              <td>{car.carState}</td>
 
               <td>
                 <FontAwesomeIcon

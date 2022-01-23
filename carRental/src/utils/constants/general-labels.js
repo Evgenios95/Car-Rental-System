@@ -13,17 +13,24 @@ export const NavigationLabels = {
   bookingOverview: "Booking Overview",
   release: "Release",
   request: "Request",
+  statistics: "Statistics",
 };
 
 export const TitleLabels = {
-  request: "Request Car",
-  release: "Release Car",
-  find: "Find Booking",
-  book: "Book",
+  request: "Request Cars",
+  release: "Release Cars",
+  bookingOverview: "Booking Overview",
+  book: "Create Booking",
   carOverview: "Car Overview",
   individualBooking: "Individual Booking",
+  individualCar: "Individual Car",
   returnAndPickUp: "Return and pick up",
   editBooking: "Edit booking",
+  editBookingCar: "Edit car for booking",
+  editCustomer: "Edit customer",
+  bookingStats: "Booking Statistics",
+  pickUpCar: "Pick Up Car",
+  returnCar: "Return Car",
 };
 
 export const SubtitleLabels = {
@@ -73,4 +80,10 @@ export const PickUpCarLabels = {
 export const DropdownLabels = {
   loading: "Loading...",
   defaultOption: "Select an option",
+};
+
+export const CloudFunctionsLabels = {
+  carGroupBooked: "carGroupBooked",
+  bookings: "bookings",
+  carGroupInParkingSpot: "carGroupInParkingSpot",
 };

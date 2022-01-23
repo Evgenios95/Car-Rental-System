@@ -53,13 +53,19 @@ export const createBooking = async (e, formData, navigate) => {
   myNewObject.set(ColumnLabels.booking.returnOffice, returnOfficePointer);
   myNewObject.set(ColumnLabels.booking.carGroup, carGroupPointer);
   myNewObject.set(ColumnLabels.booking.bookingState, bookingStatePointer);
-  myNewObject.set(ColumnLabels.booking.car, formData.car);
+
   try {
     const result = await myNewObject.save();
-    // Access the Parse Object attributes using the .GET method
-
     console.log("Booking created", result);
-    navigate("/booking-overview");
+
+    // Different navigation when assigning a car for walkins
+    if (formData.specificCar == "Now") {
+      alert("Booking successfully created. \nChoose a specific car now.");
+      navigate(`/individual-booking/${result.id}`);
+    } else {
+      alert("Booking successfully created. \nCar to be assigned later.");
+      navigate("/booking-overview");
+    }
   } catch (error) {
     console.error(ErrorLabels.booking, error);
   }

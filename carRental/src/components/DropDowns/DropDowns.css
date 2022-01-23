@@ -1,4 +1,4 @@
-.drop {
+.dropdown-select {
   font: var(--open-bee);
   color: var(--global-dimgray);
 
@@ -10,19 +10,23 @@
   text-align: center;
 }
 
-.drop:focus {
+.dropdown-select:focus {
   outline: none;
 }
 
-.label {
+.dropdown-label {
   font: var(--mont-bee);
   color: var(--global-green-19);
 
   display: block;
   margin-bottom: 7px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 option[value=""][disabled] {
   display: none;
+}
+
+.dropdown-container {
+  margin-bottom: 20px;
 }

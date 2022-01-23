@@ -7,19 +7,22 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getBookingById } from "../../utils/parse-functions/individualBookingFunctions";
 IndividualCarRecord;
-import { SubtitleLabels } from "../../utils/constants/general-labels";
+import {
+  SubtitleLabels,
+  TitleLabels,
+} from "../../utils/constants/general-labels";
 import LabeledInput from "../../components/LabeledInput/LabeledInput";
 import Checkbox from "../../components/CheckBox/CheckBox";
-import Button from "../../components/Button/Button";
 import "./PickUpCarPage.css";
 import { pickUpcar } from "../../utils/parse-functions/pickUpFunctions";
 import {
   onChangeCheckBoxHandler,
   onChangeIntHandler,
 } from "../../utils/functions/onChangeHandlers";
-import IndividualBookingRecord from "../IndividualBooking/IndividualBookingRecord";
-import IndividualCarRecord from "../IndividualBooking/IndividualCarRecord";
-import IndividualCustomerRecord from "../IndividualBooking/IndividualCustomerRecord";
+import IndividualCarRecord from "../../components/IndividualRecords/IndividualCarRecord";
+import IndividualCustomerRecord from "../../components/IndividualRecords/IndividualCustomerRecord";
+import IndividualBookingRecord from "../../components/IndividualRecords/IndividualBookingRecord";
+import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const PickUpCarPage = () => {
   const { bookingId } = useParams();
@@ -39,8 +42,9 @@ const PickUpCarPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle="Pick up car"></PageTitle>
+      <PageTitle title={TitleLabels.pickUpCar} />
       <form
+        id="pickup-car-form"
         onSubmit={(e) =>
           pickUpcar(
             e,
@@ -50,7 +54,8 @@ const PickUpCarPage = () => {
             parseInt(pickUpData.mileage),
             pickUpData.tankFull,
             bookingId,
-            navigate
+            navigate,
+            car.mileage
           )
         }
       >
@@ -78,33 +83,47 @@ const PickUpCarPage = () => {
         </GrayContainer>
 
         <GrayContainer>
-          <Subtitle stitle="Pick up settings"></Subtitle>
           <GrayColumn>
-            <Checkbox
-              label="Tank full?"
-              onCheckboxChange={(e) =>
-                onChangeCheckBoxHandler(e, "tankFull", setPickUpData)
-              }
-            ></Checkbox>
-            <LabeledInput
-              labelText="Mileage"
-              type="number"
-              onChange={(e) => onChangeIntHandler(e, "mileage", setPickUpData)}
-            ></LabeledInput>
+            <Subtitle stitle="Pick up settings"></Subtitle>
+            <div className="column-pick-up-settings">
+              <LabeledInput
+                labelText="Mileage"
+                type="number"
+                onChange={(e) =>
+                  onChangeIntHandler(e, "mileage", setPickUpData)
+                }
+                className="mileage-input-pick-up"
+              />
+              <div className="tank-checkbox-pick-up">
+                <Checkbox
+                  label="Tank full?"
+                  onCheckboxChange={(e) =>
+                    onChangeCheckBoxHandler(e, "tankFull", setPickUpData)
+                  }
+                />
+              </div>
+            </div>
           </GrayColumn>
         </GrayContainer>
 
         <GrayContainer className="pick-up-car-third-container">
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Pick up car"
+          <PopUpButton
+            popupQuestion="Pick up the car?"
+            popupBtnText="Pick up"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            form="pickup-car-form"
+            confirmBtnType="submit"
+            btnClassName="btn--primary"
           />
 
-          <Button
-            btnText="Go back"
+          <PopUpButton
+            popupQuestion="Your current changes will be lost. Go back anyway?"
+            popupBtnText="Go back"
             className="btn--white"
-            onClick={() => navigate(`/individual-booking/${bookingId}`)}
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => navigate(`/individual-booking/${bookingId}`)}
           />
         </GrayContainer>
       </form>

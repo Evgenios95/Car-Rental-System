@@ -14,13 +14,22 @@ export const pickUpcar = async (
   mileage,
   tankFull,
   bookingId,
-  navigate
+  navigate,
+  oldMileage
 ) => {
-  e.preventDefault();
-  await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
-  await updateCarWhenPickUp(carId, mileage, tankFull);
-  await updateBookingForPickUp(bookingId);
-  navigate("/booking-overview");
+  if (mileage >= oldMileage) {
+    e.preventDefault();
+    await changeParkingSlotWhenPickUp(parkingSlot, officeNumber);
+    await updateCarWhenPickUp(carId, mileage, tankFull);
+    await updateBookingForPickUp(bookingId);
+    alert("Car successfully picked up!");
+    navigate("/booking-overview");
+  } else {
+    e.preventDefault();
+    alert(
+      "Mileage has to be equal or larger, than the number already registered for the car!"
+    );
+  }
 };
 
 export const updateCarWhenPickUp = async (carId, mileage, tankFull) => {
@@ -46,6 +55,7 @@ export const updateCarWhenPickUp = async (carId, mileage, tankFull) => {
     console.error("Error while retrieving object Car", error);
   }
 };
+
 export const updateBookingForPickUp = async (bookingId) => {
   const Booking = Parse.Object.extend(ClassnameLabels.booking);
   const query = new Parse.Query(Booking);

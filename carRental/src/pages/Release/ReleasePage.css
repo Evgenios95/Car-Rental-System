@@ -1,0 +1,21 @@
+.release-second-column {
+  display: flex;
+  flex-direction: column;
+  column-gap: 30px;
+}
+.release-second-table {
+  padding: 10px;
+  height: 200px;
+  width: 100%;
+  overflow-y: auto;
+}
+.release-third-table {
+  padding: 10px;
+  height: 150px;
+  width: 100%;
+  overflow-y: auto;
+}
+.release-summary {
+  font: var(--open-caterpillar);
+  margin-top: 30px;
+}

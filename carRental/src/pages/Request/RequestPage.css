@@ -1,0 +1,48 @@
+.request-input {
+  max-width: 250px;
+  width: 320px;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.office-search-dropdown {
+  max-width: 250px;
+  width: 320px;
+}
+
+.request-btn {
+  margin-top: 30px;
+  margin-bottom: auto;
+  height: 40px;
+  width: 210px;
+}
+
+.request-second-container {
+  justify-content: flex-end;
+}
+
+.request-car-groups {
+  display: flex;
+
+  flex-direction: row;
+  column-gap: 15px;
+  margin-bottom: 20px;
+}
+
+.first-table-request-release {
+  padding: 10px;
+  height: 170px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.request-second-table {
+  padding: 10px;
+  height: 150px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.request-car-groups > .dropdown-container {
+  margin-bottom: 0px;
+}

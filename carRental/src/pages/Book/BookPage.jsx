@@ -1,15 +1,17 @@
 import "./BookPage.css";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import Button from "../../components/Button/Button";
-import PickUpCar from "./PickUpCar";
-import CustomerInfo from "./CustomerInfo";
-import ReturnCar from "./ReturnCar";
+import PickUpCar from "./private/PickUpCar";
+import ReturnCar from "./private/ReturnCar";
 import NavBar from "../../components/NavBar/Navbar";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PopUpButton from "../../components/PopUpButton/PopUpButton";
 import GrayColumn from "../../components/Layout/GrayColumn";
 import { createBooking } from "../../utils/parse-functions/bookingComponentFunctions";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import { TitleLabels } from "../../utils/constants/general-labels";
+import CustomerInfo from "./private/CustomerInfo";
 
 const BookPage = () => {
   const navigate = useNavigate();
@@ -19,9 +21,12 @@ const BookPage = () => {
   return (
     <>
       <NavBar />
-
-      <form onSubmit={(e) => createBooking(e, formData, navigate)}>
-        <GrayContainer>
+      <PageTitle title={TitleLabels.book} />
+      <form
+        onSubmit={(e) => createBooking(e, formData, navigate)}
+        id="booking_form"
+      >
+        <GrayContainer className="book-page-container">
           <div className="booking-first-column">
             <GrayColumn>
               <PickUpCar setFormData={setFormData} />
@@ -42,10 +47,14 @@ const BookPage = () => {
         </GrayContainer>
 
         <GrayContainer className="booking-second-container">
-          <Button
-            type="submit"
-            className="btn--primary"
-            btnText="Create booking"
+          <PopUpButton
+            popupQuestion="Is the information correct? Create booking?"
+            popupBtnText="Book"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            confirmBtnType="submit"
+            form="booking_form"
+            btnClassName="btn--primary"
           />
 
           {location.pathname === "/book" ? (
@@ -61,10 +70,13 @@ const BookPage = () => {
               onClick={() => navigate("/book")}
             />
           )}
+
           <PopUpButton
-            popupQuestionText="Are you sure you wouldn like to cancel your changes?"
-            confirmChoiceButtonText="Yes"
-            rejectChoiceButtonText="No"
+            popupQuestion="Are you sure you would like to cancel your changes?"
+            popupBtnText="Cancel"
+            confirmBtnText="Yes"
+            rejectBtnText="No"
+            onConfirmClick={() => window.location.reload(false)}
           />
         </GrayContainer>
       </form>

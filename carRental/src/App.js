@@ -13,6 +13,9 @@ import LoginPage from "./pages/Login/LoginPage";
 import PickUpCarPage from "./pages/PickUpCar/PickUpCarPage";
 import ReturnCarPage from "./pages/ReturnCar/ReturnCarPage";
 import AuthWrapper from "./utils/auth/AuthWrapper";
+import BookingStatistics from "./pages/BookingStatistics/BookingStatisticsPage";
+import RequestPage from "./pages/Request/RequestPage";
+import ReleasePage from "./pages/Release/ReleasePage";
 
 function App() {
   return (
@@ -52,7 +55,15 @@ function App() {
               <BookPage />
             </AuthWrapper>
           }
-        />{" "}
+        />
+        <Route
+          path="/bookings-per-rental-office"
+          element={
+            <AuthWrapper>
+              <BookingStatistics />
+            </AuthWrapper>
+          }
+        />
         {/* Dynamic paths */}
         <Route
           path="/individual-booking/:bookingId"
@@ -79,7 +90,7 @@ function App() {
           }
         />
         <Route
-          path="/edit-car/:bookingId/:carId"
+          path="/edit-car/:bookingId/:carId/:rentalOffice"
           element={
             <AuthWrapper>
               <EditCarPage />
@@ -107,6 +118,24 @@ function App() {
           element={
             <AuthWrapper>
               <PickUpCarPage />
+            </AuthWrapper>
+          }
+        />
+
+        <Route
+          path="/request"
+          element={
+            <AuthWrapper>
+              <RequestPage />
+            </AuthWrapper>
+          }
+        />
+
+        <Route
+          path="/release"
+          element={
+            <AuthWrapper>
+              <ReleasePage />
             </AuthWrapper>
           }
         />

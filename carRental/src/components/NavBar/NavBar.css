@@ -7,11 +7,11 @@ a.text-white.nav-link span:hover {
 }
 
 div.container {
-  max-width: 80%;
+  max-width: 1300px;
 }
 
 #nav-dropdown {
-  color: white;
+  color: var(--global-white);
 }
 
 #nav-dropdown:hover {
@@ -20,4 +20,10 @@ div.container {
 
 div.dropdown-menu.show {
   background-color: var(--global-green-31);
+  text-align: center;
+  border: 2px solid var(--global-black);
+}
+
+.navbar-logout-text {
+  margin-right: 9px;
 }

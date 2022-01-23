@@ -1,15 +1,15 @@
-import "./BookPage.css";
+import "../BookPage.css";
 import {
   CustomerInfoLabels,
   GeneralLabels,
   SubtitleLabels,
-} from "../../utils/constants/general-labels";
-import Subtitle from "../../components/Subtitle/Subtitle";
-import LabeledInput from "../../components/LabeledInput/LabeledInput";
+} from "../../../utils/constants/general-labels";
+import Subtitle from "../../../components/Subtitle/Subtitle";
+import LabeledInput from "../../../components/LabeledInput/LabeledInput";
 import {
   onChangeIntHandler,
   onChangeHandler,
-} from "../../utils/functions/onChangeHandlers";
+} from "../../../utils/functions/onChangeHandlers";
 
 const CustomerInfo = ({ setFormData }) => {
   return (
@@ -38,12 +38,15 @@ const CustomerInfo = ({ setFormData }) => {
             labelText={CustomerInfoLabels.age}
             type="number"
             inputPlaceholder={GeneralLabels.placeholder}
+            min="18"
             onChange={(e) => onChangeIntHandler(e, "age", setFormData)}
           ></LabeledInput>
 
           <LabeledInput
             labelText={CustomerInfoLabels.driversLicensNo}
             type="text"
+            pattern="^[0-9]{8}$"
+            title="Insert a 8-digit driver's license!"
             inputPlaceholder={GeneralLabels.placeholder}
             onChange={(e) =>
               onChangeIntHandler(e, "driversLicenseNo", setFormData)
@@ -61,8 +64,10 @@ const CustomerInfo = ({ setFormData }) => {
 
           <LabeledInput
             labelText={CustomerInfoLabels.phoneNo}
-            type="tel"
+            type="text"
             inputPlaceholder={GeneralLabels.placeholder}
+            pattern="^[0-9]{8}$"
+            title="Insert an 8-digit phone-number!"
             onChange={(e) => onChangeIntHandler(e, "phoneNo", setFormData)}
           ></LabeledInput>
         </div>

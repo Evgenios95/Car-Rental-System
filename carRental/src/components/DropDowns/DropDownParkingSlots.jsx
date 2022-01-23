@@ -1,16 +1,22 @@
-import "./DropDown.css";
+import "./DropDowns.css";
 import React, { useEffect, useState } from "react";
 import { DropdownLabels } from "../../utils/constants/general-labels";
-import { setDropdownElements } from "../../utils/parse-functions/dropdownFunctions";
+import { fetchParkingSlots } from "../../utils/parse-functions/dropdownFunctions";
 
-const DropDown = ({ labeltext, type, attribute, onChange }) => {
+const DropDownParkingSlots = ({
+  labeltext,
+  type,
+  attribute,
+  onChange,
+  returnData,
+}) => {
   const [isLoading, setLoading] = useState(true);
-  const [elements, setElements] = useState([]);
+  const [parkingSlots, setParkingSlots] = useState([]);
 
   useEffect(async () => {
-    await setDropdownElements(type, attribute, setElements);
+    await fetchParkingSlots(type, attribute, setParkingSlots, returnData);
     setLoading(false);
-  }, []);
+  }, [returnData]);
 
   if (isLoading) {
     return <div className="dropdown-loading">{DropdownLabels.loading}</div>;
@@ -18,12 +24,13 @@ const DropDown = ({ labeltext, type, attribute, onChange }) => {
 
   return (
     <div>
-      <label className="label" htmlFor="dropDown">
+      <label className="dropdown-label" htmlFor="dropDown">
         {labeltext}
       </label>
       <select
-        className="drop"
-        id="dropDown"
+        className="dropdown-select"
+        type={type}
+        attribute={attribute}
         defaultValue=""
         onChange={onChange}
         required
@@ -31,7 +38,7 @@ const DropDown = ({ labeltext, type, attribute, onChange }) => {
         <option disabled value="">
           {DropdownLabels.defaultOption}
         </option>
-        {elements.map((item, i) => (
+        {parkingSlots.map((item, i) => (
           <option key={i} value={item}>
             {item}
           </option>
@@ -40,4 +47,4 @@ const DropDown = ({ labeltext, type, attribute, onChange }) => {
     </div>
   );
 };
-export default DropDown;
+export default DropDownParkingSlots;

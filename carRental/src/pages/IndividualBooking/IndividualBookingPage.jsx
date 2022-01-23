@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../../components/NavBar/Navbar";
 import GrayContainer from "../../components/Layout/GrayContainer";
 import GrayColumn from "../../components/Layout/GrayColumn";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./IndividualBookingPage.css";
 import Button from "../../components/Button/Button";
@@ -11,15 +10,16 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import Subtitle from "../../components/Subtitle/Subtitle";
 import {
   getBookingById,
-  deleteBookingById,
+  deleteBookingByIdRest,
 } from "../../utils/parse-functions/individualBookingFunctions";
-import IndividualBookingRecord from "./IndividualBookingRecord";
-import IndividualCustomerRecord from "./IndividualCustomerRecord";
-import IndividualCarRecord from "./IndividualCarRecord";
+import IndividualBookingRecord from "../../components/IndividualRecords/IndividualBookingRecord";
+import IndividualCustomerRecord from "../../components/IndividualRecords/IndividualCustomerRecord";
+import IndividualCarRecord from "../../components/IndividualRecords/IndividualCarRecord";
 import {
   TitleLabels,
   SubtitleLabels,
 } from "../../utils/constants/general-labels";
+import PopUpButton from "../../components/PopUpButton/PopUpButton";
 
 const IndividualBookingPage = () => {
   const { bookingId } = useParams();
@@ -36,7 +36,7 @@ const IndividualBookingPage = () => {
   return (
     <>
       <NavBar />
-      <PageTitle ptitle={TitleLabels.individualBooking} />
+      <PageTitle title={TitleLabels.individualBooking} />
       <GrayContainer>
         <GrayColumn>
           <div className="individual-booking-table">
@@ -63,10 +63,13 @@ const IndividualBookingPage = () => {
       </GrayContainer>
 
       <GrayContainer className="individual-booking-second-container">
-        <Button
-          className="btn--red"
-          btnText="Delete booking"
-          onClick={() => deleteBookingById(bookingId)}
+        <PopUpButton
+          popupQuestion="Delete this booking?"
+          popupBtnText="Delete"
+          confirmBtnText="Yes"
+          rejectBtnText="No"
+          btnClassName="btn--red"
+          onConfirmClick={() => deleteBookingByIdRest(bookingId, navigate)}
         />
 
         <Button
@@ -75,11 +78,13 @@ const IndividualBookingPage = () => {
           className="btn--primary"
           onClick={() => navigate(`/pick-up-car/${bookingId}/`)}
         />
+
         <Button
           btnText="Return car"
           className="btn--primary"
           onClick={() => navigate(`/return-car/${bookingId}/`)}
         />
+
         <Button
           btnText="Go back"
           className="btn--white"

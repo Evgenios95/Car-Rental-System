@@ -2,4 +2,35 @@
   justify-content: flex-end;
   margin-top: 8px;
   padding: 10px;
+  margin-bottom: 50px;
+}
+
+.edit-booking-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 20px;
+}
+
+.edit-booking-child-wrapper {
+  width: 100%;
+  display: flex;
+  column-gap: 30px;
+}
+
+.edit-booking-child-wrapper > .dropdown-container {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .edit-booking-child-wrapper {
+    flex-direction: column;
+  }
+  .edit-booking-second-container {
+    justify-content: center;
+  }
 }
